@@ -3,11 +3,14 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   width: 100%;
 }
 
 .greetings {
+  margin: 0;
+
   font-size: 36px;
 
   color: #323f47;

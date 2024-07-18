@@ -5,7 +5,7 @@ const UserBar = ({ onClick, isShow }) => {
     <>
       <button type="button" onClick={onClick} className={css.button}>
         <p>Nadia</p>
-        <img src="../../img/Ellipse 14.png" alt="" />
+        <img src="../../../public/Ellipse 14.png" alt="" />
         {isShow ? (
           <img src="../../img/chevron-up.svg" alt="" />
         ) : (
