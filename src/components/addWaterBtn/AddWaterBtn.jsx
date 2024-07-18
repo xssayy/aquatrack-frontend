@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Modal from 'react-modal';
 
 import css from './AddWaterBtn.module.css';
 
