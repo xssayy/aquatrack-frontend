@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { instance, setToken } from './slice';
 
 axios.defaults.baseURL = '';
 
@@ -23,3 +24,16 @@ export const signIn = createAsyncThunk(
   }
 );
 
+export const signUp = createAsyncThunk(
+  'auth/register',
+  async (formData, thunkApi) => {
+    try {
+      const { data } = await instance.post('/users/signup', formData);
+
+      setToken(data.token);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
