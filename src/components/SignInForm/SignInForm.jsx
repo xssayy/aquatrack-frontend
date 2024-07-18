@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import style from './SingInForm.module.css';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -41,15 +42,15 @@ const SignInForm = () => {
   return (
     <div>
       {' '}
-      <h1>Sign In</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Email</label>
-        <input {...register('email')} />
-        <p>{errors.email?.message}</p>
-        <label>Password</label>
-        <input {...register('password')} />
-        <p>{errors.password?.message}</p>
-        <input type="submit" />
+      <h1 className={style.title}>Sign In</h1>
+      <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+        <label className={style.label}>Email</label>
+        <input className={style.input} type="email" {...register('email')} />
+        <p className={style.text}>{errors.email?.message}</p>
+        <label className={style.label}>Password</label>
+        <input className={style.input} type="password" {...register('password')} />
+        <p className={style.text}>{errors.password?.message}</p>
+        <input className={style.button} type="submit" />
       </form>
     </div>
   );
