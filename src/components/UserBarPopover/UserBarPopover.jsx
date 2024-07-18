@@ -1,13 +1,13 @@
-import css from "./UserBarPopover.module.css";
+import css from './UserBarPopover.module.css';
 
 const UserBarPopover = () => {
   return (
-    <div className={css["user-bar-popover-container"]}>
+    <div className={css['user-bar-popover-container']}>
       <button type="button" className={css.settings}>
-        <img src="../../../public/settings.svg" alt="" /> Setting
+        <img src="../../img/settings.svg" alt="" /> Setting
       </button>
-      <button type="button" className={css["log-out"]}>
-        <img src="../../../public/log-out.svg" alt="" /> Log out
+      <button type="button" className={css['log-out']}>
+        <img src="../../img/log-out.svg" alt="" /> Log out
       </button>
     </div>
   );
