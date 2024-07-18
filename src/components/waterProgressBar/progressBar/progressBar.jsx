@@ -21,7 +21,16 @@ const ProgressBar = ({ value }) => {
       <LinearProgress
         variant="determinate"
         value={value}
-        sx={{ height: 10, borderRadius: 5, width: '100%' }}
+        sx={{
+          height: 8,
+          borderRadius: 9,
+          width: '100%',
+          backgroundColor: '#f0eff4',
+          '& .MuiLinearProgress-bar': {
+            backgroundColor: '#9be1a0',
+            borderRadius: 9,
+          },
+        }}
       />
       <ProgressLabel>
         <Typography variant="body2" color="text.secondary">
