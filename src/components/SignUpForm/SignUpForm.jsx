@@ -2,6 +2,8 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -23,9 +25,13 @@ const registrationSchema = Yup.object({
 });
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
   const onRegisterAccount = values => {
     reset();
-    console.log(values);
+
+    const { confirmPassword, ...data } = values;
+
+    dispatch(data);
   };
 
   const {
@@ -58,6 +64,9 @@ const SignUpForm = () => {
         <p>{errors.confirmPassword?.message}</p>
         <input type="submit" />
       </form>
+      <p>
+        Already have account? <Link to="/signin">Sign In</Link>
+      </p>
     </div>
   );
 };
