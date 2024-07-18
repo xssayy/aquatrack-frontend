@@ -1,3 +1,10 @@
+import WaterDetailedInfo from './WaterDetailedInfo/WaterDetailedInfo.jsx';
+
 export const App = () => {
-  return <button>Hello world</button>;
+  return (
+    <>
+      <WaterDetailedInfo />
+      <button>Hello world</button>
+    </>
+  );
 };
