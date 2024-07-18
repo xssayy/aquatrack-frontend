@@ -1,3 +1,9 @@
+import { CalendarPagination } from './CalendarPagination/CalendarPagination';
+
 export const App = () => {
-  return <button>Hello world</button>;
+  return (
+    <>
+      <CalendarPagination />
+    </>
+  );
 };
