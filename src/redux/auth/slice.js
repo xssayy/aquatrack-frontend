@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { signIn, signUp } from './operations';
 import axios from 'axios';
 
@@ -40,6 +40,14 @@ const authSlice = createSlice({
         state.user.email = action.payload.user.email;
         state.token = action.payload.token;
         state.isSignedIn = true;
+      })
+      .addMatcher(isAnyOf(signUp.pending), state => {
+        state.error = null;
+        state.loading = true;
+      })
+      .addMatcher(isAnyOf(signUp.rejected), (state, action) => {
+        state.error = action.payload;
+        state.loading = false;
       }),
 });
 
