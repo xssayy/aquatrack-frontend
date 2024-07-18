@@ -1,0 +1,15 @@
+.waterProgressSection {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 295px;
+  height: 106px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.waterProgressTitle {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #323f47;
+}

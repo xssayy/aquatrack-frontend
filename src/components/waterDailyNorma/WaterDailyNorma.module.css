@@ -1,0 +1,22 @@
+.waterDailySection {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 14px 18px;
+  width: 129px;
+  height: 78px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.waterDailyTitle {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #323f47;
+}
+
+.waterDailyText {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.86667;
+  color: rgba(47, 47, 47, 0.6);
+}
