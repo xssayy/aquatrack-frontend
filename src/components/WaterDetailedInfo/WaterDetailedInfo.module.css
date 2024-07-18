@@ -1,8 +1,9 @@
 .water-detailed-info-container {
   width: 672px;
   height: 736px;
+  padding: 32px;
 
-  background-color: F0EFF4;
+  background-color: #f0eff4;
 
   border-radius: 30px;
 }

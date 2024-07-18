@@ -1,0 +1,18 @@
+.user-panel-container {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.greetings {
+  font-size: 36px;
+
+  color: #323f47;
+}
+
+.greetings-name {
+  font-weight: bold;
+}

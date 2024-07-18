@@ -1,0 +1,50 @@
+.user-bar-popover-container {
+  position: absolute;
+
+  top: 64px;
+  right: 0;
+  width: 157px;
+  height: 82px;
+  padding: 14px 20px;
+
+  background-color: #ffffff;
+
+  border-radius: 15px;
+}
+
+.settings {
+  display: flex;
+
+  height: 23px;
+
+  border: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #323f47;
+  background-color: #ffffff;
+}
+
+.settings img {
+  margin-right: 4px;
+}
+
+.log-out {
+  display: flex;
+
+  height: 23px;
+  margin-top: 8px;
+
+  border: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: rgba(50, 63, 71, 0.4);
+  background-color: #ffffff;
+}
+
+.log-out img {
+  margin-right: 4px;
+}
