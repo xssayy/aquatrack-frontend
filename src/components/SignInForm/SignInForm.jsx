@@ -2,6 +2,8 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../redux/auth/operations';
 import style from './SignInForm.module.css';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
@@ -21,10 +23,8 @@ const loginSchema = Yup.object({
 });
 
 const SignInForm = () => {
-  const onLogin = values => {
-    reset();
-    console.log(values);
-  };
+  const dispatch = useDispatch();
+
 
   const {
     register,
@@ -34,9 +34,15 @@ const SignInForm = () => {
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
+
   const onSubmit = data => {
-    console.log(data);
-    onLogin(data);
+    dispatch(logIn(data)).then((action) => {
+      if (action.type === 'auth/logIn/fulfilled') {
+        // Перенаправлення на TrackerPage після успішної авторизації
+        window.location.href = '/tracker';
+      }
+    });
+    reset();
   };
 
   return (
