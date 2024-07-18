@@ -1,9 +1,9 @@
-import { CalendarPagination } from './CalendarPagination/CalendarPagination';
+import { MonthInfo } from './MonthInfo/MonthInfo';
 
 export const App = () => {
   return (
     <>
-      <CalendarPagination />
+      <MonthInfo />
     </>
   );
 };
