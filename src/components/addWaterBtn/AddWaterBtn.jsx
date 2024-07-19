@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import css from './AddWaterBtn.module.css';
 
-import WaterModal from '../modalWater/ModalWater';
+import WaterModal from '../waterModal/WaterModal';
 
 const AddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
