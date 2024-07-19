@@ -1,49 +1,35 @@
-import { Box, LinearProgress, Typography } from '@mui/material';
-import { styled } from '@mui/system';
-
-const ProgressContainer = styled(Box)({
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-});
-
-const ProgressLabel = styled(Box)({
-  display: 'flex',
-  justifyContent: 'space-between',
-  width: '100%',
-  marginTop: 8,
-});
+import {
+  Container,
+  ProgressBar as BootstrapProgressBar,
+  Row,
+  Col,
+} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import css from './progressBar.module.css';
 
 const ProgressBar = ({ value }) => {
   return (
-    <ProgressContainer>
-      <LinearProgress
-        variant="determinate"
-        value={value}
-        sx={{
-          height: 8,
-          borderRadius: 9,
-          width: '100%',
-          backgroundColor: '#f0eff4',
-          '& .MuiLinearProgress-bar': {
-            backgroundColor: '#9be1a0',
-            borderRadius: 9,
-          },
-        }}
-      />
-      <ProgressLabel>
-        <Typography variant="body2" color="text.secondary">
-          0%
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          50%
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          100%
-        </Typography>
-      </ProgressLabel>
-    </ProgressContainer>
+    <Container className={css.progressContainer}>
+      <Row>
+        <Col>
+          <BootstrapProgressBar
+            now={value}
+            variant="success"
+            label={`${value}%`}
+            className={css.progressBarLine}
+          />
+          {/* <div
+            className={css.progressCircle}
+            style={{ left: `calc(${value}% - 10px)` }}
+          /> */}
+        </Col>
+      </Row>
+      <Row className={css.progressLabels}>
+        <Col>0%</Col>
+        <Col className="text-center">50%</Col>
+        <Col className="text-end">100%</Col>
+      </Row>
+    </Container>
   );
 };
 
