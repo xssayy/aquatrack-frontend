@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { refreshUser, signIn, signUp } from './operations';
+import { refreshUser, signIn, signUp } from './operations.js';
 import axios from 'axios';
 
 export const instance = axios.create({

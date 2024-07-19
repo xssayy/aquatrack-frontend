@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { instance, setToken } from './slice';
+import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
+import { instance, setToken } from './slice.js';
 
 axios.defaults.baseURL = '';
 
