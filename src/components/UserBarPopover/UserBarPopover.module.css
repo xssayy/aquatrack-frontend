@@ -1,15 +1,23 @@
 .user-bar-popover-container {
   position: absolute;
 
-  top: 64px;
-  right: 0;
-  width: 157px;
-  height: 82px;
+  top: 110px;
+  left: 0;
+  width: 97px;
+  height: 44px;
   padding: 14px 20px;
 
   background-color: #ffffff;
 
   border-radius: 15px;
+
+  @media screen and (min-width: 768px) {
+    top: 64px;
+    right: 0;
+    left: auto;
+    width: 117px;
+    height: 54px;
+  }
 }
 
 .settings {

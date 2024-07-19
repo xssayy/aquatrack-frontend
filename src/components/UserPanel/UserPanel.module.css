@@ -2,20 +2,30 @@
   position: relative;
 
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
 }
 
 .greetings {
   margin: 0;
 
-  font-size: 36px;
+  font-size: 32px;
+  font-weight: 400;
 
   color: #323f47;
+
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+  }
 }
 
 .greetings-name {
-  font-weight: bold;
+  font-weight: 700;
 }

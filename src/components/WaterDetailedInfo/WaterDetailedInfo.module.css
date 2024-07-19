@@ -1,9 +1,22 @@
 .water-detailed-info-container {
-  width: 672px;
-  height: 736px;
-  padding: 32px;
+  min-width: 320px;
+  max-width: 375px;
+  height: 770px;
+  padding: 40px 20px;
 
   background-color: #f0eff4;
 
   border-radius: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 738px;
+    max-width: none;
+    padding: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 672px;
+    height: 736px;
+  }
 }

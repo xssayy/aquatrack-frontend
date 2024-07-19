@@ -3,21 +3,33 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 157px;
-  height: 56px;
+  width: 137px;
+  height: 50px;
+  margin-top: 20px;
   padding: 6px 12px;
 
   border: 0;
-  border-radius: 28px;
+  border-radius: 30px;
 
   font-size: 16px;
   font-weight: 700;
 
   background-color: #323f47;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 157px;
+    height: 56px;
+    margin-top: 0;
+  }
 }
 
 .avatar {
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
+
+  @media screen and (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  }
 }
