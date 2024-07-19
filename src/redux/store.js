@@ -8,7 +8,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage/index.js';
 import { configureStore } from '@reduxjs/toolkit';
 
 const authPersistConfig = {
