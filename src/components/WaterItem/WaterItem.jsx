@@ -17,8 +17,8 @@ const WaterItem = () => {
         <p className={css.time}>10:20pm</p>
       </div>
       <div className={css.edit}>
-        <button>✏️</button>
-        <button>🗑️</button>
+        <button><Icon id="edit" width="16" height="16"/></button>
+        <button><Icon id="trash" width="16" height="16"/></button>
         </div>
       {/* {isEditModalOpen && <WaterModal />}
       {isDeleteModalOpen && <DeleteWaterModal />} */}
