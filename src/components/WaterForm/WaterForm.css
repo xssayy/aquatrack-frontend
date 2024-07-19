@@ -1,0 +1,109 @@
+/* src/components/WaterForm.css */
+.water-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-label {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  margin-bottom: 8px;
+  color: #2f2f2f;
+}
+
+.form-group input {
+  max-width: 438px;
+  height: 56px;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 15px;
+  border: 1px solid #2f2f2f26;
+  box-sizing: border-box;
+  -moz-appearance: textfield;
+}
+
+.form-group input[type='number']::-webkit-outer-spin-button,
+.form-group input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-group input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.form-group input:focus {
+  border-color: #9be1a0;
+  outline: none;
+}
+
+button[type='submit'] {
+  width: 116px;
+  height: 46px;
+  font-weight: 700;
+  padding: 14px 40px;
+  border-radius: 30px;
+  background-color: #9be1a0;
+  color: #323f47;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button:hover {
+  background-color: #87d28d;
+}
+
+.submit-button:disabled {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+.quantity-stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-stepper button {
+  width: 32px;
+  height: 32px;
+  border: 1.5px;
+  background-color: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-stepper button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+.quantity-display {
+  max-width: 92px;
+  max-height: 43px;
+  padding: 11px 20px;
+  border-radius: 30px;
+  background-color: #323f47;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
