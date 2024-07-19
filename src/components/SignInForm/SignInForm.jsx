@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/operations';
+import { Link } from 'react-router-dom';
 import style from './SignInForm.module.css';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
@@ -24,8 +25,7 @@ const loginSchema = Yup.object({
 
 const SignInForm = () => {
   const dispatch = useDispatch();
-
-
+  
   const {
     register,
     handleSubmit,
@@ -58,6 +58,9 @@ const SignInForm = () => {
         <p className={style.text}>{errors.password?.message}</p>
         <input className={style.button} type="submit" />
       </form>
+      <p>
+        Don’t have an account? Sign Up <Link to="/signin">Sign Up</Link>
+      </p>
     </div>
   );
 };
