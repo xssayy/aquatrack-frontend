@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  overflow-x: hidden;
+  /* width: 100%; */
+
+  margin: 0 auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  gap: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    gap: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+    .list {
+    gap: 16px;
+  }
+}
