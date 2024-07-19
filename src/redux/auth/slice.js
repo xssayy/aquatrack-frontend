@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { signIn, signUp } from './operations';
+import { refreshUser, signIn, signUp } from './operations';
 import axios from 'axios';
 
 export const instance = axios.create({
@@ -20,6 +20,8 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  loading: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -41,14 +43,27 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         state.isSignedIn = true;
       })
-      .addMatcher(isAnyOf(signUp.pending), state => {
-        state.error = null;
-        state.loading = true;
-      })
-      .addMatcher(isAnyOf(signUp.rejected), (state, action) => {
-        state.error = action.payload;
+      .addCase(refreshUser.fulfilled, (state, action) => {
         state.loading = false;
-      }),
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+
+        state.isSignedIn = true;
+      })
+      .addMatcher(
+        isAnyOf(signUp.pending, signIn.pending, refreshUser.pending),
+        state => {
+          state.error = null;
+          state.loading = true;
+        }
+      )
+      .addMatcher(
+        isAnyOf(signUp.rejected, signIn.rejected, refreshUser.rejected),
+        (state, action) => {
+          state.error = action.payload;
+          state.loading = false;
+        }
+      ),
 });
 
 export const authReducer = authSlice.reducer;
