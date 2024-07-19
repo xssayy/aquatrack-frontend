@@ -13,24 +13,24 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route
-          path="/register"
+          path="/signup"
           element={
             <RestrictedRoute
-              redirectTo="/home"
+              redirectTo="/tracker"
               component={<RegistrationPage />}
             />
           }
         />
         <Route
-          path="/login"
+          path="/signin"
           element={
-            <RestrictedRoute redirectTo="/home" component={<LoginForm />} />
+            <RestrictedRoute redirectTo="/tracker" component={<LoginForm />} />
           }
         />
         <Route
-          path="/home"
+          path="/tracker"
           element={
-            <PrivateRoute redirectTo="/login" component={<HomePage />} />
+            <PrivateRoute redirectTo="/signin" component={<HomePage />} />
           }
         />
       </Routes>
