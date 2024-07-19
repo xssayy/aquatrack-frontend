@@ -6,9 +6,9 @@ import WaterModal from '../waterModal/WaterModal';
 
 const AddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const handleAddWater = () => {
     setIsOpen(true);
-    console.log('Add water open modal');
   };
 
   const closeModal = () => {
