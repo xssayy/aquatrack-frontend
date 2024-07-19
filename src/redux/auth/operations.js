@@ -18,7 +18,6 @@ export const signIn = createAsyncThunk(
       Notify.success('Welcome back!');
       return res.data;
     } catch (error) {
-      Notify.error('Wrong password or email. Please try again!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
