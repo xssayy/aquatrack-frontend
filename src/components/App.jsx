@@ -6,7 +6,6 @@ import WelcomePage from 'pages/WelcomePage';
 import RegistrationPage from 'pages/RegistrationPage';
 import LoginForm from 'pages/LoginForm';
 import HomePage from 'pages/HomePage';
-import Icon from './shared/Icon';
 
 export const App = () => {
   return (
