@@ -43,8 +43,8 @@
 
 .labelTitle {
   font-weight: 700;
-  font-size: 18px;
-  line-height: 133%;
+  font-size: 16px;
+  line-height: 125%;
   letter-spacing: -0.01em;
 }
 
@@ -71,10 +71,10 @@
   letter-spacing: -0.01em;
 }
 
-.userInfoContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+.userInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .inputContainer {
@@ -87,4 +87,80 @@
   border: 1px solid rgba(47, 47, 47, 0.15);
   border-radius: 15px;
   padding: 14px 16px;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: var(--main-text);
+}
+
+.dailyNormaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dailyNormaFormulaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dailyNormaGender {
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.dailyNormaFormula {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.dailyNormaDescriptionContainer {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.dailyNormaDescription {
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+.dailyNormaDescriptionSpan {
+  color: var(--accent);
+}
+
+.formaText {
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+}
+
+.dailyNormaWarningSpan {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--accent);
+  margin-right: 4px;
+}
+
+.formButton {
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 116px;
+  height: 46px;
+  background: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main);
 }

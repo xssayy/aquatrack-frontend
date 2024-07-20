@@ -139,39 +139,53 @@ const UserSettingsForm = () => {
           </div>
         </div>
 
-        <div>
+        <div className={style.dailyNormaContainer}>
           <h3 className={style.labelTitle}>My daily norma</h3>
-          <div>
-            <h4>For woman:</h4>
-            <p>V=(M*0,03) + (T*0,4)</p>
+          <div className={style.dailyNormaFormulaContainer}>
+            <div>
+              <p className={style.dailyNormaGender}>For woman:</p>
+              <p className={style.dailyNormaFormula}>V=(M*0,03) + (T*0,4)</p>
+            </div>
+            <div>
+              <p className={style.dailyNormaGender}>For man:</p>
+              <p className={style.dailyNormaFormula}>V=(M*0,04) + (T*0,6)</p>
+            </div>
           </div>
-          <div>
-            <h4>For man:</h4>
-            <p>V=(M*0,04) + (T*0,6)</p>
-          </div>
-          <div>
-            <p>
-              * V is the volume of the water norm in liters per day, M is your
-              body weight, T is the time of active sports, or another type of
+          <div className={style.dailyNormaDescriptionContainer}>
+            <p className={style.dailyNormaDescription}>
+              <span className={style.dailyNormaDescriptionSpan}>*</span> V is
+              the volume of the water norm in liters per day, M is your body
+              weight, T is the time of active sports, or another type of
               activity commensurate in terms of loads (in the absence of these,
               you must set 0)
             </p>
           </div>
-          <p>! Active time in hours</p>
+          <p className={style.formaText}>
+            <span className={style.dailyNormaWarningSpan}>!</span> Active time
+            in hours
+          </p>
         </div>
 
-        <div>
-          <div>
-            <label htmlFor={idWeight}>Your weight in kilograms:</label>
-            <input id={idWeight} type="number" {...register('weight')} />
+        <div className={style.userInfoContainer}>
+          <div className={style.inputContainer}>
+            <label className={style.formaText} htmlFor={idWeight}>
+              Your weight in kilograms:
+            </label>
+            <input
+              className={style.inputElem}
+              id={idWeight}
+              type="number"
+              {...register('weight')}
+            />
             {errors.weight && <p>{errors.weight.message}</p>}
           </div>
 
-          <div>
-            <label htmlFor={idSportHours}>
+          <div className={style.inputContainer}>
+            <label className={style.formaText} htmlFor={idSportHours}>
               The time of active participation in sports:
             </label>
             <input
+              className={style.inputElem}
               id={idSportHours}
               type="number"
               {...register('sportHours')}
@@ -180,17 +194,20 @@ const UserSettingsForm = () => {
           </div>
         </div>
 
-        <div>
-          <div>
-            <p>The required amount of water in liters per day:</p>
-            <p>1.8 L</p>
+        <div className={style.userInfoContainer}>
+          <div className={style.inputContainer}>
+            <p className={style.formaText}>
+              The required amount of water in liters per day:
+            </p>
+            <p className={style.dailyNormaFormula}>1.8 L</p>
           </div>
 
-          <div>
+          <div className={style.inputContainer}>
             <label className={style.labelTitle} htmlFor={idWaterAmount}>
               Write down how much water you will drink:
             </label>
             <input
+              className={style.inputElem}
               type="number"
               step="0.1"
               id={idWaterAmount}
@@ -200,7 +217,9 @@ const UserSettingsForm = () => {
           </div>
         </div>
 
-        <button type="submit">Save</button>
+        <button className={style.formButton} type="submit">
+          Save
+        </button>
       </div>
     </form>
   );
