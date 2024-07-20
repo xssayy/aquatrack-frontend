@@ -20,8 +20,17 @@
   }
 }
 
+.icon-setting {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+
+  color: #323f47;
+}
+
 .settings {
   display: flex;
+  align-items: center;
 
   height: 23px;
 
@@ -30,16 +39,21 @@
   font-size: 15px;
   font-weight: 700;
 
-  color: #323f47;
+  fill: #323f47;
   background-color: #ffffff;
 }
 
-.settings img {
+.icon-log-out {
+  width: 16px;
+  height: 16px;
   margin-right: 4px;
+
+  fill: rgba(50, 63, 71, 0.4);
 }
 
 .log-out {
   display: flex;
+  align-items: center;
 
   height: 23px;
   margin-top: 8px;
@@ -51,8 +65,4 @@
 
   color: rgba(50, 63, 71, 0.4);
   background-color: #ffffff;
-}
-
-.log-out img {
-  margin-right: 4px;
 }
