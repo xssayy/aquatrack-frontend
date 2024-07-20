@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
-import { instance, setToken } from './slice.js';
+import { clearToken, instance, setToken } from './slice.js';
 
 axios.defaults.baseURL = '';
 
@@ -52,3 +52,14 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const signOut = createAsyncThunk('auth/logout', async (_, thunkApi) => {
+  try {
+    await instance.post('/users/logout');
+
+    clearToken();
+    return;
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message);
+  }
+});

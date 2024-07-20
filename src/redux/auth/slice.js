@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { refreshUser, signIn, signUp } from './operations.js';
+import { refreshUser, signIn, signOut, signUp } from './operations.js';
 import axios from 'axios';
 
 export const instance = axios.create({
@@ -50,15 +50,28 @@ const authSlice = createSlice({
 
         state.isSignedIn = true;
       })
+      .addCase(signOut.fulfilled, () => {
+        return initialState;
+      })
       .addMatcher(
-        isAnyOf(signUp.pending, signIn.pending, refreshUser.pending),
+        isAnyOf(
+          signUp.pending,
+          signIn.pending,
+          refreshUser.pending,
+          signOut.pending
+        ),
         state => {
           state.error = null;
           state.loading = true;
         }
       )
       .addMatcher(
-        isAnyOf(signUp.rejected, signIn.rejected, refreshUser.rejected),
+        isAnyOf(
+          signUp.rejected,
+          signIn.rejected,
+          refreshUser.rejected,
+          signOut.pending
+        ),
         (state, action) => {
           state.error = action.payload;
           state.loading = false;
