@@ -1,0 +1,19 @@
+.waterModalTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #323f47;
+  margin-bottom: 24px;
+}
+
+.waterModalSubtitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #323f47;
+  margin-bottom: 24px;
+}
