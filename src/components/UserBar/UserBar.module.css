@@ -35,17 +35,6 @@
   }
 }
 
-.arrow-down {
-  width: 20px;
-  height: 20px;
-
-  fill: #ffffff;
-}
-
 .arrow-up {
-  width: 20px;
-  height: 20px;
-
-  fill: #ffffff;
   rotate: 180deg;
 }

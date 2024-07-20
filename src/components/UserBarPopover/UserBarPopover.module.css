@@ -21,11 +21,7 @@
 }
 
 .icon-setting {
-  width: 16px;
-  height: 16px;
   margin-right: 4px;
-
-  color: #323f47;
 }
 
 .settings {
@@ -45,8 +41,6 @@
 }
 
 .icon-log-out {
-  width: 16px;
-  height: 16px;
   margin-right: 4px;
 
   fill: rgba(50, 63, 71, 0.4);
