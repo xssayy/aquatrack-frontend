@@ -1,0 +1,39 @@
+.container {
+  width: 304px;
+  background: #f0eff4;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 18px;
+}
+
+.day {
+  border-radius: 50%;
+  border: 1px solid red;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.dayFilled {
+  background: rgba(50, 63, 71, 0.2);
+}
+
+.dayFull {
+  background: #fff;
+}
+
+.dayEmpty {
+}
+
+.dayCurrent {
+}

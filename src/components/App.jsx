@@ -11,7 +11,7 @@ import { MonthInfo } from './MonthInfo/MonthInfo';
 export const App = () => {
   return (
     <Layout>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route
           path="/signup"
@@ -34,7 +34,8 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<HomePage />} />
           }
         />
-      </Routes>
+      </Routes> */}
+      <MonthInfo />
     </Layout>
   );
 };

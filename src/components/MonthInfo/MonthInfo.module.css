@@ -1,9 +1,13 @@
 .mainWrapper {
+}
+
+.dateWrapper {
   display: flex;
   width: 303px;
-  height: 24px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
+
   /* */
   border: 1px solid red;
 }
@@ -18,9 +22,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .mainWrapper {
+  .dateWrapper {
     width: 640px;
-    height: 32px;
   }
 
   .title {
@@ -30,7 +33,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .mainWrapper {
+  .dateWrapper {
     width: 608px;
   }
 }
