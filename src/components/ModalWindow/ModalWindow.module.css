@@ -4,10 +4,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   max-height: 80vh;
-  padding: 40px 20px;
   background-color: #ffffff;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   border-radius: 15px;
+  padding: 40px 0 40px 20px;
 }
 
 .btnClose {
@@ -21,7 +21,7 @@
 
 @media screen and (min-width: 768px) {
   .modalWindow {
-    padding: 40px 40px;
+    padding: 40px 0 40px 40px;
   }
 
   .btnClose {

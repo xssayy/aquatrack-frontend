@@ -4,6 +4,10 @@
   gap: 40px;
 }
 
+.upperContainer{
+    padding-right: 20px;
+}
+
 .imgContainer {
   width: 75px;
   height: 75px;
@@ -35,10 +39,10 @@
 
 .settingContainer {
   max-height: 40vh;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding-right: 15px;
 }
 
 .labelTitle {
@@ -61,8 +65,7 @@
   align-items: center;
 }
 
-.inputRadio {
-}
+
 
 .labelRadio {
   font-weight: 400;
@@ -163,4 +166,8 @@
   letter-spacing: -0.01em;
   text-align: center;
   color: var(--main);
+}
+
+.scrollContainer{
+    margin-right: 5px;
 }
