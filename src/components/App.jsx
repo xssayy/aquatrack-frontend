@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from '../redux/auth/operations';
@@ -13,20 +12,18 @@ import RegistrationPage from 'pages/RegistrationPage';
 import LoginForm from 'pages/LoginForm';
 import HomePage from 'pages/HomePage';
 
-
 export const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(refreshUser());
-    }
-  }, [dispatch, isLoggedIn]);
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     dispatch(refreshUser());
+  //   }
+  // }, [dispatch, isLoggedIn]);
 
   return (
-
     <Layout>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
