@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import css from './UserBar.module.css';
 
 const UserBar = ({ onClick, isShow }) => {
@@ -6,13 +7,9 @@ const UserBar = ({ onClick, isShow }) => {
       <button type="button" onClick={onClick} className={css.button}>
         <p>Nadia</p>
         <img src="./Ellipse14.png" alt="" className={css.avatar} />
-        {isShow ? (
-          <svg>
-            <use href="sprite.svg#идентификатор-символа"></use>
-          </svg>
-        ) : (
-          <img src="../../img/chevron-down.svg" alt="" />
-        )}
+        <svg className={clsx(isShow && css['arrow-up'], css['arrow-down'])}>
+          <use href="sprite.svg#icon-arrow"></use>
+        </svg>
       </button>
     </>
   );
