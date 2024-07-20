@@ -1,4 +1,4 @@
-const Icon = ({ id, width, height, className = '' }) => {
+const Icon = ({ id, width, height, className = '', fillColor }) => {
   return (
     <svg
       className={`${className}`}
@@ -6,7 +6,10 @@ const Icon = ({ id, width, height, className = '' }) => {
       height={height}
       aria-hidden="true"
     >
-      <use href={`${process.env.PUBLIC_URL}/sprite.svg#icon-${id}`}></use>
+      <use
+        style={{ fill: `${fillColor}` }}
+        href={`${process.env.PUBLIC_URL}/sprite.svg#icon-${id}`}
+      ></use>
     </svg>
   );
 };
