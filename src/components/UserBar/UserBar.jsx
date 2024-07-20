@@ -7,7 +7,9 @@ const UserBar = ({ onClick, isShow }) => {
         <p>Nadia</p>
         <img src="./Ellipse14.png" alt="" className={css.avatar} />
         {isShow ? (
-          <img src="../../img/chevron-up.svg" alt="" />
+          <svg>
+            <use href="sprite.svg#идентификатор-символа"></use>
+          </svg>
         ) : (
           <img src="../../img/chevron-down.svg" alt="" />
         )}
