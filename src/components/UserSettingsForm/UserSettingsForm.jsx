@@ -1,9 +1,10 @@
-import { useId } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import style from './UserSettingsForm.module.css';
 import Icon from 'components/shared/Icon';
+import avatar from '../../img/avatar.png';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
@@ -37,9 +38,13 @@ const schemaYup = Yup.object().shape({
 });
 
 const UserSettingsForm = () => {
+  const [avatarUrl, setAvatarUrl] = useState(avatar);
+  const [waterDailyNorma, setWaterDailyNorma] = useState(1.8);
+
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: initialState,
@@ -55,6 +60,28 @@ const UserSettingsForm = () => {
   const idSportHours = useId();
   const idWaterAmount = useId();
 
+  const weight = watch('weight');
+  const sportHours = watch('sportHours');
+  const gender = watch('gender');
+
+  useEffect(() => {
+    if (weight >= 1 && sportHours >= 0) {
+      const waterNorma =
+        gender === 'woman'
+          ? weight * 0.03 + sportHours * 0.4
+          : weight * 0.04 + sportHours * 0.6;
+      setWaterDailyNorma(waterNorma.toFixed(2));
+    }
+  }, [weight, sportHours, gender]);
+
+  const handlePhotoChange = event => {
+    const file = event.target.files[0];
+    if (file) {
+      setAvatarUrl(URL.createObjectURL(file));
+    }
+  };
+
+
   const onSubmit = data => {
     console.log(data);
     // JSON.stringify(data);
@@ -64,11 +91,7 @@ const UserSettingsForm = () => {
     <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
       <div className={style.upperContainer}>
         <div className={style.imgContainer}>
-          <img
-            className={style.userImg}
-            src="https://pictures.by.trbna.com/image/b294f29c-297e-46b4-8fe1-0954e35ec2ae"
-            alt="avatar"
-          ></img>
+          <img className={style.userImg} src={avatarUrl} alt="avatar"></img>
         </div>
         <label className={style.imgLabel} htmlFor={idPhoto}>
           <Icon id="upload" width="18" height="18" /> Upload a photo
@@ -78,6 +101,7 @@ const UserSettingsForm = () => {
           id={idPhoto}
           type="file"
           {...register('photo')}
+          onChange={handlePhotoChange}
         />
         {errors.photo && <p>{errors.photo.message}</p>}
       </div>
@@ -202,7 +226,7 @@ const UserSettingsForm = () => {
               <p className={style.formaText}>
                 The required amount of water in liters per day:
               </p>
-              <p className={style.dailyNormaFormula}>1.8 L</p>
+              <p className={style.dailyNormaFormula}>{waterDailyNorma} L</p>
             </div>
 
             <div className={style.inputContainer}>
