@@ -2,6 +2,8 @@ import { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import style from './UserSettingsForm.module.css';
+import Icon from 'components/shared/Icon';
 
 const initialState = {
   photo: '',
@@ -57,102 +59,149 @@ const UserSettingsForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <img
-          src="https://illustrators.ru/uploads/product/image/16445/%D0%BC%D0%BE%D0%B9_%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80_%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%D0%BD%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C_1_%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%D0%BD%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C_1.png"
-          alt="avatar"
-        ></img>
-        <label htmlFor={idPhoto}>Upload a photo</label>
-        <input id={idPhoto} type="file" {...register('photo')} />
+        <div className={style.imgContainer}>
+          <img
+            className={style.userImg}
+            src="https://pictures.by.trbna.com/image/b294f29c-297e-46b4-8fe1-0954e35ec2ae"
+            alt="avatar"
+          ></img>
+        </div>
+        <label className={style.imgLabel} htmlFor={idPhoto}>
+          <Icon id="upload" width="18" height="18" /> Upload a photo
+        </label>
+        <input
+          className={style.imgInput}
+          id={idPhoto}
+          type="file"
+          {...register('photo')}
+        />
         {errors.photo && <p>{errors.photo.message}</p>}
       </div>
-
-      <div>
-        <h3>Your gender identity</h3>
-        <label htmlFor={idGenderWoman}>Woman</label>
-        <input
-          id={idGenderWoman}
-          type="radio"
-          {...register('gender')}
-          value="woman"
-        />
-        <label htmlFor={idGenderMan}>Man</label>
-        <input
-          id={idGenderMan}
-          type="radio"
-          {...register('gender')}
-          value="man"
-        />
-        {errors.gender && <p>{errors.gender.message}</p>}
-      </div>
-
-      <div>
-        <label htmlFor={idName}>Your name</label>
-        <input type="text" id={idName} {...register('name')} />
-        {errors.name && <p>{errors.name.message}</p>}
-      </div>
-
-      <div>
-        <label htmlFor={idEmail}>Email</label>
-        <input id={idEmail} type="email" {...register('email')} />
-        {errors.email && <p>{errors.email.message}</p>}
-      </div>
-
-      <div>
-        <h3>My daily norma</h3>
+      <div className={style.settingContainer}>
         <div>
-          <h4>For woman:</h4>
-          <p>V=(M*0,03) + (T*0,4)</p>
+          <h3 className={style.radioTitle}>Your gender identity</h3>
+          <div className={style.radioContainer}>
+            <div className={style.inputRadioContainer}>
+              <input
+                className={style.inputRadio}
+                id={idGenderWoman}
+                type="radio"
+                {...register('gender')}
+                value="woman"
+              />
+              <label className={style.labelRadio} htmlFor={idGenderWoman}>
+                Woman
+              </label>
+            </div>
+            <div className={style.inputRadioContainer}>
+              <input
+                className={style.inputRadio}
+                id={idGenderMan}
+                type="radio"
+                {...register('gender')}
+                value="man"
+              />
+              <label className={style.labelRadio} htmlFor={idGenderMan}>
+                Man
+              </label>
+            </div>
+            {errors.gender && <p>{errors.gender.message}</p>}
+          </div>
         </div>
+
+        <div className={style.userInfoContainer}>
+          <div className={style.inputContainer}>
+            <label className={style.labelTitle} htmlFor={idName}>
+              Your name
+            </label>
+            <input
+              className={style.inputElem}
+              type="text"
+              id={idName}
+              {...register('name')}
+            />
+            {errors.name && <p>{errors.name.message}</p>}
+          </div>
+
+          <div className={style.inputContainer}>
+            <label className={style.labelTitle} htmlFor={idEmail}>
+              Email
+            </label>
+            <input
+              className={style.inputElem}
+              id={idEmail}
+              type="email"
+              {...register('email')}
+            />
+            {errors.email && <p>{errors.email.message}</p>}
+          </div>
+        </div>
+
         <div>
-          <h4>For man:</h4>
-          <p>V=(M*0,04) + (T*0,6)</p>
+          <h3 className={style.labelTitle}>My daily norma</h3>
+          <div>
+            <h4>For woman:</h4>
+            <p>V=(M*0,03) + (T*0,4)</p>
+          </div>
+          <div>
+            <h4>For man:</h4>
+            <p>V=(M*0,04) + (T*0,6)</p>
+          </div>
+          <div>
+            <p>
+              * V is the volume of the water norm in liters per day, M is your
+              body weight, T is the time of active sports, or another type of
+              activity commensurate in terms of loads (in the absence of these,
+              you must set 0)
+            </p>
+          </div>
+          <p>! Active time in hours</p>
         </div>
+
         <div>
-          <p>
-            * V is the volume of the water norm in liters per day, M is your
-            body weight, T is the time of active sports, or another type of
-            activity commensurate in terms of loads (in the absence of these,
-            you must set 0)
-          </p>
+          <div>
+            <label htmlFor={idWeight}>Your weight in kilograms:</label>
+            <input id={idWeight} type="number" {...register('weight')} />
+            {errors.weight && <p>{errors.weight.message}</p>}
+          </div>
+
+          <div>
+            <label htmlFor={idSportHours}>
+              The time of active participation in sports:
+            </label>
+            <input
+              id={idSportHours}
+              type="number"
+              {...register('sportHours')}
+            />
+            {errors.sportHours && <p>{errors.sportHours.message}</p>}
+          </div>
         </div>
-        <p>! Active time in hours</p>
-      </div>
 
-      <div>
-        <label htmlFor={idWeight}>Your weight in kilograms:</label>
-        <input id={idWeight} type="number" {...register('weight')} />
-        {errors.weight && <p>{errors.weight.message}</p>}
-      </div>
+        <div>
+          <div>
+            <p>The required amount of water in liters per day:</p>
+            <p>1.8 L</p>
+          </div>
 
-      <div>
-        <label htmlFor={idSportHours}>
-          The time of active participation in sports:
-        </label>
-        <input id={idSportHours} type="number" {...register('sportHours')} />
-        {errors.sportHours && <p>{errors.sportHours.message}</p>}
-      </div>
+          <div>
+            <label className={style.labelTitle} htmlFor={idWaterAmount}>
+              Write down how much water you will drink:
+            </label>
+            <input
+              type="number"
+              step="0.1"
+              id={idWaterAmount}
+              {...register('waterAmount')}
+            />
+            {errors.waterAmount && <p>{errors.waterAmount.message}</p>}
+          </div>
+        </div>
 
-      <div>
-        <p>The required amount of water in liters per day:</p>
-        <p>1.8 L</p>
+        <button type="submit">Save</button>
       </div>
-
-      <div>
-        <label htmlFor={idWaterAmount}>
-          Write down how much water you will drink:
-        </label>
-        <input
-          type="number"
-          step="0.1"
-          id={idWaterAmount}
-          {...register('waterAmount')}
-        />
-        {errors.waterAmount && <p>{errors.waterAmount.message}</p>}
-      </div>
-
-      <button type="submit">Save</button>
     </form>
   );
 };

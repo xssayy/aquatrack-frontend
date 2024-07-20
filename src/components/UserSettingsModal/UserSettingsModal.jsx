@@ -3,8 +3,8 @@ import style from './UserSettingsModal.module.css';
 
 const UserSettingsModal = () => {
   return (
-    <div className={style.modalContainer}>
-      <h2>Setting</h2>
+    <div className={style.settingContainer}>
+      <h2 className={style.settingTitle}>Setting</h2>
       <UserSettingsForm />
     </div>
   );

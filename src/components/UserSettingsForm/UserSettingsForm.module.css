@@ -1,0 +1,90 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.imgContainer {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.userImg {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.imgLabel {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgInput {
+  display: none;
+}
+
+.settingContainer {
+  max-height: 40vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.labelTitle {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.01em;
+}
+
+.radioContainer {
+  display: flex;
+  gap: 20px;
+  margin-top: 14px;
+}
+
+.inputRadioContainer {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputRadio {
+}
+
+.labelRadio {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+
+.userInfoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputElem {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 14px 16px;
+}
