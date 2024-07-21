@@ -1,6 +1,6 @@
 import { Line } from 'rc-progress';
 
-import css from './progressBar.module.css';
+import css from './ProgressBar.module.css';
 
 const ProgressBar = ({ value }) => {
   return (

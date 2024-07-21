@@ -17,9 +17,9 @@
 
 .progressCircle {
   position: absolute;
-  top: 0;
-  width: 15px;
-  height: 15px;
+  top: -3px;
+  width: 12px;
+  height: 12px;
   border: 1px solid #9be1a0;
   background-color: #fff;
   border-radius: 50%;

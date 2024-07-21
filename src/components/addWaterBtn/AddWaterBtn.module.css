@@ -3,7 +3,14 @@
   justify-content: right;
 }
 
+.iconPlus {
+  margin-right: 10px;
+}
+
 .addWaterBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #323f47;
   font-weight: 700;
   font-size: 14px;

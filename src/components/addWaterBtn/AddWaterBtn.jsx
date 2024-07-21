@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Icon from 'components/shared/Icon';
+
 import css from './AddWaterBtn.module.css';
 
 // import WaterModal from '../waterModal/WaterModal.jsx';
@@ -22,7 +24,14 @@ const AddWaterBtn = () => {
         type="button"
         onClick={handleAddWater}
       >
-        + Add water
+        <Icon
+          id={'plus'}
+          width={16}
+          height={16}
+          className={css.iconPlus}
+          fillColor={'#fff'}
+        />
+        Add water
       </button>
       {/* <WaterModal isOpen={isOpen} closeModal={closeModal} /> */}
     </div>
