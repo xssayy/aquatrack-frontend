@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Icon from 'components/shared/Icon';
-// import ModalWindow from 'components/ModalWindow/ModalWindow';
+import Icon from 'components/shared/Icon.jsx';
+// import ModalWindow from 'components/ModalWindow/ModalWindow.jsx';
 // import WaterModal from '../waterModal/WaterModal.jsx';
 
 import css from './AddWaterBtn.module.css';
