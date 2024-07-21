@@ -1,0 +1,52 @@
+.date {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #323f47;
+  border-radius: 50%;
+  margin-bottom: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(50, 63, 71, 0.2);
+}
+
+.full {
+  background-color: #fff;
+}
+
+.current {
+  background: #323f47;
+  color: #9be1a0;
+}
+
+.percentage {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+@media screen and (min-width: 768px) {
+  .date {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .percentage {
+    font-size: 12px;
+    line-height: 1.86667;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

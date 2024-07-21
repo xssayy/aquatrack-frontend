@@ -3,13 +3,13 @@
 
 .dateWrapper {
   display: flex;
-  width: 303px;
+  width: 304px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
 
   /* */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .title {
