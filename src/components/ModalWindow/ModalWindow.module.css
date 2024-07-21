@@ -5,6 +5,11 @@
   transform: translate(-50%, -50%);
 }
 
+.modalWindow:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .modalContainer {
   background-color: #ffffff;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
@@ -31,4 +36,3 @@
     right: 20px;
   }
 }
-
