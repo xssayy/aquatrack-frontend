@@ -1,0 +1,232 @@
+.section {
+  background-image: url(../../aces/img/women.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 353px;
+  border-radius: 30px;
+  padding: 0 16px 32px 16px;
+  position: relative;
+}
+.sectionBox {
+  position: absolute;
+  display: inline-flex;
+  top: 158px;
+  left: 16px;
+  width: 121px;
+  padding: 10px 14px;
+  align-items: center;
+  border-radius: 30px;
+  background:white;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.buttonBox {
+  display: inline-flex;
+  position: absolute;
+  top: 23px;
+  right: 16px;
+  width: 184px;
+  padding: 10px 14px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background:white;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+}
+
+.buttonListImgItem {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  border: 2px solid white;
+  overflow: hidden;
+}
+.buttonListImgItemImg {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.buttonListImg {
+  display: flex;
+}
+.buttonListImgItemImg:nth-child(1) {
+  z-index: 3;
+  position: relative;
+}
+.buttonListImgItemImg:nth-child(2) {
+  z-index: 2;
+  left: -10px;
+  position: relative;
+}
+.buttonListImgItemImg:nth-child(3) {
+  z-index: 1;
+  left: -20px;
+  position: relative;
+}
+.sectionsTextLeters {
+  color: #323F47;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-left: -20px;
+}
+.sectionsTextLeters {
+  color:  #323F47;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.16;
+}
+.span {
+  color: #9BE1A0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+}
+.ellipse {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color:#9BE1A0;
+}
+.groupListItem {
+  display: flex;
+  padding: 9px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+.groupListItem:nth-child(2) {
+  background: #9BE1A0;
+  width: 83px;
+}
+.groupListItem:nth-child(1) {
+  background: #9BE1A0;
+  width: 81px;
+  gap: 4px;
+}
+.groupListItem:nth-child(3) {
+  background:white;
+  width: 108px;
+}
+
+.groupListItemText {
+  color: white;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 8px;
+  letter-spacing: -0.08px;
+}
+.groupListItemTextBlack{
+  color: #323F47;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 8px;
+  letter-spacing: -0.08px;
+}
+.groupList {
+  max-width: 168px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.group {
+  position: absolute;
+  bottom: 32px;
+  right: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+@media (min-width: 768px) {
+  .section {
+    height: 446px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+  }
+  .sectionBox {
+    top: 201px;
+    right: 32px;
+    width: 158px;
+    padding: 10px 20px;
+  }
+  .buttonBox {
+    top: 32px;
+    right: 42px;
+    width: 263px;
+    padding: 10px 20px;
+  }
+  .buttonListImgItem{
+    height: 47px;
+    width: 47px;
+  }
+  .buttonListImgItem:nth-child(2) {
+    left: -18px;
+  }
+  .buttonListImgItem:nth-child(3) {
+    left: -36px;
+  }
+  .sectionsTextLeterss {
+    font-size: 15px;
+    line-height: 1.49;
+    margin-left: -34px;
+  }
+
+  .span {
+    font-size: 15px;
+    line-height: 1.49;
+  }
+  .group {
+    position: absolute;
+    right: 32px;
+    height: 78px;
+  }
+  .groupList {
+    gap: 10px;
+    max-width: 242px;
+    height: 78px;
+  }
+  .groupListItem {
+    font-size: 12px;
+    height: 34px;
+    padding: 11px 16px;
+  }
+  .groupListItem:nth-child(2) {
+    width: 121px;
+  }
+  .groupListItem:nth-child(1) {
+    width: 111px;
+    gap: 4px;
+  }
+  .groupListItem:nth-child(3) {
+    width: 158px;
+  }
+  .groupListItemText{
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.12px;
+  }
+  .groupListItemTextBlack {
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.12px;
+  }
+}
+@media (min-width: 1440px) {
+  .section {
+    padding-bottom: 64px;
+    min-width: 672px;
+    height: 736px;
+  }
+  .sectionBox {
+    top: 335px;
+  }
+  .buttonBox{
+    top: 64px;
+  }
+  .group {
+    bottom: 64px;
+  }
+}
