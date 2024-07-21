@@ -65,7 +65,28 @@
   align-items: center;
 }
 
+.inputRadio{
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent); /* Колір межі радіо-кнопки */
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
 
+.inputRadio:checked::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent); /* Колір активної радіо-кнопки */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .labelRadio {
   font-weight: 400;
@@ -171,3 +192,4 @@
 .scrollContainer{
     margin-right: 5px;
 }
+
