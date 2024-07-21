@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import Icon from 'components/shared/Icon';
+// import ModalWindow from 'components/ModalWindow/ModalWindow';
+// import WaterModal from '../waterModal/WaterModal.jsx';
 
 import css from './AddWaterBtn.module.css';
-
-// import WaterModal from '../waterModal/WaterModal.jsx';
 
 const AddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,9 @@ const AddWaterBtn = () => {
         />
         Add water
       </button>
-      {/* <WaterModal isOpen={isOpen} closeModal={closeModal} /> */}
+      {/* <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
+        <WaterModal />
+      </ModalWindow> */}
     </div>
   );
 };
