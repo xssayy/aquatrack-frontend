@@ -14,7 +14,7 @@ const ProgressBar = ({ value }) => {
         />
         <div
           className={css.progressCircle}
-          style={{ left: `calc(${value}% - 0px)` }}
+          style={{ left: `calc(${value}% - 1px)` }}
         />
       </div>
       <div className={css.progressLabels}>
