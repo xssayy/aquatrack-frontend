@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 import AddWaterBtn from "components/AddWaterBtn/AddWaterBtn";
 import ChooseDate from "components/ChooseDate/ChooseDate";
