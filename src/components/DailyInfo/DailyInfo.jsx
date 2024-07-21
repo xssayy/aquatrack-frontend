@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import AddWaterBtn from "components/AddWaterBtn/AddWaterBtn";
 import ChooseDate from "components/ChooseDate/ChooseDate";
@@ -17,8 +18,12 @@ const DailyInfo = () => {
       <WaterList />
     </div>
     </section>
+
   );
 };
 
 export default DailyInfo;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
