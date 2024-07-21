@@ -24,6 +24,7 @@
   background-color: #fff;
   border-radius: 50%;
   transform: translateX(-50%);
+  transition: transform 250ms ease-in-out;
 }
 
 .progressLabels {
