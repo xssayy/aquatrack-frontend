@@ -3,7 +3,7 @@ import css from './CalendarItem.module.css';
 
 export const CalendarItem = ({ day }) => {
   return (
-    <button>
+    <button className={css.button}>
       <p
         className={clsx(css.date, {
           [css.full]: day.waterPercentage === 100,

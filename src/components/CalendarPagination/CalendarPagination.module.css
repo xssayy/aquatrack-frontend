@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  /* justify-content: space-between; */
   height: 24px;
+  /* width: 179px; */
 }
 
 .dateTitle {
