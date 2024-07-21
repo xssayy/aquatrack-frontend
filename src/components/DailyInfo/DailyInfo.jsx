@@ -23,7 +23,4 @@ const DailyInfo = () => {
 };
 
 export default DailyInfo;
-<<<<<<< HEAD
 
-=======
->>>>>>> main
