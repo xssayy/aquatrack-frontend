@@ -1,0 +1,64 @@
+.user-bar-popover-container {
+  position: absolute;
+
+  top: 110px;
+  left: 0;
+  width: 97px;
+  height: 44px;
+  padding: 14px 20px;
+
+  background-color: #ffffff;
+
+  border-radius: 15px;
+
+  @media screen and (min-width: 768px) {
+    top: 64px;
+    right: 0;
+    left: auto;
+    width: 117px;
+    height: 54px;
+  }
+}
+
+.icon-setting {
+  margin-right: 4px;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+
+  height: 23px;
+
+  border: 0;
+
+  font-family: 'Poppins';
+  font-size: 15px;
+  font-weight: 700;
+
+  fill: #323f47;
+  background-color: #ffffff;
+}
+
+.icon-log-out {
+  margin-right: 4px;
+
+  fill: rgba(50, 63, 71, 0.4);
+}
+
+.log-out {
+  display: flex;
+  align-items: center;
+
+  height: 23px;
+  margin-top: 8px;
+
+  border: 0;
+
+  font-family: 'Poppins';
+  font-size: 15px;
+  font-weight: 700;
+
+  color: rgba(50, 63, 71, 0.4);
+  background-color: #ffffff;
+}
