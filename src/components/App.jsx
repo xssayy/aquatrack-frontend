@@ -6,12 +6,11 @@ import WelcomePage from 'pages/WelcomePage';
 import RegistrationPage from 'pages/RegistrationPage';
 import LoginForm from 'pages/LoginForm';
 import HomePage from 'pages/HomePage';
-import { MonthInfo } from './MonthInfo/MonthInfo';
 
 export const App = () => {
   return (
     <Layout>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route
           path="/signup"
@@ -34,8 +33,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<HomePage />} />
           }
         />
-      </Routes> */}
-      <MonthInfo />
+      </Routes>
     </Layout>
   );
 };

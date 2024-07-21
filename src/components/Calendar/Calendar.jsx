@@ -11,6 +11,7 @@ const response = [
     dailyWaterRequirement: 2000,
     dailyProgress: 1500,
     dailyProgressPercentage: 75,
+    userId: 'asdasdasdas',
   },
   {
     _id: 'qweqweq',
@@ -126,12 +127,6 @@ export const getNumOfDaysInMonth = chosenDate => {
   return daysInMonth;
 };
 
-//отримати число дня тижня
-// const getDayFromFullDate = date => {
-//   const optionsDay = { day: 'numeric' };
-//   return date.toLocaleDateString('en-US', optionsDay);
-// };
-
 //отримати назву місяця у вигляді "July"
 // const getMonthFromFullDate = date => {
 //   const optionsMonth = { month: 'long' };
@@ -146,34 +141,26 @@ const getDailyProgressPercentage = ({ day, month, response }) => {
 
 const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
   const data = [];
-  // const chosenMonth = chosenDate.getMonth();
-  // console.log('chosenMonth: ', chosenMonth);
-  // const chosenMonth = getMonthFromFullDate(chosenDate);
+
   const chosenMonth = chosenDate.toLocaleDateString('en-US', {
     month: 'long',
   });
 
   const chosenYear = chosenDate.getFullYear();
-  console.log('chosenYear: ', chosenYear);
-  console.log('chosenMonth: ', chosenDate.getMonth());
 
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
   const currentDay = currentDate.getDate();
 
-  console.log('current year', currentYear);
-  console.log('current month', currentMonth);
-
+  //перевіряємо чи вибраний місяць та рік є поточним
   const isCurrentMonthAndYear =
     currentYear === chosenYear && currentMonth === chosenDate.getMonth();
 
-  if (isCurrentMonthAndYear) console.log('current month is chosen!!!');
-
-  // console.log('chosenMonth: ', chosenMonth);
-
+  //визначаємо кількість днів у вибраному місяці
   const daysInMonth = getNumOfDaysInMonth(chosenDate);
 
+  // створюємо масив з властивостями date, waterPercentage, isToday
   for (let day = 1; day <= daysInMonth; day++) {
     const dailyWaterPercentage = getDailyProgressPercentage({
       day,
@@ -181,23 +168,19 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
       response,
     });
 
+    //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
+    const isToday = isCurrentMonthAndYear && currentDay === day;
+
     data.push({
       date: day,
       waterPercentage: dailyWaterPercentage,
-      isToday: isCurrentMonthAndYear && currentDay === day,
+      isToday,
     });
   }
   return data;
 };
 
 export const Calendar = ({ chosenDate }) => {
-  // const days = getArrayOfDaysInMonth(chosenDate);
-  // console.log(chosenDate);
-  // console.log('Date.now(): ', Date.now());
-  // console.log('new Date(): ', new Date());
-  // console.log(getDayAndMonth(chosenDate));
-
-  // console.table(getDailyWaterPercentageFromBackend({ chosenDate, response }));
   const daysWithWater = getDailyWaterPercentageFromBackend({
     chosenDate,
     response,
@@ -207,10 +190,12 @@ export const Calendar = ({ chosenDate }) => {
   //   {
   //     date: 1,
   //     waterPercentage: 75,
+  //     isToday: false,
   //   },
   //   {
   //     date: 2,
   //     waterPercentage: 5,
+  //        isToday: true,
   //   },
   // ];
 
