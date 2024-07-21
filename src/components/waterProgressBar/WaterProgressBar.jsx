@@ -1,4 +1,4 @@
-import ProgressBar from '../waterProgressBar/progressBar/ProgressBar.jsx';
+import ProgressBar from './progressBar/ProgressBar.jsx';
 
 import css from './WaterProgressBar.module.css';
 
