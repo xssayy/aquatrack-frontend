@@ -5,7 +5,7 @@ import css from "./WaterList.module.css"
 
 const WaterList = () => {
   const [waterData, setWaterData] = useState([]);
-
+// (state) => state.water.items;
 
   return (
     <ul className={css.list}>

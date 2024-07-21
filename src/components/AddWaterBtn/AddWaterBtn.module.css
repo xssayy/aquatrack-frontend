@@ -5,15 +5,20 @@
 }
 
 .btn {
-
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
-
-  background-color: rgba(220, 215, 247, 0.7);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+background-color: #9be1a0;
   transition: background-color 0.3s ease;
 
   padding: 5px 10px;
   margin-right: 10px;
+  font-weight: 100;
+font-size: 24px;
 }
 
 .text {

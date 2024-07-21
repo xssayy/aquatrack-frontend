@@ -3,13 +3,13 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 border: 2px solid red;
-gap: 20px;
+gap: 10px;
 padding-left: 14px;
 padding-right: 14px;
+
 border-radius: 15px;
-/* padding: 20px; */
-/* width: 192px; */
-height: 74px;
+/* width: 149px; */
+height: 74px
 }
 
 .water {
@@ -45,46 +45,20 @@ line-height: 1.86667;
 color: rgba(47, 47, 47, 0.6);
 }
 
-.icon {
-width: 24px;
-height: 24px;
+.iconGlass {
+width: 38px;
+height: 38px;
 }
-
-@media screen and (min-width: 375px) {
-
-  .item {
-    gap: 20px;
-padding-left: 14px;
-padding-right: 14px;
-border-radius: 15px;
-/* padding: 20px; */
-width: 149px;
-height: 74px;
-  }
-
-  .volume {
-
-    font-size: 15px;
-    line-height: 22px;
-    line-height: 1.49333;
+.iconEdit {
+width: 14x;
+height: 14px;
 }
-
-.time {
-font-family: "Poppins", sans-serif;
-font-weight: 400;
-font-size: 12px;
-
-line-height: 22px;
-line-height: 1.86667;
-color: rgba(47, 47, 47, 0.6);
+.iconTrash {
+width: 14px;
+height: 14px;
 }
 
 
-  .icon {
-width: 24px;
-height: 24px;
-}
-}
 
 @media screen and (min-width: 768px) {
 
@@ -93,8 +67,7 @@ height: 24px;
 padding-left: 20px;
 padding-right: 20px;
 border-radius: 15px;
-/* padding: 20px; */
-/* width: 192px; */
+width: 190px;
 height: 86px;
   }
 
@@ -115,10 +88,22 @@ line-height: 1.86667;
 color: rgba(47, 47, 47, 0.6);
 }
 
+.iconGlass {
+width: 44px;
+height: 45px;
+}
+.iconEdit {
+width: 16x;
+height: 16px;
+}
+.iconTrash {
+width: 16px;
+height: 16px;
+}
+}
+@media screen and (min-width: 1440px) {
+.item {
+  width: 192px;
+}
 
-  .icon {
-width: 24px;
-height: 24px;
 }
-}
-@media screen and (min-width: 1440px) {}

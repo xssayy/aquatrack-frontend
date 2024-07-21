@@ -8,6 +8,7 @@ import css from "./DailyInfo.module.css"
 const DailyInfo = () => {
 
   return (
+    <section className={css.section}>
     <div className={css.container}>
       <div className={css.title}>
         <ChooseDate />
@@ -15,6 +16,7 @@ const DailyInfo = () => {
       </div>
       <WaterList />
     </div>
+    </section>
   );
 };
 
