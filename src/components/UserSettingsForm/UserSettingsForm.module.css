@@ -4,14 +4,17 @@
   gap: 40px;
 }
 
-.upperContainer{
-    padding-right: 20px;
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
 }
 
 .imgContainer {
   width: 75px;
   height: 75px;
-  margin: 0 auto;
   margin-bottom: 10px;
 }
 
@@ -31,18 +34,26 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .imgInput {
   display: none;
 }
 
-.settingContainer {
+.scrollContainer {
   max-height: 40vh;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-right: 15px;
+  margin-right: 7px;
+  padding-right: 13px;
+}
+
+.userGenderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .labelTitle {
@@ -50,26 +61,26 @@
   font-size: 16px;
   line-height: 125%;
   letter-spacing: -0.01em;
+  color: var(--main);
 }
 
 .radioContainer {
   display: flex;
   gap: 20px;
-  margin-top: 14px;
 }
 
 .inputRadioContainer {
   display: flex;
-  gap: 2px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
 }
 
-.inputRadio{
+.inputRadio {
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--accent); /* Колір межі радіо-кнопки */
+  border: 2px solid var(--accent);
   border-radius: 50%;
   position: relative;
   cursor: pointer;
@@ -81,7 +92,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: var(--accent); /* Колір активної радіо-кнопки */
+  background-color: var(--accent);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -95,7 +106,19 @@
   letter-spacing: -0.01em;
 }
 
-.userInfoContainer {
+.settingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.userSettingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.userMainInfoContainer {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -111,12 +134,18 @@
   border: 1px solid rgba(47, 47, 47, 0.15);
   border-radius: 15px;
   padding: 14px 16px;
+  max-width: 271px;
   font-family: inherit;
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
   color: var(--main-text);
+}
+
+.inputElem:hover,
+.inputElem:focus {
+  border: 1px solid var(--accent);
 }
 
 .dailyNormaContainer {
@@ -179,7 +208,6 @@
   border-radius: 30px;
   padding: 14px 40px;
   width: 116px;
-  height: 46px;
   background: var(--accent);
   font-weight: 700;
   font-size: 14px;
@@ -189,7 +217,120 @@
   color: var(--main);
 }
 
-.scrollContainer{
-    margin-right: 5px;
+.formButton:hover,
+.formButton:focus {
+  background: #87d28d;
 }
 
+.errorText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: #ef5050;
+}
+
+@media screen and (min-width: 375px) {
+  .dailyNormaDescriptionContainer {
+    width: 271px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .avatarContainer {
+    padding-right: 40px;
+  }
+
+  .scrollContainer {
+    max-height: 35vh;
+    margin-right: 16px;
+    padding-right: 24px;
+  }
+
+  .imgContainer {
+    width: 100px;
+    height: 100px;
+  }
+
+  .userImg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .imgLabel {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .labelTitle {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .inputElem {
+    padding: 16px 16px;
+    max-width: 534px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaFormulaContainer {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .dailyNormaGender {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaFormula {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaDescriptionContainer {
+    width: 536px;
+  }
+
+  .dailyNormaDescription {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .formaText {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaWarningSpan {
+    font-size: 18px;
+  }
+
+  .formButton {
+    padding: 16px 50px;
+    width: 141px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .errorText {
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .settingContainer {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .inputElem {
+    max-width: 366px;
+  }
+
+  .dailyNormaDescriptionContainer {
+    width: 368px;
+  }
+}

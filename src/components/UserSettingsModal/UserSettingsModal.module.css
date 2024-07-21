@@ -4,11 +4,12 @@
   letter-spacing: -0.01em;
   margin-bottom: 20px;
   padding-right: 20px;
+  color: var(--main);
 }
 
 @media screen and (min-width: 375px) {
   .settingContainer {
-    width: 303px;
+    width: 323px;
   }
 }
 
@@ -18,6 +19,8 @@
   }
 
   .settingTitle {
+    font-size: 28px;
+    line-height: 114%;
     padding-right: 40px;
   }
 }

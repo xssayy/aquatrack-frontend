@@ -18,11 +18,8 @@ const WelcomePage = () => {
       <button type="button" onClick={openModal}>
         Open Modal
       </button>
-      <ModalWindow
-        modalIsOpen={modalIsOpen}
-        onCloseModal={closeModal}
-      >
-        <UserSettingsModal />
+      <ModalWindow modalIsOpen={modalIsOpen} onCloseModal={closeModal}>
+        <UserSettingsModal onCloseModal={closeModal} />
       </ModalWindow>
     </>
   );
