@@ -59,7 +59,7 @@ const WaterForm = ({ type, initialData, closeModal }) => {
     defaultValues: initialData || {
       amount: 50,
       time: new Date()
-        .toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        .toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
         .padStart(5, '0'),
     },
   });
