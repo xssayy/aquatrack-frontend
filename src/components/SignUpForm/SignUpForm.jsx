@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import css from './SignUpForm.module.css';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -49,23 +50,57 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
+    <div className={css.form}>
       {' '}
-      <h1>Sign Up</h1>
+      <h1 className={css.logo}>AQUATRACK</h1>
+      <h2 className={css.title}>Sign Up</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Email</label>
-        <input {...register('email')} />
-        <p>{errors.email?.message}</p>
-        <label>Password</label>
-        <input {...register('password')} />
-        <p>{errors.password?.message}</p>
-        <label>Confirm Password</label>
-        <input {...register('confirmPassword')} />
-        <p>{errors.confirmPassword?.message}</p>
-        <input type="submit" />
+        <ul className={css.list}>
+          <li className={css.listItem}>
+            <label className={css.label}>
+              Email
+              <input
+                {...register('email')}
+                className={`${css.field} ${errors.email ? css.errorField : ''}`}
+              />
+            </label>
+            <p className={errors.email ? css.error : ''}>
+              {errors.email?.message}
+            </p>
+          </li>
+          <li className={css.listItem}>
+            <label className={css.label}>
+              Password
+              <input
+                {...register('password')}
+                className={`${css.field} ${errors.email ? css.errorField : ''}`}
+              />
+            </label>
+            <p className={errors.email ? css.error : ''}>
+              {errors.password?.message}
+            </p>
+          </li>
+          <li className={css.listItem}>
+            <label className={css.label}>
+              Repeat password
+              <input
+                {...register('confirmPassword')}
+                className={`${css.field} ${errors.email ? css.errorField : ''}`}
+              />
+            </label>
+            <p className={errors.email ? css.error : ''}>
+              {errors.confirmPassword?.message}
+            </p>
+          </li>
+        </ul>
+
+        <input type="submit" className={css.button} value="Sign Up" />
       </form>
-      <p>
-        Already have account? <Link to="/signin">Sign In</Link>
+      <p className={css.redirect}>
+        Already have account?{' '}
+        <Link to="/signin" className={css.redirectLink}>
+          Sign In
+        </Link>
       </p>
     </div>
   );
