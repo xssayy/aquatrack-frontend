@@ -1,13 +1,13 @@
+import ProgressBar from './progressBar/progressBar.jsx';
+
 import css from './WaterProgressBar.module.css';
-import ProgressBar from './progressBar/progressBar';
 
 const WaterProgressBar = () => {
   return (
-    <div className={css.waterProgressSection}>
+    <div className={css.waterProgressContainer}>
       <h2 className={css.waterProgressTitle}>Today</h2>
-
-      <ProgressBar value={80} />
-      {/*В ProgressBar замість "80" потім можна передати реальне значення*/}
+      <ProgressBar value={25} />
+      {/* В value потім буде приходити реальне значення, введене юзером*/}
     </div>
   );
 };

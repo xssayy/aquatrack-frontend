@@ -1,35 +1,28 @@
-import {
-  Container,
-  ProgressBar as BootstrapProgressBar,
-  Row,
-  Col,
-} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Line } from 'rc-progress';
+
 import css from './progressBar.module.css';
 
 const ProgressBar = ({ value }) => {
   return (
-    <Container className={css.progressContainer}>
-      <Row>
-        <Col>
-          <BootstrapProgressBar
-            now={value}
-            variant="success"
-            label={`${value}%`}
-            className={css.progressBarLine}
-          />
-          {/* <div
-            className={css.progressCircle}
-            style={{ left: `calc(${value}% - 10px)` }}
-          /> */}
-        </Col>
-      </Row>
-      <Row className={css.progressLabels}>
-        <Col>0%</Col>
-        <Col className="text-center">50%</Col>
-        <Col className="text-end">100%</Col>
-      </Row>
-    </Container>
+    <div className={css.progressContainer}>
+      <div className={css.progressBarWrapper}>
+        <Line
+          percent={value}
+          strokeColor="#9be1a0"
+          trailColor="#f0eff4"
+          className={css.progressBarLine}
+        />
+        <div
+          className={css.progressCircle}
+          style={{ left: `calc(${value}% - 0px)` }}
+        />
+      </div>
+      <div className={css.progressLabels}>
+        <span>0%</span>
+        <span>50%</span>
+        <span>100%</span>
+      </div>
+    </div>
   );
 };
 

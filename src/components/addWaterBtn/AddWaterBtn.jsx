@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import css from './AddWaterBtn.module.css';
 
-import WaterModal from '../waterModal/WaterModal';
+// import WaterModal from '../waterModal/WaterModal.jsx';
 
 const AddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ const AddWaterBtn = () => {
   };
 
   return (
-    <div>
+    <div className={css.addWaterBtnContainer}>
       <button
         className={css.addWaterBtn}
         type="button"
@@ -24,7 +24,7 @@ const AddWaterBtn = () => {
       >
         + Add water
       </button>
-      <WaterModal isOpen={isOpen} closeModal={closeModal} />
+      {/* <WaterModal isOpen={isOpen} closeModal={closeModal} /> */}
     </div>
   );
 };

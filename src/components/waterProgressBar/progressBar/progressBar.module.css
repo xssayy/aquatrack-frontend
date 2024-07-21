@@ -2,27 +2,50 @@
   width: 100%;
   margin: 0 auto;
   padding: 0;
+}
+
+.progressBarWrapper {
   position: relative;
 }
 
 .progressBarLine {
   width: 100%;
-  height: 10px;
-  border-radius: 10px;
-  background-color: #e0e0e0; /* Колір фонової шкали */
+  height: 6px;
+  border-radius: 9px;
+  margin-bottom: 8px;
 }
 
 .progressCircle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid #4caf50;
-  background-color: #fff;
   position: absolute;
-  top: -5px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #9be1a0;
+  background-color: #fff;
+  border-radius: 50%;
   transform: translateX(-50%);
 }
 
 .progressLabels {
-  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+@media screen and (min-width: 768px) {
+  .progressBarLine {
+    height: 8px;
+    margin-bottom: 6px;
+  }
+
+  .progressLabels {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }
