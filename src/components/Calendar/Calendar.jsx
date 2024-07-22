@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import css from './Calendar.module.css';
 import clsx from 'clsx';
 import { CalendarItem } from 'components/CalendarItem/CalendarItem';
