@@ -7,6 +7,7 @@ import { signIn } from '../../redux/auth/operations';
 import { Link } from 'react-router-dom';
 import style from './SignInForm.module.css';
 
+
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
 const minPasswordLength = 8;
@@ -25,7 +26,7 @@ const loginSchema = Yup.object({
 
 const SignInForm = () => {
   const dispatch = useDispatch();
-  
+
   const {
     register,
     handleSubmit,
@@ -36,8 +37,9 @@ const SignInForm = () => {
   });
 
   const onSubmit = data => {
-    dispatch(logIn(data)).then((action) => {
-      if (action.type === 'auth/logIn/fulfilled') {
+    console.log(data)
+    dispatch(signIn(data)).then((action) => {
+      if (action.type === 'auth/singIn/fulfilled') {
         // Перенаправлення на TrackerPage після успішної авторизації
         window.location.href = '/tracker';
       }
@@ -46,20 +48,28 @@ const SignInForm = () => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       {' '}
-      <h1 className={style.title}>Sign In</h1>
+      <h1 className={style.logo}>AQUATRACK</h1>
+      <h2 className={style.title}>Sign In</h2>
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-        <label className={style.label}>Email</label>
-        <input className={style.input} type="email" {...register('email')} />
-        <p className={style.text}>{errors.email?.message}</p>
-        <label className={style.label}>Password</label>
-        <input className={style.input} type="password" {...register('password')} />
-        <p className={style.text}>{errors.password?.message}</p>
-        <input className={style.button} type="submit" />
+       <ul className={style.list}>
+         <li className={style.listItem}>
+            <label className={style.label}>Email</label>
+            <input className={style.input} type="email" {...register('email')} placeholder='Enter your email' />
+            <p className={style.text}>{errors.email?.message}</p>
+         </li>
+         <li className={style.listItem}>
+            <label className={style.label}>Password</label>
+            <input className={style.input} type="password" {...register('password')} placeholder='Enter your password'/>
+            <p className={style.text}>{errors.password?.message}</p>
+         </li>
+       </ul>
+        <input className={style.button} type="submit" value="Sing In" />
       </form>
       <p>
-        Don’t have an account? Sign Up <Link to="/signin">Sign Up</Link>
+        Don’t have an account? Sign Up {' '}
+        <Link to="/signin" className={style.link}>Sign Up</Link>
       </p>
     </div>
   );
