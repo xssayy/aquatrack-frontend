@@ -4,21 +4,33 @@ import ModalWindow from 'components/ModalWindow/ModalWindow';
 import Icon from 'components/shared/Icon';
 
 import css from './UserBarPopover.module.css';
+import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
 
-const UserBarPopover = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+const UserBarPopover = ({ closePopover }) => {
+  const [modalSettingsIsOpen, setModalSettingsIsOpen] = useState(false);
+  const [modalLogOutIsOpen, setModalLogOutIsOpen] = useState(false);
 
-  function openModal() {
-    setModalIsOpen(true);
+  function openModal(e) {
+    if (e.target.id === 'settings') {
+      setModalSettingsIsOpen(true);
+    } else if (e.target.id === 'log-out') {
+      setModalLogOutIsOpen(true);
+    }
   }
 
   function closeModal() {
-    setModalIsOpen(false);
+    setModalSettingsIsOpen(false);
+    setModalLogOutIsOpen(false);
   }
 
   return (
     <div className={css['user-bar-popover-container']}>
-      <button type="button" onClick={openModal} className={css.settings}>
+      <button
+        type="button"
+        onClick={openModal}
+        className={css.settings}
+        id={'settings'}
+      >
         <Icon
           id={'settings'}
           width={'16px'}
@@ -28,11 +40,15 @@ const UserBarPopover = () => {
         />
         Setting
       </button>
-      <ModalWindow
-        modalIsOpen={modalIsOpen}
-        onCloseModal={closeModal}
-      ></ModalWindow>
-      <button type="button" onClick={openModal} className={css['log-out']}>
+      <ModalWindow modalIsOpen={modalSettingsIsOpen} onCloseModal={closeModal}>
+        <UserSettingsModal />
+      </ModalWindow>
+      <button
+        type="button"
+        onClick={openModal}
+        className={css['log-out']}
+        id={'log-out'}
+      >
         <Icon
           id={'log-out'}
           width={'16px'}
@@ -43,7 +59,7 @@ const UserBarPopover = () => {
         Log out
       </button>
       <ModalWindow
-        modalIsOpen={modalIsOpen}
+        modalIsOpen={modalLogOutIsOpen}
         onCloseModal={closeModal}
       ></ModalWindow>
     </div>
