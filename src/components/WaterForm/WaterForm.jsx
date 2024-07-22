@@ -30,11 +30,11 @@ const QuantityStepper = ({ value, onChange }) => {
       <label className={styles.quantityAmount}>Amount of water:</label>
       <div className={styles.quantityStepper}>
         <button type="button" onClick={decrease} disabled={value <= 50}>
-          {/* <Icon id="icon-minus" width="24" height="24" /> */}-
+          -
         </button>
         <div className={styles.quantityDisplay}>{value}ml</div>
         <button type="button" onClick={increase} disabled={value >= 5000}>
-          {/* <Icon id="icon-plus" width="24" height="24" /> */}+
+          +
         </button>
       </div>
     </div>

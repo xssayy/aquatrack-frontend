@@ -17,3 +17,15 @@
   color: #323f47;
   margin-bottom: 24px;
 }
+
+@media screen and (min-width: 768px) {
+  .waterModalTitle {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .waterModalSubtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

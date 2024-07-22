@@ -3,7 +3,7 @@
   height: 46px;
   padding: 14px 16px;
   gap: 10px;
-  border-radius: 15px 0px 0px 0px;
+  border-radius: 15px;
   border: 1px solid transparent;
   opacity: 1;
 }
@@ -131,7 +131,7 @@
 
 .quantityDisplay {
   width: 92px;
-  max-height: 43px;
+  height: 43px;
   padding: 11px 20px;
   border-radius: 30px;
   background-color: #323f47;
@@ -151,4 +151,38 @@
   color: #ff4d4d;
   font-size: 12px;
   margin-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .quantityLabel {
+    line-height: 24px;
+  }
+
+  .quantityAmount {
+    line-height: 24px;
+  }
+
+  .quantityDisplay {
+    font-size: 15px;
+  }
+
+  .quantityStepper button {
+    width: 43px;
+    height: 43px;
+  }
+
+  .inputField {
+    width: 438px;
+    height: 56px;
+    padding: 16px;
+  }
+  .formGroupLabel {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .submitButton {
+    font-size: 16px;
+    line-height: 24;
+  }
 }
