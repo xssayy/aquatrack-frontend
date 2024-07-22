@@ -2,9 +2,10 @@
 import css from "./ChooseDate.module.css"
 
 
-const ChooseDate = ({ selectedDate }) => {
+const ChooseDate = () => {
   const currentDate = new Date(); // Поточна дата
-selectedDate = "2024-07-04T06:58:55.103Z"
+  // const selectedDate = useSelector(selectActiveDay); //Вибрана дата
+const selectedDate = "2024-07-04T06:58:55.103Z"
   const selectedDateObj = new Date(selectedDate); // Перетворення обраної дати на об'єкт Date
 console.log(selectedDateObj);
 

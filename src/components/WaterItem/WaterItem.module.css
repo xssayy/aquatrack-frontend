@@ -49,13 +49,15 @@ color: rgba(47, 47, 47, 0.6);
 width: 38px;
 height: 38px;
 }
-.iconEdit {
+.btnEdit {
 width: 14x;
 height: 14px;
+background-color: transparent;
 }
-.iconTrash {
+.btnTrash {
 width: 14px;
 height: 14px;
+background-color: transparent;
 }
 
 
@@ -67,7 +69,7 @@ height: 14px;
 padding-left: 20px;
 padding-right: 20px;
 border-radius: 15px;
-width: 190px;
+/* width: 190px; */
 height: 86px;
   }
 
@@ -92,18 +94,18 @@ color: rgba(47, 47, 47, 0.6);
 width: 44px;
 height: 45px;
 }
-.iconEdit {
+.btnEdit {
 width: 16x;
 height: 16px;
 }
-.iconTrash {
+.btnTrash {
 width: 16px;
 height: 16px;
 }
 }
 @media screen and (min-width: 1440px) {
 .item {
-  width: 192px;
+  /* width: 192px; */
 }
 
 }

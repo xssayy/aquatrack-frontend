@@ -39,15 +39,12 @@ const WaterItem = () => {
         <p className={css.time}>10:20pm</p>
       </div>
       <div className={css.edit}>
-        <button onClick={handleEdit}><Icon id="edit" width="16" height="16"/></button>
-        <button onClick={handleDelete}><Icon id="trash" width="16" height="16"/></button>
+        <button onClick={handleEdit} className={css.btnEdit}><Icon id="edit" width="16" height="16"/></button>
+        <button onClick={handleDelete} className={css.btnTrash}><Icon id="trash" width="16" height="16"/></button>
       </div>
       {isDeleteModalOpen && (
         <ModalWindow onCloseModal={handleCloseDeleteModal} modalIsOpen={isDeleteModalOpen}>
           <DeleteWaterModal
-            // onConfirm={handleConfirmDelete}
-            // onCancel={handleCloseModal}
-            // waterId={waterId}
           />
         </ModalWindow>
       )}

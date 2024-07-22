@@ -21,6 +21,11 @@ background-color: #9be1a0;
 font-size: 24px;
 }
 
+.btn:hover, .btn:focus{
+  background-color: #323f47;
+  color: #fff;
+}
+
 .text {
   font-family: "Poppins", sans-serif;
 font-weight: 700;
