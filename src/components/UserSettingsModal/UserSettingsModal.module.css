@@ -1,0 +1,32 @@
+.settingTitle {
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  color: var(--main);
+}
+
+@media screen and (min-width: 375px) {
+  .settingContainer {
+    width: 323px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .settingContainer {
+    width: 608px;
+  }
+
+  .settingTitle {
+    font-size: 28px;
+    line-height: 114%;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .settingContainer {
+    width: 880px;
+  }
+}
