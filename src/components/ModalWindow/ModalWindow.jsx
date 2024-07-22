@@ -40,7 +40,7 @@ export default ModalWindow;
 //     function openModal() {
 //       setModalIsOpen(true);
 //   }
-  
+
 //     function closeModal() {
 //       setModalIsOpen(false);
 //     }
@@ -61,4 +61,3 @@ export default ModalWindow;
 // };
 
 // export default WelcomePage;
-
