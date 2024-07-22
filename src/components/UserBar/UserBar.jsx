@@ -1,13 +1,15 @@
-import Icon from 'components/shared/Icon';
+import Icon from 'components/Icon/Icon';
 
 import css from './UserBar.module.css';
+
+import image from '../../img/avatar.png';
 
 const UserBar = ({ onClick, isShow }) => {
   return (
     <>
       <button type="button" onClick={onClick} className={css.button}>
         <p>Nadia</p>
-        <img src="./Ellipse14.png" alt="" className={css.avatar} />
+        <img src={image} alt="" className={css.avatar} />
         {isShow ? (
           <Icon
             id={'arrow'}
