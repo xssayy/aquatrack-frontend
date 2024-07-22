@@ -1,6 +1,6 @@
 import WaterDailyNorma from '../waterDailyNorma/WaterDailyNorma.jsx';
 import WaterProgressBar from '../waterProgressBar/WaterProgressBar.jsx';
-import AddWaterBtn from '../addWaterBtn/AddWaterBtn.jsx';
+import MainAddWaterBtn from '../MainAddWaterBtn/MainAddWaterBtn.jsx';
 
 import css from './WaterMainInfo.module.css';
 
@@ -10,7 +10,7 @@ const WaterMainInfo = () => {
       <h1 className={css.waterMainTitle}>Aquatrack</h1>
       <WaterDailyNorma />
       <WaterProgressBar />
-      <AddWaterBtn />
+      <MainAddWaterBtn />
     </div>
   );
 };

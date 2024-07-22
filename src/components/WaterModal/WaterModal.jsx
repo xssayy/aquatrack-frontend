@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import WaterForm from '../WaterForm/WaterForm';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import styles from '../WaterModal/WaterModal.module.css';
+import { useSelector } from 'react-redux';
 
 const WaterModal = ({ type, initialData, isOpen, closeModal }) => {
   const title =

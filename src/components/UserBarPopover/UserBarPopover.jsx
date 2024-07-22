@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import ModalWindow from 'components/ModalWindow/ModalWindow';
-import Icon from 'components/shared/Icon';
+import Icon from 'components/Icon/Icon';
 
 import css from './UserBarPopover.module.css';
 
@@ -17,14 +17,14 @@ const UserBarPopover = () => {
   }
 
   return (
-    <div className={css['user-bar-popover-container']}>
+    <div className={css.userBarPopoverContainer}>
       <button type="button" onClick={openModal} className={css.settings}>
         <Icon
           id={'settings'}
           width={'16px'}
           height={'16px'}
           fillColor={'#323f47'}
-          className={css['icon-setting']}
+          className={css.iconSettings}
         />
         Setting
       </button>
@@ -32,13 +32,13 @@ const UserBarPopover = () => {
         modalIsOpen={modalIsOpen}
         onCloseModal={closeModal}
       ></ModalWindow>
-      <button type="button" onClick={openModal} className={css['log-out']}>
+      <button type="button" onClick={openModal} className={css.logOut}>
         <Icon
           id={'log-out'}
           width={'16px'}
           height={'16px'}
           fillColor={'rgba(50, 63, 71, 0.4)'}
-          className={css['icon-log-out']}
+          className={css.iconLogOut}
         />
         Log out
       </button>

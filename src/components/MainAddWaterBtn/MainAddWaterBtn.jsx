@@ -1,22 +1,23 @@
 import { useState } from 'react';
 
-import Icon from 'components/shared/Icon.jsx';
+import Icon from 'components/Icon/Icon.jsx';
 // import ModalWindow from 'components/ModalWindow/ModalWindow.jsx';
 // import WaterModal from '../waterModal/WaterModal.jsx';
 
 import css from './AddWaterBtn.module.css';
+import WaterModal from 'components/WaterModal/WaterModal';
 
-const AddWaterBtn = () => {
-  const [, setIsOpen] = useState(false);
+const MainAddWaterBtn = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [iconFillColor, setIconFillColor] = useState('#ffffff');
 
-  const handleAddWater = () => {
+  const openModal = () => {
     setIsOpen(true);
   };
 
-  // const closeModal = () => {
-  //   setIsOpen(false);
-  // };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   const handleMouseEnter = () => {
     setIconFillColor('#9be1a0');
@@ -31,7 +32,7 @@ const AddWaterBtn = () => {
       <button
         className={css.addWaterBtn}
         type="button"
-        onClick={handleAddWater}
+        onClick={openModal}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -44,11 +45,10 @@ const AddWaterBtn = () => {
         />
         Add water
       </button>
-      {/* <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
-        <WaterModal />
-      </ModalWindow> */}
+
+      <WaterModal isOpen={isOpen} closeModal={closeModal} />
     </div>
   );
 };
 
-export default AddWaterBtn;
+export default MainAddWaterBtn;

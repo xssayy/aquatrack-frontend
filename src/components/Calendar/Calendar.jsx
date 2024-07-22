@@ -200,7 +200,7 @@ export const Calendar = ({ chosenDate }) => {
   // ];
 
   return (
-    <div className={css.container}>
+    <div>
       <ul className={css.days}>
         {daysWithWater.map(day => {
           return (

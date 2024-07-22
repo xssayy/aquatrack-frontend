@@ -1,12 +1,7 @@
-.container {
-  width: 304px;
-  /* background: #f0eff4; */
-}
-
 .days {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 18px;
+  gap: 20px 17px;
 }
 
 .day {
@@ -16,9 +11,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
-    width: 640px;
-  }
   .days {
     gap: 15px 48px;
   }
@@ -29,10 +21,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
-    width: 608px;
-  }
-
   .days {
     gap: 15px 43px;
   }
