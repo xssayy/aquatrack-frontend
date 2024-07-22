@@ -39,7 +39,7 @@ const SignInForm = () => {
   const onSubmit = data => {
     console.log(data)
     dispatch(signIn(data)).then((action) => {
-      if (action.type === 'auth/singIn/fulfilled') {
+      if (action.type === 'auth/signIn/fulfilled') {
         // Перенаправлення на TrackerPage після успішної авторизації
         window.location.href = '/tracker';
       }
@@ -53,23 +53,30 @@ const SignInForm = () => {
       <h1 className={style.logo}>AQUATRACK</h1>
       <h2 className={style.title}>Sign In</h2>
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-       <ul className={style.list}>
+        <ul className={style.list}>
+
          <li className={style.listItem}>
             <label className={style.label}>Email</label>
-            <input className={style.input} type="email" {...register('email')} placeholder='Enter your email' />
+            <input className={style.input}
+              type="email" {...register('email')}
+              placeholder='Enter your email' />
             <p className={style.text}>{errors.email?.message}</p>
-         </li>
-         <li className={style.listItem}>
+          </li>
+
+         <li className={style.listItem}>e
             <label className={style.label}>Password</label>
-            <input className={style.input} type="password" {...register('password')} placeholder='Enter your password'/>
+            <input className={`${style.input} ${errors.email ? style.errorField : ''}`}
+              type="password" {...register('password')}
+              placeholder='Enter your password' />
             <p className={style.text}>{errors.password?.message}</p>
-         </li>
+          </li>
+          
        </ul>
         <input className={style.button} type="submit" value="Sing In" />
       </form>
       <p className={style.redictedLink}>
         Don’t have an account? Sign Up {' '}
-        <Link to="/signin" className={style.link}>Sign Up</Link>
+        <Link to="/signup" className={style.link}>Sign Up</Link>
       </p>
     </div>
   );
