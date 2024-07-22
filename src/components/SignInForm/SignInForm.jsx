@@ -57,7 +57,7 @@ const SignInForm = () => {
 
          <li className={style.listItem}>
             <label className={style.label}>Email</label>
-            <input className={style.input}
+             <input className={`${style.input} ${errors.email ? style.errorField : ''}`}
               type="email" {...register('email')}
               placeholder='Enter your email' />
             <p className={style.text}>{errors.email?.message}</p>
@@ -70,7 +70,7 @@ const SignInForm = () => {
               placeholder='Enter your password' />
             <p className={style.text}>{errors.password?.message}</p>
           </li>
-          
+
        </ul>
         <input className={style.button} type="submit" value="Sing In" />
       </form>
