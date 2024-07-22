@@ -2,13 +2,28 @@ import React, { useState } from 'react';
 import WaterModal from 'components/WaterModal/WaterModal';
 
 const WelcomePage = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const closeModal = () => {
     setIsOpen(false);
   };
 
-  return <WaterModal isOpen={isOpen} closeModal={closeModal} />;
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          openModal();
+        }}
+      >
+        click
+      </button>
+      <WaterModal isOpen={isOpen} closeModal={closeModal} />
+    </>
+  );
 };
 
 export default WelcomePage;

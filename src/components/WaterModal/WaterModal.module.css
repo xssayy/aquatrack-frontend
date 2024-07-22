@@ -18,6 +18,10 @@
   margin-bottom: 24px;
 }
 
+.waterModalContainer {
+  padding-right: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .waterModalTitle {
     font-size: 28px;
@@ -27,5 +31,9 @@
   .waterModalSubtitle {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  .waterModalContainer {
+    padding-right: 40px;
   }
 }
