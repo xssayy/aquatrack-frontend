@@ -67,7 +67,7 @@ const SignInForm = () => {
        </ul>
         <input className={style.button} type="submit" value="Sing In" />
       </form>
-      <p>
+      <p className={style.redictedLink}>
         Don’t have an account? Sign Up {' '}
         <Link to="/signin" className={style.link}>Sign Up</Link>
       </p>

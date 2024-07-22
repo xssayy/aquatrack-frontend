@@ -1,3 +1,19 @@
+.container{
+  border-radius: 30px;
+  background-color: #f0eff4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #323f47;
+}
+
 .title{
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -5,11 +21,7 @@
   line-height: 1;
   letter-spacing: -0.01em;
   color: #323f47;
-}
-
-.form{
-  display: flex;
-  flex-direction: column;
+  align-self: baseline;
 }
 
 .label{
@@ -47,6 +59,30 @@
   letter-spacing: -0.01em;
   text-align: center;
   color: #323f47;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #87d28d;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #e6e6e6;
+  color: #bcbcbc;
+}
+
+.rediktesLink{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(47, 47, 47, 0.5);
+}
+
+.link:active,
+.link:hover,
+.link:focus {
+  color: rgba(50, 63, 71, 0.4);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1440px){
