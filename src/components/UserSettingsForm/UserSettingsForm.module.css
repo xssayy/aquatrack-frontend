@@ -1,0 +1,336 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.imgContainer {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 10px;
+}
+
+.userImg {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.imgLabel {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.imgInput {
+  display: none;
+}
+
+.scrollContainer {
+  max-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-right: 7px;
+  padding-right: 13px;
+}
+
+.userGenderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.labelTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: var(--main);
+}
+
+.radioContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.inputRadioContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputRadio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.inputRadio:checked::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.labelRadio {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+
+.settingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.userSettingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.userMainInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputElem {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 14px 16px;
+  max-width: 271px;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: var(--main-text);
+}
+
+.inputElem:hover,
+.inputElem:focus {
+  border: 1px solid var(--accent);
+}
+
+.dailyNormaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dailyNormaFormulaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dailyNormaGender {
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.dailyNormaFormula {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.dailyNormaDescriptionContainer {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.dailyNormaDescription {
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+.dailyNormaDescriptionSpan {
+  color: var(--accent);
+}
+
+.formaText {
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+}
+
+.dailyNormaWarningSpan {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--accent);
+  margin-right: 4px;
+}
+
+.formButton {
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 116px;
+  background: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main);
+}
+
+.formButton:hover,
+.formButton:focus {
+  background: #87d28d;
+}
+
+.errorText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  color: #ef5050;
+}
+
+@media screen and (min-width: 375px) {
+  .dailyNormaDescriptionContainer {
+    width: 271px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .avatarContainer {
+    padding-right: 40px;
+  }
+
+  .scrollContainer {
+    max-height: 35vh;
+    margin-right: 16px;
+    padding-right: 24px;
+  }
+
+  .imgContainer {
+    width: 100px;
+    height: 100px;
+  }
+
+  .userImg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .imgLabel {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .labelTitle {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .inputElem {
+    padding: 16px 16px;
+    max-width: 534px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaFormulaContainer {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .dailyNormaGender {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaFormula {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaDescriptionContainer {
+    width: 536px;
+  }
+
+  .dailyNormaDescription {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .formaText {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaWarningSpan {
+    font-size: 18px;
+  }
+
+  .formButton {
+    padding: 16px 50px;
+    width: 141px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .errorText {
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .settingContainer {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .inputElem {
+    max-width: 366px;
+  }
+
+  .dailyNormaDescriptionContainer {
+    width: 368px;
+  }
+}

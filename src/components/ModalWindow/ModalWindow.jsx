@@ -34,7 +34,7 @@ export default ModalWindow;
 // import UserSettingsModal from "components/UserSettingsModal/UserSettingsModal";
 // import { useState } from 'react';
 
-// const WelcomePage = () => {
+// const Component = () => {
 //     const [modalIsOpen, setModalIsOpen] = useState(false);
 
 //     function openModal() {
@@ -54,7 +54,7 @@ export default ModalWindow;
 //         modalIsOpen={modalIsOpen}
 //         onCloseModal={closeModal}
 //       >
-//         <UserSettingsModal />
+//         <UserSettingsModal onCloseModal={closeModal} /> or ....
 //       </ModalWindow>
 //     </>
 //   );
