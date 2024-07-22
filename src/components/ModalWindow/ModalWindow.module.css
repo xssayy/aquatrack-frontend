@@ -10,15 +10,6 @@
   padding: 40px 0 40px 20px;
 }
 
-.modalWindow:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.modalContainer {
-  background-color: #ffffff;
-}
-
 .btnClose {
   width: 24px;
   height: 24px;
