@@ -50,7 +50,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={css.form}>
+    <div className={css.formContainer}>
       {' '}
       <h1 className={css.logo}>AQUATRACK</h1>
       <h2 className={css.title}>Sign Up</h2>
@@ -62,6 +62,7 @@ const SignUpForm = () => {
               <input
                 {...register('email')}
                 className={`${css.field} ${errors.email ? css.errorField : ''}`}
+                placeholder="Enter your email"
               />
             </label>
             <p className={errors.email ? css.error : ''}>
@@ -73,7 +74,10 @@ const SignUpForm = () => {
               Password
               <input
                 {...register('password')}
-                className={`${css.field} ${errors.email ? css.errorField : ''}`}
+                className={`${css.field} ${
+                  errors.password ? css.errorField : ''
+                }`}
+                placeholder="Enter your password"
               />
             </label>
             <p className={errors.email ? css.error : ''}>
@@ -85,7 +89,10 @@ const SignUpForm = () => {
               Repeat password
               <input
                 {...register('confirmPassword')}
-                className={`${css.field} ${errors.email ? css.errorField : ''}`}
+                className={`${css.field} ${
+                  errors.confirmPassword ? css.errorField : ''
+                }`}
+                placeholder="Repeat your password"
               />
             </label>
             <p className={errors.email ? css.error : ''}>
