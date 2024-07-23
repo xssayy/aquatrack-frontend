@@ -2,8 +2,9 @@ import { useState } from "react";
 import ModalWindow from "components/ModalWindow/ModalWindow";
 import css from "./AddWaterDailyBtn.module.css"
 
-// import Icon from "components/shared/Icon";
 import WaterModal from "components/WaterModal/WaterModal";
+
+import { format, parseISO } from 'date-fns';
 
 const AddWaterDailyBtn = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -15,17 +16,28 @@ const AddWaterDailyBtn = () => {
     setModalIsOpen(false);
   };
 
+const currentDate = new Date(); // Поточна дата
+
+const formatTime = (date) => {
+  return format(date, 'hh:mmaaa').toLowerCase();
+};
+
+const formattedTime = formatTime(currentDate);
+console.log(formattedTime); // Виведе "06:58am"
+
+
+
   return (
     <div className={css.addBtn}>
       <button className={css.btn} onClick={handleOpenModal}>
         +
-        {/* <Icon id="settings" width="44" height="45" /> */}
       </button>
       <p className={css.text}>Add water</p>
             {modalIsOpen && (
         <ModalWindow onCloseModal={handleCloseModal} modalIsOpen={handleOpenModal}>
           <WaterModal
-
+            type='add'
+            initialData={{ amount: "50", time: `${formattedTime}` }}
           />
         </ModalWindow>
       )}
