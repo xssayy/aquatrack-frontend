@@ -28,11 +28,24 @@
   font-style: normal;
 }
 
+:root {
+  --main-text: #2f2f2f;
+  --main: #323f47;
+  --accent: #9be1a0;
+  --background: #f0eff4;
+  --main-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Poppins', sans-serif;
+  color: var(--main-text);
 }
 
 .gilroy-bold {

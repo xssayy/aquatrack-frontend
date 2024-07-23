@@ -1,0 +1,37 @@
+.modalWindow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 80vh;
+  background-color: var(--main-white);
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 40px 0 40px 20px;
+}
+
+.btnClose {
+  width: 24px;
+  height: 24px;
+  background-color: inherit;
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  fill: var(--main-text);
+}
+
+.btnClose:hover,
+.btnClose:focus {
+  fill: var(--accent);
+}
+
+@media screen and (min-width: 768px) {
+  .modalWindow {
+    padding: 40px 0 40px 40px;
+  }
+
+  .btnClose {
+    top: 20px;
+    right: 20px;
+  }
+}

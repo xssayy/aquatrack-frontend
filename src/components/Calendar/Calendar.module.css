@@ -1,0 +1,27 @@
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 17px;
+}
+
+.day {
+  width: 28px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .days {
+    gap: 15px 48px;
+  }
+
+  .day {
+    width: 38px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .days {
+    gap: 15px 43px;
+  }
+}
