@@ -2,11 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-import WelcomePage from 'pages/WelcomePage';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import RegistrationPage from 'pages/RegistrationPage';
 import LoginForm from 'pages/LoginForm';
-import HomePage from 'pages/HomePage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import HomePage from 'pages/HomePage/HomePage';
 
 export const App = () => {
   return (

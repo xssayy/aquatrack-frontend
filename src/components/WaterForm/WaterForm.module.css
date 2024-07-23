@@ -1,0 +1,188 @@
+.inputField {
+  width: 303px;
+  height: 46px;
+  padding: 14px 16px;
+  gap: 10px;
+  border-radius: 15px;
+  border: 1px solid transparent;
+  opacity: 1;
+}
+
+.waterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroupLabel {
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #2f2f2f;
+}
+
+.formGroup input {
+  max-width: 438px;
+  max-height: 46px;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 15px;
+  border: 1px solid #2f2f2f26;
+  box-sizing: border-box;
+}
+
+.formGroup input[type='number']::-webkit-outer-spin-button,
+.formGroup input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.formGroup input:focus {
+  border-color: none;
+  outline: none;
+}
+
+.submitButton {
+  width: 116px;
+  height: 46px;
+  font-weight: 700;
+  padding: 14px 40px;
+  border-radius: 30px;
+  background-color: #9be1a0;
+  color: #323f47;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #87d28d;
+}
+
+.submitButton:disabled {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+.quantityStepperContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quantityStepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantityAmount {
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #2f2f2f;
+}
+
+.quantityLabel {
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #2f2f2f;
+}
+
+.quantityStepper button {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid #2f2f2f;
+  background-color: transparent;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantityStepper button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+.quantityDisplay {
+  width: 92px;
+  height: 43px;
+  padding: 11px 20px;
+  border-radius: 30px;
+  background-color: #323f47;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.error {
+  border-color: #ff4d4d;
+  background-color: #fff4f4;
+}
+
+.errorMessage {
+  color: #ff4d4d;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .quantityLabel {
+    line-height: 24px;
+  }
+
+  .quantityAmount {
+    line-height: 24px;
+  }
+
+  .quantityDisplay {
+    font-size: 15px;
+  }
+
+  .quantityStepper button {
+    width: 43px;
+    height: 43px;
+  }
+
+  .inputField {
+    width: 438px;
+    height: 56px;
+    padding: 16px;
+  }
+  .formGroupLabel {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .submitButton {
+    font-size: 16px;
+    line-height: 24;
+  }
+}
