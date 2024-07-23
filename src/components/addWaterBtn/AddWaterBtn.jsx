@@ -7,16 +7,16 @@ import Icon from 'components/shared/Icon.jsx';
 import css from './AddWaterBtn.module.css';
 
 const AddWaterBtn = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [, setIsOpen] = useState(false);
   const [iconFillColor, setIconFillColor] = useState('#ffffff');
 
   const handleAddWater = () => {
     setIsOpen(true);
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // };
 
   const handleMouseEnter = () => {
     setIconFillColor('#9be1a0');
