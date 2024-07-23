@@ -1,8 +1,8 @@
 
-import AddWaterBtn from "components/AddWaterBtn/AddWaterBtn";
 import ChooseDate from "components/ChooseDate/ChooseDate";
 import WaterList from "components/WaterList/WaterList";
 import css from "./DailyInfo.module.css"
+import AddWaterDailyBtn from "components/AddWaterDailyBtn/AddWaterDailyBtn";
 
 
 const DailyInfo = () => {
@@ -12,7 +12,7 @@ const DailyInfo = () => {
     <div className={css.container}>
       <div className={css.title}>
         <ChooseDate />
-        <AddWaterBtn />
+        <AddWaterDailyBtn />
       </div>
       <WaterList />
     </div>

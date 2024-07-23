@@ -1,28 +1,29 @@
 .item {
 display: flex;
 align-items: center;
-justify-content: space-between;
-border: 2px solid red;
-gap: 10px;
-padding-left: 14px;
-padding-right: 14px;
+justify-content: center;
+/* border: 2px solid red; */
+/* padding: 18px 14px; */
+background: #fff;
 
+gap: 10px;
 border-radius: 15px;
-/* width: 149px; */
+width: 149px;
 height: 74px
 }
 
 .water {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
+  gap: 6px;
 }
 
 .edit {
     display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
+  gap: 8px;
 }
 
 .volume {
@@ -30,8 +31,7 @@ font-family: "Poppins", sans-serif;
 font-weight: 700;
 font-size: 14px;
 
-line-height: 14px;
-line-height: 1;
+line-height: 100%;
 color: #323f47;
 }
 
@@ -40,8 +40,7 @@ font-family: "Poppins", sans-serif;
 font-weight: 400;
 font-size: 12px;
 
-line-height: 22px;
-line-height: 1.86667;
+line-height: 100%;
 color: rgba(47, 47, 47, 0.6);
 }
 
@@ -66,29 +65,25 @@ background-color: transparent;
 
   .item {
     gap: 20px;
-padding-left: 20px;
-padding-right: 20px;
-border-radius: 15px;
-/* width: 190px; */
-height: 86px;
+    width: 192px;
+    height: 86px;
+  }
+
+  .water {
+    gap: 0;
+  }
+  .edit {
+    gap: 14px;
   }
 
   .volume {
-
     font-size: 15px;
-    line-height: 22px;
-    line-height: 1.49333;
-}
+    line-height: 149%;
+  }
 
-.time {
-font-family: "Poppins", sans-serif;
-font-weight: 400;
-font-size: 12px;
-
-line-height: 22px;
-line-height: 1.86667;
-color: rgba(47, 47, 47, 0.6);
-}
+  .time {
+    line-height: 187%;
+  }
 
 .iconGlass {
 width: 44px;
@@ -104,8 +99,5 @@ height: 16px;
 }
 }
 @media screen and (min-width: 1440px) {
-.item {
-  /* width: 192px; */
-}
 
 }

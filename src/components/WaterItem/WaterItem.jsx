@@ -5,7 +5,7 @@ import { useState } from "react";
 import DeleteWaterModal from "components/DeleteWaterModal/DeleteWaterModal";
 import WaterModal from "components/WaterModal/WaterModal";
 
-const WaterItem = () => {
+const WaterItem = ({water}) => {
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -35,8 +35,8 @@ const WaterItem = () => {
         <p>{`${water.time}`}</p>
       </div> */}
       <div className={css.water}>
-        <p className={css.volume}>250ml</p>
-        <p className={css.time}>10:20pm</p>
+        <p className={css.volume}>{`${water.amount}ml`}</p>
+        <p className={css.time}>{`${water.time}`}</p>
       </div>
       <div className={css.edit}>
         <button onClick={handleEdit} className={css.btnEdit}><Icon id="edit" width="16" height="16"/></button>
