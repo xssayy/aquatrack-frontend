@@ -9,4 +9,4 @@ const SingInPage = () => {
   )
 }
 
-export default SingInPage
+export default SingInPage;
