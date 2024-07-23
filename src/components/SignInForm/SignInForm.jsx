@@ -36,7 +36,7 @@ const SignInForm = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = data => {
+ const onSubmit = data => {
     console.log(data)
     dispatch(signIn(data)).then((action) => {
       if (action.type === 'auth/signIn/fulfilled') {
