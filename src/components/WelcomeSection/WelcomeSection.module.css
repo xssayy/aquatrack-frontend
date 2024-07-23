@@ -1,8 +1,26 @@
 .welcomeSection {
   border-radius: 30px;
-  background: #323F47;
-  padding: 118px 16px 67px 16px;
+  background: #F0EFF4;
+  margin-top: 16px;
+  padding: 24px 16px 67px 16px;
   margin-bottom: 16px;
+  min-width: 340px;
+}
+.logo{
+  width: 152px;
+height: 24px;
+top: 24px;
+left: 1px;
+gap: 0px;
+/* padding: 64px 0 0 64px; */
+opacity: 0px;
+font-size: 24px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: -0.01em;
+text-align: center;
+color: #323F47;
+
 }
 .welcomeText {
   color: black;
@@ -10,6 +28,7 @@
   line-height: 1.28;
   letter-spacing: 0.84px;
   margin-bottom: 16px;
+  margin-top: 94px;
 }
 .welcomeTitle {
   color: #323f47;
@@ -71,42 +90,81 @@
 }
 @media  (min-width: 768px) {
   .welcomeSection {
-    padding: 106px 93px 50px 93px;
+    padding-top: 32px;
+    padding-left: 32px;
+    padding-bottom: 32px;
+    /* padding: 188px 64px 188px 61px; */
+    margin-top: 32px;
+    margin-right: 16px;
+    /* padding-bottom: 0; */
+    height: 498px;
+    margin-right: 0;
   }
-  .welcomeText {
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.96px;
+
+  .welcomeText{
+    padding-top:74px;
+    color: black;
+    font-size: 14px;
+    line-height: 1.28;
+    padding-left: 32px;
+    letter-spacing: 0.84px;
+    margin-bottom: 16px;
   }
-  .welcomeTitle {
-    font-size: 64px;
-    line-height: 70px;
-    letter-spacing: -0.64px;
+  .welcomeTitle{
+    color: #323F47;
+font-size: 80px;
+padding-left: 32px;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -0.01em;
+    text-align: left;
+
   }
-  .linkTracker {
+  .linkTracker,
+  .linkSignIn{
     padding: 18px 40px;
-    width: 169px;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: -0.16px;
   }
-  .linkSignIn {
-    width: 135px;
-    padding: 18px 39px;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: -0.16px;
+  .welcomeThumb{
+    padding-left: 32px;
+    margin-bottom: 64px;
   }
 }
 @media (min-width: 1440px) {
   .welcomeSection {
-    padding: 188px 64px 188px 61px;
-    margin: 0;
+    padding-top: 32px;
+    padding-left: 32px;
+    /* padding: 188px 64px 188px 61px; */
+    margin-top: 32px;
+    margin-right: 16px;
+    padding-bottom: 0;
+    height: 736px;
   }
+
   .welcomeText{
-    font-size: 80px;
+    padding-top:165px;
+    color: black;
+    font-size: 14px;
+    line-height: 1.28;
+    padding-left: 32px;
+    letter-spacing: 0.84px;
+    margin-bottom: 16px;
+  }
+  .welcomeTitle{
+    color: #323F47;
+font-size: 80px;
+padding-left: 32px;
+    font-weight: 700;
     line-height: 76px;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.01em;
+    text-align: left;
+
+  }
+  .linkTracker,
+  .linkSignIn{
+    padding: 18px 40px;
+  }
+  .welcomeThumb{
+    padding-left: 32px;
   }
 }
 @media (max-width: 330px) {
