@@ -5,6 +5,7 @@ import { PrivateRoute } from './PrivateRoute';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import RegistrationPage from 'pages/RegistrationPage';
 import LoginForm from 'pages/LoginForm';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import HomePage from 'pages/HomePage/HomePage';
 
 export const App = () => {
@@ -33,6 +34,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<HomePage />} />
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );
