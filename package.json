@@ -14,6 +14,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "normalize.css": "^8.0.1",
+    "notiflix": "^3.2.7",
     "rc-progress": "^4.0.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.10.4",
