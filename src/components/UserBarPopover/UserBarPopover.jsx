@@ -4,6 +4,7 @@ import ModalWindow from 'components/ModalWindow/ModalWindow';
 import Icon from 'components/Icon/Icon';
 
 import css from './UserBarPopover.module.css';
+import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
 
 const UserBarPopover = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -28,10 +29,11 @@ const UserBarPopover = () => {
         />
         Setting
       </button>
-      <ModalWindow
-        modalIsOpen={modalIsOpen}
-        onCloseModal={closeModal}
-      ></ModalWindow>
+
+      <ModalWindow onCloseModal={closeModal} modalIsOpen={modalIsOpen}>
+        <UserSettingsModal onCloseModal={closeModal} />
+      </ModalWindow>
+
       <button type="button" onClick={openModal} className={css.logOut}>
         <Icon
           id={'log-out'}
@@ -42,10 +44,6 @@ const UserBarPopover = () => {
         />
         Log out
       </button>
-      <ModalWindow
-        modalIsOpen={modalIsOpen}
-        onCloseModal={closeModal}
-      ></ModalWindow>
     </div>
   );
 };
