@@ -17,6 +17,7 @@ p {
 .logo {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   text-align: center;
   color: #323f47;
@@ -27,6 +28,9 @@ p {
   font-weight: 700;
   color: #323f47;
   align-self: baseline;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+  line-height: 1.05556;
 }
 
 .list {
@@ -39,6 +43,10 @@ p {
   margin: 0;
 }
 
+.listItem:not(:last-child) {
+  margin-bottom: 20px;
+}
+
 .label {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -46,6 +54,10 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  width: 436px;
 }
 
 .label:hover {
@@ -58,6 +70,8 @@ p {
   padding: 0 16px 0 16px;
   text-align: left;
   margin-top: 8px;
+  width: 436px;
+  height: 56px;
 }
 
 .field::placeholder {
@@ -86,6 +100,10 @@ p {
   text-align: center;
   color: #323f47;
   margin-bottom: 16px;
+  width: 436px;
+  height: 60px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .button:hover,
@@ -104,6 +122,8 @@ p {
   font-weight: 400;
   letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.5);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .redirectLink {
@@ -147,7 +167,6 @@ p {
   .logo {
     font-size: 18px;
     line-height: 1.11111;
-    letter-spacing: -0.01em;
     margin: 24px 0 126px 16px;
     align-self: baseline;
   }
@@ -155,8 +174,6 @@ p {
   .title {
     font-size: 32px;
     line-height: 1;
-    letter-spacing: -0.01em;
-    margin-bottom: 32px;
   }
 
   .listItem:not(:last-child) {
@@ -166,7 +183,6 @@ p {
   .label {
     font-size: 14px;
     line-height: 1.28571;
-    letter-spacing: -0.01em;
     width: 311px;
   }
 
@@ -190,7 +206,7 @@ p {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1439px) {
   .formContainer {
     width: 704px;
     height: 960px;
@@ -199,45 +215,31 @@ p {
   .logo {
     font-size: 24px;
     line-height: 1;
-    letter-spacing: -0.01em;
     margin: 32px 0 171px 32px;
     align-self: flex-start;
   }
 
   .title {
     font-size: 36px;
-    line-height: 1.05556;
-    letter-spacing: -0.01em;
-    margin: 0 0 32px 134px;
+    margin-left: 134px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .formContainer {
+    width: 672px;
+    height: 736px;
   }
 
-  .listItem:not(:last-child) {
-    margin-bottom: 20px;
+  .logo {
+    font-size: 24px;
+    line-height: 1;
+    margin: 32px 0 74px 32px;
+    align-self: flex-start;
   }
 
-  .label {
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
-    width: 436px;
-  }
-
-  .field {
-    /* padding: 16px 155px 16px 16px; */
-    width: 436px;
-    height: 56px;
-  }
-
-  .button {
-    /* padding: 18px 189px; */
-    width: 436px;
-    height: 60px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .redirect {
-    font-size: 16px;
-    line-height: 1.5;
+  .title {
+    font-size: 36px;
+    margin-left: 118px;
   }
 }
