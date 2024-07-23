@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import SignInForm from 'components/SignInForm/SignInForm';
 
 const SingInPage = () => {
@@ -6,7 +6,7 @@ const SingInPage = () => {
     <div>
       <SignInForm />
     </div>
-  )
-}
+  );
+};
 
 export default SingInPage;

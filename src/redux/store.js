@@ -1,6 +1,5 @@
-
-import { configureStore } from '@reduxjs/toolkit';
-import { authReducer } from './auth/slice';
+// import { configureStore } from '@reduxjs/toolkit';
+// import { authReducer } from './auth/slice.js';
 
 // import {
 //   persistStore,
@@ -13,12 +12,11 @@ import { authReducer } from './auth/slice';
 //   REGISTER,
 // } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage/index.js';
-// import { configureStore } from '@reduxjs/toolkit';
 
 // const authPersistConfig = {
-//   key: 'key',
+//   key: 'auth',
 //   storage,
-//   whitelist: ['token'],
+//   whitelist: [''],
 // };
 
 // export const store = configureStore({
@@ -34,4 +32,3 @@ import { authReducer } from './auth/slice';
 // });
 
 // export const persistor = persistStore(store);
-

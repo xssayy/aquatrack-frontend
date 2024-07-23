@@ -3,9 +3,9 @@ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import css from './SignUpForm.module.css';
-import { signIn } from 'redux/auth/operations';
+import { signIn } from '../../redux/auth/operations';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -33,20 +33,20 @@ const SignUpForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const onRegisterAccount = values => {
     reset();
 
     const { confirmPassword, ...data } = values;
 
-    dispatch(data)
-      .then(response => {
-        console.log('SignUp successful:', response);
-        dispatch(signIn(data));
-      })
-      .catch(error => {
-        console.error('SignUp failed:', error);
-      });
+    // dispatch(data)
+    //   .then(response => {
+    //     console.log('SignUp successful:', response);
+    //     dispatch(signIn(data));
+    //   })
+    //   .catch(error => {
+    //     console.error('SignUp failed:', error);
+    //   });
   };
 
   const {
