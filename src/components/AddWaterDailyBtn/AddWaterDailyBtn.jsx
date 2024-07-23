@@ -4,7 +4,7 @@ import css from "./AddWaterDailyBtn.module.css"
 
 import WaterModal from "components/WaterModal/WaterModal";
 
-import { format, parseISO } from 'date-fns';
+import { format } from 'date-fns';
 
 const AddWaterDailyBtn = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -17,11 +17,9 @@ const AddWaterDailyBtn = () => {
   };
 
 const currentDate = new Date(); // Поточна дата
-
 const formatTime = (date) => {
-  return format(date, 'hh:mmaaa').toLowerCase();
+  return format(date, 'hh:mm');
 };
-
 const formattedTime = formatTime(currentDate);
 console.log(formattedTime); // Виведе "06:58am"
 
