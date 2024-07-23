@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import style from './ModalWindow.module.css';
-import Icon from 'components/shared/Icon';
+import Icon from 'components/Icon/Icon';
 
 Modal.setAppElement('#root');
 
@@ -34,13 +34,13 @@ export default ModalWindow;
 // import UserSettingsModal from "components/UserSettingsModal/UserSettingsModal";
 // import { useState } from 'react';
 
-// const WelcomePage = () => {
+// const Component = () => {
 //     const [modalIsOpen, setModalIsOpen] = useState(false);
 
 //     function openModal() {
 //       setModalIsOpen(true);
 //   }
-  
+
 //     function closeModal() {
 //       setModalIsOpen(false);
 //     }
@@ -54,11 +54,10 @@ export default ModalWindow;
 //         modalIsOpen={modalIsOpen}
 //         onCloseModal={closeModal}
 //       >
-//         <UserSettingsModal />
+//         <UserSettingsModal onCloseModal={closeModal} /> or ....
 //       </ModalWindow>
 //     </>
 //   );
 // };
 
 // export default WelcomePage;
-
