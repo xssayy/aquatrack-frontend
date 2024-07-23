@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // import { useDispatch } from 'react-redux';
-import { signIn } from '../../redux/auth/operations';
+// import { signIn } from '../../redux/auth/operations';
 import { Link } from 'react-router-dom';
 import style from './SignInForm.module.css';
 
@@ -25,7 +25,11 @@ const loginSchema = Yup.object({
 
 const SignInForm = () => {
   // const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
+  const toggleVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const {
     register,
     handleSubmit,
@@ -47,16 +51,16 @@ const SignInForm = () => {
   };
 
   return (
-    <div className={style.container}>
+    <div className={style.formContainer}>
       {' '}
       <h1 className={style.logo}>AQUATRACK</h1>
       <h2 className={style.title}>Sign In</h2>
-      <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <ul className={style.list}>
           <li className={style.listItem}>
             <label className={style.label}>Email</label>
             <input
-              className={`${style.input} ${
+              className={`${style.field} ${
                 errors.email ? style.errorField : ''
               }`}
               type="email"
@@ -67,24 +71,35 @@ const SignInForm = () => {
           </li>
 
           <li className={style.listItem}>
-            <label className={style.label}>Password</label>
-            <input
-              className={`${style.input} ${
-                errors.email ? style.errorField : ''
-              }`}
-              type="password"
-              {...register('password')}
-              placeholder="Enter your password"
-            />
+            <label className={style.label}>
+              Password
+              <input
+                {...register('password')}
+                type={showPassword ? 'text' : 'password'}
+                className={`${style.field} ${
+                  errors.password ? style.errorField : ''
+                }`}
+                placeholder="Enter your password"
+              />
+              <button
+                onClick={() => toggleVisibility('password')}
+                className={style.toggleVisibility}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
+            </label>
+
             <p className={style.text}>{errors.password?.message}</p>
           </li>
         </ul>
         <input className={style.button} type="submit" value="Sing In" />
       </form>
-      <p className={style.redictedLink}>Don’t have an account? </p>
-      <Link to="/signup" className={style.link}>
-        Sign Up
-      </Link>
+      <p className={style.redirect}>
+        Don’t have an account?{' '}
+        <Link to="/signup" className={style.redirectLink}>
+          Sign Up
+        </Link>
+      </p>
     </div>
   );
 };

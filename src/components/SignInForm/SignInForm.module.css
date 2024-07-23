@@ -1,11 +1,3 @@
-.container{
-  border-radius: 30px;
-  background-color: #f0eff4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 input {
   all: unset;
 }
@@ -14,22 +6,31 @@ p {
   margin: 0;
 }
 
-.logo{
+.formContainer {
+  border-radius: 30px;
+  background-color: #f0eff4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   text-align: center;
   color: #323f47;
 }
 
-.title{
-  font-family: "Poppins", sans-serif;
+.title {
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 1;
-  letter-spacing: -0.01em;
   color: #323f47;
   align-self: baseline;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+  line-height: 1.05556;
 }
 
 .list {
@@ -42,32 +43,39 @@ p {
   margin: 0;
 }
 
-.label{
+.listItem:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.label {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 1.28571;
-  letter-spacing: -0.01em;
   color: #2f2f2f;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  width: 436px;
+  position: relative;
 }
 
-.input{
+.label:hover {
+  cursor: pointer;
+}
+
+.field {
   border: 1px solid rgba(47, 47, 47, 0.2);
   border-radius: 15px;
-  padding: 16px 184px 16px 16px;
-  width: 311px;
-  height: 50px;
+  padding: 0 16px 0 16px;
+  text-align: left;
+  margin-top: 8px;
+  width: 404px;
+  height: 56px;
 }
 
-.input:active{
-  border: 1px solid rgba(47, 47, 47, 0.4);
-}
-
-.input:hover{
-  cursor: text;
-}
-
-.input::placeholder {
+.field::placeholder {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -76,21 +84,34 @@ p {
   color: rgba(47, 47, 47, 0.6);
 }
 
-.button{
+.field:hover {
+  cursor: text;
+}
+
+.field:active {
+  border: 1px solid rgba(47, 47, 47, 0.4);
+}
+
+.toggleVisibility {
+  padding: 0;
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+}
+
+.button {
   border-radius: 30px;
-  padding: 16px 131px;
-  width: 311px;
-  height: 50px;
   background: #9be1a0;
-  cursor: pointer;
-  border: none;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 1.28571;
   letter-spacing: -0.01em;
   text-align: center;
   color: #323f47;
+  margin-bottom: 16px;
+  width: 436px;
+  height: 60px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .button:hover,
@@ -104,16 +125,25 @@ p {
   color: #bcbcbc;
 }
 
-.rediktesLink{
+.redirect {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.5);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-.link:active,
-.link:hover,
-.link:focus {
+.redirectLink {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #2f2f2f;
+}
+
+.redirectLink:active,
+.redirectLink:hover,
+.redirectLink:focus {
   color: rgba(50, 63, 71, 0.4);
 }
 
@@ -136,61 +166,56 @@ p {
   margin-top: 8px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1440px){
-.container{
-  width: 343px;
-  height: 780px;
+@media screen and (max-width: 767px) {
+  .formContainer {
+    width: 343px;
+    height: 780px;
+  }
+
+  .logo {
+    font-size: 18px;
+    line-height: 1.11111;
+    margin: 24px 0 126px 16px;
+    align-self: baseline;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .listItem:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 1.28571;
+    width: 311px;
+  }
+
+  .field {
+    /* padding: 16px 155px 16px 16px; */
+    width: 280px;
+    height: 50px;
+  }
+
+  .button {
+    /* padding: 16px 129px; */
+    width: 311px;
+    height: 50px;
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+
+  .redirect {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
 }
 
-.logo {
-  font-size: 18px;
-  line-height: 1.11111;
-  letter-spacing: -0.01em;
-  margin: 24px 0 126px 16px;
-  align-self: baseline;
-}
-
-.title{
-  font-size: 36px;
-  line-height: 1.05556;
-  margin-bottom: 32px;
-}
-
-.listItem:not(:last-child) {
-  margin-bottom: 16px;
-}
-
-.label{
-  font-size: 16px;
-  line-height: 1.5;
-  width: 311px;
-}
-
-
-.input{
-  border-radius: 15px;
-  padding: 16px 293px 16px 16px;
-  width: 280px;
-  height: 50px;
-}
-
-.button{
-  padding: 18px 191px;
-  width: 311px;
-  height: 50px;
-  font-size: 14px;
-  line-height: 1.28571;
-}
-
-.link{
-  font-size: 14px;
-  line-height: 1.28571;
-}
-
-
-}
-@media screen and (min-width: 1440px){
-.container {
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .formContainer {
     width: 704px;
     height: 960px;
   }
@@ -198,43 +223,31 @@ p {
   .logo {
     font-size: 24px;
     line-height: 1;
-    letter-spacing: -0.01em;
     margin: 32px 0 171px 32px;
     align-self: flex-start;
   }
 
   .title {
     font-size: 36px;
-    line-height: 1.05556;
-    letter-spacing: -0.01em;
-    margin: 0 0 32px 134px;
+    margin-left: 134px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .formContainer {
+    width: 672px;
+    height: 736px;
   }
 
-  .listItem:not(:last-child) {
-    margin-bottom: 20px;
+  .logo {
+    font-size: 24px;
+    line-height: 1;
+    margin: 32px 0 74px 32px;
+    align-self: flex-start;
   }
 
-  .label {
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
-    width: 436px;
-  }
-
-  .input {
-    width: 436px;
-    height: 56px;
-  }
-
-  .button {
-    width: 436px;
-    height: 60px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .link {
-    font-size: 16px;
-    line-height: 1.5;
+  .title {
+    font-size: 36px;
+    margin-left: 118px;
   }
 }

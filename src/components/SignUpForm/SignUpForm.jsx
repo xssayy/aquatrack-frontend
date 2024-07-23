@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 import css from './SignUpForm.module.css';
-import { signIn } from '../../redux/auth/operations';
+// import { signIn } from '../../redux/auth/operations';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -74,8 +74,8 @@ const SignUpForm = () => {
             <label className={css.label}>
               Email
               <input
-                {...register('email')}
                 className={`${css.field} ${errors.email ? css.errorField : ''}`}
+                {...register('email')}
                 placeholder="Enter your email"
               />
             </label>
