@@ -10,20 +10,17 @@ const WaterModal = ({ type, initialData }) => {
 
   return (
     // <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
-      <div className={styles.waterModalContainer}>
-        <div className={styles.waterModalHeader}>
-          <h2
-            className={styles.waterModalTitle}
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
-          <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
-        </div>
-        <WaterForm
-          type={type}
-          initialData={initialData}
-          // closeModal={closeModal}
-        />
+    <div className={styles.waterModalContainer}>
+      <div className={styles.waterModalHeader}>
+        <h2 className={styles.waterModalTitle}>{title} </h2>
+        <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
       </div>
+      <WaterForm
+        type={type}
+        initialData={initialData}
+        // closeModal={closeModal}
+      />
+    </div>
     // </ModalWindow>
   );
 };
