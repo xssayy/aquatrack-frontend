@@ -58,6 +58,7 @@ p {
   line-height: 1.5;
   letter-spacing: -0.01em;
   width: 436px;
+  position: relative;
 }
 
 .label:hover {
@@ -70,7 +71,7 @@ p {
   padding: 0 16px 0 16px;
   text-align: left;
   margin-top: 8px;
-  width: 436px;
+  width: 404px;
   height: 56px;
 }
 
@@ -89,6 +90,13 @@ p {
 
 .field:active {
   border: 1px solid rgba(47, 47, 47, 0.4);
+}
+
+.toggleVisibility {
+  padding: 0;
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
 }
 
 .button {

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import css from './SignUpForm.module.css';
+import { signIn } from 'redux/auth/operations';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -26,13 +27,26 @@ const registrationSchema = Yup.object({
 });
 
 const SignUpForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const dispatch = useDispatch();
   const onRegisterAccount = values => {
     reset();
 
     const { confirmPassword, ...data } = values;
 
-    dispatch(data);
+    dispatch(data)
+      .then(response => {
+        console.log('SignUp successful:', response);
+        dispatch(signIn(data));
+      })
+      .catch(error => {
+        console.error('SignUp failed:', error);
+      });
   };
 
   const {
@@ -74,11 +88,18 @@ const SignUpForm = () => {
               Password
               <input
                 {...register('password')}
+                type={showPassword ? 'text' : 'password'}
                 className={`${css.field} ${
                   errors.password ? css.errorField : ''
                 }`}
                 placeholder="Enter your password"
               />
+              <button
+                onClick={() => toggleVisibility('password')}
+                className={css.toggleVisibility}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
             </label>
             <p className={errors.email ? css.error : ''}>
               {errors.password?.message}
@@ -89,11 +110,18 @@ const SignUpForm = () => {
               Repeat password
               <input
                 {...register('confirmPassword')}
+                type={showPassword ? 'text' : 'password'}
                 className={`${css.field} ${
                   errors.confirmPassword ? css.errorField : ''
                 }`}
                 placeholder="Repeat your password"
               />
+              <button
+                onClick={() => toggleVisibility('password')}
+                className={css.toggleVisibility}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
             </label>
             <p className={errors.email ? css.error : ''}>
               {errors.confirmPassword?.message}
