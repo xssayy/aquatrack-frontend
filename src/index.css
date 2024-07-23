@@ -28,12 +28,16 @@
   font-style: normal;
 }
 
-:root{
-  --main-text: #2F2F2F;
-  --main: #323F47;
-  --accent: #9BE1A0;
-  --background: #F0EFF4;
-  --main-white: #FFFFFF;
+:root {
+  --main-text: #2f2f2f;
+  --main: #323f47;
+  --accent: #9be1a0;
+  --background: #f0eff4;
+  --main-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
