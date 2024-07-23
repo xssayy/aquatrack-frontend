@@ -9,6 +9,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import HomePage from 'pages/HomePage/HomePage';
 import SignUpPage from 'pages/SignUpPage/SignUpPage';
 import SingInPage from 'pages/SignInPage/SignInPage';
@@ -46,6 +47,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/signin" component={<HomePage />} />
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );
