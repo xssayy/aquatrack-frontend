@@ -1,28 +1,8 @@
-import { useState } from 'react';
-
-import ModalWindow from 'components/ModalWindow/ModalWindow';
 import Icon from 'components/Icon/Icon';
 
 import css from './UserBarPopover.module.css';
-import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
 
-const UserBarPopover = ({ closePopover }) => {
-  const [modalSettingsIsOpen, setModalSettingsIsOpen] = useState(false);
-  const [modalLogOutIsOpen, setModalLogOutIsOpen] = useState(false);
-
-  function openModal(e) {
-    if (e.target.id === 'settings_btn') {
-      setModalSettingsIsOpen(true);
-    } else if (e.target.id === 'log-out_btn') {
-      setModalLogOutIsOpen(true);
-    }
-  }
-
-  function closeModal() {
-    setModalSettingsIsOpen(false);
-    setModalLogOutIsOpen(false);
-  }
-
+const UserBarPopover = ({ openModal }) => {
   return (
     <div className={css.userBarPopoverContainer}>
       <button
@@ -41,10 +21,6 @@ const UserBarPopover = ({ closePopover }) => {
         Setting
       </button>
 
-      <ModalWindow onCloseModal={closeModal} modalIsOpen={modalSettingsIsOpen}>
-        <UserSettingsModal onCloseModal={closeModal} />
-      </ModalWindow>
-
       <button
         type="button"
         onClick={openModal}
@@ -60,10 +36,6 @@ const UserBarPopover = ({ closePopover }) => {
         />
         Log out
       </button>
-      <ModalWindow
-        onCloseModal={closeModal}
-        modalIsOpen={modalLogOutIsOpen}
-      ></ModalWindow>
     </div>
   );
 };

@@ -25,14 +25,16 @@
   font-size: 14px;
   font-weight: 700;
 
-  fill: #323f47;
+  color: #323f47;
   background-color: #ffffff;
+}
+
+.settings:hover {
+  cursor: pointer;
 }
 
 .iconLogOut {
   margin-right: 4px;
-
-  fill: rgba(50, 63, 71, 0.4);
 }
 
 .logOut {
@@ -51,11 +53,15 @@
   background-color: #ffffff;
 }
 
+.logOut:hover {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   .userBarPopoverContainer {
     top: 64px;
     right: 0;
     left: auto;
-    width: 117px;
+    width: 157px;
   }
 }
