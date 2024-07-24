@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import ModalWindow from '../ModalWindow/ModalWindow';
-// import { toast } from 'react-toastify';
-// import { useDispatch } from 'react-redux';
-// import axios from 'axios';
-import styles from './DeleteWaterModal.module.css';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import styles from './SimpleDeleteWaterModal.module.css';
 
-const DeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
+const SimpleDeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
   const [isProcessing, setIsProcessing] = useState(false);
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   const handleDelete = async () => {
-  //     setIsProcessing(true);
-  //     try {
-  //       await axios.delete(`/api/water/${recordId}`);
-  //       toast.success('Record deleted successfully');
-  //       dispatch(); // Оновлення даних за допомогою Redux
-  //     } catch (error) {
-  //       toast.error('Failed to delete record');
-  //     } finally {
-  //       closeModal();
-  //       setIsProcessing(false);
-  //     }
-  //   };
+  const handleDelete = async () => {
+    setIsProcessing(true);
+    try {
+      await axios.delete(`/api/water/${recordId}`);
+      toast.success('Record deleted successfully');
+      dispatch(); // Оновлення даних за допомогою Redux
+    } catch (error) {
+      toast.error('Failed to delete record');
+    } finally {
+      closeModal();
+      setIsProcessing(false);
+    }
+  };
 
   return (
     <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
@@ -32,7 +32,7 @@ const DeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
       <div className={styles.buttonContainer}>
         <button
           type="button"
-          //   onClick={handleDelete}
+          onClick={handleDelete}
           className={`${styles.commonBtn} ${styles.deleteBtn}`}
         >
           Delete
@@ -50,4 +50,4 @@ const DeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
   );
 };
 
-export default DeleteWaterModal;
+export default SimpleDeleteWaterModal;
