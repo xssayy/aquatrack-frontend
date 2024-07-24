@@ -1,5 +1,3 @@
-@import-normalize; /* bring in normalize.css styles */
-
 @font-face {
   font-family: 'Gilroy';
   src: url('../assets/Gilroy/Gilroy-Bold.ttf') format('truetype');
@@ -34,10 +32,6 @@
   --accent: #9be1a0;
   --background: #f0eff4;
   --main-white: #ffffff;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 body {

@@ -5,14 +5,20 @@ export const WelcomeSection = () => {
   return (
     <div className={css.welcomeSection}>
       <div className={css.welcomeLogo}>
-<a href="/" className={css.logo}>AQUATRACK</a>
+        <a href="/" className={css.logo}>
+          AQUATRACK
+        </a>
       </div>
       <p className={css.welcomeText}>Record daily water intake and track</p>
-<h1 className={css.welcomeTitle}>Water consumption tracker</h1>
-<div className={css.welcomeThumb}>
-<NavLink className={css.linkTracker} to='/sign-up'>Try tracker</NavLink>
-<NavLink className={css.linkSignIn} to='/sign-in'>Sign in</NavLink>
-</div>
+      <h1 className={css.welcomeTitle}>Water consumption tracker</h1>
+      <div className={css.welcomeThumb}>
+        <NavLink className={css.linkTracker} to="/signup">
+          Try tracker
+        </NavLink>
+        <NavLink className={css.linkSignIn} to="/signin">
+          Sign in
+        </NavLink>
+      </div>
     </div>
   );
 };

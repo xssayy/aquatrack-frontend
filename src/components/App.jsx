@@ -7,6 +7,7 @@ import RegistrationPage from 'pages/RegistrationPage';
 import LoginForm from 'pages/LoginForm';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import HomePage from 'pages/HomePage/HomePage';
+import 'modern-normalize';
 
 export const App = () => {
   return (
@@ -39,4 +40,3 @@ export const App = () => {
     </Layout>
   );
 };
-

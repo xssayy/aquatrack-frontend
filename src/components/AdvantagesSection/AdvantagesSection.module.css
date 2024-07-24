@@ -5,80 +5,76 @@
   background-position: center;
   height: 353px;
   border-radius: 30px;
-  /* margin: 0 16px 32px 16px; */
+
   position: relative;
 }
 .sectionBox {
-  position: absolute;
-  display: inline-flex;
-  top: 158px;
-  left: 16px;
-  /* width: 121px; */
-  /* padding: 10px 14px; */
+  display: flex;
   align-items: center;
   border-radius: 30px;
-  background:white;
+  background: var(--main-white);
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
 }
 .buttonBox {
-  display: inline-flex;
-  position: absolute;
-  top: 23px;
-  right: 60px;
-  width: 160px;
+  display: flex;
   padding: 10px 14px;
+  gap: 4px;
   align-items: center;
-  justify-content: center;
+  width: fit-content;
   border-radius: 30px;
-  background:white;
+  background: var(--main-white);
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+
+  position: absolute;
+  top: 209px;
+  left: 16px;
 }
 
-.containers{
+.containers {
   position: relative;
-  /* height: 200px; */
   display: flex;
-  align-items: center; /* Adjust as needed */
+  align-items: center;
 }
-.pictureImage {
-  border-radius: 50%;
-  width: 26px;
-  height: 28px;
+
+.pictureContainer1 {
+  z-index: 3;
 }
-/* .pictureContainer1 {
-transform: translateX(20px);
-} */
+
 .pictureContainer2 {
-transform: translateX(-10px);
+  margin-left: -8px;
+  z-index: 2;
 }
 
 .pictureContainer3 {
-  transform: translateX(-20px);
-  }
-.sectionsTextLeters {
-  width: 67px;
-  margin-left: 5px;
-};
-
- .buttonListImgItemImg{
-  border-radius: 50%;
- }
-.buttonListImg {
-  display: flex;
-
+  z-index: 1;
+  margin-left: -8px;
+  display: block;
 }
 
+.pictureImage {
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  object-fit: cover;
+  outline: 2px solid var(--main-white);
+}
+
+.buttonListImgItemImg {
+  border-radius: 50%;
+}
+.buttonListImg {
+  display: flex;
+}
 
 .sectionsTextLeters {
-  color: #323F47;
+  color: var(--main);
   font-size: 15px;
   font-weight: 700;
   line-height: 1.16;
-  /* margin-left: -20px; */
 }
 
 .span {
-  color: #9BE1A0;
+  color: var(--accent);
   font-size: 12px;
   font-weight: 700;
   line-height: 14px;
@@ -87,8 +83,16 @@ transform: translateX(-10px);
   border-radius: 50%;
   width: 8px;
   height: 8px;
-  background-color:#9BE1A0;
+  background-color: var(--accent);
 }
+
+.group {
+  display: flex;
+  position: absolute;
+  top: 265px;
+  right: 16px;
+}
+
 .groupListItem {
   display: flex;
   flex-wrap: wrap;
@@ -98,37 +102,34 @@ transform: translateX(-10px);
   border-radius: 30px;
 }
 .groupListItem:nth-child(2) {
-  background: #9BE1A0;
-
+  background: var(--accent);
 }
 .groupListItem:nth-child(1) {
-  background:  #323F47;
+  background: var(--main);
 
   gap: 4px;
 }
 .groupListItem:nth-child(3) {
-  background:white;
-
+  background: var(--main-white);
 }
 .groupListItemText {
-  color: white;
-  justify-content: center;
-  text-align: center;
+  color: var(--main-white);
+
   font-size: 8px;
   font-weight: 700;
   line-height: 8px;
   letter-spacing: -0.08px;
 }
-.groupListItemTextBlacks{
+.groupListItemTextBlacks {
   display: flex;
 }
 .groupListItemTextBlack,
-.groupListItemTextBlacks{
-  color: #323F47;
-  text-align: center;
+.groupListItemTextBlacks {
+  color: var(--main);
+
   font-size: 8px;
   font-weight: 700;
-  line-height: 8px;
+  line-height: 100%;
   letter-spacing: -0.08px;
 }
 .groupList {
@@ -137,64 +138,35 @@ transform: translateX(-10px);
   flex-wrap: wrap;
   gap: 4px;
 }
-.group {
-  position: absolute;
-  bottom: 32px;
-  right: 16px;
-  display: flex;
-  justify-content: flex-end;
-}
+
 .sectionBox {
   top: 335px;
 }
 .sectionsTextLeters {
-  color:  #323F47;
+  color: var(--main);
   font-size: 12px;
   font-weight: 700;
-  line-height: 1.16;
-  padding-right: 10px;
-}
-.buttonBox{
-  transform: translate(-120px, 180px);
-}
-.group {
-  /* bottom: 64px; */
-  padding: 10px;
+  line-height: 117%;
 }
 
 @media (min-width: 768px) {
   .section {
     height: 446px;
-    padding-left: 32px;
-    padding-right: 32px;
-    /* padding-bottom: 32px; */
   }
-  .sectionBox {
-    top: 201px;
+
+  .buttonBox {
+    top: 283px;
+    left: 32px;
+  }
+
+  .group {
+    top: 336px;
     right: 32px;
-    width: 158px;
-    padding: 10px 20px;
-  }
-  .group{
-    bottom: 20px;
   }
   .pictureImage {
     border-radius: 50%;
     width: 47px;
     height: 47px;
-  }
-  .buttonBox {
-    top: 32px;
-    right: 42px;
-    width: 263px;
-    padding: 10px 20px;
-  }
-  .buttonListImgItem{
-    height: 47px;
-    width: 47px;
-  }
-  .buttonBox{
-    transform: translate(-350px, 270px);
   }
 
   .sectionsTextLeterss {
@@ -207,79 +179,43 @@ transform: translateX(-10px);
     font-size: 15px;
     line-height: 1.49;
   }
-  .group {
-    position: absolute;
-    right: 32px;
-    height: 78px;
-  }
+
   .groupList {
     gap: 10px;
     max-width: 242px;
-    height: 78px;
   }
 
-  .groupListItemText{
+  .groupListItemText {
     font-size: 12px;
     line-height: 1;
     letter-spacing: -0.12px;
   }
   .sectionsTextLeters {
-    color:  #323F47;
     font-size: 15px;
     font-weight: 700;
     line-height: 1.16;
-    padding-right: 10px;
+
     width: 90px;
-    height: 45px;
   }
   .groupListItemTextBlack,
   .groupListItemTextBlacks {
-    color: black;
     font-size: 12px;
     line-height: 1;
     letter-spacing: -0.12px;
-  }
-  .sectionBox {
-    top: 335px;
   }
 }
 
 @media (min-width: 1440px) {
   .section {
-    /* margin-left: 16px;
-    margin-top: 32px;
-    padding-bottom: 64px;
-    padding-left: 0;
-    padding-right: 0;
-    min-width: 672px;
-    height: 736px; */
-    padding-right: 32px;
-    /* padding: 188px 64px 188px 61px; */
-    margin-top: 32px;
-    margin-left: 16px;
     height: 760px;
-    min-width: 672px;
-  }
-  .sectionBox {
-    top: 335px;
+    width: 672px;
   }
 
-  /* .sectionsTextLeters {
-    color:  #323F47;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.16;
-    padding-right: 10px;
-    width: 90px;
-    height: 45px;
-  } */
-  .buttonBox{
-    /* width: 237px; */
-    transform: translate(-350px, 500px);
+  .buttonBox {
+    top: 537px;
   }
+
   .group {
-    bottom: 64px;
-    padding: 10px;
+    top: 594px;
   }
-
 }

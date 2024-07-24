@@ -1,23 +1,14 @@
-// import { Container } from "../components/Container/Container.jsx";
-// import { AdvantagesSection } from "../components/AdvantagesSection/AdvantagesSection.jsx";
-// import { WelcomeSection } from "../components/WelcomeSection/WelcomeSection.jsx";
-// // import { Helmet } from 'react-helmet';
+import WaterMainInfo from 'components/waterMainInfo/WaterMainInfo';
+import WaterDetailedInfo from 'components/WaterDetailedInfo/WaterDetailedInfo';
+import style from './HomePage.module.css';
 
-// const HomePage = () => {
-
-//   return (
-// <Container>
-//   {/* <Helmet> */}
-//     <title>Home</title>
-//   {/* </Helmet> */}
-//   <WelcomeSection />
-//   <AdvantagesSection />
-// </Container>
-//   );
-// };
-
-// export default HomePage;
 const HomePage = () => {
-  return <></>;
+  return (
+    <div className={style.container}>
+      <WaterMainInfo />
+      <WaterDetailedInfo />
+    </div>
+  );
 };
+
 export default HomePage;

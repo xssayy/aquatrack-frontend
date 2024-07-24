@@ -1,13 +1,14 @@
-import WaterMainInfo from 'components/waterMainInfo/WaterMainInfo';
-import WaterDetailedInfo from 'components/WaterDetailedInfo/WaterDetailedInfo';
-import style from './WelcomePage.module.css';
+import { Container } from 'components/Container/Container.jsx';
+
+import { WelcomeSection } from 'components/WelcomeSection/WelcomeSection.jsx';
+import { AdvantagesSection } from 'components/AdvantagesSection/AdvantagesSection.jsx';
 
 const WelcomePage = () => {
   return (
-    <div className={style.container}>
-      <WaterMainInfo />
-      <WaterDetailedInfo />
-    </div>
+    <Container>
+      <WelcomeSection />
+      <AdvantagesSection />
+    </Container>
   );
 };
 
