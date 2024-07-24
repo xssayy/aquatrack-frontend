@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import css from './Calendar.module.css';
 import clsx from 'clsx';
 import { CalendarItem } from 'components/CalendarItem/CalendarItem';
@@ -200,7 +199,7 @@ export const Calendar = ({ chosenDate }) => {
   // ];
 
   return (
-    <div className={css.container}>
+    <div>
       <ul className={css.days}>
         {daysWithWater.map(day => {
           return (

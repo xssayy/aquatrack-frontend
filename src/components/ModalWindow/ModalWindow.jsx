@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import style from './ModalWindow.module.css';
-import Icon from 'components/shared/Icon';
+import Icon from 'components/Icon/Icon';
 
 Modal.setAppElement('#root');
 
@@ -40,7 +40,7 @@ export default ModalWindow;
 //     function openModal() {
 //       setModalIsOpen(true);
 //   }
-  
+
 //     function closeModal() {
 //       setModalIsOpen(false);
 //     }
@@ -61,4 +61,3 @@ export default ModalWindow;
 // };
 
 // export default WelcomePage;
-

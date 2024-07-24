@@ -1,16 +1,17 @@
 import { useState } from 'react';
 
-import Icon from 'components/shared/Icon.jsx';
-// import ModalWindow from 'components/ModalWindow/ModalWindow.jsx';
-// import WaterModal from '../waterModal/WaterModal.jsx';
+import Icon from 'components/Icon/Icon.jsx';
+import { format } from 'date-fns';
 
 import css from './AddWaterBtn.module.css';
+import WaterModal from 'components/WaterModal/WaterModal';
+import ModalWindow from 'components/ModalWindow/ModalWindow';
 
-const AddWaterBtn = () => {
+const MainAddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [iconFillColor, setIconFillColor] = useState('#ffffff');
 
-  const handleAddWater = () => {
+  const openModal = () => {
     setIsOpen(true);
   };
 
@@ -26,12 +27,18 @@ const AddWaterBtn = () => {
     setIconFillColor('#ffffff');
   };
 
+  const currentDate = new Date(); // Поточна дата
+  const formatTime = date => {
+    return format(date, 'HH:mm');
+  };
+  const formattedTime = formatTime(currentDate);
+
   return (
     <div className={css.addWaterBtnContainer}>
       <button
         className={css.addWaterBtn}
         type="button"
-        onClick={handleAddWater}
+        onClick={openModal}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -44,11 +51,15 @@ const AddWaterBtn = () => {
         />
         Add water
       </button>
-      {/* <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
-        <WaterModal />
-      </ModalWindow> */}
+
+      <ModalWindow onCloseModal={closeModal} modalIsOpen={isOpen}>
+        <WaterModal
+          type="add"
+          initialData={{ amount: 50, time: `${formattedTime}` }}
+        />
+      </ModalWindow>
     </div>
   );
 };
 
-export default AddWaterBtn;
+export default MainAddWaterBtn;

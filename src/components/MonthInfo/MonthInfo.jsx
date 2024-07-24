@@ -3,7 +3,7 @@ import css from './MonthInfo.module.css';
 import { Calendar } from 'components/Calendar/Calendar';
 import { useState } from 'react';
 
-export const MonthInfo = () => {
+const MonthInfo = () => {
   const [chosenDate, setChosenDate] = useState(new Date());
 
   return (
@@ -21,3 +21,5 @@ export const MonthInfo = () => {
     </div>
   );
 };
+
+export default MonthInfo;
