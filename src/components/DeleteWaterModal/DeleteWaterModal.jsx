@@ -3,9 +3,9 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import styles from './SimpleDeleteWaterModal.module.css';
+import styles from './DeleteWaterModal.module.css';
 
-const SimpleDeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
+const DeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const dispatch = useDispatch();
 
@@ -50,4 +50,4 @@ const SimpleDeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
   );
 };
 
-export default SimpleDeleteWaterModal;
+export default DeleteWaterModal;
