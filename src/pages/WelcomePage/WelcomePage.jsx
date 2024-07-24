@@ -1,5 +1,4 @@
 import { Container } from 'components/Container/Container.jsx';
-
 import { WelcomeSection } from 'components/WelcomeSection/WelcomeSection.jsx';
 import { AdvantagesSection } from 'components/AdvantagesSection/AdvantagesSection.jsx';
 

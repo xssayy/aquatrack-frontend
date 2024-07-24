@@ -4,20 +4,22 @@ import css from './WelcomeSection.module.css';
 export const WelcomeSection = () => {
   return (
     <div className={css.welcomeSection}>
-      <div className={css.welcomeLogo}>
-        <a href="/" className={css.logo}>
+      <div className={css.logoContainer}>
+        <a href="/aquatrack-frontend" className={css.logo}>
           AQUATRACK
         </a>
       </div>
-      <p className={css.welcomeText}>Record daily water intake and track</p>
-      <h1 className={css.welcomeTitle}>Water consumption tracker</h1>
-      <div className={css.welcomeThumb}>
-        <NavLink className={css.linkTracker} to="/signup">
-          Try tracker
-        </NavLink>
-        <NavLink className={css.linkSignIn} to="/signin">
-          Sign in
-        </NavLink>
+      <div className={css.welcomeContainer}>
+        <p className={css.welcomeText}>Record daily water intake and track</p>
+        <h1 className={css.welcomeTitle}>Water consumption tracker</h1>
+        <div className={css.welcomeThumb}>
+          <NavLink className={css.linkTracker} to="/signup">
+            Try tracker
+          </NavLink>
+          <NavLink className={css.linkSignIn} to="/signin">
+            Sign in
+          </NavLink>
+        </div>
       </div>
     </div>
   );
