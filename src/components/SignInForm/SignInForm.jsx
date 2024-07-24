@@ -51,28 +51,29 @@ const SignInForm = () => {
   };
 
   return (
-    <div className={style.formContainer}>
-      {' '}
-      <h1 className={style.logo}>AQUATRACK</h1>
-      <h2 className={style.title}>Sign In</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <ul className={style.list}>
-          <li className={style.listItem}>
-            <label className={style.label}>Email</label>
-            <input
-              className={`${style.field} ${
-                errors.email ? style.errorField : ''
-              }`}
-              type="email"
-              {...register('email')}
-              placeholder="Enter your email"
-            />
-            <p className={style.text}>{errors.email?.message}</p>
-          </li>
+    <div className={style.signInContainer}>
+      <a href="/aquatrack-frontend" className={style.logo}>
+        AQUATRACK
+      </a>
+      <div className={style.formContainer}>
+        <h2 className={style.title}>Sign In</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={style.inputContainer}>
+            <div className={style.inputItem}>
+              <label className={style.label}>Email</label>
+              <input
+                className={`${style.field} ${
+                  errors.email ? style.errorField : ''
+                }`}
+                type="email"
+                {...register('email')}
+                placeholder="Enter your email"
+              />
+              <p className={style.text}>{errors.email?.message}</p>
+            </div>
 
-          <li className={style.listItem}>
-            <label className={style.label}>
-              Password
+            <div className={style.inputItem}>
+              <label className={style.label}>Password</label>
               <input
                 {...register('password')}
                 type={showPassword ? 'text' : 'password'}
@@ -87,19 +88,18 @@ const SignInForm = () => {
               >
                 {showPassword ? 'Hide' : 'Show'}
               </button>
-            </label>
-
-            <p className={style.text}>{errors.password?.message}</p>
-          </li>
-        </ul>
-        <input className={style.button} type="submit" value="Sing In" />
-      </form>
-      <p className={style.redirect}>
-        Don’t have an account?{' '}
-        <Link to="/signup" className={style.redirectLink}>
-          Sign Up
-        </Link>
-      </p>
+              <p className={style.text}>{errors.password?.message}</p>
+            </div>
+          </div>
+          <input className={style.button} type="submit" value="Sing In" />
+        </form>
+        <p className={style.redirect}>
+          Don’t have an account?{' '}
+          <Link to="/signup" className={style.redirectLink}>
+            Sign Up
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
