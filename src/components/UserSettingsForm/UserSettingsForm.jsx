@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import style from './UserSettingsForm.module.css';
-import Icon from 'components/shared/Icon';
+import Icon from 'components/Icon/Icon';
 import avatar from '../../img/avatar.png';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';

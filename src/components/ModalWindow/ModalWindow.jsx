@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import style from './ModalWindow.module.css';
-import Icon from 'components/shared/Icon';
+import Icon from 'components/Icon/Icon';
 
 Modal.setAppElement('#root');
 
