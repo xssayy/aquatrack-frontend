@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { clearUserData } from '../../redux/actionns/action';
 import styles from './LogOutModal.module.css';
 
 const LogOutModal = ({ isOpen, closeModal }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -17,7 +17,7 @@ const LogOutModal = ({ isOpen, closeModal }) => {
     setIsLoggingOut(true);
     try {
       await axios.post('/api/logout');
-      dispatch(clearUserData());
+      // dispatch(clearUserData());
       localStorage.clear();
       navigate('/home');
     } catch (error) {
