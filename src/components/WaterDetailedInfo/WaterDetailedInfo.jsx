@@ -13,8 +13,8 @@ const WaterDetailedInfo = () => {
   return (
     <div className={css.waterDetailedInfoContainer}>
       <UserPanel />
-      <DailyInfo />
-      <MonthInfo />
+      <DailyInfo value={chosenDate} setChosenDate={setChosenDate} />
+      <MonthInfo value={chosenDate} setChosenDate={setChosenDate} />
     </div>
   );
 };
