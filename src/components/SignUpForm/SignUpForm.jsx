@@ -133,7 +133,7 @@ const SignUpForm = () => {
       </form>
       <p className={css.redirect}>
         Already have account?{' '}
-        <Link to="/signin" className={css.redirectLink}>
+        <Link to="/aquatrack-frontend/signin" className={css.redirectLink}>
           Sign In
         </Link>
       </p>

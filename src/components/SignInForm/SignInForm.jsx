@@ -96,7 +96,7 @@ const SignInForm = () => {
       </form>
       <p className={style.redirect}>
         Don’t have an account?{' '}
-        <Link to="/signup" className={style.redirectLink}>
+        <Link to="/aquatrack-frontend/signup" className={style.redirectLink}>
           Sign Up
         </Link>
       </p>
