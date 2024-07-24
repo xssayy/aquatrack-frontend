@@ -1,0 +1,39 @@
+.waterModalTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #323f47;
+  margin-bottom: 24px;
+}
+
+.waterModalSubtitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #323f47;
+  margin-bottom: 24px;
+}
+
+.waterModalContainer {
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .waterModalTitle {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .waterModalSubtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .waterModalContainer {
+    padding-right: 40px;
+  }
+}

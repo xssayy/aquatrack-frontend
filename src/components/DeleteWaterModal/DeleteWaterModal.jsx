@@ -1,3 +1,4 @@
+DeleteWaterModal
 import React, { useState } from 'react';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import { toast } from 'react-toastify';
@@ -51,3 +52,4 @@ const SimpleDeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
 };
 
 export default SimpleDeleteWaterModal;
+
