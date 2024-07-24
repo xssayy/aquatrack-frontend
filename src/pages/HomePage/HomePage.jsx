@@ -1,13 +1,14 @@
 import WaterMainInfo from 'components/waterMainInfo/WaterMainInfo';
 import WaterDetailedInfo from 'components/WaterDetailedInfo/WaterDetailedInfo';
-import style from './HomePage.module.css';
+
+import { Container } from 'components/Container/Container';
 
 const HomePage = () => {
   return (
-    <div className={style.container}>
+    <Container>
       <WaterMainInfo />
       <WaterDetailedInfo />
-    </div>
+    </Container>
   );
 };
 

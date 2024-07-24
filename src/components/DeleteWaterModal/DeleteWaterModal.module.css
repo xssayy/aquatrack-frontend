@@ -8,6 +8,10 @@
   margin-bottom: 16px;
 }
 
+.modalContainer {
+  padding-right: 40px;
+}
+
 .question {
   font-size: 14px;
   font-weight: 400;
