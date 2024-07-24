@@ -31,30 +31,21 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route
-          path="aquatrack-frontend/signup"
+          path="/signup"
           element={
-            <RestrictedRoute
-              redirectTo="aquatrack-frontend/tracker"
-              component={<SignUpPage />}
-            />
+            <RestrictedRoute redirectTo="/tracker" component={<SignUpPage />} />
           }
         />
         <Route
-          path="aquatrack-frontend/signin"
+          path="/signin"
           element={
-            <RestrictedRoute
-              redirectTo="aquatrack-frontend/tracker"
-              component={<SingInPage />}
-            />
+            <RestrictedRoute redirectTo="/tracker" component={<SingInPage />} />
           }
         />
         <Route
           path="/tracker"
           element={
-            <PrivateRoute
-              redirectTo="aquatrack-frontend/signin"
-              component={<HomePage />}
-            />
+            <PrivateRoute redirectTo="/signin" component={<HomePage />} />
           }
         />
         <Route path="*" element={<NotFoundPage />} />
