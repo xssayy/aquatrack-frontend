@@ -1,6 +1,6 @@
 import css from './WaterItem.module.css';
-import ModalWindow from 'components/ModalWindow/ModalWindow';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
 import DeleteWaterModal from 'components/DeleteWaterModal/DeleteWaterModal';
 import WaterModal from 'components/WaterModal/WaterModal';
 import Icon from 'components/Icon/Icon';
@@ -24,8 +24,6 @@ const WaterItem = ({ water }) => {
   const handleCloseDeleteModal = () => {
     setIsDeleteModalOpen(false);
   };
-
-  console.log(isEditModalOpen);
 
   return (
     <div className={css.item}>
