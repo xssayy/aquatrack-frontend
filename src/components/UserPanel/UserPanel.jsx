@@ -11,17 +11,13 @@ const UserPanel = () => {
     setIsShow(!isShow);
   };
 
-  const closePopover = () => {
-    setIsShow(false);
-  };
-
   return (
     <div className={css['user-panel-container']}>
       <p className={css.greetings}>
         Hello<span className={css['greetings-name']}>, Nadia!</span>
       </p>
       <UserBar onClick={toggleIsShow} isShow={isShow} />
-      {isShow && <UserBarPopover closePopover={closePopover} />}
+      {isShow && <UserBarPopover />}
     </div>
   );
 };
