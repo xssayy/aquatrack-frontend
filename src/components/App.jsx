@@ -11,6 +11,7 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import HomePage from 'pages/HomePage/HomePage';
+import 'modern-normalize';
 import SignUpPage from 'pages/SignUpPage/SignUpPage';
 import SingInPage from 'pages/SignInPage/SignInPage';
 
