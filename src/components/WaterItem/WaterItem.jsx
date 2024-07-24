@@ -1,13 +1,11 @@
+import css from './WaterItem.module.css';
+import ModalWindow from 'components/ModalWindow/ModalWindow';
+import { useState } from 'react';
+import DeleteWaterModal from 'components/DeleteWaterModal/DeleteWaterModal';
+import WaterModal from 'components/WaterModal/WaterModal';
+import Icon from 'components/Icon/Icon';
 
-import css from "./WaterItem.module.css"
-import ModalWindow from "components/ModalWindow/ModalWindow";
-import { useState } from "react";
-import DeleteWaterModal from "components/DeleteWaterModal/DeleteWaterModal";
-import WaterModal from "components/WaterModal/WaterModal";
-import Icon from "components/Icon/Icon";
-
-const WaterItem = ({water}) => {
-
+const WaterItem = ({ water }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
@@ -27,26 +25,32 @@ const WaterItem = ({water}) => {
     setIsDeleteModalOpen(false);
   };
 
-
   return (
     <div className={css.item}>
-      <Icon id="water-glass" className={css.iconGlass}/>
+      <Icon id="water-glass" className={css.iconGlass} />
       <div className={css.water}>
         <p className={css.volume}>{`${water.amount}ml`}</p>
         <p className={css.time}>{`${water.time}`}</p>
       </div>
       <div className={css.edit}>
-        <button onClick={handleEdit} className={css.btnEdit}><Icon id="edit" width="16" height="16"/></button>
-        <button onClick={handleDelete} className={css.btnTrash}><Icon id="trash" width="16" height="16"/></button>
+        <button onClick={handleEdit} className={css.btnEdit}>
+          <Icon id="edit" width="16" height="16" />
+        </button>
+        <button onClick={handleDelete} className={css.btnTrash}>
+          <Icon id="trash" width="16" height="16" />
+        </button>
       </div>
-      {isDeleteModalOpen && (
-        <ModalWindow onCloseModal={handleCloseDeleteModal} modalIsOpen={isDeleteModalOpen}>
-          <DeleteWaterModal
-          />
-        </ModalWindow>
-      )}
-            {isEditModalOpen && (
-        <ModalWindow onCloseModal={handleCloseEditModal} modalIsOpen={isEditModalOpen}>
+
+      <DeleteWaterModal
+        isOpen={isDeleteModalOpen}
+        closeModal={handleCloseDeleteModal}
+      />
+
+      {isEditModalOpen && (
+        <ModalWindow
+          onCloseModal={handleCloseEditModal}
+          modalIsOpen={isEditModalOpen}
+        >
           <WaterModal
             type="edit"
             initialData={{ amount: `${water.amount}`, time: `${water.time}` }}
@@ -58,7 +62,6 @@ const WaterItem = ({water}) => {
 };
 
 export default WaterItem;
-
 
 // const Contact = ({ contact }) => {
 //   const { id, name, number } = contact;

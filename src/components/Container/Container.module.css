@@ -1,5 +1,5 @@
 .container {
-  max-width: 375px;
+  width: fit-content;
   margin: 0 auto;
   padding: 16px;
   display: flex;
@@ -9,14 +9,12 @@
 
 @media (min-width: 768px) {
   .container {
-    max-width: 768px;
     padding: 32px;
   }
 }
 
 @media (min-width: 1440px) {
   .container {
-    max-width: 1440px;
     flex-direction: row;
   }
 }
