@@ -1,0 +1,222 @@
+.section {
+  background-image: url(../../public/welcomePageImg/women.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 353px;
+  border-radius: 30px;
+
+  position: relative;
+}
+.sectionBox {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  background: var(--main-white);
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.buttonBox {
+  display: flex;
+  padding: 10px 14px;
+  gap: 4px;
+  align-items: center;
+  width: fit-content;
+  border-radius: 30px;
+  background: var(--main-white);
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+
+  position: absolute;
+  top: 209px;
+  left: 16px;
+}
+
+.containers {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pictureContainer1 {
+  z-index: 3;
+}
+
+.pictureContainer2 {
+  margin-left: -8px;
+  z-index: 2;
+}
+
+.pictureContainer3 {
+  z-index: 1;
+  margin-left: -8px;
+  display: block;
+}
+
+.pictureImage {
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  object-fit: cover;
+  outline: 2px solid var(--main-white);
+}
+
+.buttonListImgItemImg {
+  border-radius: 50%;
+}
+.buttonListImg {
+  display: flex;
+}
+
+.sectionsTextLeters {
+  color: var(--main);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.16;
+}
+
+.span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+}
+.ellipse {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+}
+
+.group {
+  display: flex;
+  position: absolute;
+  top: 265px;
+  right: 16px;
+}
+
+.groupListItem {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 9px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+.groupListItem:nth-child(2) {
+  background: var(--accent);
+}
+.groupListItem:nth-child(1) {
+  background: var(--main);
+
+  gap: 4px;
+}
+.groupListItem:nth-child(3) {
+  background: var(--main-white);
+}
+.groupListItemText {
+  color: var(--main-white);
+
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 8px;
+  letter-spacing: -0.08px;
+}
+.groupListItemTextBlacks {
+  display: flex;
+}
+.groupListItemTextBlack,
+.groupListItemTextBlacks {
+  color: var(--main);
+
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.08px;
+}
+.groupList {
+  max-width: 168px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.sectionBox {
+  top: 335px;
+}
+.sectionsTextLeters {
+  color: var(--main);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 117%;
+}
+
+@media (min-width: 768px) {
+  .section {
+    height: 446px;
+    width: 704px;
+  }
+
+  .buttonBox {
+    top: 283px;
+    left: 32px;
+  }
+
+  .group {
+    top: 336px;
+    right: 32px;
+  }
+  .pictureImage {
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+  }
+
+  .sectionsTextLeterss {
+    font-size: 15px;
+    line-height: 1.49;
+    margin-left: -34px;
+  }
+
+  .span {
+    font-size: 15px;
+    line-height: 1.49;
+  }
+
+  .groupList {
+    gap: 10px;
+    max-width: 242px;
+  }
+
+  .groupListItemText {
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.12px;
+  }
+  .sectionsTextLeters {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.16;
+
+    width: 90px;
+  }
+  .groupListItemTextBlack,
+  .groupListItemTextBlacks {
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.12px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    height: 736px;
+    width: 672px;
+  }
+
+  .buttonBox {
+    top: 537px;
+  }
+
+  .group {
+    top: 594px;
+  }
+}

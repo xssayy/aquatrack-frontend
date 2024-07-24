@@ -5,7 +5,7 @@ import styles from '../WaterModal/WaterModal.module.css';
 
 const WaterModal = ({ type, initialData, isOpen, closeModal }) => {
   const title =
-    type === 'add' ? 'Add Water' : 'Edit the entered amount<br />of water';
+    type === 'add' ? 'Add Water' : `Edit the entered amount <br /> of water`;
   const subtitle = type === 'add' ? 'Choose a value:' : 'Correct entered data:';
 
   return (
@@ -15,7 +15,7 @@ const WaterModal = ({ type, initialData, isOpen, closeModal }) => {
           <h2
             className={styles.waterModalTitle}
             dangerouslySetInnerHTML={{ __html: title }}
-          />
+          ></h2>
           <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
         </div>
         <WaterForm

@@ -1,6 +1,6 @@
 .waterDetailedInfoContainer {
   max-width: 343px;
-  height: 770px;
+  height: fit-content;
   padding: 40px 20px;
 
   background-color: #f0eff4;
@@ -11,8 +11,7 @@
 @media screen and (min-width: 768px) {
   .waterDetailedInfoContainer {
     width: 704px;
-    height: 738px;
-    max-width: none;
+    max-width: unset;
     padding: 32px;
   }
 }

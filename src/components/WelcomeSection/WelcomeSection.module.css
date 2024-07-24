@@ -1,0 +1,147 @@
+.welcomeSection {
+  position: relative;
+  border-radius: 30px;
+  background: var(--background);
+  padding: 118px 16px 67px;
+}
+
+.logo {
+  display: block;
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+
+  color: var(--main-text);
+}
+.welcomeText {
+  color: var(--main-text);
+  font-size: 14px;
+  line-height: 1.28;
+  letter-spacing: 0.84px;
+  margin-bottom: 16px;
+}
+.welcomeTitle {
+  color: var(--main);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -0.38px;
+  margin-bottom: 32px;
+}
+.welcomeThumb {
+  display: flex;
+  gap: 10px;
+}
+.linkTracker {
+  display: flex;
+  padding: 14px 19px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: var(--accent);
+  color: var(--main-text);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  transition: background-color 150ms ease-in;
+}
+.linkTracker:hover,
+.linkTracker:active,
+.linkTracker:focus {
+  background: var(--accent);
+}
+.linkSignIn {
+  display: flex;
+  padding: 14px 27px;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-text);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  border-radius: 30px;
+  border: 1px solid var(--main);
+  transition: border 150ms ease-in, color 150ms ease-in;
+}
+.linkSignIn:hover,
+.linkSignIn:focus,
+.linkSignIn:active {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+@media (min-width: 768px) {
+  .welcomeSection {
+    padding: 106px 64px 50px;
+  }
+
+  .logo {
+    top: 32px;
+    left: 32px;
+  }
+
+  .welcomeText {
+    color: black;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: 0.84px;
+    margin-bottom: 16px;
+  }
+  .welcomeTitle {
+    color: #323f47;
+    font-size: 80px;
+
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -0.01em;
+  }
+
+  .welcomeThumb {
+    gap: 16px;
+  }
+
+  .linkTracker,
+  .linkSignIn {
+    padding: 18px 40px;
+  }
+}
+@media (min-width: 1440px) {
+  .welcomeSection {
+    padding: 188px 62px;
+    width: 672px;
+  }
+
+  .welcomeText {
+    color: black;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.84px;
+    margin-bottom: 16px;
+  }
+
+  .welcomeTitle {
+    color: #323f47;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 95%;
+    letter-spacing: -0.01em;
+  }
+
+  .welcomeThumb {
+    gap: 16px;
+  }
+
+  .linkTracker,
+  .linkSignIn {
+    padding: 18px 40px;
+    font-size: 16px;
+    line-height: 140%;
+  }
+}
