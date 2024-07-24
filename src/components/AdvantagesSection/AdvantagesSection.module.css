@@ -152,6 +152,7 @@
 @media (min-width: 768px) {
   .section {
     height: 446px;
+    width: 704px;
   }
 
   .buttonBox {
@@ -207,7 +208,7 @@
 
 @media (min-width: 1440px) {
   .section {
-    height: 760px;
+    height: 736px;
     width: 672px;
   }
 
