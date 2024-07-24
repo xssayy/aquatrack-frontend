@@ -1,12 +1,18 @@
+import { AdvantagesSection } from 'components/AdvantagesSection/AdvantagesSection';
+import { Container } from 'components/Container/Container';
 import SignUpForm from 'components/SignUpForm/SignUpForm';
-import React from 'react';
+
+import style from './SignUpPage.module.css';
 
 const SignUpPage = () => {
   console.log('qeqeq');
   return (
-    <div>
+    <Container>
       <SignUpForm />
-    </div>
+      <div className={style.hidenSection}>
+        <AdvantagesSection />
+      </div>
+    </Container>
   );
 };
 
