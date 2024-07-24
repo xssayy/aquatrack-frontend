@@ -1,13 +1,11 @@
-
-import WaterItem from "components/WaterItem/WaterItem";
-import { useState } from "react";
-import css from "./WaterList.module.css"
+import WaterItem from 'components/WaterItem/WaterItem';
+// import { useState } from "react";
+import css from './WaterList.module.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
-
 const WaterList = () => {
-  const [waterData, setWaterData] = useState([]);
+  // const [waterData, setWaterData] = useState([]);
   // Mock data for testing scroll
   const mockData = [
     { id: 1, amount: '250', time: '10:20am' },
@@ -17,9 +15,9 @@ const WaterList = () => {
   ];
 
   return (
-    <PerfectScrollbar className={css.scrollbar} >
+    <PerfectScrollbar className={css.scrollbar}>
       <ul className={css.list}>
-        {mockData.map((water) => {
+        {mockData.map(water => {
           return (
             <li key={water.id}>
               <WaterItem water={water} />

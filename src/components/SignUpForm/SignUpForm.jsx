@@ -37,7 +37,7 @@ const SignUpForm = () => {
   const onRegisterAccount = values => {
     reset();
 
-    const { confirmPassword, ...data } = values;
+    // const { confirmPassword, ...data } = values;
 
     // dispatch(data)
     //   .then(response => {
