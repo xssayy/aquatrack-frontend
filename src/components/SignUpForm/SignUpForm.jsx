@@ -64,28 +64,27 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={css.formContainer}>
-      {' '}
-      <h1 className={css.logo}>AQUATRACK</h1>
-      <h2 className={css.title}>Sign Up</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <ul className={css.list}>
-          <li className={css.listItem}>
-            <label className={css.label}>
-              Email
+    <div className={css.signUpContainer}>
+      <a href="/aquatrack-frontend" className={css.logo}>
+        AQUATRACK
+      </a>
+      <div className={css.formContainer}>
+        <h2 className={css.title}>Sign Up</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={css.inputContainer}>
+            <div className={css.inputItem}>
+              <label className={css.label}>Email</label>
               <input
                 className={`${css.field} ${errors.email ? css.errorField : ''}`}
                 {...register('email')}
                 placeholder="Enter your email"
               />
-            </label>
-            <p className={errors.email ? css.error : ''}>
-              {errors.email?.message}
-            </p>
-          </li>
-          <li className={css.listItem}>
-            <label className={css.label}>
-              Password
+              <p className={errors.email ? css.error : ''}>
+                {errors.email?.message}
+              </p>
+            </div>
+            <div className={css.inputItem}>
+              <label className={css.label}>Password</label>
               <input
                 {...register('password')}
                 type={showPassword ? 'text' : 'password'}
@@ -100,14 +99,12 @@ const SignUpForm = () => {
               >
                 {showPassword ? 'Hide' : 'Show'}
               </button>
-            </label>
-            <p className={errors.email ? css.error : ''}>
-              {errors.password?.message}
-            </p>
-          </li>
-          <li className={css.listItem}>
-            <label className={css.label}>
-              Repeat password
+              <p className={errors.email ? css.error : ''}>
+                {errors.password?.message}
+              </p>
+            </div>
+            <div className={css.inputItem}>
+              <label className={css.label}>Repeat password</label>
               <input
                 {...register('confirmPassword')}
                 type={showPassword ? 'text' : 'password'}
@@ -122,21 +119,21 @@ const SignUpForm = () => {
               >
                 {showPassword ? 'Hide' : 'Show'}
               </button>
-            </label>
-            <p className={errors.email ? css.error : ''}>
-              {errors.confirmPassword?.message}
-            </p>
-          </li>
-        </ul>
+              <p className={errors.email ? css.error : ''}>
+                {errors.confirmPassword?.message}
+              </p>
+            </div>
+          </div>
 
-        <input type="submit" className={css.button} value="Sign Up" />
-      </form>
-      <p className={css.redirect}>
-        Already have account?{' '}
-        <Link to="/signin" className={css.redirectLink}>
-          Sign In
-        </Link>
-      </p>
+          <input type="submit" className={css.button} value="Sign Up" />
+        </form>
+        <p className={css.redirect}>
+          Already have account?{' '}
+          <Link to="/signin" className={css.redirectLink}>
+            Sign In
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

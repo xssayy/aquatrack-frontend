@@ -54,6 +54,7 @@
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
+  background-color: inherit;
 }
 
 .field::placeholder {
@@ -67,7 +68,7 @@
 .toggleVisibility {
   position: absolute;
   right: 18px;
-  bottom: 24px;
+  top: 42px;
 }
 
 .button {
@@ -80,6 +81,7 @@
   letter-spacing: -0.01em;
   color: var(--main);
   margin-bottom: 16px;
+  border: none;
 }
 
 .button:hover,
@@ -137,7 +139,7 @@
 
 @media screen and (min-width: 768px) {
   .signInContainer {
-    padding: 32px 32px 281px 32px;
+    padding: 32px 32px 227px 32px;
   }
 
   .formContainer {
@@ -177,7 +179,7 @@
 
   .toggleVisibility {
     right: 18px;
-    bottom: 26px;
+    top: 52px;
   }
 
   .button {
