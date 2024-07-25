@@ -1,7 +1,7 @@
 import css from '../AdvantagesSection/AdvantagesSection.module.css';
-import firstCostomer from '../../img/welcomePageImg/customer1-phone-2x.png';
-import secondCustomer from '../../img/welcomePageImg/customer2-phone-2x.png';
-import thirdCustomer from '../../img/welcomePageImg/customer3-phone-2x.png';
+import firstCostomer from '../../img/welcomePageImg/customer1-tab-desc-2x.png';
+import secondCustomer from '../../img/welcomePageImg/customer2-tab-desc-2x.png';
+import thirdCustomer from '../../img/welcomePageImg/customer3-tab-desc-2x.png';
 
 export const AdvantagesSection = () => {
   return (
