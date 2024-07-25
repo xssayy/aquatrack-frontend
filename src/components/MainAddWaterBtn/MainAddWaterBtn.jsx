@@ -52,12 +52,12 @@ const MainAddWaterBtn = () => {
         Add water
       </button>
 
-      <ModalWindow onCloseModal={closeModal} modalIsOpen={isOpen}>
-        <WaterModal
-          type="add"
-          initialData={{ amount: 50, time: `${formattedTime}` }}
-        />
-      </ModalWindow>
+      <WaterModal
+        closeModal={closeModal}
+        isOpen={isOpen}
+        type="add"
+        initialData={{ amount: 50, time: `${formattedTime}` }}
+      />
     </div>
   );
 };
