@@ -1,10 +1,8 @@
 .waterDailyContainer {
-  box-sizing: border-box;
   background-color: #fff;
   border-radius: 15px;
   padding: 12px;
   width: 102px;
-  height: 54px;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 49px;
 }
@@ -13,7 +11,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1;
-  color: #323f47;
+  color: var(--main);
   margin-bottom: 6px;
 }
 

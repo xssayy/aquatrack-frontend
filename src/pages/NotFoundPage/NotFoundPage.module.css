@@ -1,20 +1,13 @@
-.notFoundPage {
-  display: flex;
-  justify-content: center;
-  padding: 16px;
-}
-
 .notFoundPageContainer {
-  max-width: 311px;
-  background-color: var(--background);
+  max-width: 375px;
+  height: 411px;
   border-radius: 30px;
-  height: 70vh;
-  padding: 16px;
+  background-color: #f0eff4;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  justify-content: center;
   align-items: center;
+  gap: 32px;
+  padding: 24px;
 }
 
 .notFoundPageTitle {
@@ -26,16 +19,13 @@
 
 .notFoundPageBtn {
   border-radius: 30px;
-  padding: 14px 19px;
-  width: 116px;
-  border: 1px solid var(--accent);
+  padding: 16px 100px;
   background-color: var(--accent);
   color: var(--main);
   font-weight: 700;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.01em;
-  text-align: center;
 }
 
 .notFoundPageBtn:hover,
@@ -44,14 +34,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .notFoundPage {
-    padding: 32px;
-  }
-
   .notFoundPageContainer {
-    max-width: none;
-    width: 547px;
+    width: 704px;
+    height: 498px;
     padding: 64px;
+    max-width: none;
   }
 
   .notFoundPageTitle {
@@ -60,8 +47,6 @@
   }
 
   .notFoundPageBtn {
-    padding: 18px 40px;
-    width: 169px;
     font-size: 16px;
     line-height: 150%;
   }
@@ -69,7 +54,9 @@
 
 @media screen and (min-width: 1440px) {
   .notFoundPageContainer {
-    width: 1248px;
+    width: 1376px;
+    height: 736px;
+    gap: 64px;
   }
 
   .notFoundPageTitle {

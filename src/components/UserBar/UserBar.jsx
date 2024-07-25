@@ -1,7 +1,5 @@
 import Icon from 'components/Icon/Icon';
-
 import css from './UserBar.module.css';
-
 import image from '../../img/avatar.png';
 
 const UserBar = ({ onClick, isShow }) => {
@@ -9,7 +7,7 @@ const UserBar = ({ onClick, isShow }) => {
     <>
       <button type="button" onClick={onClick} className={css.button}>
         <p>Nadia</p>
-        <img src={image} alt="" className={css.avatar} />
+        <img src={image} alt="avatar" className={css.avatar} />
         {isShow ? (
           <Icon
             id={'arrow'}

@@ -2,9 +2,7 @@
   max-width: 343px;
   height: fit-content;
   padding: 40px 20px;
-
-  background-color: #f0eff4;
-
+  background-color: var(--background);
   border-radius: 30px;
 }
 

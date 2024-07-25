@@ -12,9 +12,9 @@ const UserPanel = () => {
   };
 
   return (
-    <div className={css['user-panel-container']}>
+    <div className={css.userPanelContainer}>
       <p className={css.greetings}>
-        Hello<span className={css['greetings-name']}>, Nadia!</span>
+        Hello<span className={css.greetingsName}>, Nadia!</span>
       </p>
       <UserBar onClick={toggleIsShow} isShow={isShow} />
       {isShow && <UserBarPopover />}
