@@ -5,7 +5,6 @@ import { format } from 'date-fns';
 
 import css from './MainAddWaterBtn.module.css';
 import WaterModal from 'components/WaterModal/WaterModal';
-import ModalWindow from 'components/ModalWindow/ModalWindow';
 
 const MainAddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
