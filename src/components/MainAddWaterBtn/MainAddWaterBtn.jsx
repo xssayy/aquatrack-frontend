@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Icon from 'components/Icon/Icon.jsx';
 import { format } from 'date-fns';
 
-import css from './AddWaterBtn.module.css';
+import css from './MainAddWaterBtn.module.css';
 import WaterModal from 'components/WaterModal/WaterModal';
 import ModalWindow from 'components/ModalWindow/ModalWindow';
 

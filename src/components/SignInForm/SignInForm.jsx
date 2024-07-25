@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -26,6 +26,8 @@ const loginSchema = Yup.object({
 const SignInForm = () => {
   // const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const emailId = useId();
+  const passwordId = useId();
 
   const toggleVisibility = () => {
     setShowPassword(!showPassword);
@@ -60,8 +62,11 @@ const SignInForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={style.inputContainer}>
             <div className={style.inputItem}>
-              <label className={style.label}>Email</label>
+              <label htmlFor={emailId} className={style.label}>
+                Email
+              </label>
               <input
+                id={emailId}
                 className={`${style.field} ${
                   errors.email ? style.errorField : ''
                 }`}
@@ -73,8 +78,11 @@ const SignInForm = () => {
             </div>
 
             <div className={style.inputItem}>
-              <label className={style.label}>Password</label>
+              <label htmlFor={passwordId} className={style.label}>
+                Password
+              </label>
               <input
+                id={passwordId}
                 {...register('password')}
                 type={showPassword ? 'text' : 'password'}
                 className={`${style.field} ${

@@ -1,32 +1,31 @@
-.user-panel-container {
+.userPanelContainer {
   position: relative;
-
   display: flex;
   flex-direction: column;
+}
 
-  width: 100%;
+.greetings {
+  font-family: 'Gilroy';
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+  color: var(--main);
+}
 
-  @media screen and (min-width: 768px) {
+.greetingsName {
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .userPanelContainer {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
   }
-}
 
-.greetings {
-  margin: 0;
-
-  font-family: 'Gilroy';
-  font-size: 32px;
-  font-weight: 400;
-
-  color: #323f47;
-
-  @media screen and (min-width: 768px) {
+  .greetings {
     font-size: 36px;
+    line-height: 106%;
   }
-}
-
-.greetings-name {
-  font-weight: 700;
 }

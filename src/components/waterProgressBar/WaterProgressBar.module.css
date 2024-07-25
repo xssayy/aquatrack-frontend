@@ -1,6 +1,5 @@
 .waterProgressContainer {
-  box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--main-white);
   border-radius: 15px;
   padding: 12px;
   width: 198px;
@@ -13,7 +12,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1;
-  color: #323f47;
+  color: var(--main);
   margin-bottom: 8px;
 }
 

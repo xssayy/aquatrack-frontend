@@ -1,9 +1,15 @@
 .date {
-  font-family: "Poppins", sans-serif;
-font-weight: 700;
-font-size: 28px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: var(--main);
+}
 
-line-height: 114%;
-letter-spacing: -0.01em;
-color: #323f47;
+@media screen and (min-width: 768px) {
+  .date {
+    font-size: 28px;
+    line-height: 114%;
+  }
 }

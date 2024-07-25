@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -28,6 +28,9 @@ const registrationSchema = Yup.object({
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const emailId = useId();
+  const passwordId = useId();
+  const repeatPasswordId = useId();
 
   const toggleVisibility = () => {
     setShowPassword(!showPassword);
@@ -73,8 +76,11 @@ const SignUpForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={css.inputContainer}>
             <div className={css.inputItem}>
-              <label className={css.label}>Email</label>
+              <label htmlFor={emailId} className={css.label}>
+                Email
+              </label>
               <input
+                id={emailId}
                 className={`${css.field} ${errors.email ? css.errorField : ''}`}
                 {...register('email')}
                 placeholder="Enter your email"
@@ -84,8 +90,11 @@ const SignUpForm = () => {
               </p>
             </div>
             <div className={css.inputItem}>
-              <label className={css.label}>Password</label>
+              <label htmlFor={passwordId} className={css.label}>
+                Password
+              </label>
               <input
+                id={passwordId}
                 {...register('password')}
                 type={showPassword ? 'text' : 'password'}
                 className={`${css.field} ${
@@ -104,8 +113,11 @@ const SignUpForm = () => {
               </p>
             </div>
             <div className={css.inputItem}>
-              <label className={css.label}>Repeat password</label>
+              <label htmlFor={repeatPasswordId} className={css.label}>
+                Repeat password
+              </label>
               <input
+                id={repeatPasswordId}
                 {...register('confirmPassword')}
                 type={showPassword ? 'text' : 'password'}
                 className={`${css.field} ${
