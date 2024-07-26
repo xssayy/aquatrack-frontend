@@ -4,28 +4,26 @@ import { signUp, login, logOut, refreshUser } from './operations';
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: {
-      name: null,
-      email: null,
-    },
+    userId: null,
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
   },
   extraReducers: builder => {
+    //додати пендінг і реджеткд до всіх + універсальний isPending
     builder
       .addCase(signUp.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.userId = action.payload.userId;
+        state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.userId = action.payload.userId;
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(logOut.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.userId = null;
         state.token = null;
         state.isLoggedIn = false;
       })
@@ -33,7 +31,7 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.token = action.payload.accessToken;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
