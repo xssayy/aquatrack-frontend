@@ -1,6 +1,6 @@
 import css from './Calendar.module.css';
 import clsx from 'clsx';
-import { CalendarItem } from 'components/CalendarItem/CalendarItem';
+import { CalendarItem } from '../../components/CalendarItem/CalendarItem';
 
 //приклад відповіді з бекенда
 const response = [

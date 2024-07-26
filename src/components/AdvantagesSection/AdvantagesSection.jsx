@@ -3,7 +3,7 @@ import firstCostomer from '../../img/welcomePageImg/customer1-tab-desc-2x.png';
 import secondCustomer from '../../img/welcomePageImg/customer2-tab-desc-2x.png';
 import thirdCustomer from '../../img/welcomePageImg/customer3-tab-desc-2x.png';
 
-export const AdvantagesSection = () => {
+const AdvantagesSection = () => {
   return (
     <div className={css.section}>
       <div className={css.customersBox}>
@@ -16,11 +16,11 @@ export const AdvantagesSection = () => {
             />
           </picture>
           <picture className={css.secondContainer}>
-              <img
-                className={`${css.pictureImage}`}
-                src={secondCustomer}
-                alt="secondCustomer"
-              />
+            <img
+              className={`${css.pictureImage}`}
+              src={secondCustomer}
+              alt="secondCustomer"
+            />
           </picture>
           <picture className={css.thirdContainer}>
             <img
@@ -51,3 +51,5 @@ export const AdvantagesSection = () => {
     </div>
   );
 };
+
+export default AdvantagesSection;

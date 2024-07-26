@@ -1,4 +1,4 @@
-import WaterItem from 'components/WaterItem/WaterItem';
+import WaterItem from '../WaterItem/WaterItem';
 // import { useState } from "react";
 import css from './WaterList.module.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';

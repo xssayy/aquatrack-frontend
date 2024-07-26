@@ -1,9 +1,9 @@
 import css from './WaterItem.module.css';
 
 import { useState } from 'react';
-import DeleteWaterModal from 'components/DeleteWaterModal/DeleteWaterModal';
-import WaterModal from 'components/WaterModal/WaterModal';
-import Icon from 'components/Icon/Icon';
+import DeleteWaterModal from '../DeleteWaterModal/DeleteWaterModal';
+import WaterModal from '../WaterModal/WaterModal';
+import Icon from '../Icon/Icon';
 
 const WaterItem = ({ water }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);

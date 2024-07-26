@@ -3,7 +3,7 @@ import DailyInfo from '../DailyInfo/DailyInfo.jsx';
 
 import css from './WaterDetailedInfo.module.css';
 
-import MonthInfo from 'components/MonthInfo/MonthInfo.jsx';
+import MonthInfo from '../MonthInfo/MonthInfo.jsx';
 
 const WaterDetailedInfo = () => {
   return (

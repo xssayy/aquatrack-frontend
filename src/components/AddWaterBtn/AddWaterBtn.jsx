@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ModalWindow from 'components/ModalWindow/ModalWindow';
+import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import css from './AddWaterBtn.module.css';
 
 import Icon from 'components/shared/Icon';

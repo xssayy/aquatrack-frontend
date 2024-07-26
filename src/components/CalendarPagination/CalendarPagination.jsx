@@ -1,6 +1,6 @@
 // import { useEffect, useState } from 'react';
 import css from './CalendarPagination.module.css';
-import Icon from 'components/Icon/Icon';
+import Icon from '../Icon/Icon';
 
 export const CalendarPagination = ({ chosenDate, setChosenDate }) => {
   const handlePrevMonth = () => {
