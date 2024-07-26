@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 
 import css from './MainAddWaterBtn.module.css';
+
 import WaterModal from '../WaterModal/WaterModal';
 import Icon from '../Icon/Icon';
+
 
 const MainAddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
