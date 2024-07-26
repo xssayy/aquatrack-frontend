@@ -4,16 +4,15 @@
 // import { selectIsLoggedIn } from '../redux/auth/selectors';
 
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from './Layout';
-import { RestrictedRoute } from './RestrictedRoute';
-import { PrivateRoute } from './PrivateRoute';
-import WelcomePage from 'pages/WelcomePage/WelcomePage';
-
-import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
-import HomePage from 'pages/HomePage/HomePage';
+import { Layout } from './components/Layout';
+import { RestrictedRoute } from './components/RestrictedRoute';
+import { PrivateRoute } from './components/PrivateRoute';
+import WelcomePage from './pages/WelcomePage/WelcomePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import HomePage from './pages/HomePage/HomePage';
 import 'modern-normalize';
-import SignUpPage from 'pages/SignUpPage/SignUpPage';
-import SingInPage from 'pages/SignInPage/SignInPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
+import SingInPage from './pages/SignInPage/SignInPage';
 
 export const App = () => {
   // const dispatch = useDispatch();

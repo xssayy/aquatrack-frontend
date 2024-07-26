@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import ModalWindow from '../ModalWindow/ModalWindow';
+
 import { toast } from 'react-toastify';
 // import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import styles from './DeleteWaterModal.module.css';
+import ModalWindow from '../ModalWindow/ModalWindow';
 
 const DeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
   const [isProcessing, setIsProcessing] = useState(false);

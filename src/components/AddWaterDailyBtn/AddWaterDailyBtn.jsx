@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import ModalWindow from 'components/ModalWindow/ModalWindow';
+import ModalWindow from '../ModalWindow/ModalWindow';
 import css from './AddWaterDailyBtn.module.css';
 
-import WaterModal from 'components/WaterModal/WaterModal';
+import WaterModal from '../WaterModal/WaterModal';
 
 import { format } from 'date-fns';
 

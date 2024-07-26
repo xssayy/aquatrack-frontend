@@ -1,7 +1,7 @@
-import { Container } from 'components/Container/Container.jsx';
-import { WelcomeSection } from 'components/WelcomeSection/WelcomeSection.jsx';
-import { AdvantagesSection } from 'components/AdvantagesSection/AdvantagesSection.jsx';
-import DocTitle from 'components/DocTitle';
+import DocTitle from '../../components/DocTitle.jsx';
+import Container from '../../components/Container/Container';
+import WelcomeSection from '../../components/WelcomeSection/WelcomeSection.jsx';
+import AdvantagesSection from '../../components/AdvantagesSection/AdvantagesSection.jsx';
 
 const WelcomePage = () => {
   return (

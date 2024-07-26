@@ -1,12 +1,11 @@
 import Modal from 'react-modal';
 import style from './ModalWindow.module.css';
-import Icon from 'components/Icon/Icon';
+import Icon from '../Icon/Icon';
 import { useEffect } from 'react';
 
 Modal.setAppElement('#root');
 
 const ModalWindow = ({ modalIsOpen, onCloseModal, children }) => {
-  
   useEffect(() => {
     if (modalIsOpen) {
       document.body.classList.add(style.modalOpen);

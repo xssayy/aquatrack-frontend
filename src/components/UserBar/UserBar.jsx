@@ -1,4 +1,4 @@
-import Icon from 'components/Icon/Icon';
+import Icon from '../Icon/Icon';
 import css from './UserBar.module.css';
 import image from '../../img/avatar.png';
 

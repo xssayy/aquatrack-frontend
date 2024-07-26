@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import ModalWindow from 'components/ModalWindow/ModalWindow';
-import Icon from 'components/Icon/Icon';
+import ModalWindow from '../ModalWindow/ModalWindow';
+import Icon from '../Icon/Icon';
 
 import css from './UserBarPopover.module.css';
-import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal';
+import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
 
 const UserBarPopover = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

@@ -1,4 +1,4 @@
-import UserSettingsForm from 'components/UserSettingsForm/UserSettingsForm';
+import UserSettingsForm from '../UserSettingsForm/UserSettingsForm';
 import style from './UserSettingsModal.module.css';
 
 const UserSettingsModal = ({ onCloseModal }) => {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './NotFoundPage.module.css';
-import { Container } from 'components/Container/Container';
-import DocTitle from 'components/DocTitle';
+import Container from '../../components/Container/Container';
+import DocTitle from '../../components/DocTitle.jsx';
 
 const NotFoundPage = () => {
   return (
