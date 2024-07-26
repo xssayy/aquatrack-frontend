@@ -2,10 +2,11 @@ import React, { useId, useState } from 'react';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-// import { useDispatch } from 'react-redux';
-// import { signIn } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './SignInForm.module.css';
+import { login } from '../../redux/auth/operations';
+import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -24,10 +25,10 @@ const loginSchema = Yup.object({
 });
 
 const SignInForm = () => {
-  // const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const emailId = useId();
   const passwordId = useId();
+  const dispatch = useDispatch();
 
   const toggleVisibility = () => {
     setShowPassword(!showPassword);
@@ -42,13 +43,10 @@ const SignInForm = () => {
   });
 
   const onSubmit = data => {
-    console.log(data);
-    // dispatch(signIn(data)).then(action => {
-    //   if (action.type === 'auth/signIn/fulfilled') {
-    //     // Перенаправлення на TrackerPage після успішної авторизації
-    //     window.location.href = '/tracker';
-    //   }
-    // });
+    dispatch(login(data))
+      .unwrap()
+      .then(() => Notify.success('Welcome back!'))
+      .catch(() => Notify.failure('Wrong login or password!'));
     reset();
   };
 
@@ -91,6 +89,7 @@ const SignInForm = () => {
                 placeholder="Enter your password"
               />
               <button
+                type="button"
                 onClick={() => toggleVisibility('password')}
                 className={style.toggleVisibility}
               >

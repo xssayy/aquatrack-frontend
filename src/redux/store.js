@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authReducer } from './auth/slice.js';
 
 import {
   persistStore,
@@ -11,12 +10,14 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage/index.js';
+import storage from 'redux-persist/lib/storage';
+import { authReducer } from './auth/slice';
 
+// Persisting token field from auth slice to localstorage
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: [''],
+  whitelist: ['token'],
 };
 
 export const store = configureStore({

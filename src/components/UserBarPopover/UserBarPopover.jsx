@@ -5,8 +5,11 @@ import Icon from '../Icon/Icon';
 
 import css from './UserBarPopover.module.css';
 import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
 
 const UserBarPopover = () => {
+  const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function openModal() {
@@ -34,7 +37,11 @@ const UserBarPopover = () => {
         <UserSettingsModal onCloseModal={closeModal} />
       </ModalWindow>
 
-      <button type="button" onClick={openModal} className={css.logOut}>
+      <button
+        type="button"
+        onClick={() => dispatch(logOut())}
+        className={css.logOut}
+      >
         <Icon
           id={'log-out'}
           width={'16px'}
