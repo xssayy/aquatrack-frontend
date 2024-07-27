@@ -13,6 +13,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 import { usersReducer } from './user/slice';
+import { waterReducer } from './water/slice';
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
@@ -24,7 +25,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    //water: waterReducer,
+    water: waterReducer,
     users: usersReducer,
   },
   middleware: getDefaultMiddleware =>
