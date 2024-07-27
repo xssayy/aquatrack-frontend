@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 import css from './SignUpForm.module.css';
+import LogoLink from '../LogoLink/LogoLink';
 // import { signIn } from '../../redux/auth/operations';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
@@ -68,9 +69,7 @@ const SignUpForm = () => {
 
   return (
     <div className={css.signUpContainer}>
-      <a href="/aquatrack-frontend" className={css.logo}>
-        AQUATRACK
-      </a>
+      <LogoLink />
       <div className={css.formContainer}>
         <h2 className={css.title}>Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
