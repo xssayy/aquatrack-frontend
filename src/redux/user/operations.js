@@ -10,7 +10,7 @@ import { axiosGet, axiosPost } from '../../service/axios';
 
 export const getUserInfo = createAsyncThunk(
   'users/getUser',
-  async (userId, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
 
@@ -18,7 +18,7 @@ export const getUserInfo = createAsyncThunk(
       console.log('persistedToken: ', persistedToken);
       // setAuthHeader(persistedToken);
       // const response = await axios.get(`users/${userId}`);
-      const response = await axiosGet(`users/${userId}`, null, {
+      const response = await axiosGet(`users/currentUser`, null, {
         Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
       });
       console.log('response: ', response.data);

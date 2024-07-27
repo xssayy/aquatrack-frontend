@@ -4,7 +4,7 @@ import { signUp, login, logOut, refreshUser } from './operations';
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    userId: null,
+    // userId: null,
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
@@ -13,17 +13,17 @@ const authSlice = createSlice({
     //додати пендінг і реджеткд до всіх + універсальний isPending
     builder
       .addCase(signUp.fulfilled, (state, action) => {
-        state.userId = action.payload.userId;
+        // state.userId = action.payload.userId;
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.userId = action.payload.userId;
+        // state.userId = action.payload.userId;
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(logOut.fulfilled, state => {
-        state.userId = null;
+        // state.userId = null;
         state.token = null;
         state.isLoggedIn = false;
       })
