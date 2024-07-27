@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import UserBar from '../UserBar/UserBar.jsx';
 import UserBarPopover from '../UserBarPopover/UserBarPopover.jsx';
-import ModalWindow from 'components/ModalWindow/ModalWindow.jsx';
-import UserSettingsModal from 'components/UserSettingsModal/UserSettingsModal.jsx';
+import ModalWindow from '../ModalWindow/ModalWindow.jsx';
+import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
 
 import css from './UserPanel.module.css';
 
