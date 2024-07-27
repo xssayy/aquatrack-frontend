@@ -30,24 +30,26 @@ const LogOutModal = ({ isOpen, closeModal }) => {
 
   return (
     <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
-      <h2 className={styles.title}>Log Out</h2>
-      <p className={styles.question}>Do you really want to leave?</p>
-      <div className={styles.buttonContainer}>
-        <button
-          type="button"
-          onClick={handleLogOut}
-          className={`${styles.commonBtn} ${styles.deleteBtn}`}
-        >
-          Log Out
-        </button>
-        <button
-          type="button"
-          onClick={closeModal}
-          className={`${styles.commonBtn} ${styles.cancelBtn}`}
-          disabled={isLoggingOut}
-        >
-          Cancel
-        </button>
+      <div className={styles.modalContainer}>
+        <h2 className={styles.title}>Log Out</h2>
+        <p className={styles.question}>Do you really want to leave?</p>
+        <div className={styles.buttonContainer}>
+          <button
+            type="button"
+            onClick={handleLogOut}
+            className={`${styles.commonBtn} ${styles.deleteBtn}`}
+          >
+            Log Out
+          </button>
+          <button
+            type="button"
+            onClick={closeModal}
+            className={`${styles.commonBtn} ${styles.cancelBtn}`}
+            disabled={isLoggingOut}
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </ModalWindow>
   );

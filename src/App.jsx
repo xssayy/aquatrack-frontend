@@ -4,9 +4,9 @@
 // import { selectIsLoggedIn } from '../redux/auth/selectors';
 
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import { RestrictedRoute } from './components/RestrictedRoute';
-import { PrivateRoute } from './components/PrivateRoute';
+import SharedLayout from './components/SharedLayout';
+import RestrictedRoute from './components/RestrictedRoute';
+import PrivateRoute from './components/PrivateRoute';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import HomePage from './pages/HomePage/HomePage';
@@ -26,7 +26,7 @@ export const App = () => {
   // }, [dispatch, isLoggedIn]);
 
   return (
-    <Layout>
+    <SharedLayout>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route
@@ -49,6 +49,6 @@ export const App = () => {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </Layout>
+    </SharedLayout>
   );
 };
