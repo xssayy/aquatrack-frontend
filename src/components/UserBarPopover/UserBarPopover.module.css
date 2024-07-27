@@ -24,6 +24,10 @@
   background-color: inherit;
 }
 
+.settings:hover {
+  cursor: pointer;
+}
+
 .iconLogOut {
   margin-right: 4px;
   fill: rgba(50, 63, 71, 0.4);
@@ -39,6 +43,10 @@
   line-height: 129%;
   color: rgba(50, 63, 71, 0.4);
   background-color: inherit;
+}
+
+.logOut:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

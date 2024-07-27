@@ -29,12 +29,13 @@ const AddWaterDailyBtn = () => {
         +
       </button>
       <p className={css.text}>Add water</p>
-      <ModalWindow onCloseModal={handleCloseModal} modalIsOpen={modalIsOpen}>
-        <WaterModal
-          type="add"
-          initialData={{ amount: 50, time: `${formattedTime}` }}
-        />
-      </ModalWindow>
+
+      <WaterModal
+        closeModal={handleCloseModal}
+        isOpen={modalIsOpen}
+        type="add"
+        initialData={{ amount: 50, time: `${formattedTime}` }}
+      />
     </div>
   );
 };

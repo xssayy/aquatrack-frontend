@@ -3,13 +3,12 @@ import WaterProgressBar from '../waterProgressBar/WaterProgressBar.jsx';
 import MainAddWaterBtn from '../MainAddWaterBtn/MainAddWaterBtn.jsx';
 
 import css from './WaterMainInfo.module.css';
+import LogoLink from '../LogoLink/LogoLink.jsx';
 
 const WaterMainInfo = () => {
   return (
     <div className={css.waterMainContainer}>
-      <a href="/aquatrack-frontend" className={css.waterMainTitle}>
-        Aquatrack
-      </a>
+      <LogoLink />
       <WaterDailyNorma />
       <WaterProgressBar />
       <MainAddWaterBtn />

@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
+import LogoLink from '../LogoLink/LogoLink';
+
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -64,9 +66,7 @@ const SignUpForm = () => {
 
   return (
     <div className={css.signUpContainer}>
-      <a href="/aquatrack-frontend" className={css.logo}>
-        AQUATRACK
-      </a>
+      <LogoLink />
       <div className={css.formContainer}>
         <h2 className={css.title}>Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
