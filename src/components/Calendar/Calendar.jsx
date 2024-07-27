@@ -4,7 +4,7 @@ import { CalendarItem } from '../../components/CalendarItem/CalendarItem';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMonthly } from '../../redux/water/operations';
-import { getUserInfo } from '../../redux/user/operations';
+import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
 
 //приклад відповіді з бекенда
 const response = [
@@ -200,6 +200,11 @@ export const Calendar = ({ chosenDate }) => {
   // useEffect(() => {
   //тест /users/currentUser
   //   dispatch(getUserInfo());
+  // });
+
+  // useEffect(() => {
+  //тест users/userAmount
+  //   dispatch(getAllUsersCount());
   // });
 
   const daysWithWater = getDailyWaterPercentageFromBackend({

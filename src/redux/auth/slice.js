@@ -8,22 +8,21 @@ const authSlice = createSlice({
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
+    loading: false,
+    error: false,
   },
   extraReducers: builder => {
     //додати пендінг і реджеткд до всіх + універсальний isPending
     builder
       .addCase(signUp.fulfilled, (state, action) => {
-        // state.userId = action.payload.userId;
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, action) => {
-        // state.userId = action.payload.userId;
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(logOut.fulfilled, state => {
-        // state.userId = null;
         state.token = null;
         state.isLoggedIn = false;
       })

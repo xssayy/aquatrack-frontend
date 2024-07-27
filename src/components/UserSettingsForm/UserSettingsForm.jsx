@@ -7,6 +7,8 @@ import Icon from '../Icon/Icon';
 import avatar from '../../img/avatar.png';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import { useDispatch } from 'react-redux';
+import { patchUserInfo } from '../../redux/user/operations';
 
 const initialState = {
   photo: '',
@@ -40,6 +42,7 @@ const schemaYup = Yup.object().shape({
 const UserSettingsForm = ({ onCloseModal }) => {
   const [avatarUrl, setAvatarUrl] = useState(avatar);
   const [waterDailyNorma, setWaterDailyNorma] = useState(1.8);
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -82,8 +85,15 @@ const UserSettingsForm = ({ onCloseModal }) => {
   };
 
   const onSubmit = data => {
-    console.log(data);
-    // JSON.stringify(data);
+    const formData = new FormData();
+    formData.append('photo', avatarUrl);
+
+    console.log('data: ', data);
+    const userData = { ...data, photo: avatarUrl };
+    console.log('userData with photo: ', userData);
+
+    console.log('formData: ', formData);
+    dispatch(patchUserInfo(userData));
     onCloseModal();
   };
 

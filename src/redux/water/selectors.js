@@ -1,1 +1,1 @@
-// export const selectMonthly = state => state.water.monthly;
+export const selectMonthly = state => state.water.monthly;

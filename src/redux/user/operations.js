@@ -1,12 +1,5 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { axiosGet, axiosPost } from '../../service/axios';
-
-// axios.defaults.baseURL = 'http://localhost:3000';
-
-// const setAuthHeader = token => {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
+import { axiosGet, axiosPatch } from '../../service/axios';
 
 export const getUserInfo = createAsyncThunk(
   'users/getUser',
@@ -15,54 +8,47 @@ export const getUserInfo = createAsyncThunk(
       const state = thunkAPI.getState();
 
       const persistedToken = state.auth.token;
-      console.log('persistedToken: ', persistedToken);
-      // setAuthHeader(persistedToken);
-      // const response = await axios.get(`users/${userId}`);
+
       const response = await axiosGet(`users/currentUser`, null, {
-        Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
+        Authorization: `Bearer ${persistedToken}`,
       });
-      console.log('response: ', response.data);
+
       return response.data;
     } catch (error) {
-      console.log('err: ', error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-// export const addContact = createAsyncThunk(
-//   'contacts/addContact',
-//   async (newContact, thunkApi) => {
-//     try {
-//       const response = await axios.post('/contacts', newContact);
-//       return response.data;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const patchUserInfo = createAsyncThunk(
+  'users/patchUser',
+  async (userData, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
 
-// export const deleteContact = createAsyncThunk(
-//   'contacts/deleteContact',
-//   async (id, thunkApi) => {
-//     try {
-//       await axios.delete(`/contacts/${id}`);
-//       const response = await axios.get('/contacts');
-//       return response.data;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
+      const persistedToken = state.auth.token;
 
-// export const editContact = createAsyncThunk(
-//   'contacts/editContact',
-//   async ({ id, name, number }, thunkApi) => {
-//     try {
-//       const response = await axios.patch(`/contacts/${id}`, { name, number });
-//       return response.data;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
+      const response = await axiosPatch(`users/currentUser`, userData, {
+        Authorization: `Bearer ${persistedToken}`,
+        'Content-Type': 'multipart/form-data',
+      });
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getAllUsersCount = createAsyncThunk(
+  'users/getUsers',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axiosGet(`users`);
+
+      return response.usersAmount.usersAmount;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
