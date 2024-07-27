@@ -3,10 +3,12 @@ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import css from './SignUpForm.module.css';
+import { signUp } from '../../redux/auth/operations';
+import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 import LogoLink from '../LogoLink/LogoLink';
-// import { signIn } from '../../redux/auth/operations';
+
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -32,25 +34,10 @@ const SignUpForm = () => {
   const emailId = useId();
   const passwordId = useId();
   const repeatPasswordId = useId();
+  const dispatch = useDispatch();
 
   const toggleVisibility = () => {
     setShowPassword(!showPassword);
-  };
-
-  // const dispatch = useDispatch();
-  const onRegisterAccount = values => {
-    reset();
-
-    // const { confirmPassword, ...data } = values;
-
-    // dispatch(data)
-    //   .then(response => {
-    //     console.log('SignUp successful:', response);
-    //     dispatch(signIn(data));
-    //   })
-    //   .catch(error => {
-    //     console.error('SignUp failed:', error);
-    //   });
   };
 
   const {
@@ -63,8 +50,18 @@ const SignUpForm = () => {
   });
 
   const onSubmit = data => {
-    console.log(data);
-    onRegisterAccount(data);
+    console.log({ email: data.email, password: data.password });
+
+    dispatch(
+      signUp({
+        email: data.email,
+        password: data.password,
+      })
+    )
+      .unwrap()
+      .then(() => Notify.success('Registration success!'))
+      .catch(() => Notify.failure('User with this login already exists !'));
+    reset();
   };
 
   return (
@@ -102,6 +99,7 @@ const SignUpForm = () => {
                 placeholder="Enter your password"
               />
               <button
+                type="button"
                 onClick={() => toggleVisibility('password')}
                 className={css.toggleVisibility}
               >

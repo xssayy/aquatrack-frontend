@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getMonthly } from './operations';
+import { getUserInfo } from './operations';
 
-const waterInitialState = {
-  monthly: {},
+const usersInitialState = {
+  user: {},
 };
 
 const isPending = state => {
@@ -15,16 +15,16 @@ const isRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const waterSlice = createSlice({
-  name: 'water',
-  initialState: waterInitialState,
+const usersSlice = createSlice({
+  name: 'users',
+  initialState: usersInitialState,
 
   extraReducers: builder => {
     builder
       //fetch contacts
       // .addCase(getUserInfo.pending, isPending)
-      .addCase(getMonthly.fulfilled, (state, action) => {
-        state.monthly = action.payload;
+      .addCase(getUserInfo.fulfilled, (state, action) => {
+        state.user = action.payload;
       });
     // .addCase(fetchContacts.rejected, isRejected)
     // //add contact
@@ -60,4 +60,4 @@ const waterSlice = createSlice({
   },
 });
 
-export const waterReducer = waterSlice.reducer;
+export const usersReducer = usersSlice.reducer;

@@ -8,21 +8,21 @@ import { axiosGet, axiosPost } from '../../service/axios';
 //   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // };
 
-export const getMonthly = createAsyncThunk(
-  'water/monthly',
-  async (date, thunkAPI) => {
+export const getUserInfo = createAsyncThunk(
+  'users/getUser',
+  async (_, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
 
       const persistedToken = state.auth.token;
+      console.log('persistedToken: ', persistedToken);
       // setAuthHeader(persistedToken);
       // const response = await axios.get(`users/${userId}`);
-      console.log('query: ', `water/monthly?month=${date}`);
-      const response = await axiosGet(`water/monthly?month=${date}`, null, {
+      const response = await axiosGet(`users/currentUser`, null, {
         Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
       });
-      console.log('response: ', response.water);
-      return response.water;
+      console.log('response: ', response.data);
+      return response.data;
     } catch (error) {
       console.log('err: ', error);
       return thunkAPI.rejectWithValue(error.message);

@@ -1,6 +1,10 @@
 import css from './Calendar.module.css';
 import clsx from 'clsx';
 import { CalendarItem } from '../../components/CalendarItem/CalendarItem';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getMonthly } from '../../redux/water/operations';
+import { getUserInfo } from '../../redux/user/operations';
 
 //приклад відповіді з бекенда
 const response = [
@@ -180,6 +184,24 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
 };
 
 export const Calendar = ({ chosenDate }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const year = chosenDate.getFullYear();
+    let month = chosenDate.getMonth() + 1;
+
+    //приводи місяць до формату "06" замість "6 "
+    month = month < 10 ? `0${month}` : month;
+
+    console.log(`${year}-${month}`);
+    dispatch(getMonthly(`${year}-${month}`));
+  });
+
+  // useEffect(() => {
+  //тест /users/currentUser
+  //   dispatch(getUserInfo());
+  // });
+
   const daysWithWater = getDailyWaterPercentageFromBackend({
     chosenDate,
     response,
