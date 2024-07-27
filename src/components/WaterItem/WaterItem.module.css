@@ -1,15 +1,14 @@
 .item {
-display: flex;
-align-items: center;
-justify-content: center;
-/* border: 2px solid red; */
-/* padding: 18px 14px; */
-background: #fff;
-
-gap: 10px;
-border-radius: 15px;
-width: 149px;
-height: 74px
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid red; */
+  /* padding: 18px 14px; */
+  background: var(--main-white);
+  gap: 10px;
+  border-radius: 15px;
+  width: 149px;
+  height: 74px;
 }
 
 .water {
@@ -20,49 +19,43 @@ height: 74px
 }
 
 .edit {
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
 }
 
 .volume {
-font-family: "Poppins", sans-serif;
-font-weight: 700;
-font-size: 14px;
-
-line-height: 100%;
-color: #323f47;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  color: var(--main);
 }
 
 .time {
-font-family: "Poppins", sans-serif;
-font-weight: 400;
-font-size: 12px;
-
-line-height: 100%;
-color: rgba(47, 47, 47, 0.6);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(47, 47, 47, 0.6);
 }
 
 .iconGlass {
-width: 38px;
-height: 38px;
+  width: 38px;
+  height: 38px;
 }
+
 .btnEdit {
-width: 14x;
-height: 14px;
-background-color: transparent;
+  width: 14x;
+  height: 14px;
+  background-color: transparent;
 }
 .btnTrash {
-width: 14px;
-height: 14px;
-background-color: transparent;
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
 }
 
-
-
 @media screen and (min-width: 768px) {
-
   .item {
     gap: 20px;
     width: 192px;
@@ -72,6 +65,7 @@ background-color: transparent;
   .water {
     gap: 0;
   }
+
   .edit {
     gap: 14px;
   }
@@ -85,19 +79,18 @@ background-color: transparent;
     line-height: 187%;
   }
 
-.iconGlass {
-width: 44px;
-height: 45px;
-}
-.btnEdit {
-width: 16x;
-height: 16px;
-}
-.btnTrash {
-width: 16px;
-height: 16px;
-}
-}
-@media screen and (min-width: 1440px) {
+  .iconGlass {
+    width: 44px;
+    height: 45px;
+  }
 
+  .btnEdit {
+    width: 16x;
+    height: 16px;
+  }
+
+  .btnTrash {
+    width: 16px;
+    height: 16px;
+  }
 }

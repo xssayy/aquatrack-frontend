@@ -1,10 +1,19 @@
 import Modal from 'react-modal';
 import style from './ModalWindow.module.css';
-import Icon from 'components/Icon/Icon';
+import Icon from '../Icon/Icon';
+import { useEffect } from 'react';
 
 Modal.setAppElement('#root');
 
 const ModalWindow = ({ modalIsOpen, onCloseModal, children }) => {
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.classList.add(style.modalOpen);
+    } else {
+      document.body.classList.remove(style.modalOpen);
+    }
+  }, [modalIsOpen]);
+
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -29,35 +38,3 @@ const ModalWindow = ({ modalIsOpen, onCloseModal, children }) => {
 };
 
 export default ModalWindow;
-
-// import ModalWindow from "components/ModalWindow/ModalWindow";
-// import UserSettingsModal from "components/UserSettingsModal/UserSettingsModal";
-// import { useState } from 'react';
-
-// const Component = () => {
-//     const [modalIsOpen, setModalIsOpen] = useState(false);
-
-//     function openModal() {
-//       setModalIsOpen(true);
-//   }
-
-//     function closeModal() {
-//       setModalIsOpen(false);
-//     }
-
-//   return (
-//     <>
-//       <button type="button" onClick={openModal}>
-//         Open Modal
-//       </button>
-//       <ModalWindow
-//         modalIsOpen={modalIsOpen}
-//         onCloseModal={closeModal}
-//       >
-//         <UserSettingsModal onCloseModal={closeModal} /> or ....
-//       </ModalWindow>
-//     </>
-//   );
-// };
-
-// export default WelcomePage;

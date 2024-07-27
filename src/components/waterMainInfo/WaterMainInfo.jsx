@@ -7,7 +7,9 @@ import css from './WaterMainInfo.module.css';
 const WaterMainInfo = () => {
   return (
     <div className={css.waterMainContainer}>
-      <h1 className={css.waterMainTitle}>Aquatrack</h1>
+      <a href="/aquatrack-frontend" className={css.waterMainTitle}>
+        Aquatrack
+      </a>
       <WaterDailyNorma />
       <WaterProgressBar />
       <MainAddWaterBtn />

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import styles from '../WaterForm/WaterForm.module.css';
-import Icon from 'components/Icon/Icon';
+import Icon from '../Icon/Icon';
 
 const schema = yup.object().shape({
   amount: yup

@@ -1,137 +1,69 @@
 .section {
-  background-image: url(../../public/welcomePageImg/women.jpg);
+  background-image: url(../../img/welcomePageImg/mainImg-phone-2x.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 353px;
   border-radius: 30px;
-
   position: relative;
 }
-.sectionBox {
+
+.customersBox {
   display: flex;
   align-items: center;
-  border-radius: 30px;
-  background: var(--main-white);
-  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
-}
-.buttonBox {
-  display: flex;
   padding: 10px 14px;
   gap: 4px;
-  align-items: center;
-  width: fit-content;
   border-radius: 30px;
   background: var(--main-white);
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
-
   position: absolute;
-  top: 209px;
+  bottom: 96px;
   left: 16px;
 }
 
-.containers {
+.customersContainer {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.pictureContainer1 {
+.firstContainer {
   z-index: 3;
 }
 
-.pictureContainer2 {
+.secondContainer {
   margin-left: -8px;
   z-index: 2;
 }
 
-.pictureContainer3 {
+.thirdContainer {
   z-index: 1;
   margin-left: -8px;
-  display: block;
 }
 
 .pictureImage {
   border-radius: 50%;
-  width: 27px;
-  height: 27px;
-  object-fit: cover;
-  outline: 2px solid var(--main-white);
-}
-
-.buttonListImgItemImg {
-  border-radius: 50%;
-}
-.buttonListImg {
-  display: flex;
+  width: 26px;
+  height: 28px;
 }
 
 .sectionsTextLeters {
-  color: var(--main);
-  font-size: 15px;
   font-weight: 700;
-  line-height: 1.16;
+  font-size: 12px;
+  line-height: 117%;
+  color: var(--main);
 }
 
 .span {
   color: var(--accent);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 14px;
-}
-.ellipse {
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent);
 }
 
 .group {
-  display: flex;
   position: absolute;
-  top: 265px;
+  bottom: 32px;
   right: 16px;
 }
 
-.groupListItem {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 9px 12px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-}
-.groupListItem:nth-child(2) {
-  background: var(--accent);
-}
-.groupListItem:nth-child(1) {
-  background: var(--main);
-
-  gap: 4px;
-}
-.groupListItem:nth-child(3) {
-  background: var(--main-white);
-}
-.groupListItemText {
-  color: var(--main-white);
-
-  font-size: 8px;
-  font-weight: 700;
-  line-height: 8px;
-  letter-spacing: -0.08px;
-}
-.groupListItemTextBlacks {
-  display: flex;
-}
-.groupListItemTextBlack,
-.groupListItemTextBlacks {
-  color: var(--main);
-
-  font-size: 8px;
-  font-weight: 700;
-  line-height: 100%;
-  letter-spacing: -0.08px;
-}
 .groupList {
   max-width: 168px;
   display: flex;
@@ -139,46 +71,83 @@
   gap: 4px;
 }
 
-.sectionBox {
-  top: 335px;
+.groupListItem {
+  padding: 9px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
 }
-.sectionsTextLeters {
-  color: var(--main);
-  font-size: 12px;
+
+.groupListItem:nth-child(1) {
+  background: var(--main);
+  gap: 4px;
+}
+
+.groupListItem:nth-child(2) {
+  background: var(--accent);
+}
+
+.groupListItem:nth-child(3) {
+  background: var(--main-white);
+}
+
+.ellipse {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+}
+
+.groupListItemText {
+  color: var(--main-white);
   font-weight: 700;
-  line-height: 117%;
+  font-size: 8px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+
+.groupListItemTextBlack {
+  color: var(--main);
+  font-weight: 700;
+  font-size: 8px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
 }
 
 @media (min-width: 768px) {
   .section {
+    background-image: url(../../img/welcomePageImg/mainImg-tab-2x.jpg);
     height: 446px;
-    width: 704px;
   }
 
-  .buttonBox {
-    top: 283px;
+  .customersBox {
+    padding: 10px 20px;
+    gap: 4px;
+    border-radius: 30px;
     left: 32px;
   }
 
-  .group {
-    top: 336px;
-    right: 32px;
+  .secondContainer {
+    margin-left: -18px;
   }
+
+  .thirdContainer {
+    margin-left: -18px;
+  }
+
   .pictureImage {
-    border-radius: 50%;
     width: 47px;
     height: 47px;
   }
 
-  .sectionsTextLeterss {
+  .sectionsTextLeters {
     font-size: 15px;
-    line-height: 1.49;
-    margin-left: -34px;
+    line-height: 149%;
   }
 
-  .span {
-    font-size: 15px;
-    line-height: 1.49;
+  .group {
+    right: 32px;
   }
 
   .groupList {
@@ -188,35 +157,29 @@
 
   .groupListItemText {
     font-size: 12px;
-    line-height: 1;
-    letter-spacing: -0.12px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
   }
-  .sectionsTextLeters {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.16;
 
-    width: 90px;
-  }
-  .groupListItemTextBlack,
-  .groupListItemTextBlacks {
+  .groupListItemTextBlack {
     font-size: 12px;
-    line-height: 1;
-    letter-spacing: -0.12px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
   }
 }
 
 @media (min-width: 1440px) {
   .section {
+    background-image: url(../../img/welcomePageImg/mainImg-tab-2x.jpg);
     height: 736px;
     width: 672px;
   }
 
-  .buttonBox {
-    top: 537px;
+  .customersBox {
+    bottom: 132px;
   }
 
   .group {
-    top: 594px;
+    bottom: 64px;
   }
 }

@@ -1,6 +1,21 @@
-import Icon from 'components/Icon/Icon';
+import { useState } from 'react';
+
+
+import Icon from '../Icon/Icon';
 
 import css from './UserBarPopover.module.css';
+import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
+
+const UserBarPopover = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
 
 const UserBarPopover = ({ openModal }) => {
   return (

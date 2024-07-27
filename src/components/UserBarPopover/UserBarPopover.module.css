@@ -1,13 +1,11 @@
 .userBarPopoverContainer {
   position: absolute;
-
   top: 112px;
   left: 0;
   width: 137px;
   padding: 14px 20px;
-
-  background-color: #ffffff;
-
+  background-color: var(--main-white);
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   border-radius: 15px;
 }
 
@@ -18,15 +16,12 @@
 .settings {
   display: flex;
   align-items: center;
-
   border: 0;
-
-  font-family: 'Poppins';
   font-size: 14px;
   font-weight: 700;
-
-  color: #323f47;
-  background-color: #ffffff;
+  line-height: 129%;
+  fill: var(--main);
+  background-color: inherit;
 }
 
 .settings:hover {
@@ -35,22 +30,19 @@
 
 .iconLogOut {
   margin-right: 4px;
+  fill: rgba(50, 63, 71, 0.4);
 }
 
 .logOut {
   display: flex;
   align-items: center;
-
   margin-top: 8px;
-
   border: 0;
-
-  font-family: 'Poppins';
   font-size: 14px;
   font-weight: 700;
-
+  line-height: 129%;
   color: rgba(50, 63, 71, 0.4);
-  background-color: #ffffff;
+  background-color: inherit;
 }
 
 .logOut:hover {
@@ -63,5 +55,13 @@
     right: 0;
     left: auto;
     width: 157px;
+  }
+  .settings {
+    font-size: 15px;
+    line-height: 149%;
+  }
+  .logOut {
+    font-size: 15px;
+    line-height: 149%;
   }
 }

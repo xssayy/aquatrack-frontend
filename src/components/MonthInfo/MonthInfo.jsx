@@ -1,6 +1,6 @@
-import { CalendarPagination } from 'components/CalendarPagination/CalendarPagination';
+import { CalendarPagination } from '../CalendarPagination/CalendarPagination';
 import css from './MonthInfo.module.css';
-import { Calendar } from 'components/Calendar/Calendar';
+import { Calendar } from '../Calendar/Calendar';
 import { useState } from 'react';
 
 const MonthInfo = () => {
