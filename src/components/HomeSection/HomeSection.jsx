@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import css from './WelcomeSection.module.css';
+import css from './HomeSection.module.css';
 
-const WelcomeSection = () => {
+const HomeSection = () => {
   return (
     <div className={css.welcomeSection}>
       <div className={css.logoContainer}>
@@ -25,4 +25,4 @@ const WelcomeSection = () => {
   );
 };
 
-export default WelcomeSection;
+export default HomeSection;

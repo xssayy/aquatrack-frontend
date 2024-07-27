@@ -7,7 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout';
 import RestrictedRoute from './components/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute';
-import WelcomePage from './pages/WelcomePage/WelcomePage';
+import TrackerPage from './pages/TrackerPage/TrackerPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import HomePage from './pages/HomePage/HomePage';
 import 'modern-normalize';
@@ -28,7 +28,7 @@ export const App = () => {
   return (
     <SharedLayout>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/signup"
           element={
@@ -44,7 +44,7 @@ export const App = () => {
         <Route
           path="/tracker"
           element={
-            <PrivateRoute redirectTo="/signin" component={<HomePage />} />
+            <PrivateRoute redirectTo="/signin" component={<TrackerPage />} />
           }
         />
         <Route path="*" element={<NotFoundPage />} />
