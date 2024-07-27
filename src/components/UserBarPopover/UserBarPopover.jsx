@@ -5,21 +5,32 @@ import Icon from '../Icon/Icon';
 
 import css from './UserBarPopover.module.css';
 import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
+import LogOutModal from '../LogOutModal/LogOutModal';
 
 const UserBarPopover = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isSettingModalOpen, setSettingModalIsOpen] = useState(false);
 
-  function openModal() {
+  function openSettingModal() {
     setModalIsOpen(true);
   }
 
-  function closeModal() {
+  function closeSettingModal() {
     setModalIsOpen(false);
+  }
+
+  const [isLogOutModalOpen, setLogOutModalIsOpen] = useState(false);
+
+  function openLogOutModal() {
+    setLogOutModalIsOpen(true);
+  }
+
+  function closeLogOutModal() {
+    setLogOutModalIsOpen(false);
   }
 
   return (
     <div className={css.userBarPopoverContainer}>
-      <button type="button" onClick={openModal} className={css.settings}>
+      <button type="button" onClick={openSettingModal} className={css.settings}>
         <Icon
           id={'settings'}
           width={'16px'}
@@ -30,11 +41,14 @@ const UserBarPopover = () => {
         Setting
       </button>
 
-      <ModalWindow onCloseModal={closeModal} modalIsOpen={modalIsOpen}>
-        <UserSettingsModal onCloseModal={closeModal} />
+      <ModalWindow
+        onCloseModal={closeSettingModal}
+        modalIsOpen={isSettingModalOpen}
+      >
+        <UserSettingsModal onCloseModal={closeSettingModal} />
       </ModalWindow>
 
-      <button type="button" onClick={openModal} className={css.logOut}>
+      <button type="button" onClick={openLogOutModal} className={css.logOut}>
         <Icon
           id={'log-out'}
           width={'16px'}
@@ -44,6 +58,7 @@ const UserBarPopover = () => {
         />
         Log out
       </button>
+      <LogOutModal isOpen={isLogOutModalOpen} onClose={closeLogOutModal} />
     </div>
   );
 };
