@@ -10,7 +10,7 @@ import './App.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/">
+      <BrowserRouter basename="/aquatrack-frontend">
         <HelmetProvider>
           <App />
         </HelmetProvider>
