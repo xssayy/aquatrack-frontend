@@ -44,5 +44,5 @@
   "The time of active participation in sports": "The time of active participation in sports",
   "The required amount of water in liters per day": "The required amount of water in liters per day",
   "Write down how much water you will drink": "Write down how much water you will drink",
-  "* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)": "* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)"
+  "Formula": "* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)"
 }

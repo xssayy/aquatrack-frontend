@@ -44,5 +44,5 @@
   "The time of active participation in sports": "Час, який витрачається на спорт",
   "The required amount of water in liters per day": "Необхідна кількість води на добу (в літрах)",
   "Write down how much water you will drink": "Напишіть скільки води плануєте випити",
-  "* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)": "* V - це об'єм норми води в літрах на добу, M - вага тіла, T - час активних занять спортом або інший вид діяльності, співмірний за навантаженнями (при їх відсутності необхідно встановити 0)"
+  "Formula": "* V - це об'єм норми води в літрах на добу, M - вага тіла, T - час активних занять спортом або інший вид діяльності, співмірний за навантаженнями (при їх відсутності необхідно встановити 0)"
 }
