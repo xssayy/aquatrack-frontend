@@ -17,7 +17,7 @@ const schemaYup = Yup.object().shape({
   name: Yup.string()
     .trim()
     .min(2, 'Minimal 2 symbols!')
-    .max(30, 'Max 30 symbols!'),
+    .max(20, 'Max 20 symbols!'),
   email: Yup.string().trim().email('Invalid email format').required(),
   weight: Yup.number()
     .min(0, 'Kilograms cannot be negative')

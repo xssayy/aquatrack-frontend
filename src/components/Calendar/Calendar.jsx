@@ -189,11 +189,8 @@ export const Calendar = ({ chosenDate }) => {
   useEffect(() => {
     const year = chosenDate.getFullYear();
     let month = chosenDate.getMonth() + 1;
-
     //приводи місяць до формату "06" замість "6 "
     month = month < 10 ? `0${month}` : month;
-
-    console.log(`${year}-${month}`);
     dispatch(getMonthly(`${year}-${month}`));
   });
 
