@@ -8,7 +8,7 @@ import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 import LogoLink from '../LogoLink/LogoLink';
-
+import Icon from '../Icon/Icon';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -103,7 +103,11 @@ const SignUpForm = () => {
                 onClick={() => toggleVisibility('password')}
                 className={css.toggleVisibility}
               >
-                {showPassword ? 'Hide' : 'Show'}
+                {showPassword ? (
+                  <Icon id="eye" width={20} height={20} />
+                ) : (
+                  <Icon id="eye-off" width={20} height={20} />
+                )}
               </button>
               <p className={errors.email ? css.error : ''}>
                 {errors.password?.message}
@@ -126,7 +130,11 @@ const SignUpForm = () => {
                 onClick={() => toggleVisibility('password')}
                 className={css.toggleVisibility}
               >
-                {showPassword ? 'Hide' : 'Show'}
+                {showPassword ? (
+                  <Icon id="eye" width={20} height={20} />
+                ) : (
+                  <Icon id="eye-off" width={20} height={20} />
+                )}
               </button>
               <p className={errors.email ? css.error : ''}>
                 {errors.confirmPassword?.message}
