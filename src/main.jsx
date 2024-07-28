@@ -10,8 +10,7 @@ import './App.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store} persistor={persistor}>
-      <BrowserRouter>
-        {/* <BrowserRouter basename="/aquatrack-frontend"> */}
+      <BrowserRouter basename="/aquatrack-frontend">
         <HelmetProvider>
           <App />
         </HelmetProvider>
