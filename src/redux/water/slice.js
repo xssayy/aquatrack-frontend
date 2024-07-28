@@ -13,6 +13,7 @@ const handleRejected = (state, action) => {
 
 const waterInitialState = {
   monthly: {},
+  daily: {},
   loading: false,
   error: null,
 };
