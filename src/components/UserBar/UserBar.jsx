@@ -1,6 +1,6 @@
 import Icon from '../Icon/Icon';
 import css from './UserBar.module.css';
-import image from '../../img/avatar.png';
+import avatar from '../../img/avatar.png';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/user/selectors';
 
