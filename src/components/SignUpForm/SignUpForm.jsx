@@ -8,7 +8,7 @@ import css from './SignUpForm.module.css';
 import { signUp } from '../../redux/auth/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 import LogoLink from '../LogoLink/LogoLink';
-
+import { useTranslation } from 'react-i18next';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -64,11 +64,13 @@ const SignUpForm = () => {
     reset();
   };
 
+  const { t } = useTranslation();
+
   return (
     <div className={css.signUpContainer}>
       <LogoLink />
       <div className={css.formContainer}>
-        <h2 className={css.title}>Sign Up</h2>
+        <h2 className={css.title}>{t('Sign Up')}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={css.inputContainer}>
             <div className={css.inputItem}>
@@ -87,7 +89,7 @@ const SignUpForm = () => {
             </div>
             <div className={css.inputItem}>
               <label htmlFor={passwordId} className={css.label}>
-                Password
+                {t('Password')}
               </label>
               <input
                 id={passwordId}
@@ -111,7 +113,7 @@ const SignUpForm = () => {
             </div>
             <div className={css.inputItem}>
               <label htmlFor={repeatPasswordId} className={css.label}>
-                Repeat password
+                {t('Repeat password')}
               </label>
               <input
                 id={repeatPasswordId}
@@ -139,7 +141,7 @@ const SignUpForm = () => {
         <p className={css.redirect}>
           Already have account?{' '}
           <Link to="/signin" className={css.redirectLink}>
-            Sign In
+            {t('Sign In')}
           </Link>
         </p>
       </div>

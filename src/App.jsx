@@ -46,7 +46,7 @@ export const App = () => {
     <div>
       <button onClick={() => changeLanguage('en')}>En</button>
       <button onClick={() => changeLanguage('ua')}>Ua</button>
-      <HomePage />
+      <SignUpPage />
     </div>
 
     // <SharedLayout>
