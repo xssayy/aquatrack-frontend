@@ -7,20 +7,6 @@ import { getMonthly } from '../../redux/water/operations';
 import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
 import { selectMonthly } from '../../redux/water/selectors';
 
-const response = [
-  { time: '2024-07-22', amount: 0, userId: null, _id: null },
-  { time: '2024-07-23', amount: 0, userId: null, _id: null },
-  {
-    time: '2024-07-24',
-    amount: 50,
-    userId: '66a407ea281e82ed6b94a09f',
-    _id: '66a60bf85d4d94b8053c994e',
-  },
-  { time: '2024-07-25', amount: 0, userId: null, _id: null },
-  { time: '2024-07-26', amount: 0, userId: null, _id: null },
-  { time: '2024-07-27', amount: 0, userId: null, _id: null },
-];
-
 export const getNumOfDaysInMonth = chosenDate => {
   const year = chosenDate.getFullYear();
   const month = chosenDate.getMonth();
@@ -30,7 +16,7 @@ export const getNumOfDaysInMonth = chosenDate => {
   return daysInMonth;
 };
 
-const getDailyProgressPercentage = ({ day, month, year, response }) => {
+const getDailyAmount = ({ day, month, year, response }) => {
   //приводи місяць до формату "06" замість "6 "
   const corMonth = month < 10 ? `0${month}` : month;
 
@@ -70,7 +56,7 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
   for (let day = 1; day <= daysInMonth; day++) {
     const dailyWaterPercentage = Math.floor(
       100 *
-        (getDailyProgressPercentage({
+        (getDailyAmount({
           day,
           month: chosenMonth,
           year: chosenYear,
@@ -115,8 +101,8 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
     //приводи місяць до формату "06" замість "6 "
     month = month < 10 ? `0${month}` : month;
 
-    dispatch(getMonthly(`${year}-${month}`));
-  }, []);
+    dispatch(getMonthly(`${year}-${month}`)).finally(() => setLoading(false));
+  }, [dispatch, chosenDate]);
 
   // useEffect(() => {
   //тест /users/currentUser
@@ -128,10 +114,12 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
   //   dispatch(getAllUsersCount());
   // });
 
-  const daysWithWater = getDailyWaterPercentageFromBackend({
-    chosenDate: new Date(chosenDate),
-    response: waterMonth.data,
-  });
+  const daysWithWater = loading
+    ? []
+    : getDailyWaterPercentageFromBackend({
+        chosenDate: new Date(chosenDate),
+        response: waterMonth.data,
+      });
   //тут ми отримали масив у вигляді daysWithWater =
   // [
   //   {
