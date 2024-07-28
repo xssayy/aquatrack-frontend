@@ -15,9 +15,6 @@ const formatDate = (date) => {
 };
 
 const formattedDate = formatDate(selectedDateObj);
-console.log(formattedDate); 
-
-
 
 const isToday = (date1, date2) => {
   return isSameDay(date1, date2);
