@@ -2,6 +2,10 @@
   background-color: inherit;
 }
 
+.button[disabled] {
+  cursor: not-allowed;
+}
+
 .date {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -27,6 +31,10 @@
 .current {
   background: #323f47;
   color: #9be1a0;
+}
+
+.chosen {
+  color: red;
 }
 
 .percentage {

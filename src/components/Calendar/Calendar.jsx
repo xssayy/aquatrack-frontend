@@ -143,14 +143,23 @@ const getDailyProgressPercentage = ({ day, month, response }) => {
 };
 
 const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
+  //isEnabled вказує чи клікабельна поточна кнопка
+  //тобто всі кнопки включно до сьогоднішнього дня активні
+  //кнопки з завтрашнього дня неактивні
+  let isEnabled = true;
+
+  //в data зберігатимемо масив об"єктів, що містять date, waterPercentage, isToday
   const data = [];
 
+  //обраний місяць у текстовому форматі по типу "July"
   const chosenMonth = chosenDate.toLocaleDateString('en-US', {
     month: 'long',
   });
 
+  //обраний рік у форматі 2024
   const chosenYear = chosenDate.getFullYear();
 
+  //щоб перевірити чи обраний місяць є поточним, перевіряємо дату
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
@@ -174,26 +183,42 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
     const isToday = isCurrentMonthAndYear && currentDay === day;
 
+    //!кожному дню додаємо дату - переробити в 2024-07-23
+    chosenDate.setDate(day);
+    const chosenDay = chosenDate.toISOString();
+
     data.push({
       date: day,
       waterPercentage: dailyWaterPercentage,
       isToday,
+      isEnabled,
+      chosenDay,
     });
+
+    //визначаємо поточний день для стилізації
+    if (isToday) isEnabled = false;
   }
   return data;
 };
 
-export const Calendar = ({ chosenDate }) => {
+export const Calendar = ({ chosenDate, setChosenDate }) => {
   const dispatch = useDispatch();
+  //chosenDate приходить у форматі '2024-07-20T20:10:02.082Z';
+  //перетворюємо в об"єкт Date
+  const convertedChosendate = new Date(chosenDate);
 
+  //отримуємо воду за місяць => записуємо в редакс => відмальовуємо
   useEffect(() => {
-    const year = chosenDate.getFullYear();
-    let month = chosenDate.getMonth() + 1;
+    console.log('convertedChosendate: ', convertedChosendate);
+    console.log('chosenDate: ', chosenDate);
+
+    const year = convertedChosendate.getFullYear();
+    let month = convertedChosendate.getMonth() + 1;
 
     //приводи місяць до формату "06" замість "6 "
     month = month < 10 ? `0${month}` : month;
 
-    console.log(`${year}-${month}`);
+    // console.log(`${year}-${month}`);
     dispatch(getMonthly(`${year}-${month}`));
   });
 
@@ -208,7 +233,7 @@ export const Calendar = ({ chosenDate }) => {
   // });
 
   const daysWithWater = getDailyWaterPercentageFromBackend({
-    chosenDate,
+    chosenDate: convertedChosendate,
     response,
   });
   //тут ми отримали масив у вигляді daysWithWater =
@@ -231,7 +256,7 @@ export const Calendar = ({ chosenDate }) => {
         {daysWithWater.map(day => {
           return (
             <li key={day.date} className={clsx(css.day)}>
-              <CalendarItem day={day} />
+              <CalendarItem data={day} setChosenDate={setChosenDate} />
             </li>
           );
         })}
