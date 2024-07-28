@@ -33,10 +33,10 @@ const WaterItem = ({ water }) => {
         <p className={css.time}>{`${water.time}`}</p>
       </div>
       <div className={css.edit}>
-        <button onClick={handleEdit} className={css.btnEdit}>
+        <button type="button" onClick={handleEdit} className={css.btnEdit}>
           <Icon id="edit" width="16" height="16" />
         </button>
-        <button onClick={handleDelete} className={css.btnTrash}>
+        <button type="button" onClick={handleDelete} className={css.btnTrash}>
           <Icon id="trash" width="16" height="16" />
         </button>
       </div>

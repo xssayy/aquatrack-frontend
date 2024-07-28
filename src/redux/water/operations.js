@@ -93,3 +93,24 @@ export const postDaily = createAsyncThunk(
     }
   }
 );
+
+export const delWater = createAsyncThunk(
+  'water/delWater',
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const persistedToken = state.auth.token;
+
+      const response = await axiosDel(`water/${id}`, {
+        Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
+      });
+      console.log('response: ', response);
+
+      return response;
+    } catch (error) {
+      console.log('error: ', error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
