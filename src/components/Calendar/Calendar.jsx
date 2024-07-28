@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMonthly } from '../../redux/water/operations';
 import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
-import { selectMonthly } from '../../redux/water/selectors';
+import { selectMonthly, selectWaterLoading } from '../../redux/water/selectors';
+import { selectUserWaterNorma } from '../../redux/user/selectors';
 
 export const getNumOfDaysInMonth = chosenDate => {
   const year = chosenDate.getFullYear();
@@ -18,14 +19,22 @@ export const getNumOfDaysInMonth = chosenDate => {
 
 const getDailyAmount = ({ day, month, year, response }) => {
   //приводи місяць до формату "06" замість "6 "
-  const corMonth = month < 10 ? `0${month}` : month;
 
-  const dayString = `${year}-${corMonth}-${day}`;
-  const dayData = response.find(entry => entry.time === dayString);
+  const corMonth = month < 10 ? `0${month}` : month;
+  const corDay = day < 10 ? `0${day}` : day;
+
+  const dayString = `${year}-${corMonth}-${corDay}`;
+  const dayData = response?.find(entry => {
+    return entry.time === dayString;
+  });
   return dayData ? dayData.amount : 0;
 };
 
-const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
+const getDailyWaterPercentageFromBackend = ({
+  chosenDate,
+  response,
+  dailyNorma,
+}) => {
   //isEnabled вказує чи клікабельна поточна кнопка
   //тобто всі кнопки включно до сьогоднішнього дня активні
   //кнопки з завтрашнього дня неактивні
@@ -54,17 +63,17 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
 
   // створюємо масив з властивостями date, waterPercentage, isToday
   for (let day = 1; day <= daysInMonth; day++) {
-    const dailyWaterPercentage = Math.floor(
-      100 *
-        (getDailyAmount({
+    const percentage =
+      (100 *
+        getDailyAmount({
           day,
           month: chosenMonth,
           year: chosenYear,
           response,
-        }) /
-          1800)
-    );
+        })) /
+      dailyNorma;
 
+    const dailyWaterPercentage = percentage > 100 ? 100 : percentage;
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
     const isToday = isCurrentMonthAndYear && currentDay === day;
 
@@ -91,7 +100,9 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
 export const Calendar = ({ chosenDate, setChosenDate }) => {
   const dispatch = useDispatch();
   const waterMonth = useSelector(selectMonthly);
-  const [loading, setLoading] = useState(true);
+
+  const loading = useSelector(selectWaterLoading);
+  const waterNorma = useSelector(selectUserWaterNorma);
 
   //отримуємо воду за місяць => записуємо в редакс => відмальовуємо
   useEffect(() => {
@@ -101,8 +112,10 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
     //приводи місяць до формату "06" замість "6 "
     month = month < 10 ? `0${month}` : month;
 
-    dispatch(getMonthly(`${year}-${month}`)).finally(() => setLoading(false));
+    dispatch(getMonthly(`${year}-${month}`));
+    dispatch(getUserInfo());
   }, [dispatch, chosenDate]);
+  // }, [dispatch, chosenDate ]);????
 
   // useEffect(() => {
   //тест /users/currentUser
@@ -114,12 +127,11 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
   //   dispatch(getAllUsersCount());
   // });
 
-  const daysWithWater = loading
-    ? []
-    : getDailyWaterPercentageFromBackend({
-        chosenDate: new Date(chosenDate),
-        response: waterMonth.data,
-      });
+  const daysWithWater = getDailyWaterPercentageFromBackend({
+    chosenDate: new Date(chosenDate),
+    response: loading ? [] : waterMonth.data,
+    dailyNorma: waterNorma,
+  });
   //тут ми отримали масив у вигляді daysWithWater =
   // [
   //   {

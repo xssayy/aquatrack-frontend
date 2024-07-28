@@ -14,8 +14,8 @@ export const getMonthly = createAsyncThunk(
         `water/monthly`,
         {
           month: date,
-          // sortOrder: 'asc',
-          // sortBy: '_id',
+          sortOrder: 'asc',
+          sortBy: '_id',
         },
         {
           Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
@@ -23,6 +23,15 @@ export const getMonthly = createAsyncThunk(
       );
       return response.water;
     } catch (error) {
+      console.log(error);
+      if (
+        error.status === 404 &&
+        error.data.message === 'Entries of water not found'
+      ) {
+        // Обробка ситуації, коли даних немає
+        console.log('No water for the specified day');
+        return [];
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -47,9 +56,18 @@ export const getDaily = createAsyncThunk(
           Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
         }
       );
-      console.log(response);
+
+      console.log(response.water.data);
       return response.water.data;
     } catch (error) {
+      if (
+        error.status === 404 &&
+        error.data.message === 'Entries of water not found'
+      ) {
+        // Обробка ситуації, коли даних немає
+        console.log('No water for the specified day');
+        return [];
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }

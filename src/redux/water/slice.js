@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getMonthly } from './operations';
+import { getDaily, getMonthly } from './operations';
 
 const handlePending = state => {
   state.loading = true;
@@ -12,9 +12,9 @@ const handleRejected = (state, action) => {
 };
 
 const waterInitialState = {
-  monthly: {},
-  daily: {},
-  loading: false,
+  monthly: [],
+  daily: [],
+  loading: true,
   error: null,
 };
 
@@ -28,8 +28,16 @@ const waterSlice = createSlice({
       .addCase(getMonthly.pending, handlePending)
       .addCase(getMonthly.fulfilled, (state, action) => {
         state.monthly = action.payload;
+        state.loading = false;
       })
-      .addCase(getMonthly.rejected, handleRejected);
+      .addCase(getMonthly.rejected, handleRejected)
+      //getDaily
+      .addCase(getDaily.pending, handlePending)
+      .addCase(getDaily.fulfilled, (state, action) => {
+        state.daily = action.payload;
+        state.loading = false;
+      })
+      .addCase(getDaily.rejected, handleRejected);
   },
 });
 

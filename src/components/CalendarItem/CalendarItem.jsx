@@ -1,34 +1,26 @@
 import clsx from 'clsx';
 import css from './CalendarItem.module.css';
+import { useDispatch } from 'react-redux';
+import { getDaily } from '../../redux/water/operations';
 
 export const CalendarItem = ({ data, setChosenDate }) => {
+  const dispatch = useDispatch();
+
   const [chosenFullDate] = data.chosenDate.split('T');
   const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
-  // console.log('chosenDay: ', chosenDay);
-  // console.log('data.date: ', data.date);
-  const isChosenDay = chosenDay == data.date;
 
-  // console.log('isChosenDay: ', isChosenDay);
+  const [clickedFullDate] = data.clickedDay.split('T');
+  const [clickedYear, clickedMonth, clickedDay] = clickedFullDate.split('-');
+  const isChosenDay = chosenDay == data.date;
 
   const handleClick = () => {
     console.log('click');
+    const date = `${clickedYear}-${clickedMonth}-${clickedDay}`;
 
-    // const inputDate = new Date(data.fullDateISOString);
-    // inputDate.setDate(data.day);
-    // const chosenDate = inputDate.toISOString();
-    // console.log('newDate: ', chosenDate);
+    dispatch(getDaily(date));
 
-    //тут ми маємо передати в редакс chosenDate="2024-07-20T20:10:02.082Z"
-    // console.log('data.chosenDay: ', data.chosenDate);
-    // console.log('data.clickedDay: ', data.clickedDay);
-
-    //! console.log(`you choose ${chosenYear}-${chosenMonth}-${chosenDay}`);
     setChosenDate(data.clickedDay);
-    // const resp = '2024-07-20T20:10:02.082Z';
-    // const convertedResp = new Date(resp);
-    // console.log(convertedResp.getDate());
   };
-  // console.log(data);
 
   return (
     <button
@@ -41,8 +33,6 @@ export const CalendarItem = ({ data, setChosenDate }) => {
           [css.full]: data.waterPercentage >= 100,
           // [css.current]: data.isToday,
           [css.current]: isChosenDay,
-
-          // [css.chosen]: isChosenDay,
         })}
       >
         {data.date}
