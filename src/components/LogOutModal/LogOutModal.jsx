@@ -1,31 +1,14 @@
-import React, { useState } from 'react';
 import ModalWindow from '../ModalWindow/ModalWindow';
-import { toast } from 'react-toastify';
-import axios from 'axios';
-// import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-// import { clearUserData } from '../../redux/actionns/action';
+import { useDispatch } from 'react-redux';
 import styles from './LogOutModal.module.css';
+import { logOut } from '../../redux/auth/operations';
 
 const LogOutModal = ({ isOpen, closeModal }) => {
-  // const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const dispatch = useDispatch();
 
   const handleLogOut = async () => {
-    setIsLoggingOut(true);
-    try {
-      await axios.post('/api/logout');
-      // dispatch(clearUserData());
-      localStorage.clear();
-      navigate('/home');
-    } catch (error) {
-      toast.error('Failed to log out');
-    } finally {
-      setIsLoggingOut(false);
-      closeModal();
-    }
+    dispatch(logOut());
+    closeModal();
   };
 
   return (
@@ -45,7 +28,6 @@ const LogOutModal = ({ isOpen, closeModal }) => {
             type="button"
             onClick={closeModal}
             className={`${styles.commonBtn} ${styles.cancelBtn}`}
-            disabled={isLoggingOut}
           >
             Cancel
           </button>

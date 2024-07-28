@@ -1,18 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getUserInfo } from './operations';
+import { getAllUsersCount, getUserInfo, patchUserInfo } from './operations';
 
-const usersInitialState = {
-  user: {},
-};
-
-const isPending = state => {
+const handlePending = state => {
   state.loading = true;
   state.error = null;
 };
 
-const isRejected = (state, action) => {
+const handleRejected = (state, action) => {
   state.loading = false;
   state.error = action.payload;
+};
+
+const usersInitialState = {
+  user: {},
+  usersCount: null,
+  loading: false,
+  error: null,
 };
 
 const usersSlice = createSlice({
@@ -21,42 +24,24 @@ const usersSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      //fetch contacts
-      // .addCase(getUserInfo.pending, isPending)
+      //getUserInfo
+      .addCase(getUserInfo.pending, handlePending)
       .addCase(getUserInfo.fulfilled, (state, action) => {
         state.user = action.payload;
-      });
-    // .addCase(fetchContacts.rejected, isRejected)
-    // //add contact
-    // .addCase(addContact.pending, isPending)
-    // .addCase(addContact.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.items = [...state.items, action.payload];
-    // })
-    // .addCase(addContact.rejected, isRejected)
-    // //delete contact
-    // .addCase(deleteContact.pending, isPending)
-    // .addCase(deleteContact.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.items = action.payload;
-    // })
-    // .addCase(deleteContact.rejected, isRejected)
-    // //edit contact
-    // .addCase(editContact.pending, isPending)
-    // .addCase(editContact.fulfilled, (state, action) => {
-    //   state.loading = false;
-
-    //   state.items = state.items.map(item => {
-    //     return item.id === action.payload.id
-    //       ? {
-    //           name: action.payload.name,
-    //           id: action.payload.id,
-    //           number: action.payload.number,
-    //         }
-    //       : item;
-    //   });
-    // })
-    // .addCase(editContact.rejected, isRejected);
+      })
+      .addCase(getUserInfo.rejected, handleRejected)
+      //getAllUsersCount
+      .addCase(getAllUsersCount.pending, handlePending)
+      .addCase(getAllUsersCount.fulfilled, (state, action) => {
+        state.usersCount = action.payload;
+      })
+      .addCase(getAllUsersCount.rejected, handleRejected)
+      //patchUserInfo
+      .addCase(patchUserInfo.pending, handlePending)
+      .addCase(patchUserInfo.fulfilled, (state, action) => {
+        state.user = { ...state.user, ...action.payload };
+      })
+      .addCase(patchUserInfo.rejected, handleRejected);
   },
 });
 
