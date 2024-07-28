@@ -1,126 +1,26 @@
 import css from './Calendar.module.css';
 import clsx from 'clsx';
 import { CalendarItem } from '../../components/CalendarItem/CalendarItem';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getMonthly } from '../../redux/water/operations';
 import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
+import { selectMonthly } from '../../redux/water/selectors';
 
-//приклад відповіді з бекенда
 const response = [
+  { time: '2024-07-22', amount: 0, userId: null, _id: null },
+  { time: '2024-07-23', amount: 0, userId: null, _id: null },
   {
-    _id: 'qweqweq',
-    date: '1, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1500,
-    dailyProgressPercentage: 75,
-    userId: 'asdasdasdas',
+    time: '2024-07-24',
+    amount: 50,
+    userId: '66a407ea281e82ed6b94a09f',
+    _id: '66a60bf85d4d94b8053c994e',
   },
-  {
-    _id: 'qweqweq',
-    date: '2, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1000,
-    dailyProgressPercentage: 50,
-  },
-  {
-    _id: 'qweqweq',
-    date: '3, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 2000,
-    dailyProgressPercentage: 100,
-  },
-  {
-    _id: 'qweqweq',
-    date: '4, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1500,
-    dailyProgressPercentage: 75,
-  },
-  {
-    _id: 'qweqweq',
-    date: '6, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1000,
-    dailyProgressPercentage: 50,
-  },
-  {
-    _id: 'qweqweq',
-    date: '7, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 2000,
-    dailyProgressPercentage: 10,
-  },
-
-  {
-    _id: 'qweqweq',
-    date: '8, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1500,
-    dailyProgressPercentage: 75,
-  },
-  {
-    _id: 'qweqweq',
-    date: '9, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1000,
-    dailyProgressPercentage: 50,
-  },
-  {
-    _id: 'qweqweq',
-    date: '17, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 2000,
-    dailyProgressPercentage: 100,
-  },
-  {
-    _id: 'qweqweq',
-    date: '18, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1500,
-    dailyProgressPercentage: 75,
-  },
-  {
-    _id: 'qweqweq',
-    date: '19, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 1000,
-    dailyProgressPercentage: 50,
-  },
-  {
-    _id: 'qweqweq',
-    date: '20, July',
-    dailyWaterRequirement: 2000,
-    dailyProgress: 2000,
-    dailyProgressPercentage: 10,
-  },
+  { time: '2024-07-25', amount: 0, userId: null, _id: null },
+  { time: '2024-07-26', amount: 0, userId: null, _id: null },
+  { time: '2024-07-27', amount: 0, userId: null, _id: null },
 ];
 
-//отримати дату у вигляді "17, July"
-// const getDayAndMonth = date => {
-//   const day = date.toLocaleDateString('en-US', { day: 'numeric' });
-//   const month = date.toLocaleDateString('en-US', { month: 'long' });
-//   const formattedDate = `${day}, ${month}`;
-//   return formattedDate;
-// };
-
-//отримати масив із днями у вигляді [1,2,3...31]
-// export const getArrayOfDaysInMonth = chosenDate => {
-//   const year = chosenDate.getFullYear();
-//   const month = chosenDate.getMonth();
-
-//   const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-//   const days = [];
-
-//   for (let day = 1; day <= daysInMonth; day++) {
-//     days.push(day);
-//   }
-//   return days;
-// };
-
-//отримати кількість днів у місяці. передаємо chosenDate у вигляді
-//chosenDate = new Date()
 export const getNumOfDaysInMonth = chosenDate => {
   const year = chosenDate.getFullYear();
   const month = chosenDate.getMonth();
@@ -130,16 +30,13 @@ export const getNumOfDaysInMonth = chosenDate => {
   return daysInMonth;
 };
 
-//отримати назву місяця у вигляді "July"
-// const getMonthFromFullDate = date => {
-//   const optionsMonth = { month: 'long' };
-//   return date.toLocaleDateString('en-US', optionsMonth);
-// };
+const getDailyProgressPercentage = ({ day, month, year, response }) => {
+  //приводи місяць до формату "06" замість "6 "
+  const corMonth = month < 10 ? `0${month}` : month;
 
-const getDailyProgressPercentage = ({ day, month, response }) => {
-  const dayString = `${day}, ${month}`;
-  const dayData = response.find(entry => entry.date === dayString);
-  return dayData ? dayData.dailyProgressPercentage : 0;
+  const dayString = `${year}-${corMonth}-${day}`;
+  const dayData = response.find(entry => entry.time === dayString);
+  return dayData ? dayData.amount : 0;
 };
 
 const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
@@ -151,10 +48,7 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
   //в data зберігатимемо масив об"єктів, що містять date, waterPercentage, isToday
   const data = [];
 
-  //обраний місяць у текстовому форматі по типу "July"
-  const chosenMonth = chosenDate.toLocaleDateString('en-US', {
-    month: 'long',
-  });
+  const chosenMonth = chosenDate.getMonth() + 1;
 
   //обраний рік у форматі 2024
   const chosenYear = chosenDate.getFullYear();
@@ -174,25 +68,32 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
 
   // створюємо масив з властивостями date, waterPercentage, isToday
   for (let day = 1; day <= daysInMonth; day++) {
-    const dailyWaterPercentage = getDailyProgressPercentage({
-      day,
-      month: chosenMonth,
-      response,
-    });
+    const dailyWaterPercentage = Math.floor(
+      100 *
+        (getDailyProgressPercentage({
+          day,
+          month: chosenMonth,
+          year: chosenYear,
+          response,
+        }) /
+          1800)
+    );
 
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
     const isToday = isCurrentMonthAndYear && currentDay === day;
 
-    //!кожному дню додаємо дату - переробити в 2024-07-23
-    chosenDate.setDate(day);
-    const chosenDay = chosenDate.toISOString();
+    const newDay = new Date(chosenDate.toISOString());
+    newDay.setDate(day);
+
+    const clickedDay = newDay.toISOString();
 
     data.push({
       date: day,
       waterPercentage: dailyWaterPercentage,
       isToday,
       isEnabled,
-      chosenDay,
+      chosenDate: chosenDate.toISOString(),
+      clickedDay,
     });
 
     //визначаємо поточний день для стилізації
@@ -203,24 +104,19 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
 
 export const Calendar = ({ chosenDate, setChosenDate }) => {
   const dispatch = useDispatch();
-  //chosenDate приходить у форматі '2024-07-20T20:10:02.082Z';
-  //перетворюємо в об"єкт Date
-  const convertedChosendate = new Date(chosenDate);
+  const waterMonth = useSelector(selectMonthly);
+  const [loading, setLoading] = useState(true);
 
   //отримуємо воду за місяць => записуємо в редакс => відмальовуємо
   useEffect(() => {
-    console.log('convertedChosendate: ', convertedChosendate);
-    console.log('chosenDate: ', chosenDate);
-
-    const year = convertedChosendate.getFullYear();
-    let month = convertedChosendate.getMonth() + 1;
+    const year = new Date(chosenDate).getFullYear();
+    let month = new Date(chosenDate).getMonth() + 1;
 
     //приводи місяць до формату "06" замість "6 "
     month = month < 10 ? `0${month}` : month;
 
-    // console.log(`${year}-${month}`);
     dispatch(getMonthly(`${year}-${month}`));
-  });
+  }, []);
 
   // useEffect(() => {
   //тест /users/currentUser
@@ -233,8 +129,8 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
   // });
 
   const daysWithWater = getDailyWaterPercentageFromBackend({
-    chosenDate: convertedChosendate,
-    response,
+    chosenDate: new Date(chosenDate),
+    response: waterMonth.data,
   });
   //тут ми отримали масив у вигляді daysWithWater =
   // [
