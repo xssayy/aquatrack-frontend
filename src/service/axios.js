@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  // baseURL: 'https://aqua-track-backend.onrender.com',
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://aqua-track-backend.onrender.com',
+  // baseURL: 'http://localhost:3000',
   withCredentials: true,
 });
 
