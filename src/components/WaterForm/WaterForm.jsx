@@ -101,6 +101,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
         })
       );
     }
+    closeModal();
   };
 
   return (

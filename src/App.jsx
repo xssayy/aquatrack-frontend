@@ -1,8 +1,5 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { refreshUser } from '../redux/auth/operations';
-// import { selectIsLoggedIn } from '../redux/auth/selectors';
-
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout';
 import RestrictedRoute from './components/RestrictedRoute';
@@ -13,10 +10,8 @@ import HomePage from './pages/HomePage/HomePage';
 import 'modern-normalize';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SingInPage from './pages/SignInPage/SignInPage';
-import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
-import { selectIsRefreshing } from './redux/auth/selectors';
+import { selectIsLoggedIn, selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
-import Loader from './components/Loader/Loader';
 
 export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
