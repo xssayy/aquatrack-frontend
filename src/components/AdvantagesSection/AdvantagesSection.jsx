@@ -15,6 +15,7 @@ import thirdCustomer from '../../img/welcomePageImg/customer3-tab-desc.png';
 import firstCostomer2x from '../../img/welcomePageImg/customer1-tab-desc-2x.png';
 import secondCustomer2x from '../../img/welcomePageImg/customer2-tab-desc-2x.png';
 import thirdCustomer2x from '../../img/welcomePageImg/customer3-tab-desc-2x.png';
+
 import { useTranslation } from 'react-i18next';
 
 const AdvantagesSection = () => {
