@@ -8,7 +8,7 @@ import axios from 'axios';
 import styles from '../WaterForm/WaterForm.module.css';
 import Icon from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMonthly, postDaily } from '../../redux/water/operations';
+import { getDaily, getMonthly, postDaily } from '../../redux/water/operations';
 import { selectChosenDate } from '../../redux/water/selectors';
 
 const schema = yup.object().shape({
@@ -51,17 +51,15 @@ const formatTime = value => {
   return `${cleaned.slice(0, 2)}:${cleaned.slice(2, 4)}`;
 };
 
-const WaterForm = ({ type, initialData, closeModal }) => {
+const WaterForm = ({ type, initialData, closeModal, id }) => {
   const dispatch = useDispatch();
   const chosenDate = useSelector(selectChosenDate);
 
   useEffect(() => {
-    const year = new Date(chosenDate).getFullYear();
-    let month = new Date(chosenDate).getMonth() + 1;
+    const [chosenFullDate] = chosenDate.split('T');
+    const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
 
-    //приводи місяць до формату "06" замість "6 "
-    month = month < 10 ? `0${month}` : month;
-    const date = `${year}-${month}`;
+    const date = `${chosenYear}-${chosenMonth}`;
     dispatch(getMonthly(date));
   }),
     [dispatch];
@@ -85,20 +83,22 @@ const WaterForm = ({ type, initialData, closeModal }) => {
   const amount = watch('amount');
 
   const onSubmit = async data => {
-    // console.log('Submitting data:', data);
     const [datePart] = chosenDate.split('T');
     // Встановлюємо новий час зберігаючи дату
     const newDateISO = `${datePart}T${data.time}:00Z`;
-    //тут має бути якась перевірки чи це post чи patch
-    // створюємо POST
-    dispatch(postDaily({ ...data, time: newDateISO }));
+
+    if (type === 'edit') {
+      dispatch(
+        patchDaily({
+          id,
+          patchedData: { ...data, time: newDateISO },
+        })
+      );
+    } else {
+      dispatch(postDaily({ ...data, time: newDateISO }));
+    }
     //патчимо
-    // dispatch(
-    //   patchDaily({
-    //     id: '66a6da2f398f0570d3bd3d2b',
-    //     patchedData: { ...data, time: newDateISO },
-    //   })
-    // );
+    //
     // try {
     //   if (type === 'add') {
     //     await axios.post('/api/water', data);

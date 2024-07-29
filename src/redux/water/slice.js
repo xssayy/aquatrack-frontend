@@ -62,7 +62,6 @@ const waterSlice = createSlice({
       .addCase(delWater.pending, handlePending)
       .addCase(delWater.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
       })
       .addCase(delWater.rejected, handleRejected)
       //patchWater

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import WaterItem from '../WaterItem/WaterItem';
-// import { useState } from "react";
+
 import css from './WaterList.module.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';

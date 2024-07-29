@@ -7,6 +7,7 @@ import { getMonthly } from '../../redux/water/operations';
 import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
 import {
   selectChosenDate,
+  selectGetDaily,
   selectMonthly,
   selectWaterLoading,
 } from '../../redux/water/selectors';
@@ -105,6 +106,7 @@ export const Calendar = () => {
   const dispatch = useDispatch();
   const chosenDate = useSelector(selectChosenDate);
   const waterMonth = useSelector(selectMonthly);
+  const waterDaily = useSelector(selectGetDaily);
 
   const loading = useSelector(selectWaterLoading);
   const waterNorma = useSelector(selectUserWaterNorma);
@@ -138,7 +140,7 @@ export const Calendar = () => {
         response: waterMonth ? waterMonth : [],
         dailyNorma: waterNorma,
       }),
-    [chosenDate, loading, waterMonth, waterNorma]
+    [chosenDate, loading, waterMonth, waterNorma, waterDaily]
   );
   //тут ми отримали масив у вигляді daysWithWater =
   // [

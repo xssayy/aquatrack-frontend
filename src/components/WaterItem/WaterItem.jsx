@@ -46,13 +46,18 @@ const WaterItem = ({ water }) => {
       <DeleteWaterModal
         isOpen={isDeleteModalOpen}
         closeModal={handleCloseDeleteModal}
+        id={water._id}
       />
 
       <WaterModal
         isOpen={isEditModalOpen}
         closeModal={handleCloseEditModal}
         type="edit"
-        initialData={{ amount: water.amount, time: `${water.time}` }}
+        initialData={{
+          amount: water.amount,
+          time: `${water.time}`,
+          id: water._id,
+        }}
       />
     </div>
   );

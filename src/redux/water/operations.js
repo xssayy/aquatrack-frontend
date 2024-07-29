@@ -105,7 +105,7 @@ export const delWater = createAsyncThunk(
       const response = await axiosDel(`water/${id}`, {
         Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
       });
-      console.log('response: ', response);
+      console.log('response delete: ', response);
 
       return response;
     } catch (error) {
