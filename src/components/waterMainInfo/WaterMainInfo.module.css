@@ -29,6 +29,25 @@
   .waterMainContainer {
     width: 672px;
     height: 736px;
-    background-image: url(../../img/water-main-img/bottle-font-desktop.png);
+    background-image: url(/img/water-main-img/bottle-font-desktop.png);
+  }
+}
+
+/* Retina images for high-resolution screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .waterMainContainer {
+    background-image: url(../../img/water-main-img/bottle-font-phone@2x.png);
+  }
+
+  @media screen and (min-width: 768px) {
+    .waterMainContainer {
+      background-image: url(../../img/water-main-img/bottle-font-tab@2x.png);
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .waterMainContainer {
+      background-image: url(/img/water-main-img/bottle-font-desktop@2x.png);
+    }
   }
 }
