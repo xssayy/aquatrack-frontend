@@ -7,9 +7,11 @@ import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
 
 import LogOutModal from '../LogOutModal/LogOutModal';
 import ModalWindow from '../ModalWindow/ModalWindow';
+import { useTranslation } from 'react-i18next';
 
 const UserBarPopover = () => {
   const [isSettingModalOpen, setSettingModalIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   function openSettingModal() {
     setSettingModalIsOpen(true);
@@ -39,7 +41,7 @@ const UserBarPopover = () => {
           fillColor={'#323f47'}
           className={css.iconSettings}
         />
-        Setting
+        {t('Tracker page.Water detailed info.Setting')}
       </button>
 
       <ModalWindow
@@ -49,9 +51,7 @@ const UserBarPopover = () => {
         <UserSettingsModal onCloseModal={closeSettingModal} />
       </ModalWindow>
 
-
       <button type="button" onClick={openLogOutModal} className={css.logOut}>
-
         <Icon
           id={'log-out'}
           width={'16px'}
@@ -59,7 +59,7 @@ const UserBarPopover = () => {
           fillColor={'rgba(50, 63, 71, 0.4)'}
           className={css.iconLogOut}
         />
-        Log out
+        {t('General vars.Log out')}
       </button>
       <LogOutModal isOpen={isLogOutModalOpen} closeModal={closeLogOutModal} />
     </div>

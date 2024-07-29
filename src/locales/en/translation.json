@@ -56,7 +56,7 @@
       "The time of active participation in sports": "The time of active participation in sports",
       "The required amount of water in liters per day": "The required amount of water in liters per day",
       "Write down how much water you will drink": "Write down how much water you will drink",
-      "Formula": "* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)",
+      "Formula": "V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)",
       "Active time in hours": "Active time in hours"
     },
     "Edit water modal": {
@@ -68,9 +68,24 @@
       "Enter the value of the water used": "Enter the value of the water used"
     },
     "Confirm modal": {
+      "Log Out": "Log Out",
       "Delete entry": "Delete entry",
       "Are you sure you want to delete the entry?": "Are you sure you want to delete the entry?",
       "Do you really want to leave?": "Do you really want to leave?"
     }
+  },
+  "Month names": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
   }
 }

@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDaily } from '../../redux/water/operations';
 import { selectChosenDate } from '../../redux/water/selectors';
 import { setChosenDate } from '../../redux/water/slice';
+import { useTranslation } from 'react-i18next';
 
 export const CalendarPagination = () => {
   const dispatch = useDispatch();
   const chosenDate = useSelector(selectChosenDate);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const [chosenFullDate] = chosenDate.split('T');
@@ -49,20 +51,20 @@ export const CalendarPagination = () => {
     currentMonth === convertedChosendate.getMonth() &&
     currentYear === convertedChosendate.getFullYear();
 
-  const getMonthName = month => {
+  const getMonthName = (month, t) => {
     const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+      t('Month names.January'),
+      t('Month names.February'),
+      t('Month names.March'),
+      t('Month names.April'),
+      t('Month names.May'),
+      t('Month names.June'),
+      t('Month names.July'),
+      t('Month names.August'),
+      t('Month names.September'),
+      t('Month names.October'),
+      t('Month names.November'),
+      t('Month names.December'),
     ];
     return monthNames[month];
   };
@@ -80,7 +82,7 @@ export const CalendarPagination = () => {
       </button>
 
       <h3 className={css.dateTitle}>
-        {getMonthName(convertedChosendate.getMonth())},{' '}
+        {getMonthName(convertedChosendate.getMonth(), t)},{' '}
         {convertedChosendate.getFullYear()}
       </h3>
       <button

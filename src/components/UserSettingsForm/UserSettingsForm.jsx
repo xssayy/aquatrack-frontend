@@ -10,6 +10,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { patchUserInfo } from '../../redux/user/operations';
 import { selectUser } from '../../redux/user/selectors';
+import { useTranslation } from 'react-i18next';
 
 const schemaYup = Yup.object().shape({
   photo: Yup.mixed(),
@@ -38,16 +39,17 @@ const UserSettingsForm = ({ onCloseModal }) => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
-   const defaultValues = {
-     photo: userInfo.photo || avatar,
-     gender: userInfo.gender || 'woman',
-     name: userInfo.name || 'User',
-     email: userInfo.email || '',
-     weight: userInfo.weight || 0,
-     sportHours: userInfo.sportHours || 0,
-     waterAmount: userInfo.waterAmount || 0,
-   };
+  const defaultValues = {
+    photo: userInfo.photo || avatar,
+    gender: userInfo.gender || 'woman',
+    name: userInfo.name || 'User',
+    email: userInfo.email || '',
+    weight: userInfo.weight || 0,
+    sportHours: userInfo.sportHours || 0,
+    waterAmount: userInfo.waterAmount || 0,
+  };
 
   const {
     register,
@@ -109,7 +111,8 @@ const UserSettingsForm = ({ onCloseModal }) => {
           <img className={style.userImg} src={avatarUrl} alt="avatar"></img>
         </div>
         <label className={style.imgLabel} htmlFor={idPhoto}>
-          <Icon id="upload" width="18" height="18" /> Upload a photo
+          <Icon id="upload" width="18" height="18" />{' '}
+          {t('Modal.Setting modal.Upload a photo')}
         </label>
         <input
           className={style.imgInput}
@@ -125,7 +128,9 @@ const UserSettingsForm = ({ onCloseModal }) => {
 
       <PerfectScrollbar className={style.scrollContainer}>
         <div className={style.userGenderContainer}>
-          <h3 className={style.labelTitle}>Your gender identity</h3>
+          <h3 className={style.labelTitle}>
+            {t('Modal.Setting modal.Your gender identity')}
+          </h3>
           <div className={style.radioContainer}>
             <div className={style.inputRadioContainer}>
               <input
@@ -136,7 +141,7 @@ const UserSettingsForm = ({ onCloseModal }) => {
                 value="woman"
               />
               <label className={style.labelRadio} htmlFor={idGenderWoman}>
-                Woman
+                {t('Modal.Setting modal.Woman')}
               </label>
             </div>
             <div className={style.inputRadioContainer}>
@@ -148,7 +153,7 @@ const UserSettingsForm = ({ onCloseModal }) => {
                 value="man"
               />
               <label className={style.labelRadio} htmlFor={idGenderMan}>
-                Man
+                {t('Modal.Setting modal.Man')}
               </label>
             </div>
           </div>
@@ -162,7 +167,7 @@ const UserSettingsForm = ({ onCloseModal }) => {
             <div className={style.userMainInfoContainer}>
               <div className={style.inputContainer}>
                 <label className={style.labelTitle} htmlFor={idName}>
-                  Your name
+                  {t('Modal.Setting modal.Your name')}
                 </label>
                 <input
                   className={style.inputElem}
@@ -192,16 +197,22 @@ const UserSettingsForm = ({ onCloseModal }) => {
             </div>
 
             <div className={style.dailyNormaContainer}>
-              <h3 className={style.labelTitle}>My daily norma</h3>
+              <h3 className={style.labelTitle}>
+                {t('Tracker page.Water main info.My daily norma')}
+              </h3>
               <div className={style.dailyNormaFormulaContainer}>
                 <div>
-                  <p className={style.dailyNormaGender}>For woman:</p>
+                  <p className={style.dailyNormaGender}>
+                    {t('Modal.Setting modal.For woman')}:
+                  </p>
                   <p className={style.dailyNormaFormula}>
                     V=(M*0,03) + (T*0,4)
                   </p>
                 </div>
                 <div>
-                  <p className={style.dailyNormaGender}>For man:</p>
+                  <p className={style.dailyNormaGender}>
+                    {t('Modal.Setting modal.For man')}:
+                  </p>
                   <p className={style.dailyNormaFormula}>
                     V=(M*0,04) + (T*0,6)
                   </p>
@@ -209,16 +220,13 @@ const UserSettingsForm = ({ onCloseModal }) => {
               </div>
               <div className={style.dailyNormaDescriptionContainer}>
                 <p className={style.dailyNormaDescription}>
-                  <span className={style.dailyNormaDescriptionSpan}>*</span> V
-                  is the volume of the water norm in liters per day, M is your
-                  body weight, T is the time of active sports, or another type
-                  of activity commensurate in terms of loads (in the absence of
-                  these, you must set 0)
+                  <span className={style.dailyNormaDescriptionSpan}>*</span>{' '}
+                  {t('Modal.Setting modal.Formula')}
                 </p>
               </div>
               <p className={style.formaText}>
-                <span className={style.dailyNormaWarningSpan}>!</span> Active
-                time in hours
+                <span className={style.dailyNormaWarningSpan}>!</span>{' '}
+                {t('Modal.Setting modal.Active time in hours')}
               </p>
             </div>
           </div>
@@ -227,7 +235,7 @@ const UserSettingsForm = ({ onCloseModal }) => {
             <div className={style.userMainInfoContainer}>
               <div className={style.inputContainer}>
                 <label className={style.formaText} htmlFor={idWeight}>
-                  Your weight in kilograms:
+                  {t('Modal.Setting modal.Your weight in kilograms')}:
                 </label>
                 <input
                   className={style.inputElem}
@@ -242,7 +250,10 @@ const UserSettingsForm = ({ onCloseModal }) => {
 
               <div className={style.inputContainer}>
                 <label className={style.formaText} htmlFor={idSportHours}>
-                  The time of active participation in sports:
+                  {t(
+                    'Modal.Setting modal.The time of active participation in sports'
+                  )}
+                  :
                 </label>
                 <input
                   className={style.inputElem}
@@ -259,14 +270,22 @@ const UserSettingsForm = ({ onCloseModal }) => {
             <div className={style.userMainInfoContainer}>
               <div className={style.inputContainer}>
                 <p className={style.formaText}>
-                  The required amount of water in liters per day:
+                  {t(
+                    'Modal.Setting modal.The required amount of water in liters per day'
+                  )}
+                  :
                 </p>
-                <p className={style.dailyNormaFormula}>{waterDailyNorma} L</p>
+                <p className={style.dailyNormaFormula}>
+                  {waterDailyNorma} {t('General vars.L')}
+                </p>
               </div>
 
               <div className={style.inputContainer}>
                 <label className={style.labelTitle} htmlFor={idWaterAmount}>
-                  Write down how much water you will drink:
+                  {t(
+                    'Modal.Setting modal.Write down how much water you will drink'
+                  )}
+                  :
                 </label>
                 <input
                   className={style.inputElem}
@@ -287,7 +306,7 @@ const UserSettingsForm = ({ onCloseModal }) => {
       </PerfectScrollbar>
 
       <button className={style.formButton} type="submit">
-        Save
+        {t('General vars.Save')}
       </button>
     </form>
   );

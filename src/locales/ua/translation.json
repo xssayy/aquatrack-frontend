@@ -56,7 +56,7 @@
       "The time of active participation in sports": "Час, який витрачається на спорт",
       "The required amount of water in liters per day": "Необхідна кількість води на добу (в літрах)",
       "Write down how much water you will drink": "Напишіть скільки води плануєте випити",
-      "Formula": "* V - це об'єм норми води в літрах на добу, M - вага тіла, T - час активних занять спортом або інший вид діяльності, співмірний за навантаженнями (при їх відсутності необхідно встановити 0)",
+      "Formula": "V - це об'єм норми води в літрах на добу, M - вага тіла, T - час активних занять спортом або інший вид діяльності, співмірний за навантаженнями (при їх відсутності необхідно встановити 0)",
       "Active time in hours": "Час активності в годинах"
     },
     "Edit water modal": {
@@ -68,9 +68,24 @@
       "Enter the value of the water used": "Введіть кількість випитої води"
     },
     "Confirm modal": {
+      "Log Out": "Вихід",
       "Delete entry": "Видалити запис",
       "Are you sure you want to delete the entry?": "Ви справді бажаєте вилучити запис?",
       "Do you really want to leave?": "Ви справді хочете вийти?"
     }
+  },
+  "Month names": {
+    "January": "Січень",
+    "February": "Лютий",
+    "March": "Березень",
+    "April": "Квітень",
+    "May": "Травень",
+    "June": "Червень",
+    "July": "Липень",
+    "August": "Серпень",
+    "September": "Вересень",
+    "October": "Жовтень",
+    "November": "Листопад",
+    "December": "Грудень"
   }
 }

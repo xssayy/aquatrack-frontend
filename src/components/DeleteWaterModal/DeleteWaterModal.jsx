@@ -5,11 +5,13 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 import { delWater, getDaily, getMonthly } from '../../redux/water/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectChosenDate } from '../../redux/water/selectors';
+import { useTranslation } from 'react-i18next';
 
 const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const chosenDate = useSelector(selectChosenDate);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   // useEffect(() => {
   //   const [chosenFullDate] = chosenDate.split('T');
@@ -55,9 +57,9 @@ const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
   return (
     <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
       <div className={styles.modalContainer}>
-        <h2 className={styles.title}>Delete entry</h2>
+        <h2 className={styles.title}>{t('Confirm modal.Delete entry')}</h2>
         <p className={styles.question}>
-          Are you sure you want to delete the entry?
+          {t('Confirm modal.Are you sure you want to delete the entry?')}
         </p>
         <div className={styles.buttonContainer}>
           <button
@@ -65,7 +67,7 @@ const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
             onClick={handleDelete}
             className={`${styles.commonBtn} ${styles.deleteBtn}`}
           >
-            Delete
+            {t('General vars.Delete')}
           </button>
           <button
             type="button"
@@ -73,7 +75,7 @@ const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
             className={`${styles.commonBtn} ${styles.cancelBtn}`}
             disabled={isProcessing}
           >
-            Cancel
+            {t('General vars.Cancel')}
           </button>
         </div>
       </div>

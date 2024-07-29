@@ -15,6 +15,7 @@ import {
   postDaily,
 } from '../../redux/water/operations';
 import { selectChosenDate } from '../../redux/water/selectors';
+import { useTranslation } from 'react-i18next';
 
 const schema = yup.object().shape({
   amount: yup
@@ -33,14 +34,21 @@ const QuantityStepper = ({ value, onChange }) => {
   const increase = () => onChange(value + 50);
   const decrease = () => onChange(value - 50);
 
+  const { t } = useTranslation();
+
   return (
     <div className={styles.quantityStepperContainer}>
-      <label className={styles.quantityAmount}>Amount of water:</label>
+      <label className={styles.quantityAmount}>
+        {t('Modal.Edit water modal.Amount of water')}:
+      </label>
       <div className={styles.quantityStepper}>
         <button type="button" onClick={decrease} disabled={value <= 50}>
           <Icon id="minus" width={15} height={15} />
         </button>
-        <div className={styles.quantityDisplay}>{value}ml</div>
+        <div className={styles.quantityDisplay}>
+          {value}
+          {t('General vars.ml')}
+        </div>
         <button type="button" onClick={increase} disabled={value >= 5000}>
           <Icon id="plus" width={15} height={15} />
         </button>
@@ -59,6 +67,7 @@ const formatTime = value => {
 const WaterForm = ({ type, initialData, closeModal, id }) => {
   const dispatch = useDispatch();
   const chosenDate = useSelector(selectChosenDate);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const [chosenFullDate] = chosenDate.split('T');
@@ -113,7 +122,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="time" className={styles.quantityLabel}>
-          Recording time:
+          {t('Modal.Edit water modal.Recording time')}:
         </label>
         <Controller
           name="time"
@@ -142,7 +151,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="amount" className={styles.formGroupLabel}>
-          Enter the value of the water used:
+          {t('Modal.Edit water modal.Enter the value of the water used')}:
         </label>
         <Controller
           name="amount"
@@ -162,7 +171,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
         )}
       </div>
       <button type="submit" className={styles.submitButton}>
-        Save
+        {t('General vars.Save')}
       </button>
     </form>
   );

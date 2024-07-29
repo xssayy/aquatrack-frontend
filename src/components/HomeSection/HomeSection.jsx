@@ -9,9 +9,7 @@ const HomeSection = () => {
     <div className={css.welcomeSection}>
       <LogoLink />
       <div className={css.welcomeContainer}>
-        <p className={css.welcomeText}>
-          {t('Home page.Home section.Record daily water intake and track')}
-        </p>
+        <p className={css.welcomeText}>Record daily water intake and track</p>
         <h1 className={css.welcomeTitle}>Water consumption tracker</h1>
         <div className={css.welcomeThumb}>
           <NavLink className={css.linkTracker} to="/signup">
