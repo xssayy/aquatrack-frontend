@@ -17,7 +17,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 import { selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
 import Loader from './components/Loader/Loader';
-import LanguageSelector from './components/LanguageBtn/LanguageSelector';
+import LanguageSelector from './components/LanguageSelector/LanguageSelector';
 import WaterDetailedInfo from './components/WaterDetailedInfo/WaterDetailedInfo';
 
 export const App = () => {
