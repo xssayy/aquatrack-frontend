@@ -5,7 +5,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMonthly } from '../../redux/water/operations';
 import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
-import { selectMonthly, selectWaterLoading } from '../../redux/water/selectors';
+import {
+  selectChosenDate,
+  selectMonthly,
+  selectWaterLoading,
+} from '../../redux/water/selectors';
 import { selectUserWaterNorma } from '../../redux/user/selectors';
 
 export const getNumOfDaysInMonth = chosenDate => {
@@ -97,8 +101,9 @@ const getDailyWaterPercentageFromBackend = ({
   return data;
 };
 
-export const Calendar = ({ chosenDate, setChosenDate }) => {
+export const Calendar = () => {
   const dispatch = useDispatch();
+  const chosenDate = useSelector(selectChosenDate);
   const waterMonth = useSelector(selectMonthly);
 
   const loading = useSelector(selectWaterLoading);
@@ -155,7 +160,7 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
         {daysWithWater.map(day => {
           return (
             <li key={day.date} className={clsx(css.day)}>
-              <CalendarItem data={day} setChosenDate={setChosenDate} />
+              <CalendarItem data={day} />
             </li>
           );
         })}

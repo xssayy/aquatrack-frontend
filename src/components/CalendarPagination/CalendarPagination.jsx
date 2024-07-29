@@ -2,11 +2,14 @@
 import css from './CalendarPagination.module.css';
 import Icon from '../Icon/Icon';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDaily } from '../../redux/water/operations';
+import { selectChosenDate } from '../../redux/water/selectors';
+import { setChosenDate } from '../../redux/water/slice';
 
-export const CalendarPagination = ({ chosenDate, setChosenDate }) => {
+export const CalendarPagination = () => {
   const dispatch = useDispatch();
+  const chosenDate = useSelector(selectChosenDate);
 
   useEffect(() => {
     const [chosenFullDate] = chosenDate.split('T');
@@ -20,18 +23,22 @@ export const CalendarPagination = ({ chosenDate, setChosenDate }) => {
   const convertedChosendate = new Date(chosenDate);
 
   const handlePrevMonth = () => {
-    setChosenDate(
-      new Date(
-        convertedChosendate.setMonth(convertedChosendate.getMonth() - 1)
-      ).toISOString()
+    dispatch(
+      setChosenDate(
+        new Date(
+          convertedChosendate.setMonth(convertedChosendate.getMonth() - 1)
+        ).toISOString()
+      )
     );
   };
 
   const handleNextMonth = () => {
-    setChosenDate(
-      new Date(
-        convertedChosendate.setMonth(convertedChosendate.getMonth() + 1)
-      ).toISOString()
+    dispatch(
+      setChosenDate(
+        new Date(
+          convertedChosendate.setMonth(convertedChosendate.getMonth() + 1)
+        ).toISOString()
+      )
     );
   };
 

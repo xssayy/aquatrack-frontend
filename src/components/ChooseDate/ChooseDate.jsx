@@ -1,9 +1,11 @@
 import { format, isSameDay, parseISO } from 'date-fns';
 import css from './ChooseDate.module.css';
+import { useSelector } from 'react-redux';
+import { selectChosenDate } from '../../redux/water/selectors';
 
-const ChooseDate = ({ chosenDate }) => {
+const ChooseDate = () => {
+  const chosenDate = useSelector(selectChosenDate);
   const currentDate = new Date(); // Поточна дата
-  // const selectedDate = useSelector(selectActiveDay); //Вибрана дата
 
   const selectedDate = chosenDate;
 

@@ -4,12 +4,13 @@ import WaterItem from '../WaterItem/WaterItem';
 import css from './WaterList.module.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { selectGetDaily } from '../../redux/water/selectors';
+import { selectChosenDate, selectGetDaily } from '../../redux/water/selectors';
 import { useEffect } from 'react';
 import { getDaily } from '../../redux/water/operations';
 
-const WaterList = ({ chosenDate }) => {
+const WaterList = () => {
   const mockData = useSelector(selectGetDaily);
+  const chosenDate = useSelector(selectChosenDate);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,8 +20,6 @@ const WaterList = ({ chosenDate }) => {
     const date = `${chosenYear}-${chosenMonth}-${chosenDay}`;
     dispatch(getDaily(date));
   }, []);
-
-  console.log('data: ', mockData);
 
   // const [waterData, setWaterData] = useState([]);
   // Mock data for testing scroll

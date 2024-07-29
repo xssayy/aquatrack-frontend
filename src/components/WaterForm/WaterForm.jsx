@@ -7,8 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import styles from '../WaterForm/WaterForm.module.css';
 import Icon from '../Icon/Icon';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getMonthly, postDaily } from '../../redux/water/operations';
+import { selectChosenDate } from '../../redux/water/selectors';
 
 const schema = yup.object().shape({
   amount: yup
@@ -50,14 +51,9 @@ const formatTime = value => {
   return `${cleaned.slice(0, 2)}:${cleaned.slice(2, 4)}`;
 };
 
-const WaterForm = ({
-  type,
-  initialData,
-  closeModal,
-  chosenDate,
-  setChosenDate,
-}) => {
+const WaterForm = ({ type, initialData, closeModal }) => {
   const dispatch = useDispatch();
+  const chosenDate = useSelector(selectChosenDate);
 
   useEffect(() => {
     const year = new Date(chosenDate).getFullYear();
