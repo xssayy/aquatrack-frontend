@@ -1,9 +1,10 @@
 .waterMainContainer {
   background-color: #9be1a0;
   max-width: 343px;
-  padding: 24px 16px 32px 16px;
+  padding: 122px 16px 30px;
+  position: relative;
   border-radius: 30px;
-  box-sizing: border-box;
+
   background-image: url(src/img/water-main-img/bottle-font-phone.png);
   background-repeat: no-repeat;
   background-position: 41px 50px;
@@ -15,15 +16,10 @@
     max-width: unset;
     width: 704px;
     height: 578px;
-    padding: 32px 32px 64px 32px;
+    padding: 157px 32px 64px;
     background-image: url(src/img/water-main-img/bottle-font-tab.png);
     background-position: 165px 69px;
     background-size: 374px 477px;
-  }
-
-  .waterMainTitle {
-    font-size: 24px;
-    margin-bottom: 101px;
   }
 }
 
@@ -31,6 +27,7 @@
   .waterMainContainer {
     width: 672px;
     height: 736px;
+    padding: 157px 32px 64px;
     background-image: url(src/img/water-main-img/bottle-font-desktop.png);
     background-position: 100px 92px;
     background-size: 472px 604px;
