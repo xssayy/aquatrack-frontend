@@ -114,3 +114,25 @@ export const delWater = createAsyncThunk(
     }
   }
 );
+
+export const patchWater = createAsyncThunk(
+  'water/patchtWater',
+  async ({ id, patchedData }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const persistedToken = state.auth.token;
+      console.log('credentials: ', credentials);
+
+      const response = await axiosPatch(`water/${id}`, patchedData, {
+        Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
+      });
+      console.log('response: ', response);
+
+      return response.data;
+    } catch (error) {
+      console.log('error: ', error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

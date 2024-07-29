@@ -89,20 +89,26 @@ const WaterForm = ({
   const amount = watch('amount');
 
   const onSubmit = async data => {
-    console.log('Submitting data:', data);
-    const [datePart] = chosenDate.split('T');
-
+    // console.log('Submitting data:', data);
+    // const [datePart] = chosenDate.split('T');
     // Встановлюємо новий час зберігаючи дату
-    const newDateISO = `${datePart}T${data.time}:00Z`;
-    dispatch(postDaily({ ...data, time: newDateISO }));
-
+    // const newDateISO = `${datePart}T${data.time}:00Z`;
+    //тут має бути якась перевірки чи це post чи patch
+    // створюємо POST
+    // dispatch(postDaily({ ...data, time: newDateISO }));
+    //патчимо
+    // dispatch(
+    //   patchDaily({
+    //     id: '66a6da2f398f0570d3bd3d2b',
+    //     patchedData: { ...data, time: newDateISO },
+    //   })
+    // );
     // try {
     //   if (type === 'add') {
     //     await axios.post('/api/water', data);
     //   } else {
     //     await axios.put(`/api/water/${initialData.id}`, data);
     //   }
-
     //   closeModal();
     // } catch (error) {
     //   if (error.response && error.response.data) {

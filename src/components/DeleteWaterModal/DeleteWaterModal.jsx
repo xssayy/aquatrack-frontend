@@ -14,8 +14,8 @@ const DeleteWaterModal = ({ isOpen, closeModal, recordId }) => {
 
   const handleDelete = async () => {
     setIsProcessing(true);
-    //сюди треба якось передати id запису
-    //перед цим відмалювати з БЕ
+    //!сюди треба якось передати id запису
+    //!перед цим відмалювати з БЕ
     dispatch(delWater('66a68098b7436ba2bef7846d'));
     // try {
     //   await axios.delete(`/api/water/${recordId}`);
