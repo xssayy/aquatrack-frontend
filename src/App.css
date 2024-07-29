@@ -102,35 +102,18 @@ img {
   height: auto;
 }
 
-div.ps__rail-x:hover > .ps__thumb-x,
-.ps__rail-x:focus > .ps__thumb-x,
-.ps__rail-x.ps--clicking .ps__thumb-x {
-  height: 8px;
+.os-scrollbar.os-scrollbar-track-interactive .os-scrollbar-track, .os-scrollbar.os-scrollbar-handle-interactive .os-scrollbar-handle {
+  border-radius: 9px;
   background-color: #323f47;
+  min-height: 8px;
+  max-height: 8px;
 }
-
-div.ps .ps__rail-x:hover,
-.ps .ps__rail-y:hover,
-.ps .ps__rail-x:focus,
-.ps .ps__rail-y:focus,
-.ps .ps__rail-x.ps--clicking,
-.ps .ps__rail-y.ps--clicking {
-  background-color: #fff;
-  border-radius: 8px;
-}
-
-.ps:hover > .ps__rail-x,
-.ps:hover > .ps__rail-y,
-.ps--focus > .ps__rail-x,
-.ps--focus > .ps__rail-y,
-.ps--scrolling-x > .ps__rail-x,
-.ps--scrolling-y > .ps__rail-y {
-  opacity: 1;
-}
-
-.ps--active-x > .ps__rail-x,
-.ps--active-y > .ps__rail-y {
-  height: 8px;
-  background-color: transparent;
-  /* background-color:  #fff; */
+.os-theme-dark, .os-theme-light {
+    --os-size: 8px;
+    --os-padding-perpendicular: 0;
+    --os-padding-axis: 0;
+    background-color:  #fff;
+  border-radius: 9px;
+  min-height: 8px;
+  max-height: 8px;
 }
