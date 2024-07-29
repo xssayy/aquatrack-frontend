@@ -6,11 +6,12 @@ import css from './MainAddWaterBtn.module.css';
 
 import WaterModal from '../WaterModal/WaterModal';
 import Icon from '../Icon/Icon';
-
+import { useTranslation } from 'react-i18next';
 
 const MainAddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [iconFillColor, setIconFillColor] = useState('#ffffff');
+  const { t } = useTranslation();
 
   const openModal = () => {
     setIsOpen(true);
@@ -50,7 +51,7 @@ const MainAddWaterBtn = () => {
           className={css.iconPlus}
           fillColor={iconFillColor}
         />
-        Add water
+        {t('Tracker page.Water main info.Add water')}
       </button>
 
       <WaterModal

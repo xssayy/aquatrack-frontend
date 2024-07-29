@@ -4,10 +4,12 @@ import { useState } from 'react';
 import DeleteWaterModal from '../DeleteWaterModal/DeleteWaterModal';
 import WaterModal from '../WaterModal/WaterModal';
 import Icon from '../Icon/Icon';
+import { useTranslation } from 'react-i18next';
 
 const WaterItem = ({ water }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const { t } = useTranslation();
 
   const handleEdit = () => {
     setIsEditModalOpen(true);
@@ -29,7 +31,10 @@ const WaterItem = ({ water }) => {
     <div className={css.item}>
       <Icon id="water-glass" className={css.iconGlass} />
       <div className={css.water}>
-        <p className={css.volume}>{`${water.amount}ml`}</p>
+        <p className={css.volume}>
+          {`${water.amount}`}
+          {t('General vars.ml')}
+        </p>
         <p className={css.time}>{`${water.time}`}</p>
       </div>
       <div className={css.edit}>

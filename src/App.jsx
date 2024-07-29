@@ -18,6 +18,7 @@ import { selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
 import Loader from './components/Loader/Loader';
 import LanguageSelector from './components/LanguageBtn/LanguageSelector';
+import WaterDetailedInfo from './components/WaterDetailedInfo/WaterDetailedInfo';
 
 export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -32,7 +33,7 @@ export const App = () => {
   ) : (
     <div>
       <LanguageSelector />
-      <SignUpPage />
+      <WaterDetailedInfo />
     </div>
 
     // <SharedLayout>
