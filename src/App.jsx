@@ -18,7 +18,6 @@ import { selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
 import Loader from './components/Loader/Loader';
 import LanguageSelector from './components/LanguageSelector/LanguageSelector';
-import WaterDetailedInfo from './components/WaterDetailedInfo/WaterDetailedInfo';
 
 export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -31,34 +30,30 @@ export const App = () => {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <div>
+    <SharedLayout>
       <LanguageSelector />
-      <WaterDetailedInfo />
-    </div>
-
-    // <SharedLayout>
-    //   <Routes>
-    //     <Route path="/" element={<HomePage />} />
-    //     <Route
-    //       path="/signup"
-    //       element={
-    //         <RestrictedRoute redirectTo="/tracker" component={<SignUpPage />} />
-    //       }
-    //     />
-    //     <Route
-    //       path="/signin"
-    //       element={
-    //         <RestrictedRoute redirectTo="/tracker" component={<SingInPage />} />
-    //       }
-    //     />
-    //     <Route
-    //       path="/tracker"
-    //       element={
-    //         <PrivateRoute redirectTo="/signin" component={<TrackerPage />} />
-    //       }
-    //     />
-    //     <Route path="*" element={<NotFoundPage />} />
-    //   </Routes>
-    // </SharedLayout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/signup"
+          element={
+            <RestrictedRoute redirectTo="/tracker" component={<SignUpPage />} />
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <RestrictedRoute redirectTo="/tracker" component={<SingInPage />} />
+          }
+        />
+        <Route
+          path="/tracker"
+          element={
+            <PrivateRoute redirectTo="/signin" component={<TrackerPage />} />
+          }
+        />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </SharedLayout>
   );
 };

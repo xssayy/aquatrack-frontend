@@ -8,7 +8,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import { selectChosenDate, selectGetDaily } from '../../redux/water/selectors';
 import { useEffect } from 'react';
 import { getDaily } from '../../redux/water/operations';
-// import useScrollbar from '../scroll/scroll';
+import useScrollbar from '../scroll/scroll';
 
 const WaterList = () => {
   const mockData = useSelector(selectGetDaily);
@@ -34,7 +34,7 @@ const WaterList = () => {
 
   const waterWrapper = useRef(null);
   const hasScroll = mockData.length > 2;
-  // useScrollbar(waterWrapper, hasScroll);
+  useScrollbar(waterWrapper, hasScroll);
 
   return (
     <div className={css.listContainer} ref={waterWrapper}>
