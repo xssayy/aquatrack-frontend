@@ -4,7 +4,7 @@ import WaterItem from '../WaterItem/WaterItem';
 import css from './WaterList.module.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import useScrollbar from '../scroll/scroll';
+// import useScrollbar from '../scroll/scroll';
 
 const WaterList = () => {
   // const [waterData, setWaterData] = useState([]);

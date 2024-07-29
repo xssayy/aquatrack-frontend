@@ -10,15 +10,15 @@ const HomeSection = () => {
       <LogoLink />
       <div className={css.welcomeContainer}>
         <p className={css.welcomeText}>
-          {t('Record daily water intake and track')}
+          {t('Home page.Home section.Record daily water intake and track')}
         </p>
         <h1 className={css.welcomeTitle}>Water consumption tracker</h1>
         <div className={css.welcomeThumb}>
           <NavLink className={css.linkTracker} to="/signup">
-            {t('Try tracker')}
+            {t('Home page.Home section.Try tracker')}
           </NavLink>
           <NavLink className={css.linkSignIn} to="/signin">
-            {t('Sign in')}
+            {t('Home page.Home section.Sign In')}
           </NavLink>
         </div>
       </div>

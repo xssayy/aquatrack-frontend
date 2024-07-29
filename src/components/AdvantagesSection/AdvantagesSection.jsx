@@ -74,22 +74,29 @@ const AdvantagesSection = () => {
           </picture>
         </div>
         <p className={css.sectionsTextLeters}>
-          {t('Our')} <span className={css.span}>{t('happy')}</span> <br />{' '}
-          {t('customers')}
+          {t('Home page.Advantages section.Our')}{' '}
+          <span className={css.span}>
+            {t('Home page.Advantages section.happy')}
+          </span>{' '}
+          <br /> {t('Home page.Advantages section.customers')}
         </p>
       </div>
       <div className={css.group}>
         <ul className={css.groupList}>
           <li className={css.groupListItem}>
             <div className={css.ellipse}></div>
-            <p className={css.groupListItemText}>{t('Habit drive')}</p>
-          </li>
-          <li className={css.groupListItem}>
-            <p className={css.groupListItemTextBlack}>View statistics</p>
+            <p className={css.groupListItemText}>
+              {t('Home page.Advantages section.Habit drive')}
+            </p>
           </li>
           <li className={css.groupListItem}>
             <p className={css.groupListItemTextBlack}>
-              {t('Personal rate setting')}
+              {t('Home page.Advantages section.View statistics')}
+            </p>
+          </li>
+          <li className={css.groupListItem}>
+            <p className={css.groupListItemTextBlack}>
+              {t('Home page.Advantages section.Personal rate setting')}
             </p>
           </li>
         </ul>

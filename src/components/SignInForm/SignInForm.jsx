@@ -9,6 +9,7 @@ import { login } from '../../redux/auth/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 import LogoLink from '../LogoLink/LogoLink';
 import Icon from '../Icon/Icon';
+import { useTranslation } from 'react-i18next';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -31,6 +32,7 @@ const SignInForm = () => {
   const emailId = useId();
   const passwordId = useId();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const toggleVisibility = () => {
     setShowPassword(!showPassword);
@@ -56,7 +58,7 @@ const SignInForm = () => {
     <div className={style.signInContainer}>
       <LogoLink />
       <div className={style.formContainer}>
-        <h2 className={style.title}>Sign In</h2>
+        <h2 className={style.title}>{t('Home page.Home section.Sign In')}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={style.inputContainer}>
             <div className={style.inputItem}>
@@ -70,14 +72,14 @@ const SignInForm = () => {
                 }`}
                 type="email"
                 {...register('email')}
-                placeholder="Enter your email"
+                placeholder={t('Home page.Home section.Enter your email')}
               />
               <p className={style.text}>{errors.email?.message}</p>
             </div>
 
             <div className={style.inputItem}>
               <label htmlFor={passwordId} className={style.label}>
-                Password
+                {t('Home page.Home section.Password')}
               </label>
               <input
                 id={passwordId}
@@ -86,7 +88,7 @@ const SignInForm = () => {
                 className={`${style.field} ${
                   errors.password ? style.errorField : ''
                 }`}
-                placeholder="Enter your password"
+                placeholder={t('Home page.Home section.Enter your password')}
               />
               <button
                 type="button"
@@ -102,12 +104,16 @@ const SignInForm = () => {
               <p className={style.text}>{errors.password?.message}</p>
             </div>
           </div>
-          <input className={style.button} type="submit" value="Sing In" />
+          <input
+            className={style.button}
+            type="submit"
+            value={t('Home page.Home section.Sign In')}
+          />
         </form>
         <p className={style.redirect}>
-          Don’t have an account?{' '}
+          {t("Home page.Home section.Don't have an account?")}{' '}
           <Link to="/signup" className={style.redirectLink}>
-            Sign Up
+            {t('Home page.Home section.Sign Up')}
           </Link>
         </p>
       </div>
