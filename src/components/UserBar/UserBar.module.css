@@ -1,8 +1,8 @@
 .button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 137px;
+  gap: 8px;
   height: 50px;
   margin-top: 20px;
   padding: 6px 12px;
@@ -14,11 +14,12 @@
   letter-spacing: -0.01em;
   background-color: var(--main);
   color: var(--main-white);
+  width: fit-content;
 }
 
 .avatar {
-  width: 38px;
   height: 38px;
+  width: 38px;
   border-radius: 50%;
 }
 
@@ -30,10 +31,10 @@
   .button {
     font-size: 16px;
     line-height: 150%;
-    width: 157px;
     height: 56px;
     margin-top: 0;
   }
+
   .avatar {
     width: 44px;
     height: 44px;

@@ -3,9 +3,8 @@ import css from './MonthInfo.module.css';
 import { Calendar } from '../Calendar/Calendar';
 import { useState } from 'react';
 
-const MonthInfo = () => {
-  const [chosenDate, setChosenDate] = useState(new Date());
-
+const MonthInfo = ({ chosenDate, setChosenDate }) => {
+  // console.log('MonthInfo chosenDate: ', chosenDate);
   return (
     <div className={css.mainWrapper}>
       <div className={css.dateWrapper}>
@@ -17,7 +16,7 @@ const MonthInfo = () => {
         />
       </div>
 
-      <Calendar chosenDate={chosenDate} />
+      <Calendar chosenDate={chosenDate} setChosenDate={setChosenDate} />
     </div>
   );
 };

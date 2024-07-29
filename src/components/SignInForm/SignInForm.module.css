@@ -3,7 +3,8 @@
   background-color: var(--background);
   display: flex;
   flex-direction: column;
-  padding: 24px 16px 216px 16px;
+  padding: 216px 16px;
+  position: relative;
 }
 
 .logo {
@@ -13,7 +14,6 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--main);
-  margin-bottom: 172px;
 }
 
 .title {
@@ -139,7 +139,7 @@
 
 @media screen and (min-width: 768px) {
   .signInContainer {
-    padding: 32px 32px 227px 32px;
+    padding: 281px 134px;
   }
 
   .formContainer {
@@ -150,7 +150,6 @@
   .logo {
     font-size: 24px;
     line-height: 100%;
-    margin-bottom: 225px;
   }
 
   .title {
@@ -201,14 +200,14 @@
 
 @media screen and (min-width: 1440px) {
   .signInContainer {
-    padding: 32px 32px 153px 32px;
+    padding: 102px 32px 0 32px;
+    height: 736px;
     width: 672px;
   }
 
   .logo {
     font-size: 24px;
     line-height: 100%;
-    margin-bottom: 113px;
   }
 
   .title {

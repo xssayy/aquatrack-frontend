@@ -3,13 +3,16 @@ import WaterList from '../WaterList/WaterList';
 import css from './DailyInfo.module.css';
 import AddWaterDailyBtn from '../AddWaterDailyBtn/AddWaterDailyBtn';
 
-const DailyInfo = () => {
+const DailyInfo = ({ chosenDate, setChosenDate }) => {
   return (
     <section className={css.section}>
       <div className={css.container}>
         <div className={css.title}>
-          <ChooseDate />
-          <AddWaterDailyBtn />
+          <ChooseDate chosenDate={chosenDate} />
+          <AddWaterDailyBtn
+            chosenDate={chosenDate}
+            setChosenDate={setChosenDate}
+          />
         </div>
         <WaterList />
       </div>
