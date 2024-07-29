@@ -6,6 +6,7 @@ import { persistor, store } from './redux/store.js';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import './App.css';
+import 'overlayscrollbars/styles/overlayscrollbars.css';
 import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

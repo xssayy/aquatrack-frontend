@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useRef } from 'react';
 import WaterItem from '../WaterItem/WaterItem';
 
 import css from './WaterList.module.css';
@@ -7,6 +8,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import { selectChosenDate, selectGetDaily } from '../../redux/water/selectors';
 import { useEffect } from 'react';
 import { getDaily } from '../../redux/water/operations';
+import useScrollbar from '../scroll/scroll';
 
 const WaterList = () => {
   const mockData = useSelector(selectGetDaily);
@@ -30,8 +32,12 @@ const WaterList = () => {
   //   { id: 4, amount: 300, time: '17:00pm' },
   // ];
 
+  const waterWrapper = useRef(null);
+  const hasScroll = mockData.length > 2;
+  useScrollbar(waterWrapper, hasScroll);
+
   return (
-    <PerfectScrollbar className={css.scrollbar}>
+    <div className={css.listContainer} ref={waterWrapper}>
       <ul className={css.list}>
         {mockData &&
           mockData?.map(water => {
@@ -42,7 +48,7 @@ const WaterList = () => {
             );
           })}
       </ul>
-    </PerfectScrollbar>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@
   position: relative;
   border-radius: 30px;
 
-  background-image: url(src/img/water-main-img/bottle-font-phone.png);
+  background-image: url(../../img/waterMainImg/bottle-font-phone.png);
   background-repeat: no-repeat;
   background-position: 41px 50px;
   background-size: 262px 335px;
@@ -17,7 +17,7 @@
     width: 704px;
     height: 578px;
     padding: 157px 32px 64px;
-    background-image: url(src/img/water-main-img/bottle-font-tab.png);
+    background-image: url(../../img/waterMainImg/bottle-font-tab.png);
     background-position: 165px 69px;
     background-size: 374px 477px;
   }
@@ -28,7 +28,7 @@
     width: 672px;
     height: 736px;
     padding: 157px 32px 64px;
-    background-image: url(src/img/water-main-img/bottle-font-desktop.png);
+    background-image: url(../../img/waterMainImg/bottle-font-desktop.png);
     background-position: 100px 92px;
     background-size: 472px 604px;
   }
@@ -36,18 +36,18 @@
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .waterMainContainer {
-    background-image: url(src/img/water-main-img/bottle-font-phone@2x.png);
+    background-image: url(../../img/waterMainImg/bottle-font-phone@2x.png);
   }
 
   @media screen and (min-width: 768px) {
     .waterMainContainer {
-      background-image: url(src/img/water-main-img/bottle-font-tab@2x.png);
+      background-image: url(../../img/waterMainImg/bottle-font-tab@2x.png);
     }
   }
 
   @media screen and (min-width: 1440px) {
     .waterMainContainer {
-      background-image: url(src/img/water-main-img/bottle-font-desktop@2x.png);
+      background-image: url(../../img/waterMainImg/bottle-font-desktop@2x.png);
     }
   }
 }
