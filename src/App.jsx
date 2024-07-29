@@ -17,7 +17,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 import { selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
 import Loader from './components/Loader/Loader';
-import { useTranslation } from 'react-i18next';
+import LanguageSelector from './components/LanguageBtn/LanguageSelector';
 
 export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -27,25 +27,11 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  //Тест - перенести потім на компонент, де буде кнопка зміни мови
-  const { i18n } = useTranslation();
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage) {
-      i18n.changeLanguage(savedLanguage);
-    }
-  }, [i18n]);
-  const changeLanguage = language => {
-    i18n.changeLanguage(language);
-    localStorage.setItem('language', language);
-  };
-
   return isRefreshing ? (
     <Loader />
   ) : (
     <div>
-      <button onClick={() => changeLanguage('en')}>En</button>
-      <button onClick={() => changeLanguage('ua')}>Ua</button>
+      <LanguageSelector />
       <SignUpPage />
     </div>
 
