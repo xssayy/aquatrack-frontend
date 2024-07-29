@@ -1,5 +1,5 @@
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // import { refreshUser } from '../redux/auth/operations';
 // import { selectIsLoggedIn } from '../redux/auth/selectors';
 
@@ -13,17 +13,18 @@ import HomePage from './pages/HomePage/HomePage';
 import 'modern-normalize';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SingInPage from './pages/SignInPage/SignInPage';
+import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
+import { selectIsRefreshing } from './redux/auth/selectors';
+import { refreshUser } from './redux/auth/operations';
+import Loader from './components/Loader/Loader';
 
 export const App = () => {
-  // const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
 
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     dispatch(refreshUser());
-  //   }
-  // }, [dispatch, isLoggedIn]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <SharedLayout>

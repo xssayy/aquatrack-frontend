@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://aqua-track-backend.onrender.com/',
+  baseURL: 'https://aqua-track-backend.onrender.com',
+  // baseURL: 'http://localhost:3000',
+  withCredentials: true,
 });
 
 const request = async (
@@ -42,7 +44,7 @@ export const axiosGet = (url, params = null, headers = {}) =>
 export const axiosPost = (url, data, headers = {}) =>
   request('post', url, data, null, headers);
 export const axiosPut = (url, data, headers = {}) =>
-    request('put', url, data, null, headers);
+  request('put', url, data, null, headers);
 export const axiosPatch = (url, data, headers = {}) =>
   request('patch', url, data, null, headers);
 export const axiosDel = (url, headers = {}) =>

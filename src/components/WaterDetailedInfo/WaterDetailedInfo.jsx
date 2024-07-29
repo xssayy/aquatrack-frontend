@@ -9,12 +9,13 @@ import MonthInfo from '../MonthInfo/MonthInfo.jsx';
 
 const WaterDetailedInfo = () => {
   const [chosenDate, setChosenDate] = useState(new Date().toISOString());
+  console.log('WaterDetailedInfo chosenDate: ', chosenDate);
 
   return (
     <div className={css.waterDetailedInfoContainer}>
       <UserPanel />
-      <DailyInfo value={chosenDate} setChosenDate={setChosenDate} />
-      <MonthInfo value={chosenDate} setChosenDate={setChosenDate} />
+      <DailyInfo chosenDate={chosenDate} setChosenDate={setChosenDate} />
+      <MonthInfo chosenDate={chosenDate} setChosenDate={setChosenDate} />
     </div>
   );
 };

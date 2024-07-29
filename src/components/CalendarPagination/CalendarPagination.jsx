@@ -3,20 +3,32 @@ import css from './CalendarPagination.module.css';
 import Icon from '../Icon/Icon';
 
 export const CalendarPagination = ({ chosenDate, setChosenDate }) => {
+  //chosenDate приходить у форматі '2024-07-20T20:10:02.082Z';
+  //перетворюємо в об"єкт Date
+  const convertedChosendate = new Date(chosenDate);
+
   const handlePrevMonth = () => {
-    setChosenDate(new Date(chosenDate.setMonth(chosenDate.getMonth() - 1)));
+    setChosenDate(
+      new Date(
+        convertedChosendate.setMonth(convertedChosendate.getMonth() - 1)
+      ).toISOString()
+    );
   };
 
   const handleNextMonth = () => {
-    setChosenDate(new Date(chosenDate.setMonth(chosenDate.getMonth() + 1)));
+    setChosenDate(
+      new Date(
+        convertedChosendate.setMonth(convertedChosendate.getMonth() + 1)
+      ).toISOString()
+    );
   };
 
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
 
   const isLastMonth =
-    currentMonth === chosenDate.getMonth() &&
-    currentYear === chosenDate.getFullYear();
+    currentMonth === convertedChosendate.getMonth() &&
+    currentYear === convertedChosendate.getFullYear();
 
   const getMonthName = month => {
     const monthNames = [
@@ -49,7 +61,8 @@ export const CalendarPagination = ({ chosenDate, setChosenDate }) => {
       </button>
 
       <h3 className={css.dateTitle}>
-        {getMonthName(chosenDate.getMonth())}, {chosenDate.getFullYear()}
+        {getMonthName(convertedChosendate.getMonth())},{' '}
+        {convertedChosendate.getFullYear()}
       </h3>
       <button
         onClick={handleNextMonth}

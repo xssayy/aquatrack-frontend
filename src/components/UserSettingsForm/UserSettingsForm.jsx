@@ -7,16 +7,9 @@ import Icon from '../Icon/Icon';
 import avatar from '../../img/avatar.png';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-
-const initialState = {
-  photo: '',
-  gender: 'woman',
-  name: 'User',
-  email: '',
-  weight: 0,
-  sportHours: 0,
-  waterAmount: 0,
-};
+import { useDispatch, useSelector } from 'react-redux';
+import { patchUserInfo } from '../../redux/user/operations';
+import { selectUser } from '../../redux/user/selectors';
 
 const schemaYup = Yup.object().shape({
   photo: Yup.mixed(),
@@ -24,8 +17,8 @@ const schemaYup = Yup.object().shape({
   name: Yup.string()
     .trim()
     .min(2, 'Minimal 2 symbols!')
-    .max(30, 'Max 30 symbols!'),
-  email: Yup.string().trim().email('Invalid email format'),
+    .max(20, 'Max 20 symbols!'),
+  email: Yup.string().trim().email('Invalid email format').required(),
   weight: Yup.number()
     .min(0, 'Kilograms cannot be negative')
     .max(300, 'Max 300 kilograms!'),
@@ -38,8 +31,23 @@ const schemaYup = Yup.object().shape({
 });
 
 const UserSettingsForm = ({ onCloseModal }) => {
-  const [avatarUrl, setAvatarUrl] = useState(avatar);
+  const userInfo = useSelector(selectUser);
+
+  const [avatarUrl, setAvatarUrl] = useState(userInfo.photo || avatar);
   const [waterDailyNorma, setWaterDailyNorma] = useState(1.8);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const dispatch = useDispatch();
+
+   const defaultValues = {
+     photo: userInfo.photo || avatar,
+     gender: userInfo.gender || 'woman',
+     name: userInfo.name || 'User',
+     email: userInfo.email || '',
+     weight: userInfo.weight || 0,
+     sportHours: userInfo.sportHours || 0,
+     waterAmount: userInfo.waterAmount || 0,
+   };
 
   const {
     register,
@@ -47,7 +55,7 @@ const UserSettingsForm = ({ onCloseModal }) => {
     watch,
     formState: { errors },
   } = useForm({
-    defaultValues: initialState,
+    defaultValues: defaultValues,
     resolver: yupResolver(schemaYup),
   });
 
@@ -70,7 +78,7 @@ const UserSettingsForm = ({ onCloseModal }) => {
         gender === 'woman'
           ? weight * 0.03 + sportHours * 0.4
           : weight * 0.04 + sportHours * 0.6;
-      setWaterDailyNorma(waterNorma.toFixed(2));
+      setWaterDailyNorma(waterNorma.toFixed(1));
     }
   }, [weight, sportHours, gender]);
 
@@ -78,12 +86,19 @@ const UserSettingsForm = ({ onCloseModal }) => {
     const file = event.target.files[0];
     if (file) {
       setAvatarUrl(URL.createObjectURL(file));
+      setSelectedFile(file);
     }
   };
 
   const onSubmit = data => {
-    console.log(data);
-    // JSON.stringify(data);
+    const formData = new FormData();
+    Object.keys(data).forEach(key => {
+      formData.append(key, data[key]);
+    });
+    if (selectedFile) {
+      formData.append('photo', selectedFile); // Додавання файлу до formData
+    }
+    dispatch(patchUserInfo(formData));
     onCloseModal();
   };
 

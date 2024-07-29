@@ -4,6 +4,7 @@ import Icon from '../Icon/Icon';
 
 import css from './UserBarPopover.module.css';
 import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
+
 import LogOutModal from '../LogOutModal/LogOutModal';
 import ModalWindow from '../ModalWindow/ModalWindow';
 
@@ -48,7 +49,9 @@ const UserBarPopover = () => {
         <UserSettingsModal onCloseModal={closeSettingModal} />
       </ModalWindow>
 
+
       <button type="button" onClick={openLogOutModal} className={css.logOut}>
+
         <Icon
           id={'log-out'}
           width={'16px'}

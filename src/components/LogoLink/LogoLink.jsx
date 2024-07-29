@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import styles from './LogoLink.module.css';
 
 const LogoLink = () => {
   return (
-    <a href="/aquatrack-frontend/" className={styles.title}>
+    <Link to="/" className={styles.title}>
       Aquatrack
-    </a>
+    </Link>
   );
 };
 

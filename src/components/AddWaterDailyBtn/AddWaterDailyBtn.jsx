@@ -6,7 +6,7 @@ import WaterModal from '../WaterModal/WaterModal';
 
 import { format } from 'date-fns';
 
-const AddWaterDailyBtn = () => {
+const AddWaterDailyBtn = ({ chosenDate, setChosenDate }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const handleOpenModal = () => {
     setModalIsOpen(true);
@@ -21,7 +21,6 @@ const AddWaterDailyBtn = () => {
     return format(date, 'HH:mm');
   };
   const formattedTime = formatTime(currentDate);
-  console.log(formattedTime); // Виведе "06:58am"
 
   return (
     <div className={css.addBtn}>
@@ -35,6 +34,8 @@ const AddWaterDailyBtn = () => {
         isOpen={modalIsOpen}
         type="add"
         initialData={{ amount: 50, time: `${formattedTime}` }}
+        chosenDate={chosenDate}
+        setChosenDate={setChosenDate}
       />
     </div>
   );
