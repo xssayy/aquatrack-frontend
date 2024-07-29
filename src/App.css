@@ -102,13 +102,13 @@ img {
   height: auto;
 }
 
-.os-scrollbar.os-scrollbar-track-interactive .os-scrollbar-track, .os-scrollbar.os-scrollbar-handle-interactive .os-scrollbar-handle {
+div.os-scrollbar.os-scrollbar-track-interactive .os-scrollbar-track, div.os-scrollbar.os-scrollbar-handle-interactive .os-scrollbar-handle {
   border-radius: 9px;
   background-color: #323f47;
   min-height: 8px;
   max-height: 8px;
 }
-.os-theme-dark, .os-theme-light {
+div.os-theme-dark, div.os-theme-light {
     --os-size: 8px;
     --os-padding-perpendicular: 0;
     --os-padding-axis: 0;
