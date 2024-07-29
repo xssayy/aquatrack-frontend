@@ -14,7 +14,7 @@ const DailyInfo = ({ chosenDate, setChosenDate }) => {
             setChosenDate={setChosenDate}
           />
         </div>
-        <WaterList />
+        <WaterList chosenDate={chosenDate} />
       </div>
     </section>
   );

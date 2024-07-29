@@ -11,12 +11,10 @@ export const CalendarItem = ({ data, setChosenDate }) => {
 
   const [clickedFullDate] = data.clickedDay.split('T');
   const [clickedYear, clickedMonth, clickedDay] = clickedFullDate.split('-');
-  console.log('chosenDay ', chosenDay);
-  console.log('data.date ', data.date);
+
   const isChosenDay = chosenDay == data.date;
 
   const handleClick = () => {
-    console.log('click');
     const date = `${clickedYear}-${clickedMonth}-${clickedDay}`;
 
     dispatch(getDaily(date));

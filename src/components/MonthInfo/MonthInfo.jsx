@@ -4,7 +4,6 @@ import { Calendar } from '../Calendar/Calendar';
 import { useState } from 'react';
 
 const MonthInfo = ({ chosenDate, setChosenDate }) => {
-  // console.log('MonthInfo chosenDate: ', chosenDate);
   return (
     <div className={css.mainWrapper}>
       <div className={css.dateWrapper}>

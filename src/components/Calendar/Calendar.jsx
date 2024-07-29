@@ -1,7 +1,7 @@
 import css from './Calendar.module.css';
 import clsx from 'clsx';
 import { CalendarItem } from '../../components/CalendarItem/CalendarItem';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMonthly } from '../../redux/water/operations';
 import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
@@ -126,11 +126,15 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
   //   dispatch(getAllUsersCount());
   // });
 
-  const daysWithWater = getDailyWaterPercentageFromBackend({
-    chosenDate: new Date(chosenDate),
-    response: loading ? [] : waterMonth,
-    dailyNorma: waterNorma,
-  });
+  const daysWithWater = useMemo(
+    () =>
+      getDailyWaterPercentageFromBackend({
+        chosenDate: new Date(chosenDate),
+        response: waterMonth ? waterMonth : [],
+        dailyNorma: waterNorma,
+      }),
+    [chosenDate, loading, waterMonth, waterNorma]
+  );
   //тут ми отримали масив у вигляді daysWithWater =
   // [
   //   {

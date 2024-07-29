@@ -90,12 +90,12 @@ const WaterForm = ({
 
   const onSubmit = async data => {
     // console.log('Submitting data:', data);
-    // const [datePart] = chosenDate.split('T');
+    const [datePart] = chosenDate.split('T');
     // Встановлюємо новий час зберігаючи дату
-    // const newDateISO = `${datePart}T${data.time}:00Z`;
+    const newDateISO = `${datePart}T${data.time}:00Z`;
     //тут має бути якась перевірки чи це post чи patch
     // створюємо POST
-    // dispatch(postDaily({ ...data, time: newDateISO }));
+    dispatch(postDaily({ ...data, time: newDateISO }));
     //патчимо
     // dispatch(
     //   patchDaily({

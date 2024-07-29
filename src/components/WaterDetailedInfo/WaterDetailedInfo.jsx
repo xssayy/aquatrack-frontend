@@ -9,7 +9,6 @@ import MonthInfo from '../MonthInfo/MonthInfo.jsx';
 
 const WaterDetailedInfo = () => {
   const [chosenDate, setChosenDate] = useState(new Date().toISOString());
-  console.log('WaterDetailedInfo chosenDate: ', chosenDate);
 
   return (
     <div className={css.waterDetailedInfoContainer}>
