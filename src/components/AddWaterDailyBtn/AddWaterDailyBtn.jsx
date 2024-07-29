@@ -21,7 +21,6 @@ const AddWaterDailyBtn = ({ chosenDate, setChosenDate }) => {
     return format(date, 'HH:mm');
   };
   const formattedTime = formatTime(currentDate);
-  console.log(formattedTime); // Виведе "06:58am"
 
   return (
     <div className={css.addBtn}>
