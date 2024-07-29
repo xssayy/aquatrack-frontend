@@ -34,7 +34,7 @@ const WaterList = () => {
 
   const waterWrapper = useRef(null);
   const hasScroll = mockData.length > 2;
-  // useScrollbar(waterWrapper, hasScroll);
+  useScrollbar(waterWrapper, hasScroll);
 
   return (
     <div className={css.listContainer} ref={waterWrapper}>
