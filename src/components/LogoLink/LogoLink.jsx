@@ -3,7 +3,7 @@ import styles from './LogoLink.module.css';
 
 const LogoLink = () => {
   return (
-    <Link to="/aquatrack-frontend" className={styles.title}>
+    <Link to="/" className={styles.title}>
       Aquatrack
     </Link>
   );

@@ -8,6 +8,7 @@ import style from './SignInForm.module.css';
 import { login } from '../../redux/auth/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 import LogoLink from '../LogoLink/LogoLink';
+import Icon from '../Icon/Icon';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
@@ -92,7 +93,11 @@ const SignInForm = () => {
                 onClick={() => toggleVisibility('password')}
                 className={style.toggleVisibility}
               >
-                {showPassword ? 'Hide' : 'Show'}
+                {showPassword ? (
+                  <Icon id="eye" width={20} height={20} />
+                ) : (
+                  <Icon id="eye-off" width={20} height={20} />
+                )}
               </button>
               <p className={style.text}>{errors.password?.message}</p>
             </div>

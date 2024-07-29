@@ -106,6 +106,7 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
 
   //отримуємо воду за місяць => записуємо в редакс => відмальовуємо
   useEffect(() => {
+
     const year = new Date(chosenDate).getFullYear();
     let month = new Date(chosenDate).getMonth() + 1;
 

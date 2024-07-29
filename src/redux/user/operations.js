@@ -45,7 +45,6 @@ export const getAllUsersCount = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axiosGet(`users`);
-
       return response.usersAmount.usersAmount;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

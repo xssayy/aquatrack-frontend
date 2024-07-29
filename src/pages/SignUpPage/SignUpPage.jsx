@@ -5,7 +5,6 @@ import DocTitle from '../../components/DocTitle';
 import style from './SignUpPage.module.css';
 
 const SignUpPage = () => {
-  console.log('qeqeq');
   return (
     <Container>
       <DocTitle>SignUp</DocTitle>
