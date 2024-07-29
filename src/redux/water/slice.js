@@ -18,6 +18,7 @@ const handleRejected = (state, action) => {
 };
 
 const waterInitialState = {
+  chosenDay: new Date().toISOString(),
   monthly: [],
   daily: [],
   loading: true,
@@ -27,6 +28,12 @@ const waterInitialState = {
 const waterSlice = createSlice({
   name: 'water',
   initialState: waterInitialState,
+  reducers: {
+    //save chosenDay for editting or adding entries
+    setChosenDay: (state, action) => {
+      state.chosenDay = action.payload;
+    },
+  },
 
   extraReducers: builder => {
     builder
@@ -74,3 +81,5 @@ const waterSlice = createSlice({
 });
 
 export const waterReducer = waterSlice.reducer;
+
+export const { setChosenDay } = waterSlice.actions;
