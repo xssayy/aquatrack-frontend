@@ -1,8 +1,20 @@
 // import { useEffect, useState } from 'react';
 import css from './CalendarPagination.module.css';
 import Icon from '../Icon/Icon';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getDaily } from '../../redux/water/operations';
 
 export const CalendarPagination = ({ chosenDate, setChosenDate }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const [chosenFullDate] = chosenDate.split('T');
+    const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
+
+    const date = `${chosenYear}-${chosenMonth}-${chosenDay}`;
+    dispatch(getDaily(date));
+  });
   //chosenDate приходить у форматі '2024-07-20T20:10:02.082Z';
   //перетворюємо в об"єкт Date
   const convertedChosendate = new Date(chosenDate);

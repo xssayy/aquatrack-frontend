@@ -86,7 +86,7 @@ export const postDaily = createAsyncThunk(
       });
       console.log('response: ', response);
 
-      return response;
+      return response.data;
     } catch (error) {
       console.log('error: ', error);
       return thunkAPI.rejectWithValue(error.message);

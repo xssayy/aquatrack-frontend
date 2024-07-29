@@ -20,7 +20,7 @@ const WaterList = ({ chosenDate }) => {
     dispatch(getDaily(date));
   }, []);
 
-  // console.log('data: ', data);
+  console.log('data: ', mockData);
 
   // const [waterData, setWaterData] = useState([]);
   // Mock data for testing scroll

@@ -32,7 +32,7 @@ const WaterItem = ({ water }) => {
       <Icon id="water-glass" className={css.iconGlass} />
       <div className={css.water}>
         <p className={css.volume}>{`${water.amount}ml`}</p>
-        {/* <p className={css.time}>{`${format(water.time, 'HH:mm')}`}</p> */}
+        <p className={css.time}>{`${format(water?.time, 'HH:mm')}`}</p>
       </div>
       <div className={css.edit}>
         <button type="button" onClick={handleEdit} className={css.btnEdit}>
