@@ -32,7 +32,7 @@ export const App = () => {
   ) : (
     <div>
       <LanguageSelector />
-      <SingInPage />
+      <SignUpPage />
     </div>
 
     // <SharedLayout>

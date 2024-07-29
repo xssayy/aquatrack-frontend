@@ -71,7 +71,7 @@ const SignUpForm = () => {
     <div className={css.signUpContainer}>
       <LogoLink />
       <div className={css.formContainer}>
-        <h2 className={css.title}>{t('Sign Up')}</h2>
+        <h2 className={css.title}>{t('Home page.Home section.Sign Up')}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={css.inputContainer}>
             <div className={css.inputItem}>
@@ -82,7 +82,7 @@ const SignUpForm = () => {
                 id={emailId}
                 className={`${css.field} ${errors.email ? css.errorField : ''}`}
                 {...register('email')}
-                placeholder="Enter your email"
+                placeholder={t('Home page.Home section.Enter your email')}
               />
               <p className={errors.email ? css.error : ''}>
                 {errors.email?.message}
@@ -90,7 +90,7 @@ const SignUpForm = () => {
             </div>
             <div className={css.inputItem}>
               <label htmlFor={passwordId} className={css.label}>
-                {t('Password')}
+                {t('Home page.Home section.Password')}
               </label>
               <input
                 id={passwordId}
@@ -99,7 +99,7 @@ const SignUpForm = () => {
                 className={`${css.field} ${
                   errors.password ? css.errorField : ''
                 }`}
-                placeholder="Enter your password"
+                placeholder={t('Home page.Home section.Enter your password')}
               />
               <button
                 type="button"
@@ -118,7 +118,7 @@ const SignUpForm = () => {
             </div>
             <div className={css.inputItem}>
               <label htmlFor={repeatPasswordId} className={css.label}>
-                {t('Repeat password')}
+                {t('Home page.Home section.Repeat password')}
               </label>
               <input
                 id={repeatPasswordId}
@@ -127,7 +127,7 @@ const SignUpForm = () => {
                 className={`${css.field} ${
                   errors.confirmPassword ? css.errorField : ''
                 }`}
-                placeholder="Repeat your password"
+                placeholder={t('Home page.Home section.Repeat your password')}
               />
               <button
                 onClick={() => toggleVisibility('password')}
@@ -145,12 +145,16 @@ const SignUpForm = () => {
             </div>
           </div>
 
-          <input type="submit" className={css.button} value="Sign Up" />
+          <input
+            type="submit"
+            className={css.button}
+            value={t('Home page.Home section.Sign Up')}
+          />
         </form>
         <p className={css.redirect}>
-          Already have account?{' '}
+          {t('Home page.Home section.Already have account?')}{' '}
           <Link to="/signin" className={css.redirectLink}>
-            {t('Sign In')}
+            {t('Home page.Home section.Sign In')}
           </Link>
         </p>
       </div>
