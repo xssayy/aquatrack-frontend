@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import styles from './DeleteWaterModal.module.css';
 import ModalWindow from '../ModalWindow/ModalWindow';
@@ -10,6 +10,18 @@ const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const chosenDate = useSelector(selectChosenDate);
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   const [chosenFullDate] = chosenDate.split('T');
+  //   const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
+
+  //   const date = `${chosenYear}-${chosenMonth}`;
+  //   dispatch(getMonthly(date));
+
+  //   const fullDate = `${chosenYear}-${chosenMonth}-${chosenDay}`;
+  //   dispatch(getDaily(fullDate));
+  // }),
+  //   [dispatch];
 
   const handleDelete = async () => {
     setIsProcessing(true);
@@ -23,7 +35,7 @@ const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
     const fullDate = `${chosenYear}-${chosenMonth}-${chosenDay}`;
     dispatch(getDaily(fullDate));
 
-    //оновлюємо випиту воду за місяць
+    // //оновлюємо випиту воду за місяць
     const date = `${chosenYear}-${chosenMonth}`;
     dispatch(getMonthly(date));
     closeModal();

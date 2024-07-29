@@ -107,7 +107,7 @@ export const delWater = createAsyncThunk(
       });
       console.log('response delete: ', response);
 
-      return response;
+      return id;
     } catch (error) {
       console.log('error: ', error);
       return thunkAPI.rejectWithValue(error.message);
@@ -122,7 +122,6 @@ export const patchWater = createAsyncThunk(
       const state = thunkAPI.getState();
 
       const persistedToken = state.auth.token;
-      console.log('credentials: ', credentials);
 
       const response = await axiosPatch(`water/${id}`, patchedData, {
         Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен

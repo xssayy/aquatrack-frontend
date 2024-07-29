@@ -8,7 +8,12 @@ import axios from 'axios';
 import styles from '../WaterForm/WaterForm.module.css';
 import Icon from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDaily, getMonthly, postDaily } from '../../redux/water/operations';
+import {
+  getDaily,
+  getMonthly,
+  patchWater,
+  postDaily,
+} from '../../redux/water/operations';
 import { selectChosenDate } from '../../redux/water/selectors';
 
 const schema = yup.object().shape({
@@ -86,33 +91,16 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
     const [datePart] = chosenDate.split('T');
     // Встановлюємо новий час зберігаючи дату
     const newDateISO = `${datePart}T${data.time}:00Z`;
-
-    if (type === 'edit') {
+    if (type === 'add') {
+      dispatch(postDaily({ ...data, time: newDateISO }));
+    } else if (type === 'edit') {
       dispatch(
-        patchDaily({
+        patchWater({
           id,
           patchedData: { ...data, time: newDateISO },
         })
       );
-    } else {
-      dispatch(postDaily({ ...data, time: newDateISO }));
     }
-    //патчимо
-    //
-    // try {
-    //   if (type === 'add') {
-    //     await axios.post('/api/water', data);
-    //   } else {
-    //     await axios.put(`/api/water/${initialData.id}`, data);
-    //   }
-    //   closeModal();
-    // } catch (error) {
-    //   if (error.response && error.response.data) {
-    //     toast.error(error.response.data.message || 'An error occurred');
-    //   } else {
-    //     toast.error('An error occurred');
-    //   }
-    // }
   };
 
   return (

@@ -25,7 +25,6 @@ const WaterItem = ({ water }) => {
   const handleCloseDeleteModal = () => {
     setIsDeleteModalOpen(false);
   };
-  // console.log(water);
 
   return (
     <div className={css.item}>
@@ -50,13 +49,13 @@ const WaterItem = ({ water }) => {
       />
 
       <WaterModal
+        id={water._id}
         isOpen={isEditModalOpen}
         closeModal={handleCloseEditModal}
         type="edit"
         initialData={{
           amount: water.amount,
-          time: `${water.time}`,
-          id: water._id,
+          time: format(`${water.time}`, 'HH:mm'),
         }}
       />
     </div>
