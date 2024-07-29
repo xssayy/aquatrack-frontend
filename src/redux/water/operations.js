@@ -86,7 +86,7 @@ export const postDaily = createAsyncThunk(
       });
       console.log('response: ', response);
 
-      return response;
+      return response.data;
     } catch (error) {
       console.log('error: ', error);
       return thunkAPI.rejectWithValue(error.message);
@@ -105,9 +105,9 @@ export const delWater = createAsyncThunk(
       const response = await axiosDel(`water/${id}`, {
         Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
       });
-      console.log('response: ', response);
+      console.log('response delete: ', response);
 
-      return response;
+      return id;
     } catch (error) {
       console.log('error: ', error);
       return thunkAPI.rejectWithValue(error.message);
@@ -122,7 +122,6 @@ export const patchWater = createAsyncThunk(
       const state = thunkAPI.getState();
 
       const persistedToken = state.auth.token;
-      console.log('credentials: ', credentials);
 
       const response = await axiosPatch(`water/${id}`, patchedData, {
         Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен

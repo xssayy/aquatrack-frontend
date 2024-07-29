@@ -1,25 +1,44 @@
 // import { useEffect, useState } from 'react';
 import css from './CalendarPagination.module.css';
 import Icon from '../Icon/Icon';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDaily } from '../../redux/water/operations';
+import { selectChosenDate } from '../../redux/water/selectors';
+import { setChosenDate } from '../../redux/water/slice';
 
-export const CalendarPagination = ({ chosenDate, setChosenDate }) => {
+export const CalendarPagination = () => {
+  const dispatch = useDispatch();
+  const chosenDate = useSelector(selectChosenDate);
+
+  useEffect(() => {
+    const [chosenFullDate] = chosenDate.split('T');
+    const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
+
+    const date = `${chosenYear}-${chosenMonth}-${chosenDay}`;
+    dispatch(getDaily(date));
+  });
   //chosenDate приходить у форматі '2024-07-20T20:10:02.082Z';
   //перетворюємо в об"єкт Date
   const convertedChosendate = new Date(chosenDate);
 
   const handlePrevMonth = () => {
-    setChosenDate(
-      new Date(
-        convertedChosendate.setMonth(convertedChosendate.getMonth() - 1)
-      ).toISOString()
+    dispatch(
+      setChosenDate(
+        new Date(
+          convertedChosendate.setMonth(convertedChosendate.getMonth() - 1)
+        ).toISOString()
+      )
     );
   };
 
   const handleNextMonth = () => {
-    setChosenDate(
-      new Date(
-        convertedChosendate.setMonth(convertedChosendate.getMonth() + 1)
-      ).toISOString()
+    dispatch(
+      setChosenDate(
+        new Date(
+          convertedChosendate.setMonth(convertedChosendate.getMonth() + 1)
+        ).toISOString()
+      )
     );
   };
 

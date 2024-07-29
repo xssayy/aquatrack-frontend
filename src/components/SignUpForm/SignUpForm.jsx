@@ -50,7 +50,7 @@ const SignUpForm = () => {
   });
 
   const onSubmit = data => {
-    console.log({ email: data.email, password: data.password });
+    // console.log({ email: data.email, password: data.password });
 
     dispatch(
       signUp({
