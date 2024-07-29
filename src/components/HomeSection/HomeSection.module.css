@@ -1,11 +1,8 @@
 .welcomeSection {
   border-radius: 30px;
   background: var(--background);
-  padding: 24px 16px 67px 16px;
-}
-
-.logoContainer {
-  margin-bottom: 74px;
+  padding: 118px 16px 67px 16px;
+  position: relative;
 }
 
 .logo {
@@ -78,20 +75,12 @@
 
 @media (min-width: 768px) {
   .welcomeSection {
-    padding: 32px 32px 50px 32px;
-  }
-
-  .logoContainer {
-    margin-bottom: 50px;
+    padding: 106px 93px 64px 50px;
   }
 
   .logo {
     font-size: 24px;
     line-height: 100%;
-  }
-
-  .welcomeContainer {
-    padding: 0 32px;
   }
 
   .welcomeText {
@@ -125,16 +114,8 @@
 
 @media (min-width: 1440px) {
   .welcomeSection {
-    padding: 32px 32px 188px 32px;
+    padding: 188px 62px;
     max-width: 672px;
-  }
-
-  .logoContainer {
-    margin-bottom: 132px;
-  }
-
-  .welcomeContainer {
-    padding: 0 29px 0 32px;
   }
 
   .welcomeTitle {
