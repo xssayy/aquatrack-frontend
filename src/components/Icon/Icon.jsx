@@ -8,7 +8,7 @@ const Icon = ({ id, width, height, className = '', fillColor }) => {
     >
       <use
         style={{ fill: `${fillColor}` }}
-        href={`../../../public/sprite.svg#icon-${id}`}
+        href={`/sprite.svg#icon-${id}`}
       ></use>
     </svg>
   );
