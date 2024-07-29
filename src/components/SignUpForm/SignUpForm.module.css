@@ -3,7 +3,8 @@
   background-color: #f0eff4;
   display: flex;
   flex-direction: column;
-  padding: 24px 16px 170px 16px;
+  padding: 170px 16px;
+  position: relative;
 }
 
 .logo {
@@ -13,7 +14,6 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--main);
-  margin-bottom: 126px;
 }
 
 .title {
@@ -141,7 +141,7 @@
 
 @media screen and (min-width: 768px) {
   .signUpContainer {
-    padding: 32px 32px 281px 32px;
+    padding: 227px 134px;
   }
 
   .formContainer {
@@ -203,14 +203,14 @@
 
 @media screen and (min-width: 1440px) {
   .signUpContainer {
-    padding: 32px 32px 72px 32px;
+    padding: 102px 32px 72px 32px;
     width: 672px;
+    height: 736px;
   }
 
   .logo {
     font-size: 24px;
     line-height: 100%;
-    margin-bottom: 74px;
   }
 
   .title {

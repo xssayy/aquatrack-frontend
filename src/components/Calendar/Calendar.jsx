@@ -71,7 +71,7 @@ const getDailyWaterPercentageFromBackend = ({
           year: chosenYear,
           response,
         })) /
-      dailyNorma;
+      (1000 * dailyNorma);
 
     const dailyWaterPercentage = percentage > 100 ? 100 : percentage;
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
@@ -106,7 +106,6 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
 
   //отримуємо воду за місяць => записуємо в редакс => відмальовуємо
   useEffect(() => {
-
     const year = new Date(chosenDate).getFullYear();
     let month = new Date(chosenDate).getMonth() + 1;
 
@@ -116,7 +115,6 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
     dispatch(getMonthly(`${year}-${month}`));
     dispatch(getUserInfo());
   }, [dispatch, chosenDate]);
-  // }, [dispatch, chosenDate ]);????
 
   // useEffect(() => {
   //тест /users/currentUser
@@ -130,7 +128,7 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
 
   const daysWithWater = getDailyWaterPercentageFromBackend({
     chosenDate: new Date(chosenDate),
-    response: loading ? [] : waterMonth.data,
+    response: loading ? [] : waterMonth,
     dailyNorma: waterNorma,
   });
   //тут ми отримали масив у вигляді daysWithWater =

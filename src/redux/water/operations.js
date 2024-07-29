@@ -21,7 +21,7 @@ export const getMonthly = createAsyncThunk(
           Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
         }
       );
-      return response.water;
+      return response.water.data;
     } catch (error) {
       console.log(error);
       if (
@@ -57,7 +57,6 @@ export const getDaily = createAsyncThunk(
         }
       );
 
-      console.log(response.water.data);
       return response.water.data;
     } catch (error) {
       if (
@@ -68,6 +67,71 @@ export const getDaily = createAsyncThunk(
         console.log('No water for the specified day');
         return [];
       }
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const postDaily = createAsyncThunk(
+  'water/postDaily',
+  async (credentials, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const persistedToken = state.auth.token;
+      console.log('credentials: ', credentials);
+
+      const response = await axiosPost(`water`, credentials, {
+        Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
+      });
+      console.log('response: ', response);
+
+      return response;
+    } catch (error) {
+      console.log('error: ', error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const delWater = createAsyncThunk(
+  'water/delWater',
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const persistedToken = state.auth.token;
+
+      const response = await axiosDel(`water/${id}`, {
+        Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
+      });
+      console.log('response: ', response);
+
+      return response;
+    } catch (error) {
+      console.log('error: ', error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const patchWater = createAsyncThunk(
+  'water/patchtWater',
+  async ({ id, patchedData }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+
+      const persistedToken = state.auth.token;
+      console.log('credentials: ', credentials);
+
+      const response = await axiosPatch(`water/${id}`, patchedData, {
+        Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
+      });
+      console.log('response: ', response);
+
+      return response.data;
+    } catch (error) {
+      console.log('error: ', error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
