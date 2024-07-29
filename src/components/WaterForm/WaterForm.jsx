@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import styles from '../WaterForm/WaterForm.module.css';
 import Icon from '../Icon/Icon';
+import { useDispatch } from 'react-redux';
+import { getMonthly, postDaily } from '../../redux/water/operations';
 
 const schema = yup.object().shape({
   amount: yup
@@ -48,7 +50,26 @@ const formatTime = value => {
   return `${cleaned.slice(0, 2)}:${cleaned.slice(2, 4)}`;
 };
 
-const WaterForm = ({ type, initialData, closeModal }) => {
+const WaterForm = ({
+  type,
+  initialData,
+  closeModal,
+  chosenDate,
+  setChosenDate,
+}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const year = new Date(chosenDate).getFullYear();
+    let month = new Date(chosenDate).getMonth() + 1;
+
+    //приводи місяць до формату "06" замість "6 "
+    month = month < 10 ? `0${month}` : month;
+    const date = `${year}-${month}`;
+    dispatch(getMonthly(date));
+  }),
+    [dispatch];
+
   const {
     control,
     handleSubmit,
@@ -68,22 +89,34 @@ const WaterForm = ({ type, initialData, closeModal }) => {
   const amount = watch('amount');
 
   const onSubmit = async data => {
-    console.log('Submitting data:', data);
-    try {
-      if (type === 'add') {
-        await axios.post('/api/water', data);
-      } else {
-        await axios.put(`/api/water/${initialData.id}`, data);
-      }
-
-      closeModal();
-    } catch (error) {
-      if (error.response && error.response.data) {
-        toast.error(error.response.data.message || 'An error occurred');
-      } else {
-        toast.error('An error occurred');
-      }
-    }
+    // console.log('Submitting data:', data);
+    // const [datePart] = chosenDate.split('T');
+    // Встановлюємо новий час зберігаючи дату
+    // const newDateISO = `${datePart}T${data.time}:00Z`;
+    //тут має бути якась перевірки чи це post чи patch
+    // створюємо POST
+    // dispatch(postDaily({ ...data, time: newDateISO }));
+    //патчимо
+    // dispatch(
+    //   patchDaily({
+    //     id: '66a6da2f398f0570d3bd3d2b',
+    //     patchedData: { ...data, time: newDateISO },
+    //   })
+    // );
+    // try {
+    //   if (type === 'add') {
+    //     await axios.post('/api/water', data);
+    //   } else {
+    //     await axios.put(`/api/water/${initialData.id}`, data);
+    //   }
+    //   closeModal();
+    // } catch (error) {
+    //   if (error.response && error.response.data) {
+    //     toast.error(error.response.data.message || 'An error occurred');
+    //   } else {
+    //     toast.error('An error occurred');
+    //   }
+    // }
   };
 
   return (

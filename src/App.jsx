@@ -26,9 +26,7 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <Loader />
-  ) : (
+  return (
     <SharedLayout>
       <Routes>
         <Route path="/" element={<HomePage />} />
