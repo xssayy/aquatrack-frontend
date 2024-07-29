@@ -61,8 +61,8 @@
     },
     "Edit water modal": {
       "Edit the entered amount of water": "Відредагуйте введену кількіст води",
-      "Correct entered data": "Виправити введені дані",
-      "Choose a value": "Обрати",
+      "Correct entered data": "Виправити введені дані:",
+      "Choose a value": "Оберіть значення:",
       "Amount of water": "Кількість води",
       "Recording time": "Час запису",
       "Enter the value of the water used": "Введіть кількість випитої води"

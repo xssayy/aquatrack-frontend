@@ -61,8 +61,8 @@
     },
     "Edit water modal": {
       "Edit the entered amount of water": "Edit the entered amount of water",
-      "Correct entered data": "Correct entered data",
-      "Choose a value": "Choose a value",
+      "Correct entered data": "Correct entered data:",
+      "Choose a value": "Choose a value:",
       "Amount of water": "Amount of water",
       "Recording time": "Recording time",
       "Enter the value of the water used": "Enter the value of the water used"
