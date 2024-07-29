@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import css from './CalendarItem.module.css';
 import { useDispatch } from 'react-redux';
 import { getDaily } from '../../redux/water/operations';
+import { setChosenDate } from '../../redux/water/slice';
 
-export const CalendarItem = ({ data, setChosenDate }) => {
+export const CalendarItem = ({ data }) => {
   const dispatch = useDispatch();
 
   const [chosenFullDate] = data.chosenDate.split('T');
@@ -11,17 +12,15 @@ export const CalendarItem = ({ data, setChosenDate }) => {
 
   const [clickedFullDate] = data.clickedDay.split('T');
   const [clickedYear, clickedMonth, clickedDay] = clickedFullDate.split('-');
-  console.log('chosenDay ', chosenDay);
-  console.log('data.date ', data.date);
+
   const isChosenDay = chosenDay == data.date;
 
   const handleClick = () => {
-    console.log('click');
     const date = `${clickedYear}-${clickedMonth}-${clickedDay}`;
 
     dispatch(getDaily(date));
 
-    setChosenDate(data.clickedDay);
+    dispatch(setChosenDate(data.clickedDay));
   };
 
   return (

@@ -7,9 +7,10 @@ import WaterModal from '../WaterModal/WaterModal';
 import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 
-const AddWaterDailyBtn = ({ chosenDate, setChosenDate }) => {
+const AddWaterDailyBtn = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { t } = useTranslation();
+
   const handleOpenModal = () => {
     setModalIsOpen(true);
   };
@@ -36,8 +37,6 @@ const AddWaterDailyBtn = ({ chosenDate, setChosenDate }) => {
         isOpen={modalIsOpen}
         type="add"
         initialData={{ amount: 50, time: `${formattedTime}` }}
-        chosenDate={chosenDate}
-        setChosenDate={setChosenDate}
       />
     </div>
   );

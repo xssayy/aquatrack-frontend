@@ -1,14 +1,16 @@
-import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import css from './WaterDailyNorma.module.css';
+import { selectWaterDailyNorma } from '../../redux/user/selectors';
 
 const WaterDailyNorma = () => {
   const { t } = useTranslation();
-  const dailyWater = 1.5;
+  const dailyWater = useSelector(selectWaterDailyNorma);
+  // const dailyWater = 2;
 
   return (
     <div className={css.waterDailyContainer}>
       <h2 className={css.waterDailyTitle}>
-        {dailyWater} {t('General vars.L')}
+        {dailyWater ? dailyWater : 0} {t('General vars.L')}
       </h2>
       <p className={css.waterDailyText}>
         {t('Tracker page.Water main info.My daily norma')}

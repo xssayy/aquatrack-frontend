@@ -1,5 +1,6 @@
 import css from './WaterItem.module.css';
 
+import { format } from 'date-fns';
 import { useState } from 'react';
 import DeleteWaterModal from '../DeleteWaterModal/DeleteWaterModal';
 import WaterModal from '../WaterModal/WaterModal';
@@ -35,7 +36,7 @@ const WaterItem = ({ water }) => {
           {`${water.amount}`}
           {t('General vars.ml')}
         </p>
-        <p className={css.time}>{`${water.time}`}</p>
+        <p className={css.time}>{`${format(water?.time, 'HH:mm')}`}</p>
       </div>
       <div className={css.edit}>
         <button type="button" onClick={handleEdit} className={css.btnEdit}>
@@ -49,13 +50,18 @@ const WaterItem = ({ water }) => {
       <DeleteWaterModal
         isOpen={isDeleteModalOpen}
         closeModal={handleCloseDeleteModal}
+        id={water._id}
       />
 
       <WaterModal
+        id={water._id}
         isOpen={isEditModalOpen}
         closeModal={handleCloseEditModal}
         type="edit"
-        initialData={{ amount: water.amount, time: `${water.time}` }}
+        initialData={{
+          amount: water.amount,
+          time: format(`${water.time}`, 'HH:mm'),
+        }}
       />
     </div>
   );
