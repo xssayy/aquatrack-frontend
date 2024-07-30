@@ -2,53 +2,46 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import styles from './DeleteWaterModal.module.css';
 import ModalWindow from '../ModalWindow/ModalWindow';
-import { delWater, getDaily, getMonthly } from '../../redux/water/operations';
+import {
+  delWater,
+  getDaily,
+  getMonthly,
+  getTodayWater,
+} from '../../redux/water/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectChosenDate } from '../../redux/water/selectors';
+import { Notify } from 'notiflix';
 
 const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const chosenDate = useSelector(selectChosenDate);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const [chosenFullDate] = chosenDate.split('T');
-  //   const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
-
-  //   const date = `${chosenYear}-${chosenMonth}`;
-  //   dispatch(getMonthly(date));
-
-  //   const fullDate = `${chosenYear}-${chosenMonth}-${chosenDay}`;
-  //   dispatch(getDaily(fullDate));
-  // }),
-  //   [dispatch];
-
   const handleDelete = async () => {
     setIsProcessing(true);
 
-    //видаляємо
-    dispatch(delWater(id));
-    const [chosenFullDate] = chosenDate.split('T');
-    const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
+    try {
+      //видаляємо
+      await dispatch(delWater(id));
+      const [chosenFullDate] = chosenDate.split('T');
+      const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
 
-    //оновлюємо список випитої за день
-    const fullDate = `${chosenYear}-${chosenMonth}-${chosenDay}`;
-    dispatch(getDaily(fullDate));
+      //оновлюємо список випитої за день
+      const fullDate = `${chosenYear}-${chosenMonth}-${chosenDay}`;
+      await dispatch(getDaily(fullDate));
 
-    // //оновлюємо випиту воду за місяць
-    const date = `${chosenYear}-${chosenMonth}`;
-    dispatch(getMonthly(date));
-    closeModal();
-    // try {
-    //   await axios.delete(`/api/water/${recordId}`);
-    //   // toast.success('Record deleted successfully');
-    //   // dispatch(); // Оновлення даних за допомогою Redux
-    // } catch (error) {
-    //   toast.error('Failed to delete record');
-    // } finally {
-    //   closeModal();
-    //   setIsProcessing(false);
-    // }
+      await dispatch(getTodayWater());
+
+      //оновлюємо випиту воду за місяць
+      const date = `${chosenYear}-${chosenMonth}`;
+      dispatch(getMonthly(date));
+    } catch (error) {
+      Notify.failure('Failed to delete record');
+    } finally {
+      setIsProcessing(false);
+      closeModal();
+    }
+
     setIsProcessing(false);
   };
 

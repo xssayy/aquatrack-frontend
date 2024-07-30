@@ -8,6 +8,7 @@ import Icon from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getMonthly,
+  getTodayWater,
   patchWater,
   postDaily,
 } from '../../redux/water/operations';
@@ -90,17 +91,23 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
     const [datePart] = chosenDate.split('T');
     // Встановлюємо новий час зберігаючи дату
     const newDateISO = `${datePart}T${data.time}:00Z`;
-    if (type === 'add') {
-      dispatch(postDaily({ ...data, time: newDateISO }));
-    } else if (type === 'edit') {
-      dispatch(
-        patchWater({
-          id,
-          patchedData: { ...data, time: newDateISO },
-        })
-      );
+    try {
+      if (type === 'add') {
+        await dispatch(postDaily({ ...data, time: newDateISO }));
+      } else if (type === 'edit') {
+        await dispatch(
+          patchWater({
+            id,
+            patchedData: { ...data, time: newDateISO },
+          })
+        );
+      }
+      await dispatch(getTodayWater());
+    } catch (error) {
+      Notify.failure(`Failed to ${type} record`);
+    } finally {
+      closeModal();
     }
-    closeModal();
   };
 
   return (

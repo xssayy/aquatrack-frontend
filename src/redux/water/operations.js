@@ -125,3 +125,37 @@ export const patchWater = createAsyncThunk(
     }
   }
 );
+
+export const getTodayWater = createAsyncThunk(
+  'water/getTodayWater',
+  async (_, thunkAPI) => {
+    try {
+      const currentTime = new Date().toISOString();
+
+      const [chosenFullDate] = currentTime.split('T');
+      const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
+
+      const date = `${chosenYear}-${chosenMonth}-${chosenDay}`;
+
+      const state = thunkAPI.getState();
+
+      const persistedToken = state.auth.token;
+
+      const response = await axiosGet(
+        `water/daily`,
+        {
+          date,
+          sortOrder: 'asc',
+          sortBy: 'time',
+        },
+        {
+          Authorization: `Bearer ${persistedToken}`, // Додайте заголовок Authorization, якщо потрібен
+        }
+      );
+
+      return response.water.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

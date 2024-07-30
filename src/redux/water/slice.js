@@ -3,6 +3,7 @@ import {
   delWater,
   getDaily,
   getMonthly,
+  getTodayWater,
   patchWater,
   postDaily,
 } from './operations';
@@ -21,6 +22,7 @@ const waterInitialState = {
   chosenDate: new Date().toISOString(),
   monthly: [],
   daily: [],
+  today: [],
   loading: true,
   error: null,
 };
@@ -62,9 +64,12 @@ const waterSlice = createSlice({
       .addCase(delWater.pending, handlePending)
       .addCase(delWater.fulfilled, (state, action) => {
         state.loading = false;
-        state.daily = state.daily.filter(
-          item => item._id !== action.payload.id
-        );
+        state.daily = state.daily.filter(item => {
+          return item._id !== action.payload;
+        });
+        state.today = state.daily.filter(item => {
+          return item._id !== action.payload;
+        });
       })
       .addCase(delWater.rejected, handleRejected)
       //patchWater
@@ -78,7 +83,14 @@ const waterSlice = createSlice({
           return item;
         });
       })
-      .addCase(patchWater.rejected, handleRejected);
+      .addCase(patchWater.rejected, handleRejected)
+      //getTodayWater
+      .addCase(getTodayWater.pending, handlePending)
+      .addCase(getTodayWater.fulfilled, (state, action) => {
+        state.today = action.payload;
+        state.loading = false;
+      })
+      .addCase(getTodayWater.rejected, handleRejected);
   },
 });
 
