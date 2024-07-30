@@ -38,7 +38,7 @@
 }
 
 .stub {
-  font-size: 25px;
+  font-size: 18px;
   color: var(--main);
 }
 
@@ -47,6 +47,10 @@
     width: 640px;
     gap: 32px;
     min-height: 86px;
+  }
+
+  .stub {
+    font-size: 25px;
   }
 }
 @media screen and (min-width: 1440px) {
