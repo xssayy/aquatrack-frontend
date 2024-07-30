@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 
 const apiClient = axios.create({
   baseURL: 'https://aqua-track-backend.onrender.com',
@@ -23,21 +24,22 @@ const request = async (
     });
     return response.data;
   } catch (error) {
-    // if (error.response) {
-    //   // Запит був зроблений і сервер відповів кодом статусу, який виходить за межі 2xx
-    //   console.error('Error response:', error.response.data);
-    //   return;
-    //   // throw error.response.data;
-    // } else if (error.request) {
-    //   // Запит був зроблений, але відповіді не отримано
-    //   console.error('Error request:', error.request);
-    //   throw new Error('No response received from server');
-    // } else {
-    //   // Щось трапилось при налаштуванні запиту
-    //   console.error('Error', error.message);
-    //   throw new Error('Error in setting up request: ' + error.message);
-    // }
-    throw new Error('Something went wrong.');
+    if (error.response) {
+      // Запит був зроблений і сервер відповів кодом статусу, який виходить за межі 2xx
+      Notify.failure('Error, try reloading this page'); 
+      return;
+      // throw error.response.data;
+    } else if (error.request) {
+      // Запит був зроблений, але відповіді не отримано
+      Notify.failure(
+        'Please check your internet connection or try again later'
+      ); 
+      throw new Error('No response received from server');
+    } else {
+      // Щось трапилось при налаштуванні запиту
+      Notify.failure('Oops something went wrong'); 
+      throw new Error('Error in setting up request: ' + error.message);
+    }
   }
 };
 

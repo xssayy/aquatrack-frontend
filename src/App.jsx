@@ -12,6 +12,7 @@ import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SingInPage from './pages/SignInPage/SignInPage';
 import { selectIsLoggedIn, selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
+import Loader from './components/Loader/Loader';
 
 export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -21,7 +22,9 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <SharedLayout>
       <Routes>
         <Route path="/" element={<HomePage />} />
