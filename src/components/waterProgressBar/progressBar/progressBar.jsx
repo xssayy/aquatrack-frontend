@@ -12,21 +12,18 @@ const ProgressBar = () => {
   const dailyNorma = useSelector(selectWaterDailyNorma);
   const dispatch = useDispatch();
 
-  // const [percent, setPercent] = useState(0);
-
   useEffect(() => {
     dispatch(getTodayWater());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (dailyNorma > 0) {
-  //     const value = Math.round(dailyAmount / (dailyNorma * 10));
-  //     setPercent(value > 100 ? 100 : value);
-  //   }
-  // }, [dailyAmount, dailyNorma]);
-
-  const value = Math.round(dailyAmount / (dailyNorma * 10));
-  const percent = value > 100 ? 100 : value;
+  let value = Math.round(dailyAmount / (dailyNorma * 10));
+  let percent = value > 100 ? 100 : value;
+  useEffect(() => {
+    if (dailyNorma > 0) {
+      value = Math.round(dailyAmount / (dailyNorma * 10));
+      percent = value > 100 ? 100 : value;
+    }
+  }, [dailyAmount, dailyNorma]);
 
   return (
     <div className={css.progressContainer}>

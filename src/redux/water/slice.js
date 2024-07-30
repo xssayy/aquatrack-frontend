@@ -67,6 +67,9 @@ const waterSlice = createSlice({
         state.daily = state.daily.filter(item => {
           return item._id !== action.payload;
         });
+        state.today = state.daily.filter(item => {
+          return item._id !== action.payload;
+        });
       })
       .addCase(delWater.rejected, handleRejected)
       //patchWater
