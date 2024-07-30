@@ -13,7 +13,7 @@ import Icon from '../Icon/Icon';
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
 const minPasswordLength = 8;
-const maxPasswordLength = 112;
+const maxPasswordLength = 32;
 
 const registrationSchema = Yup.object({
   email: Yup.string()
@@ -50,8 +50,6 @@ const SignUpForm = () => {
   });
 
   const onSubmit = data => {
-    console.log({ email: data.email, password: data.password });
-
     dispatch(
       signUp({
         email: data.email,
@@ -127,6 +125,7 @@ const SignUpForm = () => {
                 placeholder="Repeat your password"
               />
               <button
+                type="button"
                 onClick={() => toggleVisibility('password')}
                 className={css.toggleVisibility}
               >

@@ -9,6 +9,8 @@ import RestrictedRoute from './components/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute';
 
 import { selectIsRefreshing } from './redux/auth/selectors';
+import 'modern-normalize';
+import { selectIsLoggedIn, selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
 
 // Lazy imports
@@ -26,7 +28,9 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <SharedLayout>
       <Routes>
         <Route path="/" element={<HomePage />} />

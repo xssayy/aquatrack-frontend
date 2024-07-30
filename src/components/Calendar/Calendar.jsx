@@ -1,11 +1,16 @@
 import css from './Calendar.module.css';
 import clsx from 'clsx';
 import { CalendarItem } from '../../components/CalendarItem/CalendarItem';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMonthly } from '../../redux/water/operations';
 import { getAllUsersCount, getUserInfo } from '../../redux/user/operations';
-import { selectMonthly, selectWaterLoading } from '../../redux/water/selectors';
+import {
+  selectChosenDate,
+  selectGetDaily,
+  selectMonthly,
+  selectWaterLoading,
+} from '../../redux/water/selectors';
 import { selectUserWaterNorma } from '../../redux/user/selectors';
 
 export const getNumOfDaysInMonth = chosenDate => {
@@ -63,7 +68,7 @@ const getDailyWaterPercentageFromBackend = ({
 
   // створюємо масив з властивостями date, waterPercentage, isToday
   for (let day = 1; day <= daysInMonth; day++) {
-    const percentage =
+    const percentage = Math.round(
       (100 *
         getDailyAmount({
           day,
@@ -71,8 +76,10 @@ const getDailyWaterPercentageFromBackend = ({
           year: chosenYear,
           response,
         })) /
-      (1000 * dailyNorma);
+        (1000 * dailyNorma)
+    );
 
+    //ми обмежуємо максимальне видиме значення до 100%
     const dailyWaterPercentage = percentage > 100 ? 100 : percentage;
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
     const isToday = isCurrentMonthAndYear && currentDay === day;
@@ -97,9 +104,11 @@ const getDailyWaterPercentageFromBackend = ({
   return data;
 };
 
-export const Calendar = ({ chosenDate, setChosenDate }) => {
+export const Calendar = () => {
   const dispatch = useDispatch();
+  const chosenDate = useSelector(selectChosenDate);
   const waterMonth = useSelector(selectMonthly);
+  const waterDaily = useSelector(selectGetDaily);
 
   const loading = useSelector(selectWaterLoading);
   const waterNorma = useSelector(selectUserWaterNorma);
@@ -126,11 +135,15 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
   //   dispatch(getAllUsersCount());
   // });
 
-  const daysWithWater = getDailyWaterPercentageFromBackend({
-    chosenDate: new Date(chosenDate),
-    response: loading ? [] : waterMonth,
-    dailyNorma: waterNorma,
-  });
+  const daysWithWater = useMemo(
+    () =>
+      getDailyWaterPercentageFromBackend({
+        chosenDate: new Date(chosenDate),
+        response: waterMonth ? waterMonth : [],
+        dailyNorma: waterNorma,
+      }),
+    [chosenDate, loading, waterMonth, waterNorma, waterDaily]
+  );
   //тут ми отримали масив у вигляді daysWithWater =
   // [
   //   {
@@ -151,7 +164,7 @@ export const Calendar = ({ chosenDate, setChosenDate }) => {
         {daysWithWater.map(day => {
           return (
             <li key={day.date} className={clsx(css.day)}>
-              <CalendarItem data={day} setChosenDate={setChosenDate} />
+              <CalendarItem data={day} />
             </li>
           );
         })}
