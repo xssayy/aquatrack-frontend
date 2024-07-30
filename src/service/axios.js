@@ -26,8 +26,14 @@ const request = async (
   } catch (error) {
     if (error.response) {
       // Запит був зроблений і сервер відповів кодом статусу, який виходить за межі 2xx
-      Notify.failure('Error, try reloading this page'); 
-      return;
+      if (error.response.status === 409) {
+        Notify.failure('User with this email already exists!');
+      } else if (error.request.responseURL.includes("login")) {
+        Notify.failure('Wrong login or password!');
+      } else {
+        Notify.failure('Error, try reloading this page');
+      }
+      throw new Error('Error' + error.message);
       // throw error.response.data;
     } else if (error.request) {
       // Запит був зроблений, але відповіді не отримано

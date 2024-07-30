@@ -4,6 +4,8 @@ import HomeSection from '../../components/HomeSection/HomeSection.jsx';
 import AdvantagesSection from '../../components/AdvantagesSection/AdvantagesSection.jsx';
 
 const WelcomePage = () => {
+
+  
   return (
     <Container>
       <DocTitle>Aquatrack</DocTitle>

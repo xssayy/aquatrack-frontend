@@ -58,7 +58,6 @@ const SignUpForm = () => {
     )
       .unwrap()
       .then(() => Notify.success('Registration success!'))
-      .catch(() => Notify.failure('User with this login already exists !'));
     reset();
   };
 
