@@ -62,9 +62,11 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh-access-token',
   async (_, thunkAPI) => {
     try {
-      const refreshToken = Cookies.get('refreshToken');
-      if (!refreshToken) {
-        return thunkAPI.rejectWithValue('Refresh token not found');
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue('Unable to fetch user');
       }
 
       const res = await axiosPost('/auth/refresh-access-token');
