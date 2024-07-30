@@ -48,7 +48,6 @@ const SignInForm = () => {
     dispatch(login(data))
       .unwrap()
       .then(() => Notify.success('Welcome back!'))
-      .catch(() => Notify.failure('Wrong login or password!'));
     reset();
   };
 

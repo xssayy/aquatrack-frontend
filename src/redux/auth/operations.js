@@ -13,7 +13,6 @@ export const signUp = createAsyncThunk(
       // After successful registration, add the token to the HTTP header
       //after registration => login
       const loginResp = await axiosPost('/auth/login', credentials);
-
       return loginResp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -15,8 +15,19 @@ import thirdCustomer from '../../img/welcomePageImg/customer3-tab-desc.png';
 import firstCostomer2x from '../../img/welcomePageImg/customer1-tab-desc-2x.png';
 import secondCustomer2x from '../../img/welcomePageImg/customer2-tab-desc-2x.png';
 import thirdCustomer2x from '../../img/welcomePageImg/customer3-tab-desc-2x.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getAllUsersCount } from '../../redux/user/operations';
+import { selectAllUsersCount } from '../../redux/user/selectors';
 
 const AdvantagesSection = () => {
+  const dispatch = useDispatch();
+  const allUsersCount = useSelector(selectAllUsersCount);
+
+  useEffect(() => {
+    dispatch(getAllUsersCount());
+  }, [dispatch]);
+
   return (
     <div className={css.section}>
       <div className={css.customersBox}>
@@ -71,7 +82,8 @@ const AdvantagesSection = () => {
           </picture>
         </div>
         <p className={css.sectionsTextLeters}>
-          Our <span className={css.span}>happy</span> <br /> customers
+          Our <span className={css.span}>{allUsersCount} happy</span> <br />{' '}
+          customers
         </p>
       </div>
       <div className={css.group}>
