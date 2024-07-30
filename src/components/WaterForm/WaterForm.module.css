@@ -33,13 +33,10 @@
 }
 
 .formGroup input {
-  max-width: 438px;
   max-height: 46px;
-  padding: 16px;
   font-size: 16px;
   border-radius: 15px;
   border: 1px solid #2f2f2f26;
-  box-sizing: border-box;
 }
 
 .formGroup input[type='number']::-webkit-outer-spin-button,
@@ -137,8 +134,10 @@
   color: white;
   font-size: 14px;
   font-weight: 700;
-  text-align: center;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 .error {
@@ -173,6 +172,10 @@
   .inputField {
     height: 56px;
     padding: 16px;
+  }
+
+  .formGroup input {
+    width: 438px;
   }
 
   .formGroupLabel {

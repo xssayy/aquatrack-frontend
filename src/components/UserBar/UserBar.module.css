@@ -20,7 +20,8 @@
 .avatar {
   height: 38px;
   width: 38px;
-  border-radius: 50%;
+  border-radius: 100%;
+  object-fit: cover;
 }
 
 .arrow-up {

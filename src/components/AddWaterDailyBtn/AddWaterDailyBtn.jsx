@@ -25,7 +25,9 @@ const AddWaterDailyBtn = () => {
       <button type="button" className={css.btn} onClick={handleOpenModal}>
         +
       </button>
-      <p className={css.text}>Add water</p>
+      <p className={css.text} onClick={handleOpenModal}>
+        Add water
+      </p>
 
       <WaterModal
         closeModal={handleCloseModal}

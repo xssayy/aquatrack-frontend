@@ -82,6 +82,7 @@
   color: var(--main);
   margin-bottom: 16px;
   border: none;
+  cursor: pointer;
 }
 
 .button:hover,
@@ -130,7 +131,6 @@
   line-height: 1.28571;
   letter-spacing: -0.01em;
   color: #ef5050;
-  margin-top: 8px;
 }
 
 @media screen and (max-width: 374px) {

@@ -17,6 +17,7 @@
   margin-right: 10px;
   font-weight: 100;
   font-size: 24px;
+  color: var(--main);
 }
 
 .btn:hover,
@@ -32,4 +33,5 @@
   letter-spacing: -0.01em;
   text-align: center;
   color: var(--main);
+  cursor: pointer;
 }
