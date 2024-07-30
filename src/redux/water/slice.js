@@ -64,9 +64,9 @@ const waterSlice = createSlice({
       .addCase(delWater.pending, handlePending)
       .addCase(delWater.fulfilled, (state, action) => {
         state.loading = false;
-        state.daily = state.daily.filter(
-          item => item._id !== action.payload.id
-        );
+        state.daily = state.daily.filter(item => {
+          return item._id !== action.payload;
+        });
       })
       .addCase(delWater.rejected, handleRejected)
       //patchWater
