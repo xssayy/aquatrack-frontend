@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
 
 const apiClient = axios.create({
   baseURL: 'https://aqua-track-backend.onrender.com',
@@ -25,15 +26,24 @@ const request = async (
   } catch (error) {
     if (error.response) {
       // Запит був зроблений і сервер відповів кодом статусу, який виходить за межі 2xx
-      console.error('Error response:', error.response.data);
-      throw error.response.data;
+      if (error.response.status === 409) {
+        Notify.failure('User with this email already exists!');
+      } else if (error.request.responseURL.includes("login")) {
+        Notify.failure('Wrong login or password!');
+      } else {
+        Notify.failure('Error, try reloading this page');
+      }
+      throw new Error('Error' + error.message);
+      // throw error.response.data;
     } else if (error.request) {
       // Запит був зроблений, але відповіді не отримано
-      console.error('Error request:', error.request);
+      Notify.failure(
+        'Please check your internet connection or try again later'
+      ); 
       throw new Error('No response received from server');
     } else {
       // Щось трапилось при налаштуванні запиту
-      console.error('Error', error.message);
+      Notify.failure('Oops something went wrong'); 
       throw new Error('Error in setting up request: ' + error.message);
     }
   }

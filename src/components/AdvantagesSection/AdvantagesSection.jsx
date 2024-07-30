@@ -15,11 +15,22 @@ import thirdCustomer from '../../img/welcomePageImg/customer3-tab-desc.png';
 import firstCostomer2x from '../../img/welcomePageImg/customer1-tab-desc-2x.png';
 import secondCustomer2x from '../../img/welcomePageImg/customer2-tab-desc-2x.png';
 import thirdCustomer2x from '../../img/welcomePageImg/customer3-tab-desc-2x.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getAllUsersCount } from '../../redux/user/operations';
+import { selectAllUsersCount } from '../../redux/user/selectors';
 
 import { useTranslation } from 'react-i18next';
 
 const AdvantagesSection = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const allUsersCount = useSelector(selectAllUsersCount);
+
+  useEffect(() => {
+    dispatch(getAllUsersCount());
+  }, [dispatch]);
+
   return (
     <div className={css.section}>
       <div className={css.customersBox}>

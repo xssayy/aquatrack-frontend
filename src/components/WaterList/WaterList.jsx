@@ -39,14 +39,20 @@ const WaterList = () => {
   return (
     <div className={css.listContainer} ref={waterWrapper}>
       <ul className={css.list}>
-        {mockData &&
+        {mockData.length > 0 ? (
           mockData?.map(water => {
             return (
               <li key={water._id}>
                 <WaterItem water={water} />
               </li>
             );
-          })}
+          })
+        ) : (
+          <p className={css.stub}>
+            You haven't made any changes yet! <br />
+            Please, track your progress.
+          </p>
+        )}
       </ul>
     </div>
   );

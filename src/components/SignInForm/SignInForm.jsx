@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 
 const minPasswordLength = 8;
-const maxPasswordLength = 112;
+const maxPasswordLength = 32;
 
 const loginSchema = Yup.object({
   email: Yup.string()
@@ -50,7 +50,6 @@ const SignInForm = () => {
     dispatch(login(data))
       .unwrap()
       .then(() => Notify.success('Welcome back!'))
-      .catch(() => Notify.failure('Wrong login or password!'));
     reset();
   };
 

@@ -5,7 +5,6 @@ import { selectWaterDailyNorma } from '../../redux/user/selectors';
 const WaterDailyNorma = () => {
   const { t } = useTranslation();
   const dailyWater = useSelector(selectWaterDailyNorma);
-  // const dailyWater = 2;
 
   return (
     <div className={css.waterDailyContainer}>
