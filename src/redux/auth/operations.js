@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosPost } from '../../service/axios';
-import Cookies from 'js-cookie';
 
 /*
  * POST @ /users/signup
