@@ -1,36 +1,7 @@
-import { useState } from 'react';
-
 import Icon from '../Icon/Icon';
-
 import css from './UserBarPopover.module.css';
-import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
 
-import LogOutModal from '../LogOutModal/LogOutModal';
-import ModalWindow from '../ModalWindow/ModalWindow';
-
-const UserBarPopover = ({ onToggleShow }) => {
-  const [isSettingModalOpen, setSettingModalIsOpen] = useState(false);
-
-  function openSettingModal() {
-    setSettingModalIsOpen(true);
-  }
-
-  function closeSettingModal() {
-    setSettingModalIsOpen(false);
-    onToggleShow();
-  }
-
-  const [isLogOutModalOpen, setLogOutModalIsOpen] = useState(false);
-
-  function openLogOutModal() {
-    setLogOutModalIsOpen(true);
-  }
-
-  function closeLogOutModal() {
-    setLogOutModalIsOpen(false);
-    onToggleShow();
-  }
-
+const UserBarPopover = ({ openSettingModal, openLogOutModal }) => {
   return (
     <div className={css.userBarPopoverContainer}>
       <button type="button" onClick={openSettingModal} className={css.settings}>
@@ -44,13 +15,6 @@ const UserBarPopover = ({ onToggleShow }) => {
         Setting
       </button>
 
-      <ModalWindow
-        onCloseModal={closeSettingModal}
-        modalIsOpen={isSettingModalOpen}
-      >
-        <UserSettingsModal onCloseModal={closeSettingModal} />
-      </ModalWindow>
-
       <button type="button" onClick={openLogOutModal} className={css.logOut}>
         <Icon
           id={'log-out'}
@@ -61,7 +25,6 @@ const UserBarPopover = ({ onToggleShow }) => {
         />
         Log out
       </button>
-      <LogOutModal isOpen={isLogOutModalOpen} closeModal={closeLogOutModal} />
     </div>
   );
 };
