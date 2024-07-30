@@ -2,9 +2,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  /* justify-content: space-between; */
   height: 24px;
-  /* width: 179px; */
 }
 
 .dateTitle {
@@ -31,6 +29,12 @@
   transform: rotate(90deg);
 }
 
+@media screen and (min-width: 375px) {
+  .dateTitle {
+    width: 120px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .dateWrapper {
     gap: 20px;
@@ -40,6 +44,7 @@
   .dateTitle {
     font-size: 16px;
     line-height: 1.5;
+    width: 136px;
   }
 }
 
