@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import ModalWindow from '../ModalWindow/ModalWindow';
 import css from './AddWaterDailyBtn.module.css';
-
 import WaterModal from '../WaterModal/WaterModal';
-
 import { format } from 'date-fns';
 
 const AddWaterDailyBtn = () => {
@@ -25,7 +22,7 @@ const AddWaterDailyBtn = () => {
 
   return (
     <div className={css.addBtn}>
-      <button className={css.btn} onClick={handleOpenModal}>
+      <button type="button" className={css.btn} onClick={handleOpenModal}>
         +
       </button>
       <p className={css.text}>Add water</p>

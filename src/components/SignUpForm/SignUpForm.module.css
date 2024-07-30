@@ -203,7 +203,8 @@
 
 @media screen and (min-width: 1440px) {
   .signUpContainer {
-    padding: 102px 32px 72px 32px;
+    padding: 0;
+    justify-content: center;
     width: 672px;
     height: 736px;
   }

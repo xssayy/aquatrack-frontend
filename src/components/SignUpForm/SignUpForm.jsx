@@ -50,8 +50,6 @@ const SignUpForm = () => {
   });
 
   const onSubmit = data => {
-    // console.log({ email: data.email, password: data.password });
-
     dispatch(
       signUp({
         email: data.email,
@@ -60,7 +58,6 @@ const SignUpForm = () => {
     )
       .unwrap()
       .then(() => Notify.success('Registration success!'))
-      .catch(() => Notify.failure('User with this login already exists !'));
     reset();
   };
 

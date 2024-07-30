@@ -15,6 +15,7 @@
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "js-cookie": "^3.0.5",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.7",
     "overlayscrollbars": "^2.9.2",

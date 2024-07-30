@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import React, { useEffect, useId } from 'react';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
 import styles from '../WaterForm/WaterForm.module.css';
 import Icon from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getDaily,
   getMonthly,
   getTodayWater,
   patchWater,
@@ -60,6 +57,8 @@ const formatTime = value => {
 const WaterForm = ({ type, initialData, closeModal, id }) => {
   const dispatch = useDispatch();
   const chosenDate = useSelector(selectChosenDate);
+  const timeId = useId();
+  const amountId = useId();
 
   useEffect(() => {
     const [chosenFullDate] = chosenDate.split('T');
@@ -68,10 +67,10 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
     const date = `${chosenYear}-${chosenMonth}`;
     dispatch(getMonthly(date));
   }),
-    [dispatch];
+    [chosenDate, dispatch];
 
   const {
-    control,
+    register,
     handleSubmit,
     formState: { errors },
     setValue,
@@ -103,6 +102,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
       );
     }
     dispatch(getTodayWater());
+    closeModal();
   };
 
   return (
@@ -114,50 +114,40 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
         />
       </div>
       <div className={styles.formGroup}>
-        <label htmlFor="time" className={styles.quantityLabel}>
+        <label htmlFor={timeId} className={styles.quantityLabel}>
           Recording time:
         </label>
-        <Controller
-          name="time"
-          control={control}
-          render={({ field }) => (
-            <div className={styles.customTimePicker}>
-              <input
-                type="text"
-                className={`${styles.inputField} ${
-                  errors.time ? styles.error : ''
-                }`}
-                {...field}
-                value={field.value || ''}
-                onChange={e => {
-                  const formattedTime = formatTime(e.target.value);
-                  field.onChange(formattedTime);
-                }}
-                placeholder="hh:mm"
-              />
-            </div>
-          )}
-        />
+        <div className={styles.customTimePicker}>
+          <input
+            type="text"
+            id={timeId}
+            className={`${styles.inputField} ${
+              errors.time ? styles.error : ''
+            }`}
+            {...register('time', {
+              onChange: e => {
+                e.target.value = formatTime(e.target.value);
+              },
+            })}
+            placeholder="hh:mm"
+          />
+        </div>
         {errors.time && (
           <p className={styles.errorMessage}>{errors.time.message}</p>
         )}
       </div>
+
       <div className={styles.formGroup}>
-        <label htmlFor="amount" className={styles.formGroupLabel}>
+        <label htmlFor={amountId} className={styles.formGroupLabel}>
           Enter the value of the water used:
         </label>
-        <Controller
-          name="amount"
-          control={control}
-          render={({ field }) => (
-            <input
-              type="number"
-              className={`${styles.inputField} ${
-                errors.amount ? styles.error : ''
-              }`}
-              {...field}
-            />
-          )}
+        <input
+          type="number"
+          id={amountId}
+          className={`${styles.inputField} ${
+            errors.amount ? styles.error : ''
+          }`}
+          {...register('amount')}
         />
         {errors.amount && (
           <p className={styles.errorMessage}>{errors.amount.message}</p>

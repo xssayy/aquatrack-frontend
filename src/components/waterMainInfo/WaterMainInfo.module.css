@@ -7,7 +7,7 @@
 
   background-image: url(../../img/waterMainImg/bottle-font-phone.png);
   background-repeat: no-repeat;
-  background-position: 41px 50px;
+  background-position: center 50px;
   background-size: 262px 335px;
 }
 
@@ -18,7 +18,7 @@
     height: 578px;
     padding: 157px 32px 64px;
     background-image: url(../../img/waterMainImg/bottle-font-tab.png);
-    background-position: 165px 69px;
+    background-position: center 69px;
     background-size: 374px 477px;
   }
 }
@@ -29,7 +29,7 @@
     height: 736px;
     padding: 157px 32px 64px;
     background-image: url(../../img/waterMainImg/bottle-font-desktop.png);
-    background-position: 100px 92px;
+    background-position: center 92px;
     background-size: 472px 604px;
   }
 }

@@ -13,7 +13,6 @@ export const signUp = createAsyncThunk(
       // After successful registration, add the token to the HTTP header
       //after registration => login
       const loginResp = await axiosPost('/auth/login', credentials);
-
       return loginResp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -60,22 +59,14 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 export const refreshUser = createAsyncThunk(
   'auth/refresh-access-token',
   async (_, thunkAPI) => {
-    // Reading the token from the state via getState()
-    const state = thunkAPI.getState();
-
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      // If there is no token, exit without performing any request
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
-
     try {
-      // If there is a token, add it to the HTTP header and perform the request
-      // setAuthHeader(persistedToken);
-      // const res = await axiosPost('/auth/refresh-access-token', null, {
-      //   Authorization: `Bearer ${persistedToken}`,
-      // });
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue('Unable to fetch user');
+      }
+
       const res = await axiosPost('/auth/refresh-access-token');
       return res.data;
     } catch (error) {

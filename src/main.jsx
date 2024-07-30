@@ -8,11 +8,12 @@ import { HelmetProvider } from 'react-helmet-async';
 import './App.css';
 import 'overlayscrollbars/styles/overlayscrollbars.css';
 import { PersistGate } from 'redux-persist/integration/react';
+import Loader from './components/Loader/Loader.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<Loader/>} persistor={persistor}>
         <BrowserRouter>
           <HelmetProvider>
             <App />
