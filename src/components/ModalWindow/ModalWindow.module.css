@@ -32,9 +32,16 @@
   fill: var(--accent);
 }
 
+@media screen and (max-width: 374px) {
+  .modalContainer {
+    width: 300px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .modalContainer {
     padding: 40px 0 40px 40px;
+    width: unset;
   }
 
   .btnClose {
