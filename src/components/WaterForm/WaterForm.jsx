@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   getDaily,
   getMonthly,
+  getTodayWater,
   patchWater,
   postDaily,
 } from '../../redux/water/operations';
@@ -101,6 +102,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
         })
       );
     }
+    dispatch(getTodayWater());
   };
 
   return (

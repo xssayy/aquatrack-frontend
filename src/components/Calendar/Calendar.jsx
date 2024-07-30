@@ -11,7 +11,7 @@ import {
   selectMonthly,
   selectWaterLoading,
 } from '../../redux/water/selectors';
-import { selectUserWaterNorma } from '../../redux/user/selectors';
+import { selectWaterDailyNorma } from '../../redux/user/selectors';
 
 export const getNumOfDaysInMonth = chosenDate => {
   const year = chosenDate.getFullYear();
@@ -111,7 +111,7 @@ export const Calendar = () => {
   const waterDaily = useSelector(selectGetDaily);
 
   const loading = useSelector(selectWaterLoading);
-  const waterNorma = useSelector(selectUserWaterNorma);
+  const waterNorma = useSelector(selectWaterDailyNorma);
 
   //отримуємо воду за місяць => записуємо в редакс => відмальовуємо
   useEffect(() => {
