@@ -22,7 +22,7 @@ export const getNumOfDaysInMonth = chosenDate => {
   return daysInMonth;
 };
 
-const getDailyAmount = ({ day, month, year, response }) => {
+const getDailyPercent = ({ day, month, year, response }) => {
   //приводи місяць до формату "06" замість "6 "
 
   const corMonth = month < 10 ? `0${month}` : month;
@@ -33,7 +33,7 @@ const getDailyAmount = ({ day, month, year, response }) => {
     return entry.time === dayString;
   });
 
-  return dayData ? dayData.daylyProgress : '0%';
+  return dayData ? parseInt(dayData.daylyProgress, 10) : 0;
 };
 
 const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
@@ -66,12 +66,14 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
   // створюємо масив з властивостями date, waterPercentage, isToday
   for (let day = 1; day <= daysInMonth; day++) {
     // отримуємо дані відсотків з БЕ пошуком в масив по даті
-    const dailyWaterPercentage = getDailyAmount({
+    const percentage = getDailyPercent({
       day,
       month: chosenMonth,
       year: chosenYear,
       response,
     });
+
+    const dailyWaterPercentage = percentage > 100 ? 100 : percentage;
 
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
     const isToday = isCurrentMonthAndYear && currentDay === day;
