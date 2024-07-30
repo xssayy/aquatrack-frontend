@@ -31,7 +31,10 @@ const WaterItem = ({ water }) => {
       <Icon id="water-glass" className={css.iconGlass} />
       <div className={css.water}>
         <p className={css.volume}>{`${water.amount}ml`}</p>
-        <p className={css.time}>{`${format(water?.time, 'HH:mm')}`}</p>
+        <p className={css.time}>{`${format(
+          new Date(water?.time.slice(0, -1)),
+          'HH:mm'
+        )}`}</p>
       </div>
       <div className={css.edit}>
         <button type="button" onClick={handleEdit} className={css.btnEdit}>
@@ -55,7 +58,7 @@ const WaterItem = ({ water }) => {
         type="edit"
         initialData={{
           amount: water.amount,
-          time: format(`${water.time}`, 'HH:mm'),
+          time: format(new Date(water?.time.slice(0, -1)), 'HH:mm'),
         }}
       />
     </div>
@@ -63,25 +66,3 @@ const WaterItem = ({ water }) => {
 };
 
 export default WaterItem;
-
-// const Contact = ({ contact }) => {
-//   const { id, name, number } = contact;
-//   const dispatch = useDispatch()
-
-//   const handleDeleteContact = () => {
-//     dispatch(deleteContact(id));
-//   }
-
-//   return (
-//     <div className={css.item}>
-//       <div>
-//         <p className={css.iconName}><BsFillPersonFill size={20}/> {name}</p>
-//         <p><BsFillTelephoneFill /> {number}</p>
-//       </div>
-//       <button className={css.btn} onClick={handleDeleteContact}>Delete</button>
-
-//     </div>
-//   )
-// }
-
-// export default Contact;
