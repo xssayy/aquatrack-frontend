@@ -82,6 +82,7 @@
   color: var(--main);
   margin-bottom: 16px;
   border: none;
+  cursor: pointer;
 }
 
 .button:hover,

@@ -8,7 +8,7 @@ import UserSettingsModal from '../UserSettingsModal/UserSettingsModal';
 import LogOutModal from '../LogOutModal/LogOutModal';
 import ModalWindow from '../ModalWindow/ModalWindow';
 
-const UserBarPopover = () => {
+const UserBarPopover = ({ onToggleShow }) => {
   const [isSettingModalOpen, setSettingModalIsOpen] = useState(false);
 
   function openSettingModal() {
@@ -17,6 +17,7 @@ const UserBarPopover = () => {
 
   function closeSettingModal() {
     setSettingModalIsOpen(false);
+    onToggleShow();
   }
 
   const [isLogOutModalOpen, setLogOutModalIsOpen] = useState(false);
@@ -27,6 +28,7 @@ const UserBarPopover = () => {
 
   function closeLogOutModal() {
     setLogOutModalIsOpen(false);
+    onToggleShow();
   }
 
   return (
@@ -49,9 +51,7 @@ const UserBarPopover = () => {
         <UserSettingsModal onCloseModal={closeSettingModal} />
       </ModalWindow>
 
-
       <button type="button" onClick={openLogOutModal} className={css.logOut}>
-
         <Icon
           id={'log-out'}
           width={'16px'}
