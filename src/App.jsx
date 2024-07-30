@@ -1,22 +1,22 @@
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { refreshUser } from '../redux/auth/operations';
 // import { selectIsLoggedIn } from '../redux/auth/selectors';
-
+import 'modern-normalize';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout';
 import RestrictedRoute from './components/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute';
-import TrackerPage from './pages/TrackerPage/TrackerPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import HomePage from './pages/HomePage/HomePage';
-import 'modern-normalize';
-import SignUpPage from './pages/SignUpPage/SignUpPage';
-import SingInPage from './pages/SignInPage/SignInPage';
-import { Notify } from 'notiflix/build/notiflix-notify-aio.js';
+
 import { selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
-import Loader from './components/Loader/Loader';
+
+// Lazy imports
+const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
+const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
 
 export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -39,7 +39,7 @@ export const App = () => {
         <Route
           path="/signin"
           element={
-            <RestrictedRoute redirectTo="/tracker" component={<SingInPage />} />
+            <RestrictedRoute redirectTo="/tracker" component={<SignInPage />} />
           }
         />
         <Route

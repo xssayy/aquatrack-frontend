@@ -22,6 +22,12 @@
   padding-right: 20px;
 }
 
+@media screen and (min-width: 375px) {
+  .waterModalContainer {
+    min-width: 323px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .waterModalTitle {
     font-size: 28px;

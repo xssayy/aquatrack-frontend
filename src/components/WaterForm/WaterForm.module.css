@@ -1,5 +1,5 @@
 .inputField {
-  width: 303px;
+  width: 100%;
   height: 46px;
   padding: 14px 16px;
   gap: 10px;
@@ -172,7 +172,6 @@
   }
 
   .inputField {
-    width: 438px;
     height: 56px;
     padding: 16px;
   }
