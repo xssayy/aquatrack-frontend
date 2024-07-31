@@ -21,13 +21,16 @@ const schemaYup = Yup.object().shape({
   email: Yup.string().trim().email('Invalid email format').required(),
   weight: Yup.number()
     .min(0, 'Kilograms cannot be negative')
-    .max(300, 'Max 300 kilograms!'),
+    .max(300, 'Max 300 kilograms!')
+    .transform(value => (isNaN(value) ? 0 : value)),
   sportHours: Yup.number('Write a number')
     .min(0, 'Sport hours cannot be negative')
-    .max(24, 'Max 24 hours'),
+    .max(24, 'Max 24 hours')
+    .transform(value => (isNaN(value) ? 0 : value)),
   waterAmount: Yup.number()
     .min(0, 'Water amount must be a positive number')
     .max(16, 'Drinking more than 16 liters of water per day is dangerous')
+    .transform(value => (isNaN(value) ? 0 : value)),
 });
 
 const UserSettingsForm = ({ onCloseModal }) => {
