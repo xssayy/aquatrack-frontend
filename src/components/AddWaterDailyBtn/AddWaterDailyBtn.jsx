@@ -23,10 +23,10 @@ const AddWaterDailyBtn = () => {
   return (
     <div className={css.addBtn}>
       <button type="button" className={css.btn} onClick={handleOpenModal}>
-        +
-      </button>
+        <span className={css.btnPlus}>+</span>
       <p className={css.text}>Add water</p>
-
+      </button>
+      
       <WaterModal
         closeModal={handleCloseModal}
         isOpen={modalIsOpen}
