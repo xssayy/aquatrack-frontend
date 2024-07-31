@@ -33,7 +33,7 @@ const WaterItem = ({ water }) => {
         <p className={css.volume}>{`${water.amount}ml`}</p>
         <p className={css.time}>{`${format(
           new Date(water?.time.slice(0, -1)),
-          'HH:mm'
+          'hh:mm a'
         )}`}</p>
       </div>
       <div className={css.edit}>
