@@ -28,8 +28,8 @@ const schema = yup.object().shape({
 });
 
 const QuantityStepper = ({ value, onChange }) => {
-  const increase = () => onChange(value + 50);
-  const decrease = () => onChange(value - 50);
+  const increase = () => onChange(Number(value) + 50);
+  const decrease = () => onChange(Number(value) - 50);
 
   return (
     <div className={styles.quantityStepperContainer}>

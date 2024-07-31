@@ -74,11 +74,12 @@ const SignUpForm = () => {
               </label>
               <input
                 id={emailId}
+                type="email"
                 className={`${css.field} ${errors.email ? css.errorField : ''}`}
                 {...register('email')}
                 placeholder="Enter your email"
               />
-              <p className={errors.email ? css.error : ''}>
+              <p className={css.error}>
                 {errors.email?.message}
               </p>
             </div>
@@ -106,7 +107,7 @@ const SignUpForm = () => {
                   <Icon id="eye-off" width={20} height={20} />
                 )}
               </button>
-              <p className={errors.email ? css.error : ''}>
+              <p className={css.error}>
                 {errors.password?.message}
               </p>
             </div>
@@ -134,7 +135,7 @@ const SignUpForm = () => {
                   <Icon id="eye-off" width={20} height={20} />
                 )}
               </button>
-              <p className={errors.email ? css.error : ''}>
+              <p className={css.error}>
                 {errors.confirmPassword?.message}
               </p>
             </div>

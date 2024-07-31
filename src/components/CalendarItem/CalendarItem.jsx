@@ -37,7 +37,7 @@ export const CalendarItem = ({ data }) => {
       >
         {data.date}
       </p>
-      <p className={css.percentage}>{data.waterPercentage}</p>
+      <p className={css.percentage}>{data.waterPercentage}%</p>
     </button>
   );
 };

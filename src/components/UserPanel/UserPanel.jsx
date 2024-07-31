@@ -9,7 +9,6 @@ const UserPanel = () => {
   const userInfo = useSelector(selectUser);
   const [isShow, setIsShow] = useState(false);
 
-
   const toggleIsShow = () => {
     setIsShow(!isShow);
   };
@@ -17,10 +16,11 @@ const UserPanel = () => {
   return (
     <div className={css.userPanelContainer}>
       <p className={css.greetings}>
-        Hello<span className={css.greetingsName}>, {userInfo.name || "User"}!</span>
+        Hello
+        <span className={css.greetingsName}>, {userInfo.name || 'User'}!</span>
       </p>
       <UserBar onClick={toggleIsShow} isShow={isShow} />
-      {isShow && <UserBarPopover />}
+      {isShow && <UserBarPopover onToggleShow={toggleIsShow} />}
     </div>
   );
 };

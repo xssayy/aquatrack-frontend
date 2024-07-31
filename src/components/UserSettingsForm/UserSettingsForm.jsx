@@ -22,12 +22,12 @@ const schemaYup = Yup.object().shape({
   weight: Yup.number()
     .min(0, 'Kilograms cannot be negative')
     .max(300, 'Max 300 kilograms!'),
-  sportHours: Yup.number()
+  sportHours: Yup.number('Write a number')
     .min(0, 'Sport hours cannot be negative')
     .max(24, 'Max 24 hours'),
   waterAmount: Yup.number()
     .min(0, 'Water amount must be a positive number')
-    .max(16, 'Drinking more than 16 liters of water per day is dangerous'),
+    .max(16, 'Drinking more than 16 liters of water per day is dangerous')
 });
 
 const UserSettingsForm = ({ onCloseModal }) => {
