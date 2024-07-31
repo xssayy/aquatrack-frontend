@@ -32,7 +32,6 @@ export const CalendarItem = ({ data }) => {
       <p
         className={clsx(css.date, {
           [css.full]: data.waterPercentage >= 100,
-          // [css.current]: data.isToday,
           [css.current]: isChosenDay,
         })}
       >

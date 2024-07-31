@@ -125,16 +125,6 @@ export const Calendar = () => {
     dispatch(getUserInfo());
   }, [dispatch, chosenDate]);
 
-  // useEffect(() => {
-  //тест /users/currentUser
-  //   dispatch(getUserInfo());
-  // });
-
-  // useEffect(() => {
-  //тест users/userAmount
-  //   dispatch(getAllUsersCount());
-  // });
-
   const daysWithWater = useMemo(
     () =>
       getDailyWaterPercentageFromBackend({
@@ -144,19 +134,6 @@ export const Calendar = () => {
       }),
     [chosenDate, loading, waterMonth, waterNorma, waterDaily]
   );
-  //тут ми отримали масив у вигляді daysWithWater =
-  // [
-  //   {
-  //     date: 1,
-  //     waterPercentage: 75,
-  //     isToday: false,
-  //   },
-  //   {
-  //     date: 2,
-  //     waterPercentage: 5,
-  //        isToday: true,
-  //   },
-  // ];
 
   return (
     <div>
