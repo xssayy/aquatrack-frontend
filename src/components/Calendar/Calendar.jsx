@@ -68,16 +68,18 @@ const getDailyWaterPercentageFromBackend = ({
 
   // створюємо масив з властивостями date, waterPercentage, isToday
   for (let day = 1; day <= daysInMonth; day++) {
-    const percentage = Math.round(
-      (100 *
-        getDailyAmount({
-          day,
-          month: chosenMonth,
-          year: chosenYear,
-          response,
-        })) /
-        (1000 * dailyNorma)
-    );
+    const percentage = dailyNorma
+      ? Math.round(
+          (100 *
+            getDailyAmount({
+              day,
+              month: chosenMonth,
+              year: chosenYear,
+              response,
+            })) /
+            (1000 * dailyNorma)
+        )
+      : 0;
 
     //ми обмежуємо максимальне видиме значення до 100%
     const dailyWaterPercentage = percentage > 100 ? 100 : percentage;
