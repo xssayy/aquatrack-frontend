@@ -42,15 +42,15 @@ const UserSettingsForm = ({ onCloseModal }) => {
 
   const dispatch = useDispatch();
 
-   const defaultValues = {
-     photo: userInfo.photo || avatar,
-     gender: userInfo.gender || 'woman',
-     name: userInfo.name || 'User',
-     email: userInfo.email || '',
-     weight: userInfo.weight || 0,
-     sportHours: userInfo.sportHours || 0,
-     waterAmount: userInfo.waterAmount || 0,
-   };
+  const defaultValues = {
+    photo: userInfo.photo || avatar,
+    gender: userInfo.gender || 'woman',
+    name: userInfo.name || 'User',
+    email: userInfo.email || '',
+    weight: userInfo.weight || 0,
+    sportHours: userInfo.sportHours || 0,
+    waterAmount: userInfo.waterAmount || 0,
+  };
 
   const {
     register,

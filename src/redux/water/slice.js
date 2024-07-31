@@ -23,7 +23,7 @@ const waterInitialState = {
   monthly: [],
   daily: [],
   today: [],
-  loading: true,
+  loading: false,
   error: null,
 };
 
