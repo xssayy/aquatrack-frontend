@@ -23,6 +23,7 @@
   letter-spacing: -0.01em;
   color: var(--main);
   margin-bottom: 32px;
+  cursor: default;
 }
 
 .inputContainer {
@@ -88,6 +89,7 @@
 .button:hover,
 .button:focus {
   background-color: #87d28d;
+  cursor: pointer;
 }
 
 .redirect {
