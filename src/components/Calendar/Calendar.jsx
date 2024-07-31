@@ -22,7 +22,7 @@ export const getNumOfDaysInMonth = chosenDate => {
   return daysInMonth;
 };
 
-const getDailyPercent = ({ day, month, year, response }) => {
+const getDailyAmount = ({ day, month, year, response }) => {
   //приводи місяць до формату "06" замість "6 "
 
   const corMonth = month < 10 ? `0${month}` : month;
@@ -32,11 +32,14 @@ const getDailyPercent = ({ day, month, year, response }) => {
   const dayData = response?.find(entry => {
     return entry.time === dayString;
   });
-
-  return dayData ? parseInt(dayData.daylyProgress, 10) : 0;
+  return dayData ? dayData.amount : 0;
 };
 
-const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
+const getDailyWaterPercentageFromBackend = ({
+  chosenDate,
+  response,
+  dailyNorma,
+}) => {
   //isEnabled вказує чи клікабельна поточна кнопка
   //тобто всі кнопки включно до сьогоднішнього дня активні
   //кнопки з завтрашнього дня неактивні
@@ -65,16 +68,19 @@ const getDailyWaterPercentageFromBackend = ({ chosenDate, response }) => {
 
   // створюємо масив з властивостями date, waterPercentage, isToday
   for (let day = 1; day <= daysInMonth; day++) {
-    // отримуємо дані відсотків з БЕ пошуком в масив по даті
-    const percentage = getDailyPercent({
-      day,
-      month: chosenMonth,
-      year: chosenYear,
-      response,
-    });
+    const percentage = Math.round(
+      (100 *
+        getDailyAmount({
+          day,
+          month: chosenMonth,
+          year: chosenYear,
+          response,
+        })) /
+        (1000 * dailyNorma)
+    );
 
+    //ми обмежуємо максимальне видиме значення до 100%
     const dailyWaterPercentage = percentage > 100 ? 100 : percentage;
-
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
     const isToday = isCurrentMonthAndYear && currentDay === day;
 
@@ -119,6 +125,16 @@ export const Calendar = () => {
     dispatch(getUserInfo());
   }, [dispatch, chosenDate]);
 
+  // useEffect(() => {
+  //тест /users/currentUser
+  //   dispatch(getUserInfo());
+  // });
+
+  // useEffect(() => {
+  //тест users/userAmount
+  //   dispatch(getAllUsersCount());
+  // });
+
   const daysWithWater = useMemo(
     () =>
       getDailyWaterPercentageFromBackend({
@@ -128,6 +144,19 @@ export const Calendar = () => {
       }),
     [chosenDate, loading, waterMonth, waterNorma, waterDaily]
   );
+  //тут ми отримали масив у вигляді daysWithWater =
+  // [
+  //   {
+  //     date: 1,
+  //     waterPercentage: 75,
+  //     isToday: false,
+  //   },
+  //   {
+  //     date: 2,
+  //     waterPercentage: 5,
+  //        isToday: true,
+  //   },
+  // ];
 
   return (
     <div>
