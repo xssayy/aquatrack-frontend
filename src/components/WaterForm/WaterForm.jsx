@@ -49,8 +49,10 @@ const QuantityStepper = ({ value, onChange }) => {
 
 const formatTime = value => {
   const cleaned = value.replace(/\D/g, '');
+  console.log(cleaned);
   if (cleaned.length <= 2) return cleaned;
   if (cleaned.length <= 4) return `${cleaned.slice(0, 2)}:${cleaned.slice(2)}`;
+  console.log(`${cleaned.slice(0, 2)}:${cleaned.slice(2, 4)}`);
   return `${cleaned.slice(0, 2)}:${cleaned.slice(2, 4)}`;
 };
 
@@ -91,6 +93,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
     const [datePart] = chosenDate.split('T');
     // Встановлюємо новий час зберігаючи дату
     const newDateISO = `${datePart}T${data.time}:00Z`;
+    console.log(newDateISO);
     try {
       if (type === 'add') {
         await dispatch(postDaily({ ...data, time: newDateISO }));
@@ -124,7 +127,7 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
         </label>
         <div className={styles.customTimePicker}>
           <input
-            type="text"
+            type="time"
             id={timeId}
             className={`${styles.inputField} ${
               errors.time ? styles.error : ''
