@@ -3,7 +3,7 @@
   border-radius: 15px;
   padding: 12px;
   width: 198px;
-  height: 70px;
+  height: 76px;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   margin: 0px auto 42px auto;
 }
@@ -13,7 +13,7 @@
   font-size: 14px;
   line-height: 1;
   color: var(--main);
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 @media screen and (min-width: 768px) {
@@ -27,7 +27,7 @@
   .waterProgressTitle {
     font-size: 15px;
     line-height: 1.5;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 }
 

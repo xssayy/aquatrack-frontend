@@ -38,7 +38,14 @@ const ProgressBar = () => {
           className={css.progressCircle}
           style={{ left: `calc(${percent}% - 0px)` }}
         />
+        <p
+          className={css.progressTextValue}
+          style={{ left: `calc(${percent}% - 6px)` }}
+        >
+          {value}%
+        </p>{' '}
       </div>
+
       <div className={css.progressLabels}>
         <span>0%</span>
         <span>50%</span>
