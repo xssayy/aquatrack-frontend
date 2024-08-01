@@ -31,7 +31,9 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <Loader type="blue" />
+  ) : (
     <>
       {userIsLoading && <Loader type="blue" />}
       <SharedLayout>
@@ -64,6 +66,7 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </SharedLayout>
+      ;
     </>
   );
 };

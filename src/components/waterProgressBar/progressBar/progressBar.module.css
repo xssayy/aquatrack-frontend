@@ -4,6 +4,13 @@
   padding: 0;
 }
 
+.progressTextValue {
+  position: absolute;
+  top: -11px;
+  font-size: 8px;
+  color: var(--accent);
+}
+
 .progressBarWrapper {
   position: relative;
 }
@@ -40,6 +47,13 @@
   .progressBarLine {
     height: 8px;
     margin-bottom: 6px;
+  }
+
+  .progressTextValue {
+    position: absolute;
+    top: -13px;
+    font-size: 10px;
+    color: var(--accent);
   }
 
   .progressLabels {
