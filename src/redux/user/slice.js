@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllUsersCount, getUserInfo, patchUserInfo } from './operations';
+import { logOut } from '../auth/operations';
 
 const handlePending = state => {
   state.loading = true;
@@ -44,7 +45,9 @@ const usersSlice = createSlice({
         state.user = { ...state.user, ...action.payload };
         state.loading = false;
       })
-      .addCase(patchUserInfo.rejected, handleRejected);
+      .addCase(patchUserInfo.rejected, handleRejected)
+      //clear redux after logout
+      .addCase(logOut.fulfilled, () => usersInitialState);
   },
 });
 

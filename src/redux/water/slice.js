@@ -7,6 +7,7 @@ import {
   patchWater,
   postDaily,
 } from './operations';
+import { logOut } from '../auth/operations';
 
 const handlePending = state => {
   state.loading = true;
@@ -87,7 +88,9 @@ const waterSlice = createSlice({
         state.today = action.payload;
         state.loading = false;
       })
-      .addCase(getTodayWater.rejected, handleRejected);
+      .addCase(getTodayWater.rejected, handleRejected)
+      //clear redux after logout
+      .addCase(logOut.fulfilled, () => waterInitialState);
   },
 });
 
