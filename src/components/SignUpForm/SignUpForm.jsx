@@ -57,7 +57,7 @@ const SignUpForm = () => {
       })
     )
       .unwrap()
-      .then(() => Notify.success('Registration success!'))
+      .then(() => Notify.success('Registration success!'));
     reset();
   };
 
@@ -74,14 +74,12 @@ const SignUpForm = () => {
               </label>
               <input
                 id={emailId}
-                type="email"
+                type="text"
                 className={`${css.field} ${errors.email ? css.errorField : ''}`}
                 {...register('email')}
                 placeholder="Enter your email"
               />
-              <p className={css.error}>
-                {errors.email?.message}
-              </p>
+              <p className={css.error}>{errors.email?.message}</p>
             </div>
             <div className={css.inputItem}>
               <label htmlFor={passwordId} className={css.label}>
@@ -107,9 +105,7 @@ const SignUpForm = () => {
                   <Icon id="eye-off" width={20} height={20} />
                 )}
               </button>
-              <p className={css.error}>
-                {errors.password?.message}
-              </p>
+              <p className={css.error}>{errors.password?.message}</p>
             </div>
             <div className={css.inputItem}>
               <label htmlFor={repeatPasswordId} className={css.label}>
@@ -135,9 +131,7 @@ const SignUpForm = () => {
                   <Icon id="eye-off" width={20} height={20} />
                 )}
               </button>
-              <p className={css.error}>
-                {errors.confirmPassword?.message}
-              </p>
+              <p className={css.error}>{errors.confirmPassword?.message}</p>
             </div>
           </div>
 
