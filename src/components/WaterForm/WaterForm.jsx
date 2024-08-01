@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   getMonthly,
   getTodayWater,
+  getDaily,
   patchWater,
   postDaily,
 } from '../../redux/water/operations';
@@ -115,11 +116,18 @@ const WaterForm = ({
           })
         );
       }
-      await dispatch(getTodayWater());
     } catch (error) {
       setIsLoading(false);
       Notify.failure(`Failed to ${type} record`);
     } finally {
+      const [chosenFullDate] = chosenDate.split('T');
+      const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
+      const fullDate = `${chosenYear}-${chosenMonth}-${chosenDay}`;
+      const date = `${chosenYear}-${chosenMonth}`;
+
+      await dispatch(getTodayWater());
+      await dispatch(getDaily(fullDate));
+      await dispatch(getMonthly(date));
       setIsLoading(false);
     }
   };
