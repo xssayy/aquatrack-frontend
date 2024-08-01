@@ -1,4 +1,4 @@
-import React, { useEffect, useId } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,6 +13,7 @@ import {
   postDaily,
 } from '../../redux/water/operations';
 import { selectChosenDate } from '../../redux/water/selectors';
+import Loader from '../Loader/Loader';
 
 const schema = yup.object().shape({
   amount: yup
@@ -49,14 +50,21 @@ const QuantityStepper = ({ value, onChange }) => {
 
 const formatTime = value => {
   const cleaned = value.replace(/\D/g, '');
-  console.log(cleaned);
+
   if (cleaned.length <= 2) return cleaned;
   if (cleaned.length <= 4) return `${cleaned.slice(0, 2)}:${cleaned.slice(2)}`;
-  console.log(`${cleaned.slice(0, 2)}:${cleaned.slice(2, 4)}`);
+
   return `${cleaned.slice(0, 2)}:${cleaned.slice(2, 4)}`;
 };
 
-const WaterForm = ({ type, initialData, closeModal, id }) => {
+const WaterForm = ({
+  type,
+  initialData,
+  closeModal,
+  id,
+  isLoading,
+  setIsLoading,
+}) => {
   const dispatch = useDispatch();
   const chosenDate = useSelector(selectChosenDate);
   const timeId = useId();
@@ -93,8 +101,10 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
     const [datePart] = chosenDate.split('T');
     // Встановлюємо новий час зберігаючи дату
     const newDateISO = `${datePart}T${data.time}:00Z`;
-    console.log(newDateISO);
     try {
+      setIsLoading(true);
+      closeModal();
+
       if (type === 'add') {
         await dispatch(postDaily({ ...data, time: newDateISO }));
       } else if (type === 'edit') {
@@ -107,64 +117,68 @@ const WaterForm = ({ type, initialData, closeModal, id }) => {
       }
       await dispatch(getTodayWater());
     } catch (error) {
+      setIsLoading(false);
       Notify.failure(`Failed to ${type} record`);
     } finally {
-      closeModal();
+      setIsLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
-      <div className={styles.formGroup}>
-        <QuantityStepper
-          value={amount}
-          onChange={newValue => setValue('amount', newValue)}
-        />
-      </div>
-      <div className={styles.formGroup}>
-        <label htmlFor={timeId} className={styles.quantityLabel}>
-          Recording time:
-        </label>
-        <div className={styles.customTimePicker}>
-          <input
-            type="time"
-            id={timeId}
-            className={`${styles.inputField} ${
-              errors.time ? styles.error : ''
-            }`}
-            {...register('time', {
-              onChange: e => {
-                e.target.value = formatTime(e.target.value);
-              },
-            })}
-            placeholder="hh:mm"
+    <>
+      {/* {isLoading && <Loader type="blue" />} */}
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
+        <div className={styles.formGroup}>
+          <QuantityStepper
+            value={amount}
+            onChange={newValue => setValue('amount', newValue)}
           />
         </div>
-        {errors.time && (
-          <p className={styles.errorMessage}>{errors.time.message}</p>
-        )}
-      </div>
+        <div className={styles.formGroup}>
+          <label htmlFor={timeId} className={styles.quantityLabel}>
+            Recording time:
+          </label>
+          <div className={styles.customTimePicker}>
+            <input
+              type="time"
+              id={timeId}
+              className={`${styles.inputField} ${
+                errors.time ? styles.error : ''
+              }`}
+              {...register('time', {
+                onChange: e => {
+                  e.target.value = formatTime(e.target.value);
+                },
+              })}
+              placeholder="hh:mm"
+            />
+          </div>
+          {errors.time && (
+            <p className={styles.errorMessage}>{errors.time.message}</p>
+          )}
+        </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor={amountId} className={styles.formGroupLabel}>
-          Enter the value of the water used:
-        </label>
-        <input
-          type="number"
-          id={amountId}
-          className={`${styles.inputField} ${
-            errors.amount ? styles.error : ''
-          }`}
-          {...register('amount')}
-        />
-        {errors.amount && (
-          <p className={styles.errorMessage}>{errors.amount.message}</p>
-        )}
-      </div>
-      <button type="submit" className={styles.submitButton}>
-        Save
-      </button>
-    </form>
+        <div className={styles.formGroup}>
+          <label htmlFor={amountId} className={styles.formGroupLabel}>
+            Enter the value of the water used:
+          </label>
+          <input
+            type="number"
+            id={amountId}
+            className={`${styles.inputField} ${
+              errors.amount ? styles.error : ''
+            }`}
+            {...register('amount')}
+          />
+          {errors.amount && (
+            <p className={styles.errorMessage}>{errors.amount.message}</p>
+          )}
+        </div>
+        <button type="submit" className={styles.submitButton}>
+          Save
+        </button>
+      </form>
+    </>
   );
 };
 

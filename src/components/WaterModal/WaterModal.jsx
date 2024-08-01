@@ -3,7 +3,15 @@ import WaterForm from '../WaterForm/WaterForm';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import styles from '../WaterModal/WaterModal.module.css';
 
-const WaterModal = ({ type, initialData, isOpen, closeModal, id }) => {
+const WaterModal = ({
+  type,
+  initialData,
+  isOpen,
+  closeModal,
+  id,
+  isLoading,
+  setIsLoading,
+}) => {
   const title =
     type === 'add' ? 'Add Water' : `Edit the entered amount <br /> of water`;
   const subtitle = type === 'add' ? 'Choose a value:' : 'Correct entered data:';
@@ -19,6 +27,8 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, id }) => {
           <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
         </div>
         <WaterForm
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
           type={type}
           initialData={initialData}
           closeModal={closeModal}

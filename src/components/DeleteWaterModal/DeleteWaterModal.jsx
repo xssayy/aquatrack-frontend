@@ -11,16 +11,24 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectChosenDate } from '../../redux/water/selectors';
 import { Notify } from 'notiflix';
+import Loader from '../Loader/Loader';
 
-const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
-  const [isProcessing, setIsProcessing] = useState(false);
+const DeleteWaterModal = ({
+  isOpen,
+  closeModal,
+  id,
+  isLoading,
+  setIsLoading,
+}) => {
+  // const [isLoading, setIsLoading] = useState(false);
   const chosenDate = useSelector(selectChosenDate);
   const dispatch = useDispatch();
 
   const handleDelete = async () => {
-    setIsProcessing(true);
-
     try {
+      setIsLoading(true);
+      closeModal();
+
       //видаляємо
       await dispatch(delWater(id));
       const [chosenFullDate] = chosenDate.split('T');
@@ -34,43 +42,43 @@ const DeleteWaterModal = ({ isOpen, closeModal, id }) => {
 
       //оновлюємо випиту воду за місяць
       const date = `${chosenYear}-${chosenMonth}`;
-      dispatch(getMonthly(date));
+      await dispatch(getMonthly(date));
     } catch (error) {
+      setIsLoading(false);
       Notify.failure('Failed to delete record');
     } finally {
-      setIsProcessing(false);
-      closeModal();
+      setIsLoading(false);
     }
-
-    setIsProcessing(false);
   };
 
   return (
-    <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
-      <div className={styles.modalContainer}>
-        <h2 className={styles.title}>Delete entry</h2>
-        <p className={styles.question}>
-          Are you sure you want to delete the entry?
-        </p>
-        <div className={styles.buttonContainer}>
-          <button
-            type="button"
-            onClick={handleDelete}
-            className={`${styles.commonBtn} ${styles.deleteBtn}`}
-          >
-            Delete
-          </button>
-          <button
-            type="button"
-            onClick={closeModal}
-            className={`${styles.commonBtn} ${styles.cancelBtn}`}
-            disabled={isProcessing}
-          >
-            Cancel
-          </button>
+    <>
+      <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
+        <div className={styles.modalContainer}>
+          <h2 className={styles.title}>Delete entry</h2>
+          <p className={styles.question}>
+            Are you sure you want to delete the entry?
+          </p>
+          <div className={styles.buttonContainer}>
+            <button
+              type="button"
+              onClick={handleDelete}
+              className={`${styles.commonBtn} ${styles.deleteBtn}`}
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              onClick={closeModal}
+              className={`${styles.commonBtn} ${styles.cancelBtn}`}
+              disabled={isLoading}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
-      </div>
-    </ModalWindow>
+      </ModalWindow>
+    </>
   );
 };
 

@@ -24,6 +24,11 @@
   background-color: rgba(50, 63, 71, 0.2);
 }
 
+.button[disabled] .date {
+  background-color: rgba(50, 63, 71, 0.05);
+  color: rgba(50, 63, 71, 0.5);
+}
+
 .full {
   background-color: #fff;
 }

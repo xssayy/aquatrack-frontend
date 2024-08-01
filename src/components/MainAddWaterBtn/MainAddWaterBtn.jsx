@@ -6,11 +6,12 @@ import css from './MainAddWaterBtn.module.css';
 
 import WaterModal from '../WaterModal/WaterModal';
 import Icon from '../Icon/Icon';
-
+import Loader from '../Loader/Loader';
 
 const MainAddWaterBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [iconFillColor, setIconFillColor] = useState('#ffffff');
+  const [isLoading, setIsLoading] = useState(false);
 
   const openModal = () => {
     setIsOpen(true);
@@ -35,31 +36,37 @@ const MainAddWaterBtn = () => {
   const formattedTime = formatTime(currentDate);
 
   return (
-    <div className={css.addWaterBtnContainer}>
-      <button
-        className={css.addWaterBtn}
-        type="button"
-        onClick={openModal}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <Icon
-          id={'plus'}
-          width={16}
-          height={16}
-          className={css.iconPlus}
-          fillColor={iconFillColor}
-        />
-        Add water
-      </button>
+    <>
+      {isLoading && <Loader type="blue" />}
 
-      <WaterModal
-        closeModal={closeModal}
-        isOpen={isOpen}
-        type="add"
-        initialData={{ amount: 50, time: `${formattedTime}` }}
-      />
-    </div>
+      <div className={css.addWaterBtnContainer}>
+        <button
+          className={css.addWaterBtn}
+          type="button"
+          onClick={openModal}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Icon
+            id={'plus'}
+            width={16}
+            height={16}
+            className={css.iconPlus}
+            fillColor={iconFillColor}
+          />
+          Add water
+        </button>
+
+        <WaterModal
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+          closeModal={closeModal}
+          isOpen={isOpen}
+          type="add"
+          initialData={{ amount: 50, time: `${formattedTime}` }}
+        />
+      </div>
+    </>
   );
 };
 
