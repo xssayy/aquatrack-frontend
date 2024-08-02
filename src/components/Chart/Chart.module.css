@@ -1,0 +1,22 @@
+.chart-container {
+  width: 100%;
+  height: 300px; /* базове значення для висоти */
+}
+
+@media screen and (min-width: 375) {
+  .chart-container {
+    height: 200px; /* змінюємо висоту для менших екранів */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .chart-container {
+    height: 250px; /* змінюємо висоту для середніх екранів */
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .chart-container {
+    height: 300px; /* висота для великих екранів */
+  }
+}

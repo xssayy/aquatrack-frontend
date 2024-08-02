@@ -7,7 +7,7 @@ import { getDaily } from '../../redux/water/operations';
 import { selectChosenDate } from '../../redux/water/selectors';
 import { setChosenDate } from '../../redux/water/slice';
 
-export const CalendarPagination = () => {
+export const CalendarPagination = ({ toggleChart }) => {
   const dispatch = useDispatch();
   const chosenDate = useSelector(selectChosenDate);
 
@@ -98,13 +98,15 @@ export const CalendarPagination = () => {
         />
       </button>
 
-      <Icon
-        id="pie-chart"
-        width={20}
-        height={20}
-        className={css.iconPieChart}
-        fillColor="#323f47"
-      />
+      <button type="button" onClick={toggleChart}>
+        <Icon
+          id="pie-chart"
+          width={20}
+          height={20}
+          className={css.iconPieChart}
+          fillColor="#323f47"
+        />
+      </button>
     </div>
   );
 };
