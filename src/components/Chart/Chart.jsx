@@ -23,11 +23,25 @@ import { getUserInfo } from '../../redux/user/operations';
 import { selectWaterDailyNorma } from '../../redux/user/selectors';
 import css from './Chart.module.css';
 
-const CustomTooltip = ({ active, payload }) => {
+const CustomTooltip = ({ active, payload, coordinate }) => {
   if (active && payload && payload.length) {
+    const { x, y } = coordinate;
+
     return (
-      <div className="custom-tooltip">
-        <p className={css.label}>{`${payload[0].value}`}</p>
+      // <div className={css.customTooltip}>
+      //   <p className={css.label}>{`${payload[0].value}`}</p>
+      // </div>
+      <div
+        className={css.customTooltip}
+        style={{
+          left: x,
+          top: y - 40, // Піднімаємо підказку вище точки
+        }}
+      >
+        <div className={css.arrow}></div>
+        <div className={css.content}>
+          <p className={css.label}>{`${payload[0].value}`}</p>
+        </div>
       </div>
     );
   }
@@ -116,7 +130,7 @@ export const Chart = () => {
         tick={{ textAnchor: 'end', fontSize: fontSizeValue }}
         tickFormatter={tickFormatter}
       />
-      <Tooltip content={<CustomTooltip />} />
+      <Tooltip content={<CustomTooltip />} cursor={false} />
       <Area
         type="monotone"
         dataKey="amount"
