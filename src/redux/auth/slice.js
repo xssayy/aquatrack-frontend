@@ -40,10 +40,15 @@ const authSlice = createSlice({
       //logout
       .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, state => {
+        state.loading = false;
+        state.error = null;
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(logOut.rejected, handleRejected)
+      .addCase(logOut.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed to log out';
+      })
       //isRefreshing
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;

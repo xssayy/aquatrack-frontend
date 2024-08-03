@@ -1,0 +1,41 @@
+.customTooltip {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 17px;
+  color: #333;
+  font-size: 14px;
+  box-shadow: 0 5px 10px 0 rgba(203, 209, 223, 0.5);
+  transform: translate(-50%, -30px);
+}
+
+.customTooltip .arrow {
+  position: absolute;
+  bottom: -8px; /* Розташовуємо стрілку внизу підказки */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+}
+
+.customTooltip .content {
+  padding: 5px;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  color: #323f47;
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    font-size: 12px;
+    line-height: 1.86667;
+  }
+}

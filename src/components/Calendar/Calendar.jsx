@@ -12,6 +12,7 @@ import {
   selectWaterLoading,
 } from '../../redux/water/selectors';
 import { selectWaterDailyNorma } from '../../redux/user/selectors';
+import { getISOStringDate } from '../../service/getISOStringDate';
 
 export const getNumOfDaysInMonth = chosenDate => {
   const year = chosenDate.getFullYear();
@@ -86,17 +87,17 @@ const getDailyWaterPercentageFromBackend = ({
     //перевіряємо чи обраний день це сьогоднійшній день для подальшої стилізації
     const isToday = isCurrentMonthAndYear && currentDay === day;
 
-    const newDay = new Date(chosenDate.toISOString());
+    const newDay = new Date(getISOStringDate(chosenDate));
     newDay.setDate(day);
 
-    const clickedDay = newDay.toISOString();
+    const clickedDay = getISOStringDate(newDay);
 
     data.push({
       date: day,
       waterPercentage: dailyWaterPercentage,
       isToday,
       isEnabled,
-      chosenDate: chosenDate.toISOString(),
+      chosenDate: getISOStringDate(chosenDate),
       clickedDay,
     });
 

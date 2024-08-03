@@ -7,6 +7,8 @@ import {
   patchWater,
   postDaily,
 } from './operations';
+import { logOut } from '../auth/operations';
+import { getISOStringDate } from '../../service/getISOStringDate';
 
 const handlePending = state => {
   state.loading = true;
@@ -19,7 +21,7 @@ const handleRejected = (state, action) => {
 };
 
 const waterInitialState = {
-  chosenDate: new Date().toISOString(),
+  chosenDate: getISOStringDate(),
   monthly: [],
   daily: [],
   today: [],
@@ -87,7 +89,9 @@ const waterSlice = createSlice({
         state.today = action.payload;
         state.loading = false;
       })
-      .addCase(getTodayWater.rejected, handleRejected);
+      .addCase(getTodayWater.rejected, handleRejected)
+      //clear redux after logout
+      .addCase(logOut.fulfilled, () => waterInitialState);
   },
 });
 
