@@ -1,3 +1,8 @@
+.noData {
+  font-size: 18px;
+  color: var(--main);
+}
+
 .customTooltip {
   position: absolute;
   background-color: #fff;
@@ -34,6 +39,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .noData {
+    font-size: 25px;
+  }
+
   .label {
     font-size: 12px;
     line-height: 1.86667;

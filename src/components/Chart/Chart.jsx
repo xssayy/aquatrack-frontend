@@ -78,6 +78,8 @@ export const Chart = () => {
       })
     : [];
 
+  const isEmpty = Array.isArray(data) && data.length === 0;
+
   const isSmallMobile = useMediaQuery({
     query: ' (max-width: 374px)',
   });
@@ -104,7 +106,9 @@ export const Chart = () => {
     return (value / 1000).toFixed(2);
   };
 
-  return (
+  return isEmpty ? (
+    <p className={css.noData}>No data for this month.</p>
+  ) : (
     <AreaChart
       width={widthValue}
       height={heightValue}
