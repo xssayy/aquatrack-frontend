@@ -8,6 +8,7 @@ import {
   postDaily,
 } from './operations';
 import { logOut } from '../auth/operations';
+import { getISOStringDate } from '../../service/getISOStringDate';
 
 const handlePending = state => {
   state.loading = true;
@@ -20,7 +21,7 @@ const handleRejected = (state, action) => {
 };
 
 const waterInitialState = {
-  chosenDate: new Date().toISOString(),
+  chosenDate: getISOStringDate(),
   monthly: [],
   daily: [],
   today: [],

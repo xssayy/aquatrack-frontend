@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDaily } from '../../redux/water/operations';
 import { selectChosenDate } from '../../redux/water/selectors';
 import { setChosenDate } from '../../redux/water/slice';
+import { getISOStringDate } from '../../service/getISOStringDate';
 
 export const CalendarPagination = ({ toggleChart }) => {
   const dispatch = useDispatch();
@@ -25,21 +26,32 @@ export const CalendarPagination = ({ toggleChart }) => {
   const handlePrevMonth = () => {
     dispatch(
       setChosenDate(
-        new Date(
-          convertedChosendate.setMonth(convertedChosendate.getMonth() - 1)
-        ).toISOString()
+        getISOStringDate(
+          new Date(
+            convertedChosendate.setMonth(convertedChosendate.getMonth() - 1)
+          )
+        )
       )
     );
   };
 
   const handleNextMonth = () => {
-    dispatch(
-      setChosenDate(
-        new Date(
-          convertedChosendate.setMonth(convertedChosendate.getMonth() + 1)
-        ).toISOString()
-      )
+    let nextDate = new Date(
+      convertedChosendate.setMonth(convertedChosendate.getMonth() + 1)
     );
+
+    const currentDate = new Date();
+
+    const isValidDate =
+      nextDate.getFullYear() <= currentDate.getFullYear() &&
+      nextDate.getMonth() <= currentDate.getMonth() &&
+      nextDate.getDate() <= currentDate.getDate();
+
+    if (isValidDate) {
+      dispatch(setChosenDate(getISOStringDate(nextDate)));
+    } else {
+      dispatch(setChosenDate(getISOStringDate(currentDate)));
+    }
   };
 
   const currentMonth = new Date().getMonth();

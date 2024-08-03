@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosGet, axiosPost, axiosPatch, axiosDel } from '../../service/axios';
+import { getISOStringDate } from '../../service/getISOStringDate';
 
 export const getMonthly = createAsyncThunk(
   'water/monthly',
@@ -130,7 +131,7 @@ export const getTodayWater = createAsyncThunk(
   'water/getTodayWater',
   async (_, thunkAPI) => {
     try {
-      const currentTime = new Date().toISOString();
+      const currentTime = getISOStringDate();
 
       const [chosenFullDate] = currentTime.split('T');
       const [chosenYear, chosenMonth, chosenDay] = chosenFullDate.split('-');
