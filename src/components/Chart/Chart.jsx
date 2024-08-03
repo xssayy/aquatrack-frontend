@@ -21,6 +21,19 @@ import { useEffect } from 'react';
 import { getMonthly } from '../../redux/water/operations';
 import { getUserInfo } from '../../redux/user/operations';
 import { selectWaterDailyNorma } from '../../redux/user/selectors';
+import css from './Chart.module.css';
+
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className={css.label}>{`${payload[0].value}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
 
 export const Chart = () => {
   const dispatch = useDispatch();
@@ -51,17 +64,31 @@ export const Chart = () => {
       })
     : [];
 
+  const isSmallMobile = useMediaQuery({
+    query: ' (max-width: 374px)',
+  });
   const isMobile = useMediaQuery({
-    query: ' (max-width: 767px)',
+    query: '(min-width: 375px) and (max-width: 767px)',
   });
   const isTablet = useMediaQuery({
     query: '(min-width: 768px) and (max-width: 1439px)',
   });
 
-  const heightValue = 300;
-  const widthValue = isMobile ? 300 : isTablet ? 640 : 608;
-  const fontSizeValue = isMobile ? 14 : isTablet ? 15 : 15;
-  const intervalValue = isMobile ? 4 : isTablet ? 3 : 2;
+  const heightValue = isMobile ? 310 : isTablet ? 303 : 300;
+  const widthValue = isSmallMobile
+    ? 250
+    : isMobile
+    ? 303
+    : isTablet
+    ? 640
+    : 608;
+  const fontSizeValue = isSmallMobile ? 10 : isMobile ? 14 : isTablet ? 15 : 15;
+  const intervalValue = isSmallMobile || isMobile ? 4 : isTablet ? 2 : 2;
+  const dotRadiusValue = isSmallMobile || isMobile ? 2 : isTablet ? 4 : 4;
+
+  const tickFormatter = value => {
+    return (value / 1000).toFixed(2);
+  };
 
   return (
     <AreaChart
@@ -80,18 +107,23 @@ export const Chart = () => {
       <XAxis
         dataKey="date"
         label={{ value: 'Day', position: 'insideBottomRight', offset: -5 }}
+        tick={{ textAnchor: 'end', fontSize: fontSizeValue }}
+        interval={intervalValue}
       />
       <YAxis
         domain={[0, dailyNorma * 1000]}
-        label={{ value: 'ml', angle: -90, position: 'insideLeft', offset: 0 }}
+        label={{ value: 'L', position: 'insideLeft', offset: 0 }}
+        tick={{ textAnchor: 'end', fontSize: fontSizeValue }}
+        tickFormatter={tickFormatter}
       />
-      <Tooltip />
+      <Tooltip content={<CustomTooltip />} />
       <Area
         type="monotone"
         dataKey="amount"
         stroke="#82ca9d"
         fillOpacity={1}
         fill="url(#colorPv)"
+        dot={{ r: dotRadiusValue, stroke: '#82ca9d', fill: '#fff' }}
       />
     </AreaChart>
   );
